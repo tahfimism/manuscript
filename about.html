@@ -3,46 +3,220 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>About — Manuscript</title>
+<title>Colophon &amp; Catalogue — Manuscript</title>
+<meta name="description" content="Rare book colophon plate and library catalogue card for Manuscript by tai_khan." />
 <link rel="stylesheet" href="assets/css/main.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231F1610'/%3E%3Ccircle cx='50' cy='50' r='22' fill='%238C2D19'/%3E%3C/svg%3E" />
 </head>
-<body data-family="H">
-<main class="about">
-  <div class="about__card">
+<body class="colophon-viewport" data-family="H">
+
+<!-- Master Reusable SVG Filters in DOM -->
+<svg class="svg-filters" style="position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none;" aria-hidden="true">
+  <defs>
+    <filter id="ink-bleed" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="74" result="fiber" />
+      <feDisplacementMap in="SourceGraphic" in2="fiber" scale="2.5" xChannelSelector="R" yChannelSelector="G" result="feathered" />
+      <feGaussianBlur in="feathered" stdDeviation="0.45" result="absorbed" />
+      <feMerge>
+        <feMergeNode in="absorbed" />
+        <feMergeNode in="SourceGraphic" opacity="0.7" />
+      </feMerge>
+    </filter>
+    <filter id="paper-tooth" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75 0.75" numOctaves="4" stitchTiles="stitch" result="tooth" />
+      <feColorMatrix in="tooth" type="matrix" values="0 0 0 0 0.22  0 0 0 0 0.16  0 0 0 0 0.11  0 0 0 0.045 0" result="tintedTooth" />
+    </filter>
+  </defs>
+</svg>
+
+<main class="colophon">
+  <article class="colophon__card" id="colophonCard">
+    
+    <!-- Top Library Index Bar -->
+    <header class="colophon__header-bar">
+      <span>Archival Call № MSS-1996-TK-024</span>
+      <span>Rare Books &amp; Ephemera · Bengal / Oxford</span>
+    </header>
+
+    <!-- Philatelic Wattpad Cancellation Postmark Stamp -->
+    <a href="https://www.wattpad.com/story/361417306-manuscript-poetry-collection" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="postmark-stamp" 
+       title="Open original Wattpad archive story #361417306 in new tab">
+      <div class="postmark-stamp__circle" aria-label="Wattpad archive cancellation seal">
+        <span>WATTPAD</span>
+        <strong style="font-size:0.5rem; letter-spacing:0.12em;">ARCHIVE</strong>
+        <span>1996 · 2026</span>
+      </div>
+      <div class="postmark-stamp__lines" aria-hidden="true">
+        <div class="postmark-stamp__line"></div>
+        <div class="postmark-stamp__line"></div>
+        <div class="postmark-stamp__line"></div>
+      </div>
+      <div class="postmark-stamp__text">
+        <div>REGISTRY № 361417306</div>
+        <div style="font-size:0.55rem; opacity:0.8;">“WHISPER IN SHADOWS”</div>
+      </div>
+    </a>
+
+    <!-- Display Title -->
     <h1>Colophon</h1>
 
-    <p>
-      <em>Manuscript</em> is a poetry collection in twenty-four letters,
-      written across two winters and kept in no particular order except
-      the one in which they were left on the desk.
+    <p class="colophon__desc">
+      <em>Manuscript</em> is an epistolary poetry collection in twenty-four letters by
+      <strong>tai_khan</strong>, written across two winters and preserved here in no particular order
+      except the natural scattering in which they were discovered on an aged cedar writing desk.
     </p>
 
-    <dl class="about__meta">
+    <!-- Antique Library Catalogue Card Metadata Grid -->
+    <dl class="colophon__meta" aria-label="Archival Metadata">
       <dt>Author</dt>
-      <dd>tai_khan</dd>
+      <dd>tai_khan (Tahfim Khan)</dd>
+
+      <dt>Canon</dt>
+      <dd>24 Letters (Chapters 01 – 24)</dd>
+
       <dt>Summary</dt>
-      <dd>a whisper exceeding the shadows</dd>
-      <dt>Status</dt>
-      <dd>In progress</dd>
-      <dt>First written</dt>
-      <dd>2024 — present</dd>
-      <dt>Originally</dt>
-      <dd><a href="https://www.wattpad.com/story/361417306-manuscript-poetry-collection" style="border-bottom:1px solid var(--ink-faded);">on wattpad</a></dd>
+      <dd><em>a whisper exceeding the shadows</em></dd>
+
+      <dt>Composition</dt>
+      <dd>2024 — 2026 (Digital Wattpad Keepsake)</dd>
+
+      <dt>Provenance</dt>
+      <dd>
+        <a href="https://www.wattpad.com/story/361417306-manuscript-poetry-collection" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           style="color: inherit; text-decoration: underline; text-underline-offset: 2px;">
+          Wattpad Story Registry #361417306 ↗
+        </a>
+      </dd>
+
+      <dt>Materiality</dt>
+      <dd>Cold-press cotton rag, steel dip-pen, iron gall &amp; walnut bistre ink</dd>
+
+      <dt>Binding</dt>
+      <dd>Loose epistolary letter sheets nestled inside a cedar desk drawer</dd>
+
+      <dt>Typography</dt>
+      <dd>Fraunces (Variable Display), EB Garamond, Yellowtail &amp; Courier Prime</dd>
+
+      <dt>Editorial Note</dt>
+      <dd>Small idiosyncratic marks and typos remain uncorrected—they read as intimate handwriting rather than mechanical typesetting.</dd>
     </dl>
 
-    <p>
-      The poems are kept here as they were written. Small typos remain
-      — they read as handwriting rather than typesetting, and that is
-      preferred. Where the text names a person, a place, or a pause
-      between midnight and sleep, the design steps back.
+    <!-- Interactive Era Patina Dial (1996 -> 2026) -->
+    <section class="era-controller" aria-label="Era Patina Controller">
+      <div class="era-controller__header">
+        <span>Era Patina Dial</span>
+        <span id="eraYearLabel">1996 · Freshly Penned</span>
+      </div>
+      <input type="range" 
+             id="eraSlider" 
+             class="era-slider" 
+             min="1996" 
+             max="2026" 
+             value="1996" 
+             step="1" 
+             aria-label="Adjust simulated paper era from 1996 to 2026" />
+      <div class="era-controller__status" id="eraStatusText">
+        1996: Freshly laid iron-gall ink on crisp ivory cotton paper.
+      </div>
+    </section>
+
+    <!-- Bottom Dedication Note -->
+    <p style="font-family: var(--font-hand); font-size: 1.35rem; color: #5E4738; margin: 2rem 0 1rem; text-align: center;">
+      “for whoever finds this.”
     </p>
 
-    <p style="font-family: var(--font-hand); font-size: 1.2rem; color: var(--ink-faded); margin-top: 2rem;">
-      for whoever finds this.
-    </p>
+    <!-- Library Card Registration Punched Hole -->
+    <div class="colophon__hole" aria-hidden="true" title="Archival card catalog punch hole"></div>
 
-    <a class="about__return" href="toc.html">← back to the desk</a>
-  </div>
+    <!-- Clean, Accessible Return Links -->
+    <footer class="colophon__return-wrapper">
+      <a class="colophon__return" href="toc.html">
+        <span aria-hidden="true">←</span> Return to The Desk [Esc]
+      </a>
+      <a class="colophon__return" href="index.html">
+        Cover Envelope <span aria-hidden="true">→</span>
+      </a>
+    </footer>
+
+  </article>
 </main>
+
+<script>
+(function() {
+  const slider = document.getElementById('eraSlider');
+  const card = document.getElementById('colophonCard');
+  const yearLabel = document.getElementById('eraYearLabel');
+  const statusText = document.getElementById('eraStatusText');
+
+  if (!slider || !card) return;
+
+  const ERA_DATA = {
+    1996: {
+      label: '1996 · Freshly Penned',
+      status: '1996: Freshly laid iron-gall ink on crisp ivory cotton paper.',
+      bg: '#FAF5EA',
+      ink: '#1C1510',
+      suntanSpread: '0px',
+      suntanColor: 'rgba(139, 90, 43, 0)'
+    },
+    2006: {
+      label: '2006 · 10 Years Mellowed',
+      status: '2006: Paper fibers soften, mild golden tint along edges.',
+      bg: '#F5EDE0',
+      ink: '#261C14',
+      suntanSpread: '12px',
+      suntanColor: 'rgba(139, 90, 43, 0.12)'
+    },
+    2016: {
+      label: '2016 · 20 Years Patina',
+      status: '2016: Warm amber oxidation, sepia fading on thinner strokes.',
+      bg: '#EFE3D0',
+      ink: '#362418',
+      suntanSpread: '24px',
+      suntanColor: 'rgba(139, 90, 43, 0.22)'
+    },
+    2026: {
+      label: '2026 · 30 Years Vintage',
+      status: '2026: Rich archival warmth, mature sun-tan perimeter, timeless keepsake.',
+      bg: '#E8D8BF',
+      ink: '#442C1D',
+      suntanSpread: '36px',
+      suntanColor: 'rgba(139, 90, 43, 0.32)'
+    }
+  };
+
+  function updateEra(val) {
+    const year = parseInt(val, 10);
+    let config;
+    if (year <= 2000) config = ERA_DATA[1996];
+    else if (year <= 2010) config = ERA_DATA[2006];
+    else if (year <= 2020) config = ERA_DATA[2016];
+    else config = ERA_DATA[2026];
+
+    yearLabel.textContent = `${year} · ${year === 1996 ? 'Fresh Keepsake' : (year - 1996) + ' Years Aged'}`;
+    statusText.textContent = config.status;
+
+    // Smooth inline CSS custom property adjustments
+    card.style.setProperty('--card-bg', config.bg);
+    card.style.setProperty('--ink-color', config.ink);
+    card.style.setProperty('--suntan-spread', config.suntanSpread);
+    card.style.setProperty('--suntan-color', config.suntanColor);
+  }
+
+  slider.addEventListener('input', (e) => updateEra(e.target.value));
+
+  // Keyboard shortcut: Escape returns to Desk
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      window.location.href = 'toc.html';
+    }
+  });
+})();
+</script>
 </body>
 </html>

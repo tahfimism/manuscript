@@ -3,176 +3,1095 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Manuscript — Table of Contents</title>
+<title>Manuscript — The Writing Desk</title>
+<meta name="description" content="Table of Contents for Manuscript: twenty-four loose letters on an antique cedar writing desk." />
 <link rel="stylesheet" href="assets/css/main.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231F1610'/%3E%3Ccircle cx='50' cy='50' r='24' fill='%2382111A'/%3E%3Cpath d='M35 50 Q 50 40 65 50' stroke='%23F8E2B2' stroke-width='2' fill='none'/%3E%3C/svg%3E" />
 </head>
-<body data-family="D-dawn">
+<body class="desk-viewport" data-family="D-dawn">
+
+<!-- Master Reusable SVG Filters for In-DOM Reference -->
+<svg class="svg-filters" style="position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none;" aria-hidden="true">
+  <defs>
+    <!-- 1. Authentic Ink Bleed -->
+    <filter id="ink-bleed" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="74" result="fiber" />
+      <feDisplacementMap in="SourceGraphic" in2="fiber" scale="2.5" xChannelSelector="R" yChannelSelector="G" result="feathered" />
+      <feGaussianBlur in="feathered" stdDeviation="0.45" result="absorbed" />
+      <feComponentTransfer in="absorbed" result="density">
+        <feFuncA type="linear" slope="1.4" intercept="-0.08" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="density" />
+        <feMergeNode in="SourceGraphic" opacity="0.65" />
+      </feMerge>
+    </filter>
+
+    <!-- 2. Deckled & Torn Paper Edge -->
+    <filter id="deckled-edge" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="turbulence" baseFrequency="0.018 0.035" numOctaves="5" seed="19" result="tear" />
+      <feTurbulence type="fractalNoise" baseFrequency="0.15 0.25" numOctaves="3" seed="42" result="fringe" />
+      <feComposite in="tear" in2="fringe" operator="arithmetic" k1="0.6" k2="0.6" k3="0" k4="0" result="combinedTear" />
+      <feDisplacementMap in="SourceGraphic" in2="combinedTear" scale="8.5" xChannelSelector="R" yChannelSelector="B" result="tornCard" />
+      <feGaussianBlur in="tornCard" stdDeviation="1.5" result="tearBlur" />
+      <feColorMatrix in="tearBlur" type="matrix" values="0 0 0 0 0.15  0 0 0 0 0.11  0 0 0 0 0.08  0 0 0 0.4 0" result="tornShadow" />
+      <feOffset in="tornShadow" dx="0" dy="2" result="offsetShadow" />
+      <feMerge>
+        <feMergeNode in="offsetShadow" />
+        <feMergeNode in="tornCard" />
+      </feMerge>
+    </filter>
+
+    <!-- 3. Fibrous Paper Tooth -->
+    <filter id="paper-tooth" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75 0.75" numOctaves="4" stitchTiles="stitch" result="tooth" />
+      <feColorMatrix in="tooth" type="matrix" values="0 0 0 0 0.22  0 0 0 0 0.16  0 0 0 0 0.11  0 0 0 0.045 0" result="tintedTooth" />
+    </filter>
+
+    <!-- 4. 3D Wax Seal Medallion Filter -->
+    <filter id="wax-seal-filter" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2.2" result="blur" />
+      <feDiffuseLighting in="blur" surfaceScale="4.5" diffuseConstant="1.2" lighting-color="#FFEED8" result="diffuse">
+        <feDistantLight azimuth="225" elevation="45" />
+      </feDiffuseLighting>
+      <feSpecularLighting in="blur" surfaceScale="5.5" specularConstant="1.3" specularExponent="22" lighting-color="#FFF8EE" result="specular">
+        <feDistantLight azimuth="225" elevation="55" />
+      </feSpecularLighting>
+      <feComposite in="diffuse" in2="SourceGraphic" operator="in" result="diffuseGraphic" />
+      <feBlend in="diffuseGraphic" in2="SourceGraphic" mode="multiply" result="shaded" />
+      <feComposite in="specular" in2="SourceAlpha" operator="in" result="specularCut" />
+      <feBlend in="specularCut" in2="shaded" mode="screen" result="lit" />
+      <feDropShadow dx="1.5" dy="3.5" stdDeviation="3.5" flood-color="#260408" flood-opacity="0.55" result="final" />
+    </filter>
+
+    <!-- 5. Scorched Singe Trail Filter -->
+    <filter id="charred-edge" x="-15%" y="-15%" width="130%" height="130%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05 0.08" numOctaves="4" seed="88" result="burnNoise" />
+      <feDisplacementMap in="SourceGraphic" in2="burnNoise" scale="5" xChannelSelector="R" yChannelSelector="G" result="burntShape" />
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#E25822" flood-opacity="0.7" result="glow" />
+      <feDropShadow in="glow" dx="0" dy="1" stdDeviation="6" flood-color="#140602" flood-opacity="0.9" result="soot" />
+      <feMerge>
+        <feMergeNode in="soot" />
+        <feMergeNode in="burntShape" />
+      </feMerge>
+    </filter>
+  </defs>
+</svg>
+
 <main class="desk">
-  <header class="desk__title">
-    <h1>The Desk</h1>
-    <p>letters found, in no particular hurry</p>
-  </header>
-
-  <ul class="toc-list">
-    <li><a class="toc-card" href="poems/manuscript.html">
-      <span class="toc-card__no">№ 01</span>
-      <span class="toc-card__title">Manuscript</span>
-      <span class="toc-card__arrow">→</span>
-    </a></li>
-
-    <li><a class="toc-card" href="poems/divine-letter.html">
-      <span class="toc-card__no">№ 02</span>
-      <span class="toc-card__title toc-card__title--script">Divine Letter</span>
-      <span class="toc-card__arrow">→</span>
-    </a></li>
-
-    <li><a class="toc-card" href="poems/from-river-to-winter.html">
-      <span class="toc-card__no">№ 03</span>
-      <span class="toc-card__title">From River to Winter</span>
-      <span class="toc-card__arrow">→</span>
-    </a></li>
-
-    <li><a class="toc-card" href="poems/hollow-shell.html">
-      <span class="toc-card__no">№ 04</span>
-      <span class="toc-card__title">Hollow Shell</span>
-      <span class="toc-card__arrow">→</span>
-    </a></li>
-
-    <li><a class="toc-card" href="poems/guiding-light.html">
-      <span class="toc-card__no">№ 05</span>
-      <span class="toc-card__title">Guiding Light</span>
-      <span class="toc-card__arrow">→</span>
-    </a></li>
-
-    <li><a class="toc-card" href="poems/dissection.html">
-      <span class="toc-card__no">№ 06</span>
-      <span class="toc-card__title">Dissection</span>
-      <span class="toc-card__arrow">→</span>
-    </a></li>
-
-    <li><a class="toc-card" href="poems/memoirs.html">
-      <span class="toc-card__no">№ 07</span>
-      <span class="toc-card__title toc-card__title--script">Memoirs</span>
-      <span class="toc-card__arrow">→</span>
-    </a></li>
-
-    <li><a class="toc-card" href="poems/starlight.html">
-      <span class="toc-card__no">№ 08</span>
-      <span class="toc-card__title">Starlight</span>
-      <span class="toc-card__arrow">→</span>
-    </a></li>
-
-    <li>
-      <a class="toc-card" href="poems/lost-answer-ghost-of-warmth.html">
-        <span class="toc-card__no">№ 09</span>
-        <span class="toc-card__title">Lost Answer: Ghost of Warmth<span class="toc-pair-flag">i</span></span>
-        <span class="toc-card__arrow">→</span>
+  <!-- Desk Accessories Toolbar -->
+  <nav class="desk-toolbar" aria-label="Desk Navigation">
+    <a href="index.html" title="Return to cover envelope">
+      <span aria-hidden="true">←</span> Cover Envelope
+    </a>
+    <div class="desk-toolbar__badge">
+      <span id="readCountBadge">3 / 24 Letters Read</span>
+      <button type="button" id="toggleAllReadBtn" style="background:none; border:none; color:#C9A24B; cursor:pointer; font-family:var(--font-mono); font-size:0.65rem; text-decoration:underline; padding:0 0 0 4px;" title="Reset or toggle read marks">Reset Marks</button>
+    </div>
+    <div style="display:flex; gap:1.2rem; align-items:center;">
+      <button type="button" id="deskDrawerBtn" class="desk-toolbar__drawer-btn" style="background:none; border:none; cursor:pointer; font-family:inherit; font-size:inherit; letter-spacing:inherit; color:#E2D5C3;">
+        Cedar Drawer [D]
+      </button>
+      <a href="about.html" title="View rare book colophon and catalogue">
+        Colophon &amp; Archive <span aria-hidden="true">→</span>
       </a>
-    </li>
-    <li>
-      <a class="toc-card" href="poems/lost-answer-truth-known.html">
-        <span class="toc-card__no">№ 10</span>
-        <span class="toc-card__title">Lost Answer: Truth Known<span class="toc-pair-flag">ii</span></span>
-        <span class="toc-card__arrow">→</span>
-      </a>
-    </li>
+    </div>
+  </nav>
 
-    <li>
-      <a class="toc-card" href="poems/every-winter.html">
-        <span class="toc-card__no">№ 11</span>
-        <span class="toc-card__title">Every Winter<span class="toc-pair-flag">i · day</span></span>
-        <span class="toc-card__arrow">→</span>
-      </a>
-    </li>
-    <li>
-      <a class="toc-card" href="poems/every-winter-free-fall.html">
-        <span class="toc-card__no">№ 12</span>
-        <span class="toc-card__title">Every Winter: Free Fall<span class="toc-pair-flag">ii · night</span></span>
-        <span class="toc-card__arrow">→</span>
-      </a>
-    </li>
+  <!-- The Antique Writing Desk Leather Blotter Pad -->
+  <div class="desk-blotter" id="deskBlotter">
+    <!-- Brass Filigree Corner Brackets -->
+    <div class="blotter-corner blotter-corner--tl" aria-hidden="true"></div>
+    <div class="blotter-corner blotter-corner--tr" aria-hidden="true"></div>
+    <div class="blotter-corner blotter-corner--bl" aria-hidden="true"></div>
+    <div class="blotter-corner blotter-corner--br" aria-hidden="true"></div>
 
-    <li><a class="toc-card" href="poems/painted-sky.html">
-      <span class="toc-card__no">№ 13</span>
-      <span class="toc-card__title">Painted Sky</span>
-      <span class="toc-card__arrow">→</span>
-    </a></li>
+    <!-- Sibling Red Strings & Scorched Line Overlay -->
+    <svg class="desk-connections-layer" id="connectionsSvg" aria-hidden="true">
+      <!-- Catenary Red String 1: Lost Answer Pair (09 <-> 10) -->
+      <path id="stringPair1" class="desk-string" d="" />
+      <!-- Catenary Red String 2: Every Winter Pair (11 <-> 12) -->
+      <path id="stringPair2" class="desk-string" d="" />
+      <!-- Scorched Singe Trail: Charred Sea Arc (16 -> 17 -> 23) -->
+      <path id="scorchedArcOuter" class="desk-singe-charred" d="" />
+      <path id="scorchedArcCore" class="desk-singe-ember" d="" />
+    </svg>
 
-    <li><a class="toc-card" href="poems/home.html">
-      <span class="toc-card__no">№ 14</span>
-      <span class="toc-card__title">Home</span>
-      <span class="toc-card__arrow">→</span>
-    </a></li>
+    <header class="desk__title">
+      <h1>The Desk</h1>
+      <p>twenty-four letters kept on aged cedar, in no particular hurry</p>
+      
+      <!-- Quick Thematic Family Filters -->
+      <div class="desk-filters" role="group" aria-label="Mood Family Filters">
+        <button type="button" class="desk-filter-btn is-active" data-filter="all">All 24 Letters</button>
+        <button type="button" class="desk-filter-btn" data-filter="cosmic">Cosmic Devotion</button>
+        <button type="button" class="desk-filter-btn" data-filter="winter">Winter Ash</button>
+        <button type="button" class="desk-filter-btn" data-filter="charred">Charred Sea Arc</button>
+        <button type="button" class="desk-filter-btn" data-filter="memory">Wine &amp; Memory</button>
+      </div>
+    </header>
 
-    <li><a class="toc-card" href="poems/landscape.html">
-      <span class="toc-card__no">№ 15</span>
-      <span class="toc-card__title">Landscape</span>
-      <span class="toc-card__arrow">→</span>
-    </a></li>
+    <!-- 24 Letter Cards with deterministic physical rotations -->
+    <ul class="desk-grid" id="deskGrid">
+      
+      <!-- № 01 · Manuscript -->
+      <li class="desk-card-wrapper" data-family-tag="cosmic">
+        <article class="desk-card" id="card-01" data-index="1" style="--card-rot: -0.65deg; --card-dx: 2px; --card-dy: -3px;">
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-01" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 01. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-01" title="Click to reseal letter" aria-label="Opened letter № 01. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
+          
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 01</span>
+            <span class="desk-card__pair-tag">Cosmic Inversion</span>
+          </div>
+          <h2 class="desk-card__title">
+            <a href="poems/manuscript.html" style="color:inherit; text-decoration:none;">Manuscript</a>
+          </h2>
+          <p class="desk-card__excerpt">“For you, I will destroy the universe — also for you, I can restore it...”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">Folio · 1996</span>
+            <a class="desk-card__arrow" href="poems/manuscript.html" aria-label="Open Manuscript letter">→</a>
+          </div>
+        </article>
+      </li>
 
-    <li>
-      <a class="toc-card" href="poems/within-the-world-i-define.html">
-        <span class="toc-card__no">№ 16</span>
-        <span class="toc-card__title">Within the World I Define<span class="toc-pair-flag">charred arc · i</span></span>
-        <span class="toc-card__arrow">→</span>
-      </a>
-    </li>
-    <li>
-      <a class="toc-card" href="poems/controlled-ruin.html">
-        <span class="toc-card__no">№ 17</span>
-        <span class="toc-card__title">Controlled Ruin<span class="toc-pair-flag">charred arc · ii</span></span>
-        <span class="toc-card__arrow">→</span>
-      </a>
-    </li>
+      <!-- № 02 · Divine Letter -->
+      <li class="desk-card-wrapper" data-family-tag="cosmic">
+        <article class="desk-card" id="card-02" data-index="2" style="--card-rot: -0.40deg; --card-dx: -2px; --card-dy: 3px;">
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-02" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 02. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-02" title="Click to reseal letter" aria-label="Opened letter № 02. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
 
-    <li><a class="toc-card" href="poems/out-of-frame.html">
-      <span class="toc-card__no">№ 18</span>
-      <span class="toc-card__title">Out of frame</span>
-      <span class="toc-card__arrow">→</span>
-    </a></li>
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 02</span>
+            <span class="desk-card__pair-tag">Script Stationery</span>
+          </div>
+          <h2 class="desk-card__title desk-card__title--script">
+            <a href="poems/divine-letter.html" style="color:inherit; text-decoration:none;">Divine Letter</a>
+          </h2>
+          <p class="desk-card__excerpt">“You are the universe in ecstatic motion, a manuscript of a divine letter.”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">Tri-fold Cream</span>
+            <a class="desk-card__arrow" href="poems/divine-letter.html" aria-label="Open Divine Letter">→</a>
+          </div>
+        </article>
+      </li>
 
-    <li><a class="toc-card" href="poems/silence-in-layers.html">
-      <span class="toc-card__no">№ 19</span>
-      <span class="toc-card__title">Silence, in layers</span>
-      <span class="toc-card__arrow">→</span>
-    </a></li>
+      <!-- № 03 · From River to Winter -->
+      <li class="desk-card-wrapper" data-family-tag="winter">
+        <article class="desk-card" id="card-03" data-index="3" style="--card-rot: 1.35deg; --card-dx: -1px; --card-dy: 2px;">
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-03" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 03. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-03" title="Click to reseal letter" aria-label="Opened letter № 03. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
 
-    <li><a class="toc-card" href="poems/things-i-learn-to-bury.html">
-      <span class="toc-card__no">№ 20</span>
-      <span class="toc-card__title">Things I Learn to Bury</span>
-      <span class="toc-card__arrow">→</span>
-    </a></li>
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 03</span>
+            <span class="desk-card__pair-tag">River Current</span>
+          </div>
+          <h2 class="desk-card__title">
+            <a href="poems/from-river-to-winter.html" style="color:inherit; text-decoration:none;">From River to Winter</a>
+          </h2>
+          <p class="desk-card__excerpt">“The river flows, a promise to the sea... The truth, a viper coiled.”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">Water-Wrinkled</span>
+            <a class="desk-card__arrow" href="poems/from-river-to-winter.html" aria-label="Open From River to Winter letter">→</a>
+          </div>
+        </article>
+      </li>
 
-    <li><a class="toc-card" href="poems/rage-in-cage.html">
-      <span class="toc-card__no">№ 21</span>
-      <span class="toc-card__title">Rage in cage</span>
-      <span class="toc-card__arrow">→</span>
-    </a></li>
+      <!-- № 04 · Hollow Shell -->
+      <li class="desk-card-wrapper" data-family-tag="memory">
+        <article class="desk-card" id="card-04" data-index="4" style="--card-rot: 1.20deg; --card-dx: 3px; --card-dy: -2px;">
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-04" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 04. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-04" title="Click to reseal letter" aria-label="Opened letter № 04. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
 
-    <li><a class="toc-card" href="poems/between-midnight-and-sleep.html">
-      <span class="toc-card__no">№ 22</span>
-      <span class="toc-card__title">Between Midnight &amp; Sleep</span>
-      <span class="toc-card__arrow">→</span>
-    </a></li>
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 04</span>
+            <span class="desk-card__pair-tag">Coffee Ring</span>
+          </div>
+          <h2 class="desk-card__title">
+            <a href="poems/hollow-shell.html" style="color:inherit; text-decoration:none;">Hollow Shell</a>
+          </h2>
+          <p class="desk-card__excerpt">“Cracked reflection in the glass... Coffee cup dreams, still warm in my grip.”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">Bistre Ash</span>
+            <a class="desk-card__arrow" href="poems/hollow-shell.html" aria-label="Open Hollow Shell letter">→</a>
+          </div>
+        </article>
+      </li>
 
-    <li>
-      <a class="toc-card" href="poems/the-blue-inside-ruin.html">
-        <span class="toc-card__no">№ 23</span>
-        <span class="toc-card__title">The Blue Inside Ruin<span class="toc-pair-flag">charred arc · iii</span></span>
-        <span class="toc-card__arrow">→</span>
-      </a>
-    </li>
+      <!-- № 05 · Guiding Light -->
+      <li class="desk-card-wrapper" data-family-tag="cosmic">
+        <article class="desk-card" id="card-05" data-index="5" style="--card-rot: -1.30deg; --card-dx: -2px; --card-dy: -3px;">
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-05" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 05. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-05" title="Click to reseal letter" aria-label="Opened letter № 05. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
 
-    <li><a class="toc-card" href="poems/end.html">
-      <span class="toc-card__no">№ 24</span>
-      <span class="toc-card__title">End</span>
-      <span class="toc-card__arrow">→</span>
-    </a></li>
-  </ul>
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 05</span>
+            <span class="desk-card__pair-tag">Lighthouse Postcard</span>
+          </div>
+          <h2 class="desk-card__title">
+            <a href="poems/guiding-light.html" style="color:inherit; text-decoration:none;">Guiding Light</a>
+          </h2>
+          <p class="desk-card__excerpt">“Amidst the sunrise is gentle bliss / Hope like stars, guiding each day.”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">Coastal Station</span>
+            <a class="desk-card__arrow" href="poems/guiding-light.html" aria-label="Open Guiding Light letter">→</a>
+          </div>
+        </article>
+      </li>
 
-  <div style="text-align:center; margin-top:4rem;">
-    <a href="about.html" style="font-family:var(--font-mono); font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--ink-faded); border-bottom:1px solid var(--ink-faded); padding-bottom:2px;">colophon →</a>
+      <!-- № 06 · Dissection -->
+      <li class="desk-card-wrapper" data-family-tag="charred">
+        <article class="desk-card" id="card-06" data-index="6" style="--card-rot: -1.45deg; --card-dx: 1px; --card-dy: 3px;">
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-06" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 06. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-06" title="Click to reseal letter" aria-label="Opened letter № 06. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
+
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 06</span>
+            <span class="desk-card__pair-tag">Razor Incision</span>
+          </div>
+          <h2 class="desk-card__title">
+            <a href="poems/dissection.html" style="color:inherit; text-decoration:none;">Dissection</a>
+          </h2>
+          <p class="desk-card__excerpt">“Is bravery a scalpel, sharp and cold / Dissecting hope, leaving stories old?”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">Guillotine Cut</span>
+            <a class="desk-card__arrow" href="poems/dissection.html" aria-label="Open Dissection letter">→</a>
+          </div>
+        </article>
+      </li>
+
+      <!-- № 07 · Memoirs -->
+      <li class="desk-card-wrapper" data-family-tag="memory">
+        <article class="desk-card" id="card-07" data-index="7" style="--card-rot: 0.89deg; --card-dx: -3px; --card-dy: 2px;">
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-07" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 07. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-07" title="Click to reseal letter" aria-label="Opened letter № 07. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
+
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 07</span>
+            <span class="desk-card__pair-tag">Die-Cut Scrapbook</span>
+          </div>
+          <h2 class="desk-card__title desk-card__title--script">
+            <a href="poems/memoirs.html" style="color:inherit; text-decoration:none;">Memoirs</a>
+          </h2>
+          <p class="desk-card__excerpt">“The cafe where the tea grew cold, and memory lingered on the paper napkins.”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">Blush Memo</span>
+            <a class="desk-card__arrow" href="poems/memoirs.html" aria-label="Open Memoirs letter">→</a>
+          </div>
+        </article>
+      </li>
+
+      <!-- № 08 · Starlight -->
+      <li class="desk-card-wrapper" data-family-tag="cosmic">
+        <article class="desk-card" id="card-08" data-index="8" style="--card-rot: 1.40deg; --card-dx: 2px; --card-dy: -1px;">
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-08" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 08. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-08" title="Click to reseal letter" aria-label="Opened letter № 08. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
+
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 08</span>
+            <span class="desk-card__pair-tag">Velvet Cascade</span>
+          </div>
+          <h2 class="desk-card__title">
+            <a href="poems/starlight.html" style="color:inherit; text-decoration:none;">Starlight</a>
+          </h2>
+          <p class="desk-card__excerpt">“In the quiet of the night, we burn like distant stars across black velvet.”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">Gold Foil</span>
+            <a class="desk-card__arrow" href="poems/starlight.html" aria-label="Open Starlight letter">→</a>
+          </div>
+        </article>
+      </li>
+
+      <!-- № 09 · Lost Answer: Ghost of Warmth (Sibling Pair I - Start) -->
+      <li class="desk-card-wrapper" data-family-tag="memory">
+        <article class="desk-card" id="card-09" data-index="9" style="--card-rot: -0.14deg; --card-dx: -1px; --card-dy: -3px;">
+          <div class="card-eyelet card-eyelet--right" id="eyelet-09" title="Connected by red string to № 10"></div>
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-09" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 09. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-09" title="Click to reseal letter" aria-label="Opened letter № 09. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
+
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 09</span>
+            <span class="desk-card__pair-tag" style="background:#FFE6E6; border-color:#C42E3A; color:#8C1C28;">Red Cord · I</span>
+          </div>
+          <h2 class="desk-card__title">
+            <a href="poems/lost-answer-ghost-of-warmth.html" style="color:inherit; text-decoration:none;">Lost Answer: Ghost of Warmth</a>
+          </h2>
+          <p class="desk-card__excerpt">“The footprints in the sand are gone, but wine leaves its ring upon the vellum.”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">Shoreline Shore</span>
+            <a class="desk-card__arrow" href="poems/lost-answer-ghost-of-warmth.html" aria-label="Open Lost Answer I letter">→</a>
+          </div>
+        </article>
+      </li>
+
+      <!-- № 10 · Lost Answer: Truth Known (Sibling Pair I - End) -->
+      <li class="desk-card-wrapper" data-family-tag="memory">
+        <article class="desk-card" id="card-10" data-index="10" style="--card-rot: -1.35deg; --card-dx: 3px; --card-dy: 2px;">
+          <div class="card-eyelet card-eyelet--left" id="eyelet-10" title="Connected by red string to № 09"></div>
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-10" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 10. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-10" title="Click to reseal letter" aria-label="Opened letter № 10. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
+
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 10</span>
+            <span class="desk-card__pair-tag" style="background:#FFE6E6; border-color:#C42E3A; color:#8C1C28;">Red Cord · II</span>
+          </div>
+          <h2 class="desk-card__title">
+            <a href="poems/lost-answer-truth-known.html" style="color:inherit; text-decoration:none;">Lost Answer: Truth Known</a>
+          </h2>
+          <p class="desk-card__excerpt">“I looked for you in every tide, till only dried ash remained upon the glass.”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">Dried Ash Ring</span>
+            <a class="desk-card__arrow" href="poems/lost-answer-truth-known.html" aria-label="Open Lost Answer II letter">→</a>
+          </div>
+        </article>
+      </li>
+
+      <!-- № 11 · Every Winter (Sibling Pair II - Start) -->
+      <li class="desk-card-wrapper" data-family-tag="winter">
+        <article class="desk-card" id="card-11" data-index="11" style="--card-rot: -0.73deg; --card-dx: -2px; --card-dy: 1px;">
+          <div class="card-eyelet card-eyelet--right" id="eyelet-11" title="Connected by red string to № 12"></div>
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-11" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 11. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-11" title="Click to reseal letter" aria-label="Opened letter № 11. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
+
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 11</span>
+            <span class="desk-card__pair-tag" style="background:#FFEAEA; border-color:#A3495A; color:#A3495A;">Winter Thread · Day</span>
+          </div>
+          <h2 class="desk-card__title">
+            <a href="poems/every-winter.html" style="color:inherit; text-decoration:none;">Every Winter</a>
+          </h2>
+          <p class="desk-card__excerpt">“Every winter brings a quiet ache, mountains cut from scalloped paper.”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">Frost Peak</span>
+            <a class="desk-card__arrow" href="poems/every-winter.html" aria-label="Open Every Winter letter">→</a>
+          </div>
+        </article>
+      </li>
+
+      <!-- № 12 · Every Winter: Free Fall (Sibling Pair II - End) -->
+      <li class="desk-card-wrapper" data-family-tag="winter">
+        <article class="desk-card" id="card-12" data-index="12" style="--card-rot: 1.25deg; --card-dx: 1px; --card-dy: -3px;">
+          <div class="card-eyelet card-eyelet--left" id="eyelet-12" title="Connected by red string to № 11"></div>
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-12" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 12. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-12" title="Click to reseal letter" aria-label="Opened letter № 12. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
+
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 12</span>
+            <span class="desk-card__pair-tag" style="background:#FFEAEA; border-color:#A3495A; color:#A3495A;">Winter Thread · Night</span>
+          </div>
+          <h2 class="desk-card__title">
+            <a href="poems/every-winter-free-fall.html" style="color:inherit; text-decoration:none;">Every Winter: Free Fall</a>
+          </h2>
+          <p class="desk-card__excerpt">“Falling without weight into the dark, a nocturnal shower of frozen diamonds.”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">Slate Snowdrift</span>
+            <a class="desk-card__arrow" href="poems/every-winter-free-fall.html" aria-label="Open Every Winter Free Fall letter">→</a>
+          </div>
+        </article>
+      </li>
+
+      <!-- № 13 · Painted Sky -->
+      <li class="desk-card-wrapper" data-family-tag="cosmic">
+        <article class="desk-card" id="card-13" data-index="13" style="--card-rot: 1.15deg; --card-dx: -3px; --card-dy: 3px;">
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-13" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 13. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-13" title="Click to reseal letter" aria-label="Opened letter № 13. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
+
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 13</span>
+            <span class="desk-card__pair-tag">Watercolor Bleed</span>
+          </div>
+          <h2 class="desk-card__title">
+            <a href="poems/painted-sky.html" style="color:inherit; text-decoration:none;">Painted Sky</a>
+          </h2>
+          <p class="desk-card__excerpt">“A wash of amber across the evening, colors bleeding past the pencil line.”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">Sunset Arc</span>
+            <a class="desk-card__arrow" href="poems/painted-sky.html" aria-label="Open Painted Sky letter">→</a>
+          </div>
+        </article>
+      </li>
+
+      <!-- № 14 · Home -->
+      <li class="desk-card-wrapper" data-family-tag="winter">
+        <article class="desk-card" id="card-14" data-index="14" style="--card-rot: -1.20deg; --card-dx: 2px; --card-dy: -2px;">
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-14" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 14. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-14" title="Click to reseal letter" aria-label="Opened letter № 14. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
+
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 14</span>
+            <span class="desk-card__pair-tag">Rain on Glass</span>
+          </div>
+          <h2 class="desk-card__title">
+            <a href="poems/home.html" style="color:inherit; text-decoration:none;">Home</a>
+          </h2>
+          <p class="desk-card__excerpt">“The door was always left unlocked, footsteps fading into misty pines.”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">Cabin Hearth</span>
+            <a class="desk-card__arrow" href="poems/home.html" aria-label="Open Home letter">→</a>
+          </div>
+        </article>
+      </li>
+
+      <!-- № 15 · Landscape -->
+      <li class="desk-card-wrapper" data-family-tag="memory">
+        <article class="desk-card" id="card-15" data-index="15" style="--card-rot: -1.35deg; --card-dx: -1px; --card-dy: 1px;">
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-15" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 15. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-15" title="Click to reseal letter" aria-label="Opened letter № 15. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
+
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 15</span>
+            <span class="desk-card__pair-tag">16:9 Panoramic</span>
+          </div>
+          <h2 class="desk-card__title">
+            <a href="poems/landscape.html" style="color:inherit; text-decoration:none;">Landscape</a>
+          </h2>
+          <p class="desk-card__excerpt">“Wide skies and nothing left to prove, water shimmering along the edge.”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">Postcard Horizon</span>
+            <a class="desk-card__arrow" href="poems/landscape.html" aria-label="Open Landscape letter">→</a>
+          </div>
+        </article>
+      </li>
+
+      <!-- № 16 · Within the World I Define (Charred Sea Arc - Stop 1) -->
+      <li class="desk-card-wrapper" data-family-tag="charred">
+        <article class="desk-card" id="card-16" data-index="16" style="--card-rot: 0.74deg; --card-dx: 3px; --card-dy: -3px;">
+          <div class="card-eyelet card-eyelet--right" id="eyelet-16" title="Charred Sea Arc singe line leads to № 17"></div>
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-16" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 16. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-16" title="Click to reseal letter" aria-label="Opened letter № 16. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
+
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 16</span>
+            <span class="desk-card__pair-tag" style="background:#26110B; border-color:#FF5A1F; color:#FFAA77;">Charred Arc · I</span>
+          </div>
+          <h2 class="desk-card__title">
+            <a href="poems/within-the-world-i-define.html" style="color:inherit; text-decoration:none;">Within the World I Define</a>
+          </h2>
+          <p class="desk-card__excerpt">“Within the world I define, you are still here... a beeswax candle flickering.”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">Nested Sanctuary</span>
+            <a class="desk-card__arrow" href="poems/within-the-world-i-define.html" aria-label="Open Within the World I Define letter">→</a>
+          </div>
+        </article>
+      </li>
+
+      <!-- № 17 · Controlled Ruin (Charred Sea Arc - Stop 2) -->
+      <li class="desk-card-wrapper" data-family-tag="charred">
+        <article class="desk-card" id="card-17" data-index="17" style="--card-rot: 1.45deg; --card-dx: -2px; --card-dy: 2px;">
+          <div class="card-eyelet card-eyelet--left" id="eyelet-17" title="Charred Sea Arc singe line links from № 16 and to № 23"></div>
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-17" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 17. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-17" title="Click to reseal letter" aria-label="Opened letter № 17. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
+
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 17</span>
+            <span class="desk-card__pair-tag" style="background:#26110B; border-color:#FF5A1F; color:#FFAA77;">Charred Arc · II</span>
+          </div>
+          <h2 class="desk-card__title">
+            <a href="poems/controlled-ruin.html" style="color:inherit; text-decoration:none;">Controlled Ruin</a>
+          </h2>
+          <p class="desk-card__excerpt">“Two hands on the same page, burning the horizon until it splits into dialogue.”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">Scorched Fissure</span>
+            <a class="desk-card__arrow" href="poems/controlled-ruin.html" aria-label="Open Controlled Ruin letter">→</a>
+          </div>
+        </article>
+      </li>
+
+      <!-- № 18 · Out of frame -->
+      <li class="desk-card-wrapper" data-family-tag="memory">
+        <article class="desk-card" id="card-18" data-index="18" style="--card-rot: 0.13deg; --card-dx: 1px; --card-dy: 3px;">
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-18" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 18. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-18" title="Click to reseal letter" aria-label="Opened letter № 18. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
+
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 18</span>
+            <span class="desk-card__pair-tag">Photo Mounts</span>
+          </div>
+          <h2 class="desk-card__title">
+            <a href="poems/out-of-frame.html" style="color:inherit; text-decoration:none;">Out of frame</a>
+          </h2>
+          <p class="desk-card__excerpt">“Some things are kept outside the frame, sun-bleached edges on the desk.”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">Silver Gelatin</span>
+            <a class="desk-card__arrow" href="poems/out-of-frame.html" aria-label="Open Out of frame letter">→</a>
+          </div>
+        </article>
+      </li>
+
+      <!-- № 19 · Silence, in layers -->
+      <li class="desk-card-wrapper" data-family-tag="winter">
+        <article class="desk-card" id="card-19" data-index="19" style="--card-rot: -1.40deg; --card-dx: -3px; --card-dy: -2px;">
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-19" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 19. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-19" title="Click to reseal letter" aria-label="Opened letter № 19. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
+
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 19</span>
+            <span class="desk-card__pair-tag">3-Tier Vellum</span>
+          </div>
+          <h2 class="desk-card__title">
+            <a href="poems/silence-in-layers.html" style="color:inherit; text-decoration:none;">Silence, in layers</a>
+          </h2>
+          <p class="desk-card__excerpt">“A silence thick enough to hold, translucent vellum whispering beneath.”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">Mist Layer</span>
+            <a class="desk-card__arrow" href="poems/silence-in-layers.html" aria-label="Open Silence, in layers letter">→</a>
+          </div>
+        </article>
+      </li>
+
+      <!-- № 20 · Things I Learn to Bury -->
+      <li class="desk-card-wrapper" data-family-tag="charred">
+        <article class="desk-card" id="card-20" data-index="20" style="--card-rot: -0.88deg; --card-dx: 2px; --card-dy: 1px;">
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-20" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 20. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-20" title="Click to reseal letter" aria-label="Opened letter № 20. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
+
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 20</span>
+            <span class="desk-card__pair-tag">Ruled Ledger</span>
+          </div>
+          <h2 class="desk-card__title">
+            <a href="poems/things-i-learn-to-bury.html" style="color:inherit; text-decoration:none;">Things I Learn to Bury</a>
+          </h2>
+          <p class="desk-card__excerpt">“Names scratched out before the ink could dry, buried deep in cold soil.”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">Iron Loam</span>
+            <a class="desk-card__arrow" href="poems/things-i-learn-to-bury.html" aria-label="Open Things I Learn to Bury letter">→</a>
+          </div>
+        </article>
+      </li>
+
+      <!-- № 21 · Rage in cage -->
+      <li class="desk-card-wrapper" data-family-tag="charred">
+        <article class="desk-card" id="card-21" data-index="21" style="--card-rot: 1.35deg; --card-dx: -1px; --card-dy: -3px;">
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-21" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 21. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-21" title="Click to reseal letter" aria-label="Opened letter № 21. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
+
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 21</span>
+            <span class="desk-card__pair-tag">Taut Wire Cage</span>
+          </div>
+          <h2 class="desk-card__title">
+            <a href="poems/rage-in-cage.html" style="color:inherit; text-decoration:none;">Rage in cage</a>
+          </h2>
+          <p class="desk-card__excerpt">“The cage was never locked, but neither opened... taut vertical crimson bars.”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">Calcified Ash</span>
+            <a class="desk-card__arrow" href="poems/rage-in-cage.html" aria-label="Open Rage in cage letter">→</a>
+          </div>
+        </article>
+      </li>
+
+      <!-- № 22 · Between Midnight & Sleep -->
+      <li class="desk-card-wrapper" data-family-tag="memory">
+        <article class="desk-card" id="card-22" data-index="22" style="--card-rot: 1.20deg; --card-dx: 3px; --card-dy: 2px;">
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-22" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 22. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-22" title="Click to reseal letter" aria-label="Opened letter № 22. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
+
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 22</span>
+            <span class="desk-card__pair-tag">Stopped Clock</span>
+          </div>
+          <h2 class="desk-card__title">
+            <a href="poems/between-midnight-and-sleep.html" style="color:inherit; text-decoration:none;">Between Midnight &amp; Sleep</a>
+          </h2>
+          <p class="desk-card__excerpt">“in the pause between midnight &amp; sleep, in every of your seen-zone...”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">Phosphor LED</span>
+            <a class="desk-card__arrow" href="poems/between-midnight-and-sleep.html" aria-label="Open Between Midnight and Sleep letter">→</a>
+          </div>
+        </article>
+      </li>
+
+      <!-- № 23 · The Blue Inside Ruin (Charred Sea Arc - Stop 3) -->
+      <li class="desk-card-wrapper" data-family-tag="charred">
+        <article class="desk-card" id="card-23" data-index="23" style="--card-rot: -1.15deg; --card-dx: -2px; --card-dy: -1px;">
+          <div class="card-eyelet card-eyelet--left" id="eyelet-23" title="Charred Sea Arc singe line terminates here"></div>
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-23" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 23. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-23" title="Click to reseal letter" aria-label="Opened letter № 23. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
+
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 23</span>
+            <span class="desk-card__pair-tag" style="background:#26110B; border-color:#FF5A1F; color:#FFAA77;">Charred Arc · III</span>
+          </div>
+          <h2 class="desk-card__title">
+            <a href="poems/the-blue-inside-ruin.html" style="color:inherit; text-decoration:none;">The Blue Inside Ruin</a>
+          </h2>
+          <p class="desk-card__excerpt">“A catalogue of nine blues, ending on the charred sea in cathedral glass.”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">9-Stage Glaze</span>
+            <a class="desk-card__arrow" href="poems/the-blue-inside-ruin.html" aria-label="Open The Blue Inside Ruin letter">→</a>
+          </div>
+        </article>
+      </li>
+
+      <!-- № 24 · End -->
+      <li class="desk-card-wrapper" data-family-tag="cosmic">
+        <article class="desk-card" id="card-24" data-index="24" style="--card-rot: -1.30deg; --card-dx: 1px; --card-dy: 3px;">
+          <div class="desk-card__ribbon" aria-hidden="true"></div>
+          <div class="desk-card__dogear" aria-hidden="true"></div>
+          <button type="button" class="desk-card__seal" data-card="card-24" title="Click to break wax seal & mark as read" aria-label="Unread sealed letter № 24. Click to toggle.">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+          </button>
+          <button type="button" class="desk-card__seal--broken" data-card="card-24" title="Click to reseal letter" aria-label="Opened letter № 24. Click to reseal.">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7D5C4C"/><path d="M4 8 L 20 16" stroke="#241812" stroke-width="2"/></svg>
+          </button>
+          <div class="desk-card__meta">
+            <span class="desk-card__no">№ 24</span>
+            <span class="desk-card__pair-tag">Pocket Note</span>
+          </div>
+          <h2 class="desk-card__title">
+            <a href="poems/end.html" style="color:inherit; text-decoration:none;">End</a>
+          </h2>
+          <p class="desk-card__excerpt">“And so I choose the unknown, a Home I carve for myself alone.”</p>
+          <div class="desk-card__footer">
+            <span class="desk-card__status">Door Ajar</span>
+            <a class="desk-card__arrow" href="poems/end.html" aria-label="Open End letter">→</a>
+          </div>
+        </article>
+      </li>
+
+    </ul>
+
+    <!-- Bottom Cedar Drawer Pull Tab Anchor -->
+    <div class="cedar-drawer-tab-wrapper">
+      <button type="button" class="cedar-drawer-tab" id="cedarDrawerTab" aria-haspopup="dialog" aria-expanded="false" aria-controls="cedarDrawer">
+        <span aria-hidden="true">⤓</span> Pull Cedar Drawer · Quick Index [Key: D]
+      </button>
+    </div>
   </div>
+
+  <!-- Bottom Navigation Link to Colophon -->
+  <footer style="text-align: center; margin-top: 2rem;">
+    <a href="about.html" style="font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: #D4C3A3; border-bottom: 1px dashed rgba(201,162,75,0.4); padding-bottom: 3px; text-decoration: none;">
+      Rare Book Colophon &amp; Library Catalogue Card →
+    </a>
+  </footer>
 </main>
+
+<!-- Cedar Drawer Quick-Index Slide-Out Modal -->
+<aside class="cedar-drawer" id="cedarDrawer" role="dialog" aria-labelledby="drawerTitle" aria-hidden="true">
+  <div class="cedar-drawer__header">
+    <div>
+      <h2 class="cedar-drawer__title" id="drawerTitle">Cedar Desk Drawer — Quick Index</h2>
+      <p style="font-family: var(--font-hand); font-size: 1.1rem; color: #D4C3A3; margin: 0.2rem 0 0;">
+        library catalogue slips indexed in chronological discovery order
+      </p>
+    </div>
+    <button type="button" class="cedar-drawer__close-btn" id="closeDrawerBtn" aria-label="Close cedar drawer">
+      ✕ Close Drawer [Esc]
+    </button>
+  </div>
+
+  <!-- Catalogue list of 24 letter slips inside drawer -->
+  <div class="cedar-drawer__grid" id="cedarDrawerGrid">
+    <!-- Populated dynamically via JS to sync with read status -->
+  </div>
+</aside>
+
+<script>
+(function() {
+  const SIBLING_STRINGS = [
+    { from: 'eyelet-09', to: 'eyelet-10', pathId: 'stringPair1', card1: 'card-09', card2: 'card-10' },
+    { from: 'eyelet-11', to: 'eyelet-12', pathId: 'stringPair2', card1: 'card-11', card2: 'card-12' }
+  ];
+
+  const CHARRED_ARC_EYELETS = ['eyelet-16', 'eyelet-17', 'eyelet-23'];
+
+  // Read state persistence
+  const STORAGE_KEY = 'manuscript_read_letters_v2';
+  let readSet = new Set();
+
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      readSet = new Set(JSON.parse(raw));
+    } else {
+      // Default demo set to immediately show the unread vs read distinction
+      readSet = new Set(['card-01', 'card-04', 'card-08']);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify([...readSet]));
+    }
+  } catch (e) {
+    readSet = new Set(['card-01', 'card-04']);
+  }
+
+  function applyReadStates() {
+    const cards = document.querySelectorAll('.desk-card');
+    cards.forEach(card => {
+      const id = card.id;
+      if (readSet.has(id)) {
+        card.classList.add('is-read');
+        card.classList.remove('is-unread');
+      } else {
+        card.classList.remove('is-read');
+        card.classList.add('is-unread');
+      }
+    });
+
+    const badge = document.getElementById('readCountBadge');
+    if (badge) {
+      badge.textContent = `${readSet.size} / 24 Letters Read`;
+    }
+
+    renderCedarDrawerGrid();
+  }
+
+  // Toggle individual card state
+  document.addEventListener('click', (e) => {
+    const sealBtn = e.target.closest('.desk-card__seal, .desk-card__seal--broken');
+    if (sealBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      const cardId = sealBtn.dataset.card;
+      if (readSet.has(cardId)) {
+        readSet.delete(cardId);
+      } else {
+        readSet.add(cardId);
+        if ('vibrate' in navigator) navigator.vibrate([15, 30]);
+      }
+      localStorage.setItem(STORAGE_KEY, JSON.stringify([...readSet]));
+      applyReadStates();
+    }
+  });
+
+  // Reset / Toggle All
+  const toggleAllBtn = document.getElementById('toggleAllReadBtn');
+  if (toggleAllBtn) {
+    toggleAllBtn.addEventListener('click', () => {
+      if (readSet.size >= 24) {
+        readSet.clear();
+      } else if (readSet.size > 0) {
+        readSet.clear();
+      } else {
+        document.querySelectorAll('.desk-card').forEach(c => readSet.add(c.id));
+      }
+      localStorage.setItem(STORAGE_KEY, JSON.stringify([...readSet]));
+      applyReadStates();
+    });
+  }
+
+  // Draw Sibling Red Strings & Charred Arc
+  function updateConnections() {
+    const blotter = document.getElementById('deskBlotter');
+    if (!blotter) return;
+    const blotterRect = blotter.getBoundingClientRect();
+
+    // Sibling Pair strings
+    SIBLING_STRINGS.forEach(pair => {
+      const el1 = document.getElementById(pair.from);
+      const el2 = document.getElementById(pair.to);
+      const path = document.getElementById(pair.pathId);
+      if (!el1 || !el2 || !path) return;
+
+      const r1 = el1.getBoundingClientRect();
+      const r2 = el2.getBoundingClientRect();
+
+      const x1 = r1.left + r1.width / 2 - blotterRect.left;
+      const y1 = r1.top + r1.height / 2 - blotterRect.top;
+      const x2 = r2.left + r2.width / 2 - blotterRect.left;
+      const y2 = r2.top + r2.height / 2 - blotterRect.top;
+
+      const dx = x2 - x1;
+      const dy = y2 - y1;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      // Catenary sag calculation
+      const sag = Math.min(85, Math.max(25, dist * 0.18));
+      const cx = (x1 + x2) / 2;
+      const cy = Math.max(y1, y2) + sag;
+
+      path.setAttribute('d', `M ${x1} ${y1} Q ${cx} ${cy} ${x2} ${y2}`);
+    });
+
+    // Charred Sea Arc singe line (16 -> 17 -> 23)
+    const e16 = document.getElementById('eyelet-16');
+    const e17 = document.getElementById('eyelet-17');
+    const e23 = document.getElementById('eyelet-23');
+    const charredOuter = document.getElementById('scorchedArcOuter');
+    const charredCore = document.getElementById('scorchedArcCore');
+
+    if (e16 && e17 && e23 && charredOuter && charredCore) {
+      const r16 = e16.getBoundingClientRect();
+      const r17 = e17.getBoundingClientRect();
+      const r23 = e23.getBoundingClientRect();
+
+      const x16 = r16.left + r16.width / 2 - blotterRect.left;
+      const y16 = r16.top + r16.height / 2 - blotterRect.top;
+      const x17 = r17.left + r17.width / 2 - blotterRect.left;
+      const y17 = r17.top + r17.height / 2 - blotterRect.top;
+      const x23 = r23.left + r23.width / 2 - blotterRect.left;
+      const y23 = r23.top + r23.height / 2 - blotterRect.top;
+
+      // Organic curved path through 16 -> 17 -> 23 with slight scorch offset
+      const d = `M ${x16} ${y16} Q ${(x16 + x17)/2 + 10} ${(y16 + y17)/2 + 15} ${x17} ${y17} Q ${(x17 + x23)/2 - 12} ${(y17 + y23)/2 + 20} ${x23} ${y23}`;
+      charredOuter.setAttribute('d', d);
+      charredCore.setAttribute('d', d);
+    }
+  }
+
+  // Hover tension interaction for sibling pairs
+  SIBLING_STRINGS.forEach(pair => {
+    const c1 = document.getElementById(pair.card1);
+    const c2 = document.getElementById(pair.card2);
+    const path = document.getElementById(pair.pathId);
+
+    function addTaut() { if (path) path.classList.add('desk-string--taut'); }
+    function removeTaut() { if (path) path.classList.remove('desk-string--taut'); }
+
+    if (c1) {
+      c1.addEventListener('mouseenter', addTaut);
+      c1.addEventListener('mouseleave', removeTaut);
+    }
+    if (c2) {
+      c2.addEventListener('mouseenter', addTaut);
+      c2.addEventListener('mouseleave', removeTaut);
+    }
+  });
+
+  // Filter functionality
+  const filterBtns = document.querySelectorAll('.desk-filter-btn');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      const filter = btn.dataset.filter;
+
+      const cards = document.querySelectorAll('.desk-card-wrapper');
+      cards.forEach(wrap => {
+        const tag = wrap.dataset.familyTag;
+        if (filter === 'all' || tag === filter) {
+          wrap.style.display = '';
+        } else {
+          wrap.style.display = 'none';
+        }
+      });
+
+      setTimeout(updateConnections, 50);
+    });
+  });
+
+  // Cedar Drawer Quick-Index Component
+  const drawer = document.getElementById('cedarDrawer');
+  const drawerTab = document.getElementById('cedarDrawerTab');
+  const deskDrawerBtn = document.getElementById('deskDrawerBtn');
+  const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+
+  function openCedarDrawer() {
+    if (!drawer) return;
+    drawer.classList.add('is-open');
+    drawer.setAttribute('aria-hidden', 'false');
+    if (drawerTab) drawerTab.setAttribute('aria-expanded', 'true');
+    if ('vibrate' in navigator) navigator.vibrate(35);
+  }
+
+  function closeCedarDrawer() {
+    if (!drawer) return;
+    drawer.classList.remove('is-open');
+    drawer.setAttribute('aria-hidden', 'true');
+    if (drawerTab) drawerTab.setAttribute('aria-expanded', 'false');
+  }
+
+  if (drawerTab) drawerTab.addEventListener('click', openCedarDrawer);
+  if (deskDrawerBtn) deskDrawerBtn.addEventListener('click', openCedarDrawer);
+  if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeCedarDrawer);
+
+  // Keyboard shortcut: Key 'D' to toggle, Escape to close
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'd' || e.key === 'D') {
+      // Don't intercept if user is inside an input/textarea
+      if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+      e.preventDefault();
+      if (drawer.classList.contains('is-open')) {
+        closeCedarDrawer();
+      } else {
+        openCedarDrawer();
+      }
+    } else if (e.key === 'Escape') {
+      closeCedarDrawer();
+    }
+  });
+
+  // Populate Cedar Drawer Grid
+  function renderCedarDrawerGrid() {
+    const grid = document.getElementById('cedarDrawerGrid');
+    if (!grid) return;
+    const cards = document.querySelectorAll('.desk-card');
+    
+    grid.innerHTML = '';
+    cards.forEach(card => {
+      const id = card.id;
+      const no = card.querySelector('.desk-card__no')?.textContent || '';
+      const title = card.querySelector('.desk-card__title a')?.textContent || '';
+      const href = card.querySelector('.desk-card__title a')?.getAttribute('href') || '#';
+      const excerpt = card.querySelector('.desk-card__excerpt')?.textContent || '';
+      const isRead = readSet.has(id);
+
+      const item = document.createElement('a');
+      item.className = 'cedar-drawer-item';
+      item.href = href;
+      item.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span class="cedar-drawer-item__call">${no} · MSS-${no.replace(/\D/g,'').padStart(2,'0')}</span>
+          <span style="font-family:var(--font-mono); font-size:0.55rem; letter-spacing:0.1em; color:${isRead ? '#90EE90' : '#E8A87C'};">
+            ${isRead ? '✓ READ' : '● SEALED'}
+          </span>
+        </div>
+        <div class="cedar-drawer-item__title">${title}</div>
+        <div class="cedar-drawer-item__excerpt">${excerpt}</div>
+      `;
+      grid.appendChild(item);
+    });
+  }
+
+  // Window resize & scroll listeners
+  window.addEventListener('resize', updateConnections);
+  window.addEventListener('scroll', updateConnections, { passive: true });
+  window.addEventListener('load', () => {
+    applyReadStates();
+    setTimeout(updateConnections, 120);
+  });
+
+  // Initial call
+  applyReadStates();
+  setTimeout(updateConnections, 150);
+})();
+</script>
 </body>
 </html>

@@ -4,41 +4,175 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Landscape — Manuscript</title>
+<meta name="description" content="“Beneath the rain, let freedom rise. / Soar on wings, reach the skies.” — № 15 of Manuscript by TAHFIM KHAN." />
+<meta name="theme-color" content="#D98B6B" />
+
+<!-- Google Fonts Preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
 <link rel="stylesheet" href="../assets/css/main.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23D98B6B' stroke='%23FFF9EE' stroke-width='2'/%3E%3C/svg%3E" />
+
+<style>
+  /* Poem 15: Geometric Exception 2 — 16:9 Letterboxed Panoramic Card & Horizon Linework */
+  .poem-stage--panoramic {
+    padding: 3rem 1.5rem 6rem;
+  }
+  .poem-stage--panoramic .poem {
+    width: min(940px, 96vw);
+    max-width: 940px;
+  }
+  .poem-card--panoramic {
+    width: 100%;
+    max-width: 940px;
+    background: #FFF9EE;
+    color: #2C1F18;
+    padding: clamp(2.2rem, 4vw, 3.6rem) clamp(2rem, 4.5vw, 3.8rem);
+    position: relative;
+    box-shadow:
+      0 24px 60px -20px rgba(60, 35, 20, 0.35),
+      inset 0 0 60px rgba(217, 139, 107, 0.06);
+    border: 1px solid rgba(217, 139, 107, 0.25);
+  }
+  .panoramic-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.8rem, 3.8vw, 3.6rem);
+    align-items: start;
+  }
+  @media (max-width: 780px) {
+    .panoramic-grid {
+      grid-template-columns: 1fr;
+      gap: 1.6rem;
+    }
+  }
+  .panoramic-horizon-wrap {
+    margin-top: 1.8rem;
+    padding-top: 0.8rem;
+    border-top: 1.5px solid rgba(217, 139, 107, 0.35);
+  }
+  .landscape-marginalia {
+    font-family: var(--font-hand, 'Caveat', cursive);
+    font-size: 1.15rem;
+    color: #8A5A44;
+    opacity: 0.85;
+    margin-top: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+</style>
 </head>
-<body data-family="D-dawn" data-canvas="shimmer">
-<main class="poem-stage">
+<body data-family="E" data-canvas="horizon-haze">
+<main class="poem-stage poem-stage--panoramic">
+  <!-- Background procedural canvas layer -->
+  <canvas class="poem__canvas-layer" id="poemCanvas" aria-hidden="true"></canvas>
+
   <div class="poem__scene" aria-hidden="true"><img src="../assets/img/svg/scene-landscape.svg" alt="" /></div>
+
   <article class="poem">
-    <div class="poem-card" data-edge="torn">
-      <div class="poem__chapter">№ 15 &nbsp;·&nbsp; Landscape</div>
-      <h1 class="poem__title">Landscape</h1>
-      <p class="poem__sub">soar on wings, reach the skies</p>
+    <!-- Geometric Exception 2: 16:9 Letterboxed Panoramic Horizontal Card -->
+    <div class="poem-card poem-card--panoramic" data-edge="torn">
+      <div class="panoramic-grid">
+        <!-- Left Column: Title, Subtitle, Stanza 1, Marginalia -->
+        <div class="panoramic-col panoramic-col--left">
+          <div class="poem__chapter">№ 15 &nbsp;·&nbsp; Landscape</div>
+          <h1 class="poem__title" style="margin-bottom: 0.3rem;">Landscape</h1>
+          <p class="poem__sub" style="margin-bottom: 1.6rem;">soar on wings, reach the skies</p>
 
-      <div class="poem__body">
-        <p class="stanza verse--display-strong verse--center">Mornings bring hope, a chance to release<br/>
-        Embrace the chaos, find the ease.<br/>
-        Make a difference, let passion grow.<br/>
-        Inspect the seven letters, let the letters flow</p>
+          <p class="stanza verse--display-strong">Mornings bring hope, a chance to release<br/>
+          Embrace the chaos, find the ease.<br/>
+          Make a difference, let passion grow.<br/>
+          Inspect the seven letters, let the letters flow</p>
 
-        <svg class="stanza-divider" viewBox="0 0 60 8" aria-hidden="true">
-          <path d="M 2 4 Q 15 0 30 4 T 58 4" stroke="#D98B6B" stroke-width="0.8" fill="none" opacity="0.5"/>
-        </svg>
+          <!-- Penciled Marginalia Note -->
+          <div class="landscape-marginalia" aria-label="penciled author note">
+            <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+              <path d="M12 2l4 4-10 10H2v-4L12 2z"/>
+            </svg>
+            <span>(seven letters sealed in May)</span>
+          </div>
+        </div>
 
-        <p class="stanza">Beneath the rain, let freedom rise.<br/>
-        Soar on wings, reach the skies.<br/>
-        A renewed might, with every sunrise,<br/>
-        And find the landscape, enjoy the views.</p>
+        <!-- Right Column: Stanza 2, Signature, Nav, Compass Rose -->
+        <div class="panoramic-col panoramic-col--right">
+          <!-- Compass Rose & Soaring Swallow Wing Motif -->
+          <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;" aria-hidden="true">
+            <svg viewBox="0 0 44 44" width="38" height="38" fill="none">
+              <!-- Compass Rose -->
+              <circle cx="22" cy="22" r="18" stroke="#D98B6B" stroke-width="0.8" stroke-dasharray="2 3" opacity="0.6"/>
+              <path d="M 22 4 L 25 19 L 40 22 L 25 25 L 22 40 L 19 25 L 4 22 L 19 19 Z" fill="#D98B6B" opacity="0.45"/>
+              <circle cx="22" cy="22" r="2.5" fill="#3A2A1A"/>
+              <!-- Swallow wing silhouette -->
+              <path d="M 26 8 Q 34 14 38 12 Q 32 18 28 17 Z" fill="#3A2A1A" opacity="0.75"/>
+            </svg>
+          </div>
 
-        <span class="poem__sig">tai khan</span>
+          <p class="stanza">Beneath the rain, let freedom rise.<br/>
+          Soar on wings, reach the skies.<br/>
+          A renewed might, with every sunrise,<br/>
+          And find the landscape, enjoy the views.</p>
+
+          <span class="poem__sig" style="margin-top: 1.2rem; display: block;">tai khan</span>
+
+          <nav class="poem__nav" style="margin-top: 2rem;">
+            <a class="back" href="../toc.html">← back to the desk</a>
+            <a href="within-the-world-i-define.html" data-turn>within the world i define <span class="arrow">→</span></a>
+          </nav>
+        </div>
       </div>
 
-      <nav class="poem__nav">
-        <a class="back" href="../toc.html">← back to the desk</a>
-        <a href="within-the-world-i-define.html" data-turn>within the world i define <span class="arrow">→</span></a>
-      </nav>
+      <!-- Spanning Horizontal Mountain Range Linework -->
+      <div class="panoramic-horizon-wrap" aria-hidden="true">
+        <svg viewBox="0 0 800 64" width="100%" height="48" preserveAspectRatio="none" fill="none">
+          <!-- Back mountain ridge -->
+          <path d="M 0 48 Q 90 22 180 34 T 360 20 T 540 38 T 720 18 T 800 32 L 800 64 L 0 64 Z" fill="rgba(217, 139, 107, 0.12)"/>
+          <!-- Front mountain ridge -->
+          <path d="M 0 54 Q 120 36 240 46 T 480 32 T 680 44 T 800 38" stroke="#D98B6B" stroke-width="1.2" stroke-linecap="round" opacity="0.75"/>
+          <!-- Dawn sun disk -->
+          <circle cx="480" cy="32" r="7" fill="#F5E1C8" stroke="#D98B6B" stroke-width="1"/>
+          <!-- Soaring birds / wings -->
+          <path d="M 430 18 Q 436 12 442 16 Q 448 12 454 18" stroke="#8A5A44" stroke-width="1.2" fill="none" opacity="0.7"/>
+          <path d="M 464 12 Q 468 8 472 11 Q 476 8 480 12" stroke="#8A5A44" stroke-width="1.0" fill="none" opacity="0.6"/>
+        </svg>
+      </div>
     </div>
   </article>
+
+  <!-- Mobile Keepsake Dock -->
+  <nav class="keepsake-dock" aria-label="Keepsake Navigation">
+    <a class="dock-btn dock-btn--prev" id="dock-prev" href="home.html" aria-label="Previous Poem: Home" title="Previous Poem">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      <span class="dock-label">prev</span>
+    </a>
+    <a class="dock-btn dock-btn--desk" id="dock-desk" href="../toc.html" aria-label="Return to Writing Desk" title="Writing Desk">
+      <span class="dock-seal" aria-hidden="true">XV</span>
+      <span class="dock-label">desk</span>
+    </a>
+    <a class="dock-btn dock-btn--next" id="dock-next" href="within-the-world-i-define.html" aria-label="Next Poem: Within the World I Define" title="Next Poem">
+      <span class="dock-label">next</span>
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+    <div class="dock-separator" aria-hidden="true"></div>
+    <button class="dock-btn dock-btn--focus" id="dock-focus" type="button" aria-label="Toggle Candlelight Focus Mode" title="Candlelight Focus">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 2c.5 1.5 2 3 2 4.5a2 2 0 0 1-4 0c0-1.5 1.5-3 2-4.5z" fill="currentColor"/>
+        <path d="M9 11h6v10H9zM7 21h10"/>
+      </svg>
+    </button>
+    <button class="dock-btn dock-btn--audio" id="dock-audio" type="button" aria-label="Toggle Ambient Soundscape" title="Soundscape Ambience">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+      </svg>
+    </button>
+  </nav>
 </main>
 <script src="../assets/js/main.js"></script>
 </body>

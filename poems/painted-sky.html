@@ -4,16 +4,99 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Painted Sky — Manuscript</title>
+<meta name="description" content="“the sun bleeds out, a crimson tear / The moon paints paths that meet.” — № 13 of Manuscript by TAHFIM KHAN." />
+<meta name="theme-color" content="#7A2B3A" />
+
+<!-- Google Fonts Preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
 <link rel="stylesheet" href="../assets/css/main.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%237A2B3A' stroke='%23F5B868' stroke-width='2'/%3E%3C/svg%3E" />
+
+<style>
+  /* Poem 13: Sunset Morandi Watercolor Wash & Celestial Arc Linework */
+  .poem-card--painted-sky {
+    background: linear-gradient(180deg, #FAF1E6 0%, #F6E2CE 38%, #F2E5D8 100%);
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+      0 20px 50px -20px rgba(40, 15, 25, 0.45),
+      0 0 70px -10px rgba(208, 72, 72, 0.28),
+      inset 0 0 60px rgba(122, 43, 58, 0.08);
+  }
+  .poem-card--painted-sky::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: radial-gradient(ellipse at 50% 0%, rgba(208, 72, 72, 0.22) 0%, rgba(245, 184, 104, 0.14) 45%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .celestial-arc-wrap {
+    margin: 0.5rem auto 1.4rem;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+  .moon-path-climax {
+    font-family: var(--font-display, 'Fraunces', serif);
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--ink, #2A1820);
+    padding: 0.9rem 1.1rem;
+    border-top: 1px dashed rgba(201, 162, 75, 0.6);
+    border-bottom: 1px dashed rgba(201, 162, 75, 0.6);
+    margin: 1.4rem 0;
+    text-align: center;
+    background: rgba(245, 184, 104, 0.06);
+    border-radius: 2px;
+  }
+</style>
 </head>
-<body data-family="C-sky" data-canvas="embers">
+<body data-family="E" data-canvas="watercolor-bloom">
 <main class="poem-stage">
+  <!-- Background procedural canvas layer -->
+  <canvas class="poem__canvas-layer" id="poemCanvas" aria-hidden="true"></canvas>
+
   <div class="poem__scene" aria-hidden="true"><img src="../assets/img/svg/scene-painted-sky.svg" alt="" /></div>
+
   <article class="poem">
-    <div class="poem-card" data-edge="torn">
+    <div class="poem-card poem-card--painted-sky" data-edge="torn">
       <div class="poem__chapter">№ 13 &nbsp;·&nbsp; Painted Sky</div>
       <h1 class="poem__title">Painted Sky</h1>
       <p class="poem__sub">the sun bleeds out, a crimson tear</p>
+
+      <!-- Hand-drawn Celestial Arc Linework with Bleeding Sun & Evening Star -->
+      <div class="celestial-arc-wrap" aria-hidden="true">
+        <svg class="celestial-arc" viewBox="0 0 380 72" width="100%" height="72" fill="none" style="max-width: 380px;">
+          <!-- Diffused watercolor sun disk -->
+          <circle cx="50" cy="38" r="16" fill="rgba(208, 72, 72, 0.18)"/>
+          <circle cx="50" cy="38" r="10" fill="#B4432A"/>
+          <!-- Crimson tear drip bleeding downward -->
+          <path d="M 50 48 Q 52 58 50 66 Q 48 58 50 48 Z" fill="#B4432A" opacity="0.85"/>
+          <circle cx="50" cy="69" r="1.8" fill="#B4432A" opacity="0.6"/>
+
+          <!-- Golden curved celestial arc connecting sun to moon -->
+          <path d="M 50 38 C 120 4, 250 4, 320 38" stroke="#F5B868" stroke-width="1.2" stroke-dasharray="3 4" opacity="0.75"/>
+
+          <!-- 4-point evening star sparkle -->
+          <g transform="translate(190, 18)">
+            <path d="M 0 -8 Q 1 -2 7 0 Q 1 2 0 8 Q -1 2 -7 0 Q -1 -2 0 -8 Z" fill="#F5B868"/>
+            <circle cx="0" cy="0" r="1.5" fill="#FFF7E8"/>
+          </g>
+
+          <!-- Crescent moon linework at the destination -->
+          <g transform="translate(320, 38)">
+            <path d="M -8 -10 A 13 13 0 1 0 8 12 A 10 10 0 1 1 -8 -10 Z" fill="#F5B868" opacity="0.9"/>
+            <circle cx="-1" cy="0" r="1" fill="#FFF7E8" opacity="0.8"/>
+          </g>
+        </svg>
+      </div>
 
       <div class="poem__body">
         <p class="stanza verse--display-strong verse--center">The sun bleeds out, a crimson tear,<br/>
@@ -35,7 +118,7 @@
         The red sky fades, the morning writes,<br/>
         A different chapter, on a clean slate.</p>
 
-        <p class="stanza verse--pull verse--center">For even after sunsets fade,<br/>
+        <p class="stanza verse--pull verse--center moon-path-climax">For even after sunsets fade,<br/>
         The skies go dark, and rain starts pouring,<br/>
         Though memories echo, bittersweet,<br/>
         The moon paints paths that meet.</p>
@@ -49,6 +132,40 @@
       </nav>
     </div>
   </article>
+
+  <!-- Mobile Keepsake Dock -->
+  <nav class="keepsake-dock" aria-label="Keepsake Navigation">
+    <a class="dock-btn dock-btn--prev" id="dock-prev" href="every-winter-free-fall.html" aria-label="Previous Poem: Every Winter: Free Fall" title="Previous Poem">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      <span class="dock-label">prev</span>
+    </a>
+    <a class="dock-btn dock-btn--desk" id="dock-desk" href="../toc.html" aria-label="Return to Writing Desk" title="Writing Desk">
+      <span class="dock-seal" aria-hidden="true">XIII</span>
+      <span class="dock-label">desk</span>
+    </a>
+    <a class="dock-btn dock-btn--next" id="dock-next" href="home.html" aria-label="Next Poem: Home" title="Next Poem">
+      <span class="dock-label">next</span>
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+    <div class="dock-separator" aria-hidden="true"></div>
+    <button class="dock-btn dock-btn--focus" id="dock-focus" type="button" aria-label="Toggle Candlelight Focus Mode" title="Candlelight Focus">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 2c.5 1.5 2 3 2 4.5a2 2 0 0 1-4 0c0-1.5 1.5-3 2-4.5z" fill="currentColor"/>
+        <path d="M9 11h6v10H9zM7 21h10"/>
+      </svg>
+    </button>
+    <button class="dock-btn dock-btn--audio" id="dock-audio" type="button" aria-label="Toggle Ambient Soundscape" title="Soundscape Ambience">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+      </svg>
+    </button>
+  </nav>
 </main>
 <script src="../assets/js/main.js"></script>
 </body>

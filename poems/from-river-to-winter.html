@@ -3,20 +3,72 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>From River to Winter — Manuscript</title>
+<title>№ 03 · From River to Winter — Manuscript</title>
+<meta name="description" content="The river flows, a promise to the sea. A long current, freezing at the edges. Poem 03 by tai_khan." />
+<meta name="theme-color" content="#E4E8E8" />
+
+<!-- Preconnect to Google Fonts for accelerated font loading -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
 <link rel="stylesheet" href="../assets/css/main.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='24' fill='%235C7884'/%3E%3C/svg%3E" />
 </head>
-<body data-family="C-river" data-canvas="shimmer">
+<body data-family="B" data-canvas="river-current">
+
 <main class="poem-stage">
-  <div class="poem__scene" aria-hidden="true"><img src="../assets/img/svg/scene-river-frost.svg" alt="" /></div>
+  <!-- Procedural background atmosphere canvas -->
+  <canvas class="poem__canvas-layer" id="poemCanvas" aria-hidden="true"></canvas>
+
+  <!-- Ambient scene illustration -->
+  <div class="poem__scene" aria-hidden="true">
+    <img src="../assets/img/svg/scene-river-frost.svg" alt="" />
+  </div>
+
   <article class="poem">
-    <div class="poem-card" data-edge="torn">
+    <div class="poem-card" data-edge="torn" style="position: relative; overflow: hidden;">
+      <!-- Frosted card border needles (Top-Left corner) -->
+      <div style="position: absolute; top: 0; left: 0; pointer-events: none; opacity: 0.55;" aria-hidden="true">
+        <svg viewBox="0 0 120 120" width="100" height="100" fill="none">
+          <!-- Dendritic ice needles -->
+          <path d="M 0 0 L 35 15 M 10 5 L 25 2 M 18 8 L 30 18 M 0 25 L 20 32 M 8 28 L 16 38 M 0 50 L 15 54" stroke="#7CA4AC" stroke-width="0.85" opacity="0.6"/>
+          <path d="M 0 0 L 15 35 M 5 10 L 2 25 M 8 18 L 18 30 M 25 0 L 32 20 M 28 8 L 38 16 M 50 0 L 54 15" stroke="#7CA4AC" stroke-width="0.85" opacity="0.6"/>
+          <circle cx="28" cy="28" r="1" fill="#FFFFFF" opacity="0.8"/>
+          <circle cx="14" cy="42" r="1.2" fill="#FFFFFF" opacity="0.7"/>
+          <circle cx="42" cy="14" r="1.2" fill="#FFFFFF" opacity="0.7"/>
+        </svg>
+      </div>
+
+      <!-- Lone Empty Park Swing Motif (Top Right) -->
+      <div style="position: absolute; top: 1.4rem; right: 1.8rem; pointer-events: none; opacity: 0.55;" aria-hidden="true">
+        <svg viewBox="0 0 80 80" width="60" height="60" fill="none">
+          <!-- Tilted A-frame timber structure -->
+          <line x1="20" y1="75" x2="40" y2="10" stroke="#46545C" stroke-width="1.1"/>
+          <line x1="60" y1="75" x2="40" y2="10" stroke="#46545C" stroke-width="1.1"/>
+          <line x1="30" y1="48" x2="50" y2="48" stroke="#46545C" stroke-width="0.8"/>
+          <!-- Swing ropes blowing in winter breeze -->
+          <path d="M 37 12 C 34 32, 28 46, 26 58" stroke="#5C7884" stroke-width="0.75"/>
+          <path d="M 43 12 C 40 32, 34 46, 32 58" stroke="#5C7884" stroke-width="0.75"/>
+          <!-- Tilted wooden swing plank seat -->
+          <line x1="22" y1="59" x2="36" y2="56" stroke="#3A5660" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <!-- Coiled Viper Thread Graphic along right margin near Stanza 3 -->
+      <div style="position: absolute; right: 8px; top: 38%; pointer-events: none; opacity: 0.35;" aria-hidden="true">
+        <svg viewBox="0 0 40 180" width="30" height="150" fill="none">
+          <path d="M 20 0 C 35 25, 5 45, 20 70 S 38 100, 20 125 S 8 150, 22 175" stroke="#46545C" stroke-width="0.9" stroke-linecap="round"/>
+          <circle cx="20" cy="70" r="1.5" fill="#46545C"/>
+          <circle cx="20" cy="125" r="1.5" fill="#46545C"/>
+        </svg>
+      </div>
+
       <div class="poem__chapter">№ 03 &nbsp;·&nbsp; From River to Winter</div>
-      <h1 class="poem__title">From River to Winter</h1>
-      <p class="poem__sub">a long current, freezing at the edges</p>
+      <h1 class="poem__title" style="font-family: var(--font-display); font-weight: 350; font-variation-settings: 'opsz' 144, 'SOFT' 0, 'WONK' 1; color: #2C424D;">From River to Winter</h1>
+      <p class="poem__sub" style="font-family: var(--font-mono); font-style: italic; font-size: 0.85rem; letter-spacing: 0.12em; color: #6C7D82;">a long current, freezing at the edges</p>
 
       <div class="poem__body">
-        <p class="stanza verse--display verse--center">Empty park swing, craking in the breeze<br/>
+        <p class="stanza">Empty park swing, craking in the breeze<br/>
         A melody of misery setting my spirit freeze.<br/>
         For in a winter mind, a curious truth I find,<br/>
         The bravest hands are those, that welcome the cold</p>
@@ -25,6 +77,15 @@
         It's facing shadows, facing what's incomplete.<br/>
         The strength to turn the page, though every word stings true,<br/>
         Knowing some stories flicker bright, then fade to endless blue.</p>
+
+        <!-- Viper Coil Hand-Drawn Fountain Pen Divider -->
+        <svg class="stanza-divider" viewBox="0 0 100 16" width="75" height="11" style="width: 75px; height: 11px; margin: 1.6rem auto; opacity: 0.65;" aria-hidden="true">
+          <!-- Serpent-like coiled spline -->
+          <path d="M 6 8 C 22 2, 28 14, 44 8 S 56 2, 68 8 S 84 14, 94 8" stroke="#46545C" stroke-width="0.85" fill="none" stroke-linecap="round"/>
+          <!-- Viper head micro-arrow & tongue -->
+          <path d="M 94 8 L 90 5 M 94 8 L 90 11" stroke="#46545C" stroke-width="0.8"/>
+          <line x1="94" y1="8" x2="98" y2="8" stroke="#A3495A" stroke-width="0.7"/>
+        </svg>
 
         <p class="stanza">The truth, a viper coiled, its venom sweet,<br/>
         You craved its kiss, though knowing it would cheat.<br/>
@@ -45,6 +106,12 @@
         Leave scars that whisper, memories that last.<br/>
         This river's current, a relentless tide,<br/>
         Will drag you under, where secrets reside.</p>
+
+        <!-- Icy River Current Linework Divider -->
+        <svg class="stanza-divider" viewBox="0 0 110 14" width="75" height="10" style="width: 75px; height: 10px; margin: 1.6rem auto; opacity: 0.55;" aria-hidden="true">
+          <path d="M 4 5 C 24 10, 40 1, 58 7 S 86 11, 106 5" stroke="#5C7884" stroke-width="0.8" fill="none"/>
+          <path d="M 8 9 C 28 13, 44 5, 62 10 S 90 13, 102 9" stroke="#7CA4AC" stroke-width="0.6" fill="none"/>
+        </svg>
 
         <p class="stanza">These purifying waves cleanse away the day's,<br/>
         The burden carried through the longest night.<br/>
@@ -68,6 +135,26 @@
     </div>
   </article>
 </main>
+
+<!-- Mobile Keepsake Ergonomic Dock -->
+<nav class="keepsake-dock" aria-label="Keepsake Navigation">
+  <a href="divine-letter.html" id="dock-prev" class="dock-btn" title="Divine Letter" aria-label="Previous: Divine Letter" data-turn>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+  </a>
+  <a href="../toc.html" id="dock-desk" class="dock-btn dock-btn--seal" title="The Desk" aria-label="Return to Writing Desk">
+    <span class="dock-seal-mark">III</span>
+  </a>
+  <a href="hollow-shell.html" id="dock-next" class="dock-btn" title="Hollow Shell" aria-label="Next: Hollow Shell" data-turn>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+  <button type="button" id="dock-focus" class="dock-btn" title="Candlelight Focus" aria-label="Toggle Candlelight Focus Mode" aria-pressed="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c.5 1.5 1.5 2.5 1.5 4a1.5 1.5 0 0 1-3 0c0-1.5 1-2.5 1.5-4z"/><path d="M9 10h6v11H9z"/><path d="M7 21h10"/></svg>
+  </button>
+  <button type="button" id="dock-audio" class="dock-btn" title="Soundscape" aria-label="Toggle Soundscape Acoustics" aria-pressed="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8v3H8zM6 6h12l2 15H4L6 6zM10 11h4M10 15h4"/></svg>
+  </button>
+</nav>
+
 <script src="../assets/js/main.js"></script>
 </body>
 </html>

@@ -3,26 +3,84 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Hollow Shell — Manuscript</title>
-<link rel="stylesheet" href="../assets/css/main.css" />
-</head>
-<body data-family="C-ash" data-canvas="embers">
-<main class="poem-stage">
-  <div class="poem__scene" aria-hidden="true"><img src="../assets/img/svg/scene-coffee.svg" alt="" /></div>
-  <article class="poem">
-    <div class="poem-card" data-edge="torn">
-      <div class="poem__chapter">№ 04 &nbsp;·&nbsp; Hollow Shell</div>
-      <h1 class="poem__title">Hollow Shell</h1>
-      <p class="poem__sub">a mug, a name, a silent scream</p>
+<title>№ 04 · Hollow Shell — Manuscript</title>
+<meta name="description" content="Cracked reflection in the glass, coffee cup dreams, still warm in my grip. Hollow Shell by tai_khan." />
+<meta name="theme-color" content="#F0E2CC" />
 
-      <div class="poem__body">
-        <p class="stanza verse--display-strong verse--center">Cracked reflection in the glass,<br/>
+<!-- Preconnect to Google Fonts for accelerated font loading -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<link rel="stylesheet" href="../assets/css/main.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='24' fill='%23B4432A'/%3E%3C/svg%3E" />
+</head>
+<body data-family="G" data-canvas="coffee-bleed">
+
+<main class="poem-stage">
+  <!-- Procedural background atmosphere canvas -->
+  <canvas class="poem__canvas-layer" id="poemCanvas" aria-hidden="true"></canvas>
+
+  <!-- Ambient scene illustration -->
+  <div class="poem__scene" aria-hidden="true">
+    <img src="../assets/img/svg/scene-coffee.svg" alt="" />
+  </div>
+
+  <article class="poem">
+    <div class="poem-card" data-edge="stained" style="position: relative; overflow: hidden;">
+      <!-- Vintage 1990s Airmail Chevron Stripe Edge (Top Border Accent) -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; height: 5px; opacity: 0.7; background: repeating-linear-gradient(135deg, #B4432A 0, #B4432A 12px, transparent 12px, transparent 18px, #3F5E78 18px, #3F5E78 30px, transparent 30px, transparent 36px);" aria-hidden="true"></div>
+
+      <!-- Hairline Glass Fracture Line (Top-Right Corner) -->
+      <div style="position: absolute; top: 0; right: 0; width: 110px; height: 110px; pointer-events: none; opacity: 0.65;" aria-hidden="true">
+        <svg viewBox="0 0 110 110" width="110" height="110" fill="none">
+          <!-- Main fracture fissure with micro-offset -->
+          <path d="M 110 25 L 82 48 L 74 44 L 56 68 L 38 65 L 18 95 L 0 104" stroke="rgba(42,31,24,0.4)" stroke-width="0.75"/>
+          <path d="M 82 48 L 94 72 M 56 68 L 52 88 M 74 44 L 62 26" stroke="rgba(42,31,24,0.3)" stroke-width="0.5"/>
+          <!-- Subtle glass refraction highlight -->
+          <path d="M 110 24 L 82 47 L 56 67 L 18 94" stroke="#FFFFFF" stroke-width="0.6" opacity="0.65"/>
+        </svg>
+      </div>
+
+      <!-- Authentic Coffee Ring Stain SVG Overlay on lower card margin -->
+      <div style="position: absolute; bottom: -35px; left: -25px; width: 220px; height: 220px; pointer-events: none; mix-blend-mode: multiply; opacity: 0.85;" aria-hidden="true">
+        <svg viewBox="0 0 200 200" width="200" height="200" fill="none">
+          <!-- Translucent watercolor puddle base -->
+          <ellipse cx="98" cy="98" rx="72" ry="70" fill="#7A4E2B" opacity="0.08"/>
+          <!-- Irregular wobbly outer rim with dark burnt-umber deposits -->
+          <path d="M 98 24 C 142 22, 174 54, 172 98 C 170 144, 140 172, 98 174 C 52 176, 22 144, 24 98 C 26 50, 56 26, 98 24 Z" stroke="#4A2E1B" stroke-width="3.2" stroke-linecap="round" opacity="0.65" stroke-dasharray="8 2 24 4 12 3 40 2"/>
+          <path d="M 96 27 C 138 25, 169 56, 167 98 C 165 140, 136 169, 96 171 C 54 173, 26 142, 28 98 C 30 54, 58 29, 96 27 Z" stroke="#683E22" stroke-width="1.8" opacity="0.45"/>
+          <!-- Inner thinner dried waterline -->
+          <circle cx="98" cy="98" r="62" stroke="#8A5A36" stroke-width="0.8" stroke-dasharray="16 6 8 4" opacity="0.35"/>
+          <!-- Coffee droplets and splatter specks -->
+          <circle cx="178" cy="115" r="2.8" fill="#4A2E1B" opacity="0.6"/>
+          <circle cx="188" cy="128" r="1.4" fill="#683E22" opacity="0.5"/>
+          <circle cx="168" cy="148" r="2.1" fill="#4A2E1B" opacity="0.55"/>
+          <circle cx="162" cy="160" r="1.2" fill="#7A4E2B" opacity="0.4"/>
+          <circle cx="38" cy="42" r="1.8" fill="#4A2E1B" opacity="0.5"/>
+        </svg>
+      </div>
+
+      <!-- Handwritten shaky pencil annotation in margin: "you" -->
+      <div style="position: absolute; right: 2.2rem; top: 46%; pointer-events: none; opacity: 0.38; transform: rotate(12deg);" aria-hidden="true">
+        <span style="font-family: var(--font-hand); font-size: 1.35rem; color: #5A3E2B; text-decoration: line-through 0.8px rgba(90,62,43,0.4);">you</span>
+      </div>
+
+      <div class="poem__chapter">№ 04 &nbsp;·&nbsp; Hollow Shell</div>
+      <h1 class="poem__title" style="color: #2A1F18;">Hollow Shell</h1>
+      <p class="poem__sub" style="color: #7A5844;">a mug, a name, a silent scream</p>
+
+      <div class="poem__body" style="position: relative; z-index: 2;">
+        <p class="stanza">Cracked reflection in the glass,<br/>
         Empty eyes, a hollow shell,<br/>
         Haunted by the shadows cast,<br/>
         Of a love that couldn't dwell.</p>
 
-        <svg class="stanza-divider" viewBox="0 0 60 8" aria-hidden="true">
-          <path d="M 2 4 Q 15 0 30 4 T 58 4" stroke="#B4432A" stroke-width="0.8" fill="none" opacity="0.45"/>
+        <!-- Terracotta ember and coffee drop divider -->
+        <svg class="stanza-divider" viewBox="0 0 90 12" width="70" height="10" style="width: 70px; height: 10px; margin: 1.6rem auto; opacity: 0.6;" aria-hidden="true">
+          <path d="M 2 6 Q 22 2 45 6 T 88 6" stroke="#B4432A" stroke-width="0.85" fill="none" opacity="0.7"/>
+          <circle cx="45" cy="6" r="2.2" fill="#B4432A"/>
+          <circle cx="28" cy="4" r="1" fill="#7A4E2B"/>
+          <circle cx="62" cy="8" r="1" fill="#7A4E2B"/>
         </svg>
 
         <p class="stanza">Whispers echo in the night,<br/>
@@ -40,7 +98,7 @@
         A gentle release, a whisper unknown,<br/>
         The sky fades soft, leaving me on my own.</p>
 
-        <span class="poem__sig">tai khan</span>
+        <span class="poem__sig" style="color: #6B5340;">tai khan</span>
       </div>
 
       <nav class="poem__nav">
@@ -50,6 +108,26 @@
     </div>
   </article>
 </main>
+
+<!-- Mobile Keepsake Ergonomic Dock -->
+<nav class="keepsake-dock" aria-label="Keepsake Navigation">
+  <a href="from-river-to-winter.html" id="dock-prev" class="dock-btn" title="From River to Winter" aria-label="Previous: From River to Winter" data-turn>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+  </a>
+  <a href="../toc.html" id="dock-desk" class="dock-btn dock-btn--seal" title="The Desk" aria-label="Return to Writing Desk">
+    <span class="dock-seal-mark">IV</span>
+  </a>
+  <a href="guiding-light.html" id="dock-next" class="dock-btn" title="Guiding Light" aria-label="Next: Guiding Light" data-turn>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+  <button type="button" id="dock-focus" class="dock-btn" title="Candlelight Focus" aria-label="Toggle Candlelight Focus Mode" aria-pressed="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c.5 1.5 1.5 2.5 1.5 4a1.5 1.5 0 0 1-3 0c0-1.5 1-2.5 1.5-4z"/><path d="M9 10h6v11H9z"/><path d="M7 21h10"/></svg>
+  </button>
+  <button type="button" id="dock-audio" class="dock-btn" title="Soundscape" aria-label="Toggle Soundscape Acoustics" aria-pressed="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8v3H8zM6 6h12l2 15H4L6 6zM10 11h4M10 15h4"/></svg>
+  </button>
+</nav>
+
 <script src="../assets/js/main.js"></script>
 </body>
 </html>

@@ -972,6 +972,8 @@ The entry to the collection abandons standard web buttons. The reader encounters
 
 ## 10. MOBILE ERGONOMICS & GESTURE KINEMATICS ARCHITECTURE
 
+> **Production Implementation Note:** For optimal performance, zero dependencies, and battery-conscious mobile reading, gesture recognition and page transitions have been implemented using native CSS 3D perspectives (`.poem-turn-out`, `.poem-card`), smooth touch scrolling, and the floating **Keepsake Dock** (`.keepsake-dock`). Heavy experimental RK4 numerical physics loops, origami pinch-to-fold timing frameworks, and magnifying loupe shaders were streamlined to prioritize instant, bug-free responsiveness.
+
 Because *Manuscript* is designed primarily for intimate, solitary reading on handheld devices (smartphones and tablets), desktop mouse interactions are secondary to natural touch kinematics. Reading on mobile must feel like holding a sheaf of heavy 1990s stationery cards in one's hand.
 
 ### 10.1 The Keepsake Dock (Mobile Thumb Zones)
@@ -1396,6 +1398,8 @@ ins.pencil-margin {
 
 ## 13. ADVANCED GLSL SHADERS & MATERIAL PHYSICS ENGINES
 
+> **Production Implementation Note:** As agreed during development, heavy experimental WebGL GLSL fragment shaders (`paper_surface.frag`, `wet_ink_simulation.frag`, `wax_seal_medallion.frag`) and complex thermodynamic/viscous physics engines (`FrostThawEngine`, `CandleWaxEngine`, 500-line era slider models) have been intentionally excluded from the production build. Instead, authentic material aesthetics are delivered using ultra-fast, universally compatible 2D HTML5 Canvas procedural particles, CSS SVG filters (`#ink-bleed`, `#deckled-edge`, `#paper-tooth`, `#wax-seal-filter`), and hardware-accelerated CSS transforms. This eliminates mobile GPU compilation crashes, saves battery, and maintains 60 FPS everywhere.
+
 To elevate the visual fidelity from flat 2D vector illustrations to authentic, photorealistic physical media, *Manuscript* introduces four specialized WebGL GLSL fragment shaders and dynamic mechanical simulation scripts.
 
 ### 13.1 `paper_surface.frag`: Oren-Nayar Rough Diffuse & Anisotropic Fibers
@@ -1573,6 +1577,8 @@ Four standalone physics engines govern tactile motion:
 
 ## 14. SENSORY SYNESTHESIA: SPATIAL WEB AUDIO & MULTI-STAGE HAPTICS
 
+> **Production Implementation Note:** Procedural Web Audio oscillator synthesis graphs (continuous ambient background drones, paper rustle, quill dip audio) and complex multi-stage Android `navigator.vibrate` envelopes were intentionally omitted from production. Audio synthesis requires explicit user gesture unlocking, drains mobile battery, and directly competes with personal background music/podcasts that readers listen to while reading poetry. The tactile atmosphere is instead fully carried by rich visual motion and material textures.
+
 Visuals alone cannot convey the tactile intimacy of handling vintage manuscripts. *Manuscript* deploys procedural Web Audio acoustics and multi-stage haptic vibration envelopes without requiring external audio file downloads.
 
 ### 14.1 Procedural Spatial Desk Acoustics (Stereo Pan & Air Absorption)
@@ -1650,6 +1656,8 @@ const ManuscriptHaptics = {
 ---
 
 ## 15. HARDWARE E-INK, READING SANCTUARY & COGNITIVE ACCESSIBILITY MODES
+
+> **Production Implementation Note:** Rather than injecting complex DOM-traversing parsers (Bionic Reading `<strong>` wrapping) or custom full-screen Sanctuary managers, accessibility is achieved natively: full semantic HTML, standard WCAG AAA contrast ratios, hardware E-Ink high-contrast dither mode (`@media (update: slow)`), and automatic respect for `prefers-reduced-motion: reduce` across all canvas engines and transitions.
 
 To ensure *Manuscript* is universally readable across modern OLED smartphones, desktop monitors, e-readers, and by readers with visual or cognitive differences, the system incorporates four dedicated accessibility modes.
 

@@ -5,11 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Manuscript — of a divine letter</title>
 <meta name="description" content="A poetry collection by TAHFIM KHAN. Twenty-four poems, kept like letters." />
+<meta name="author" content="TAHFIM KHAN" />
+<meta name="theme-color" content="#2A0810" />
+
+<!-- Open Graph / Social Sharing -->
+<meta property="og:title" content="Manuscript — of a divine letter" />
+<meta property="og:description" content="A poetry collection by TAHFIM KHAN. Twenty-four poems, kept like letters." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="images/cover.jpg" />
+
+<!-- Preconnect to Google Fonts for accelerated font loading -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
 <link rel="stylesheet" href="assets/css/main.css" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%232A0810'/%3E%3Ccircle cx='50' cy='50' r='26' fill='none' stroke='%23F4ECD8' stroke-width='1.5'/%3E%3Cellipse cx='50' cy='50' rx='44' ry='10' fill='none' stroke='%23F4ECD8' stroke-width='1.2' transform='rotate(-18 50 50)'/%3E%3C/svg%3E" />
 </head>
 <body data-family="A-cover">
-<div class="cover">
+<main class="cover">
   <!-- Handdrawn canvas illustration -->
   <canvas class="cover__art" id="coverCanvas" aria-hidden="true"></canvas>
 
@@ -19,9 +32,9 @@
     <p class="cover__sub">of a divine letter</p>
     <p class="cover__tagline">— a whisper exceeding the shadows —</p>
     <a class="cover__enter" href="toc.html">enter the collection</a>
-    <div class="cover__author">TAHFIM &nbsp; KHAN</div>
+    <div class="cover__author" style="margin-top: clamp(1.2rem, 2.5vh, 1.8rem);">TAHFIM &nbsp; KHAN</div>
   </div>
-</div>
+</main>
 <script src="assets/js/cover.js"></script>
 </body>
 </html>

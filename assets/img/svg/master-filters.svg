@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="svg-filters" style="position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none;" aria-hidden="true">
+  <defs>
+    <!-- 1. Authentic Ink Bleed & Capillary Feathering -->
+    <filter id="ink-bleed" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="74" result="fiber" />
+      <feDisplacementMap in="SourceGraphic" in2="fiber" scale="2.5" xChannelSelector="R" yChannelSelector="G" result="feathered" />
+      <feGaussianBlur in="feathered" stdDeviation="0.45" result="absorbed" />
+      <feComponentTransfer in="absorbed" result="density">
+        <feFuncA type="linear" slope="1.4" intercept="-0.08" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="density" />
+        <feMergeNode in="SourceGraphic" opacity="0.65" />
+      </feMerge>
+    </filter>
+
+    <!-- 2. Deckled & Torn Paper Edge Filter -->
+    <filter id="deckled-edge" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="turbulence" baseFrequency="0.018 0.035" numOctaves="5" seed="19" result="tear" />
+      <feTurbulence type="fractalNoise" baseFrequency="0.15 0.25" numOctaves="3" seed="42" result="fringe" />
+      <feComposite in="tear" in2="fringe" operator="arithmetic" k1="0.6" k2="0.6" k3="0" k4="0" result="combinedTear" />
+      <feDisplacementMap in="SourceGraphic" in2="combinedTear" scale="8.5" xChannelSelector="R" yChannelSelector="B" result="tornCard" />
+      <feGaussianBlur in="tornCard" stdDeviation="1.5" result="tearBlur" />
+      <feColorMatrix in="tearBlur" type="matrix" values="0 0 0 0 0.15  0 0 0 0 0.11  0 0 0 0 0.08  0 0 0 0.4 0" result="tornShadow" />
+      <feOffset in="tornShadow" dx="0" dy="2" result="offsetShadow" />
+      <feMerge>
+        <feMergeNode in="offsetShadow" />
+        <feMergeNode in="tornCard" />
+      </feMerge>
+    </filter>
+
+    <!-- 3. Fibrous Paper Tooth (Micro-Noise Cotton Rag Grain) -->
+    <filter id="paper-tooth" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75 0.75" numOctaves="4" stitchTiles="stitch" result="tooth" />
+      <feColorMatrix in="tooth" type="matrix" values="0 0 0 0 0.22  0 0 0 0 0.16  0 0 0 0 0.11  0 0 0 0.045 0" result="tintedTooth" />
+    </filter>
+
+    <!-- 4. Wax Seal Filter (diffuse lighting + specular reflection for 3D seal) -->
+    <filter id="wax-seal-filter" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2.2" result="blur" />
+      <feDiffuseLighting in="blur" surfaceScale="4.5" diffuseConstant="1.2" lighting-color="#FFEED8" result="diffuse">
+        <feDistantLight azimuth="225" elevation="45" />
+      </feDiffuseLighting>
+      <feSpecularLighting in="blur" surfaceScale="5.5" specularConstant="1.3" specularExponent="22" lighting-color="#FFF8EE" result="specular">
+        <feDistantLight azimuth="225" elevation="55" />
+      </feSpecularLighting>
+      <feComposite in="diffuse" in2="SourceGraphic" operator="in" result="diffuseGraphic" />
+      <feBlend in="diffuseGraphic" in2="SourceGraphic" mode="multiply" result="shaded" />
+      <feComposite in="specular" in2="SourceAlpha" operator="in" result="specularCut" />
+      <feBlend in="specularCut" in2="shaded" mode="screen" result="lit" />
+      <feDropShadow dx="1.5" dy="3.5" stdDeviation="3.5" flood-color="#260408" flood-opacity="0.55" result="final" />
+    </filter>
+
+    <!-- 5. Scorched Singe Edge Filter -->
+    <filter id="charred-edge" x="-15%" y="-15%" width="130%" height="130%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05 0.08" numOctaves="4" seed="88" result="burnNoise" />
+      <feDisplacementMap in="SourceGraphic" in2="burnNoise" scale="5" xChannelSelector="R" yChannelSelector="G" result="burntShape" />
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#E25822" flood-opacity="0.7" result="glow" />
+      <feDropShadow in="glow" dx="0" dy="1" stdDeviation="6" flood-color="#140602" flood-opacity="0.9" result="soot" />
+      <feMerge>
+        <feMergeNode in="soot" />
+        <feMergeNode in="burntShape" />
+      </feMerge>
+    </filter>
+  </defs>
+</svg>

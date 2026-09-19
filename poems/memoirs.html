@@ -4,39 +4,95 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Memoirs — Manuscript</title>
+<meta name="description" content="Memoirs — Poem 07 from Manuscript: a 90s vintage keepsake poetry collection by Tahfim Khan." />
+<meta name="theme-color" content="#FAF0E0" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="../assets/css/main.css" />
 </head>
-<body data-family="D-script" data-canvas="fireflies">
+<body data-family="D-script" data-canvas="scrapbook-sparkle">
 <main class="poem-stage">
+  <canvas class="poem__canvas-layer" id="poemCanvas" aria-hidden="true"></canvas>
   <div class="poem__scene" aria-hidden="true"><img src="../assets/img/svg/scene-cupcake.svg" alt="" /></div>
+
   <article class="poem">
-    <div class="poem-card" data-edge="torn">
+    <div class="poem-card poem-card--scrapbook" data-edge="torn">
+      <!-- 1990s Washi Tape Corner Mounts -->
+      <div class="washi-tape washi-tape--tl" aria-hidden="true"></div>
+      <div class="washi-tape washi-tape--tr" aria-hidden="true"></div>
+
+      <!-- Embossed Die-Cut Cupcake Sticker Badge -->
+      <div class="cupcake-sticker-badge" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 170" width="100%" height="100%">
+          <path d="M 40 90 Q 20 85 24 60 Q 28 40 45 42 Q 48 20 72 18 Q 80 8 95 12 Q 112 10 118 28 Q 138 28 138 52 Q 148 72 130 90 L 122 150 Q 120 158 108 158 L 52 158 Q 40 158 38 150 Z" fill="#FFFDF8" stroke="#D8334A" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M 45 95 L 115 95 L 105 146 L 55 146 Z" fill="#D8334A" opacity="0.9"/>
+          <line x1="62" y1="98" x2="68" y2="143" stroke="#FFF" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+          <line x1="80" y1="98" x2="80" y2="144" stroke="#FFF" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+          <line x1="98" y1="98" x2="92" y2="143" stroke="#FFF" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+          <path d="M 38 90 Q 38 68 58 68 Q 65 52 82 54 Q 98 48 112 60 Q 126 62 124 82 Q 126 92 115 92 L 45 92 Z" fill="#FFF2EB" stroke="#D8334A" stroke-width="1.5"/>
+          <path d="M 60 62 Q 62 44 80 44 Q 98 44 100 62" fill="#FFF2EB" stroke="#D8334A" stroke-width="1.5"/>
+          <circle cx="80" cy="38" r="8" fill="#D8334A"/>
+          <path d="M 80 30 Q 86 22 92 22" stroke="#4A6B3A" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+
       <div class="poem__chapter">№ 07 &nbsp;·&nbsp; Memoirs</div>
-      <h1 class="poem__title poem__title--script">Memoirs</h1>
-      <p class="poem__sub">nurture the soul, find the freedom</p>
+      <h1 class="poem__title poem__title--script" style="transform: rotate(-2deg); color: #D81E34;">Memoirs</h1>
+      <p class="poem__sub" style="color: #A05858; font-family: 'Caveat', cursive; font-size: 1.15rem;">nurture the soul, find the freedom</p>
 
       <div class="poem__body">
-        <p class="stanza verse--script verse--center">Mighty dreams within,<br/>
-        Underneath the memoirs,<br/>
+        <p class="stanza">Mighty dreams within,<br/>
+        Underneath the <span class="pen-underline">memoirs</span>,<br/>
         For a new beginning,<br/>
         For thoughts to release.</p>
 
-        <svg class="stanza-divider" viewBox="0 0 60 8" aria-hidden="true">
-          <path d="M 2 4 Q 15 0 30 4 T 58 4" stroke="#D04848" stroke-width="0.8" fill="none" opacity="0.5"/>
+        <svg class="stanza-divider" viewBox="0 0 60 8" width="60" height="8" style="width: 60px; height: 8px; margin: 1.6rem auto;" aria-hidden="true">
+          <path d="M 2 4 Q 15 0 30 4 T 58 4" stroke="#D8334A" stroke-width="0.8" fill="none" opacity="0.5"/>
         </svg>
 
-        <p class="stanza">In the landscape, over the horizon,<br/>
+        <p class="stanza">In the <span class="pen-underline">landscape</span>, over the horizon,<br/>
         Nurture the soul, find the freedom.</p>
 
-        <span class="poem__sig">tai khan</span>
+        <span class="poem__sig" style="color: #B88C88;">tai khan</span>
+      </div>
+
+      <!-- Pressed Cherry Blossom Petal Keepsake -->
+      <div class="pressed-petal" aria-hidden="true">
+        <svg viewBox="0 0 30 30" fill="#F4B8B8" stroke="#D8334A" stroke-width="0.6">
+          <path d="M 15 2 C 22 8, 28 16, 22 24 C 18 28, 12 28, 8 24 C 2 16, 8 8, 15 2 Z"/>
+        </svg>
       </div>
 
       <nav class="poem__nav">
-        <a class="back" href="../toc.html">← back to the desk</a>
+        <a class="back" href="dissection.html">← dissection</a>
         <a href="starlight.html" data-turn>starlight <span class="arrow">→</span></a>
       </nav>
     </div>
   </article>
+
+  <!-- Mobile Keepsake Dock -->
+  <nav class="keepsake-dock" aria-label="Keepsake Navigation">
+    <a class="dock-btn keepsake-dock__btn" id="dock-prev" href="dissection.html" title="Previous: Dissection" aria-label="Previous poem">
+      <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span class="dock-btn__tooltip">Dissection</span>
+    </a>
+    <a class="dock-btn keepsake-dock__btn dock-btn--desk keepsake-dock__btn--desk" id="dock-desk" href="../toc.html" title="Desk" aria-label="Writing Desk">
+      <span class="dock-seal-mark">№ 07</span>
+      <span class="dock-btn__tooltip">The Desk</span>
+    </a>
+    <a class="dock-btn keepsake-dock__btn" id="dock-next" href="starlight.html" data-turn title="Next: Starlight" aria-label="Next poem">
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <span class="dock-btn__tooltip">Starlight</span>
+    </a>
+    <button class="dock-btn keepsake-dock__btn" id="dock-focus" type="button" title="Candlelight Focus" aria-label="Toggle Candlelight Focus" aria-pressed="false">
+      <svg viewBox="0 0 24 24"><path d="M12 2c-.5 2.5-2 4.5-2 7a4 4 0 0 0 8 0c0-2.5-1.5-4.5-2-7-1 2-3 2-4 0z"/><path d="M7 22h10M9 18h6v4H9z"/></svg>
+      <span class="dock-btn__tooltip">Focus</span>
+    </button>
+    <button class="dock-btn keepsake-dock__btn" id="dock-audio" type="button" title="Soundscape" aria-label="Toggle Soundscape" aria-pressed="false">
+      <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+      <span class="dock-btn__tooltip">Soundscape</span>
+    </button>
+  </nav>
 </main>
 <script src="../assets/js/main.js"></script>
 </body>

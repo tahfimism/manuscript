@@ -4,29 +4,51 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Every Winter: Free Fall — Manuscript</title>
+<meta name="description" content="Every Winter: Free Fall — Poem 12 from Manuscript: a 90s vintage keepsake poetry collection by Tahfim Khan." />
+<meta name="theme-color" content="#1E2D3D" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="../assets/css/main.css" />
 </head>
-<body data-family="B-night" data-canvas="snow">
+<body data-family="B-night" data-canvas="nocturnal-blizzard">
 <main class="poem-stage">
-  <button class="scene-toggle" data-scene="scene-winter-night" data-alt="scene-winter-day" data-family="B-night" data-family-alt="B-day" aria-pressed="false" aria-label="toggle to day">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <canvas class="poem__canvas-layer" id="poemCanvas" aria-hidden="true"></canvas>
+
+  <!-- Moon Medallion Toggle to Sibling Poem 11 (Every Winter) -->
+  <a class="scene-toggle medallion-toggle" href="every-winter.html" aria-label="Toggle to frosted daylight (Every Winter)" title="Every Winter (Day)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
     <span class="scene-toggle__label">night</span>
-  </button>
+  </a>
+
   <div class="poem__scene" aria-hidden="true"><img src="../assets/img/svg/scene-winter-night.svg" alt="" /></div>
+
   <article class="poem">
-    <div class="poem-card" data-edge="torn">
+    <div class="poem-card poem-card--free-fall" data-edge="torn">
+      <!-- Vertical Cascade of Diamond Teardrops Drifting Down the Margin -->
+      <div class="diamond-drops-cascade" aria-hidden="true">
+        <span class="diamond-drop" style="top: 8%; right: 12px; opacity: 0.4;">◇</span>
+        <span class="diamond-drop" style="top: 22%; right: 20px; opacity: 0.65;">◇</span>
+        <span class="diamond-drop" style="top: 36%; right: 10px; opacity: 0.35;">◇</span>
+        <span class="diamond-drop" style="top: 50%; right: 24px; opacity: 0.6;">◇</span>
+        <span class="diamond-drop" style="top: 64%; right: 14px; opacity: 0.45;">◇</span>
+        <span class="diamond-drop" style="top: 76%; right: 22px; opacity: 0.7;">◇</span>
+        <span class="diamond-drop" style="top: 88%; right: 12px; opacity: 0.4;">◇</span>
+      </div>
+
       <div class="poem__chapter">№ 12 &nbsp;·&nbsp; Every Winter · ii</div>
-      <h1 class="poem__title poem__title--strong">Every Winter: Free Fall</h1>
+      <h1 class="poem__title poem__title--strong" style="letter-spacing: 0.2em; text-transform: uppercase; color: #2C6A78;">Every Winter: Free Fall</h1>
       <p class="poem__sub">diamond drops, without a scheme</p>
 
       <div class="poem__body">
-        <p class="stanza verse--display-strong verse--center">Moonless night, tears freely fall,<br/>
+        <p class="stanza dropcap verse--display-strong verse--center">Moonless night, tears freely fall,<br/>
         Stars above, seem distant all.<br/>
         Diamond drops, without a scheme,<br/>
         Fading light, a broken dream.</p>
 
         <svg class="stanza-divider" viewBox="0 0 60 8" aria-hidden="true">
-          <path d="M 2 4 Q 15 0 30 4 T 58 4" stroke="#F4E8C8" stroke-width="0.8" fill="none" opacity="0.5"/>
+          <path d="M 2 4 Q 15 0 30 4 T 58 4" stroke="#2C6A78" stroke-width="0.8" fill="none" opacity="0.5"/>
         </svg>
 
         <p class="stanza">Ashes rise, stories unfold,<br/>
@@ -34,15 +56,39 @@
         So raise the drink, for what we dreamed,<br/>
         Lessons learned, for everything told.</p>
 
-        <span class="poem__sig">tai khan</span>
+        <span class="poem__sig" style="font-family: 'Caveat', cursive; font-size: 1.35rem; color: #2C6A78;">tai khan</span>
       </div>
 
       <nav class="poem__nav">
-        <a class="back" href="../toc.html">← back to the desk</a>
+        <a class="back" href="every-winter.html">← every winter</a>
         <a href="painted-sky.html" data-turn>painted sky <span class="arrow">→</span></a>
       </nav>
     </div>
   </article>
+
+  <!-- Mobile Keepsake Dock -->
+  <nav class="keepsake-dock" aria-label="Keepsake Navigation">
+    <a class="dock-btn keepsake-dock__btn" id="dock-prev" href="every-winter.html" title="Previous: Every Winter" aria-label="Previous poem">
+      <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span class="dock-btn__tooltip">Every Winter</span>
+    </a>
+    <a class="dock-btn keepsake-dock__btn dock-btn--desk keepsake-dock__btn--desk" id="dock-desk" href="../toc.html" title="Desk" aria-label="Writing Desk">
+      <span class="dock-seal-mark">№ 12</span>
+      <span class="dock-btn__tooltip">The Desk</span>
+    </a>
+    <a class="dock-btn keepsake-dock__btn" id="dock-next" href="painted-sky.html" data-turn title="Next: Painted Sky" aria-label="Next poem">
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <span class="dock-btn__tooltip">Painted Sky</span>
+    </a>
+    <button class="dock-btn keepsake-dock__btn" id="dock-focus" type="button" title="Candlelight Focus" aria-label="Toggle Candlelight Focus" aria-pressed="false">
+      <svg viewBox="0 0 24 24"><path d="M12 2c-.5 2.5-2 4.5-2 7a4 4 0 0 0 8 0c0-2.5-1.5-4.5-2-7-1 2-3 2-4 0z"/><path d="M7 22h10M9 18h6v4H9z"/></svg>
+      <span class="dock-btn__tooltip">Focus</span>
+    </button>
+    <button class="dock-btn keepsake-dock__btn" id="dock-audio" type="button" title="Soundscape" aria-label="Toggle Soundscape" aria-pressed="false">
+      <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+      <span class="dock-btn__tooltip">Soundscape</span>
+    </button>
+  </nav>
 </main>
 <script src="../assets/js/main.js"></script>
 </body>

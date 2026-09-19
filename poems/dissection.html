@@ -3,26 +3,109 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Dissection — Manuscript</title>
+<title>№ 06 · Dissection — Manuscript</title>
+<meta name="description" content="Is bravery a scalpel, sharp and cold, dissecting hope, leaving stories old? Dissection by tai_khan." />
+<meta name="theme-color" content="#1A1208" />
+
+<!-- Preconnect to Google Fonts for accelerated font loading -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
 <link rel="stylesheet" href="../assets/css/main.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='24' fill='%23D04848'/%3E%3C/svg%3E" />
 </head>
-<body data-family="C-char" data-canvas="lightning">
+<body data-family="G" data-canvas="razor-shimmer">
+
 <main class="poem-stage">
-  <div class="poem__scene" aria-hidden="true"><img src="../assets/img/svg/scene-incision.svg" alt="" /></div>
+  <!-- Procedural background atmosphere canvas -->
+  <canvas class="poem__canvas-layer" id="poemCanvas" aria-hidden="true"></canvas>
+
+  <!-- Ambient scene illustration -->
+  <div class="poem__scene" aria-hidden="true">
+    <img src="../assets/img/svg/scene-incision.svg" alt="" />
+  </div>
+
   <article class="poem">
-    <div class="poem-card" data-edge="clean">
+    <div class="poem-card" data-edge="razor" style="position: relative; overflow: hidden;">
+      <!-- Metric Ruler Calibrations (Left Margin: 10, 20, 30, 40, 50mm ticks) -->
+      <div style="position: absolute; top: 3.5rem; left: 0.6rem; pointer-events: none; opacity: 0.45; font-family: var(--font-mono); font-size: 6.5px; color: #7A6A5A;" aria-hidden="true">
+        <svg viewBox="0 0 24 160" width="22" height="150" fill="none">
+          <line x1="2" y1="10" x2="16" y2="10" stroke="#7A6A5A" stroke-width="0.8"/>
+          <text x="18" y="12" fill="#7A6A5A">10</text>
+          <line x1="2" y1="20" x2="9" y2="20" stroke="#7A6A5A" stroke-width="0.5"/>
+          <line x1="2" y1="30" x2="9" y2="30" stroke="#7A6A5A" stroke-width="0.5"/>
+          <line x1="2" y1="40" x2="16" y2="40" stroke="#7A6A5A" stroke-width="0.8"/>
+          <text x="18" y="42" fill="#7A6A5A">20</text>
+          <line x1="2" y1="50" x2="9" y2="50" stroke="#7A6A5A" stroke-width="0.5"/>
+          <line x1="2" y1="60" x2="9" y2="60" stroke="#7A6A5A" stroke-width="0.5"/>
+          <line x1="2" y1="70" x2="16" y2="70" stroke="#7A6A5A" stroke-width="0.8"/>
+          <text x="18" y="72" fill="#7A6A5A">30</text>
+          <line x1="2" y1="80" x2="9" y2="80" stroke="#7A6A5A" stroke-width="0.5"/>
+          <line x1="2" y1="90" x2="9" y2="90" stroke="#7A6A5A" stroke-width="0.5"/>
+          <line x1="2" y1="100" x2="16" y2="100" stroke="#7A6A5A" stroke-width="0.8"/>
+          <text x="18" y="102" fill="#7A6A5A">40</text>
+          <line x1="2" y1="110" x2="9" y2="110" stroke="#7A6A5A" stroke-width="0.5"/>
+          <line x1="2" y1="120" x2="9" y2="120" stroke="#7A6A5A" stroke-width="0.5"/>
+          <line x1="2" y1="130" x2="16" y2="130" stroke="#7A6A5A" stroke-width="0.8"/>
+          <text x="18" y="132" fill="#7A6A5A">50</text>
+        </svg>
+      </div>
+
+      <!-- Biological Botanical Line Art (Right Margin Specimen Branch) -->
+      <div style="position: absolute; right: 0.8rem; top: 18%; pointer-events: none; opacity: 0.32;" aria-hidden="true">
+        <svg viewBox="0 0 60 180" width="50" height="150" fill="none">
+          <!-- Main stem with anatomical dissection incisions -->
+          <path d="M 30 10 C 26 50, 36 90, 28 140 S 32 170, 30 180" stroke="#2A2018" stroke-width="0.85" stroke-linecap="round"/>
+          <!-- Leaf dissection vein lines -->
+          <path d="M 28 50 C 14 42, 6 52, 10 65 C 16 66, 26 58, 28 50 Z" stroke="#2A2018" stroke-width="0.75" fill="none"/>
+          <line x1="28" y1="50" x2="14" y2="58" stroke="#D04848" stroke-width="0.6"/>
+          <path d="M 32 90 C 46 82, 54 92, 50 105 C 44 106, 34 98, 32 90 Z" stroke="#2A2018" stroke-width="0.75" fill="none"/>
+          <line x1="32" y1="90" x2="46" y2="98" stroke="#D04848" stroke-width="0.6"/>
+          <!-- Suture cross-stitch marks -->
+          <path d="M 26 128 L 34 134 M 26 134 L 34 128" stroke="#D04848" stroke-width="0.9"/>
+          <path d="M 27 150 L 33 156 M 27 156 L 33 150" stroke="#D04848" stroke-width="0.9"/>
+        </svg>
+      </div>
+
+      <!-- Horizontal Surgical Incision Hairline with Arterial Crimson Subcutaneous Trench -->
+      <div style="position: relative; margin: -0.2rem 0 1rem; width: 100%; height: 16px;" aria-hidden="true">
+        <svg viewBox="0 0 400 16" width="100%" height="16" fill="none" style="display: block;">
+          <!-- Subcutaneous arterial glow -->
+          <line x1="40" y1="8" x2="360" y2="8" stroke="#D04848" stroke-width="2.5" opacity="0.85" stroke-linecap="round"/>
+          <!-- Razor-cut hairline incision -->
+          <line x1="30" y1="8" x2="370" y2="8" stroke="#1A1208" stroke-width="0.8"/>
+          <!-- Surgical steel specular glint -->
+          <line x1="120" y1="7" x2="160" y2="7" stroke="#FFFFFF" stroke-width="0.6" opacity="0.85"/>
+          <!-- Two cross-stitched suture knots -->
+          <g transform="translate(180, 4)">
+            <line x1="-3" y1="0" x2="3" y2="8" stroke="#D04848" stroke-width="1.1"/>
+            <line x1="-3" y1="8" x2="3" y2="0" stroke="#D04848" stroke-width="1.1"/>
+            <circle cx="0" cy="4" r="1" fill="#FFFFFF"/>
+          </g>
+          <g transform="translate(260, 4)">
+            <line x1="-3" y1="0" x2="3" y2="8" stroke="#D04848" stroke-width="1.1"/>
+            <line x1="-3" y1="8" x2="3" y2="0" stroke="#D04848" stroke-width="1.1"/>
+            <circle cx="0" cy="4" r="1" fill="#FFFFFF"/>
+          </g>
+        </svg>
+      </div>
+
       <div class="poem__chapter">№ 06 &nbsp;·&nbsp; Dissection</div>
-      <h1 class="poem__title">Dissection</h1>
-      <p class="poem__sub">precision, not ruin</p>
+      <h1 class="poem__title" style="font-family: var(--font-display); font-weight: 300; font-variation-settings: 'opsz' 144, 'SOFT' 0, 'WONK' 0; letter-spacing: 0.04em; color: #1A1208;">Dissection</h1>
+      <p class="poem__sub" style="font-family: var(--font-mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em; color: #7A6A5A;">precision, not ruin</p>
 
       <div class="poem__body">
-        <p class="stanza verse--mono">Is bravery a scalpel, sharp and cold,<br/>
+        <p class="stanza">Is bravery a scalpel, sharp and cold,<br/>
         Dissecting hope, leaving stories old?<br/>
         Or is it letting go, a cruel delight,<br/>
         To drown in what once burned so bright?</p>
 
-        <svg class="stanza-divider" viewBox="0 0 60 8" aria-hidden="true">
-          <path d="M 2 4 L 58 4" stroke="#F4ECD8" stroke-width="0.8" fill="none" opacity="0.5"/>
+        <!-- Surgical Scalpel Slit Divider with Suture Knot -->
+        <svg class="stanza-divider" viewBox="0 0 100 12" width="80" height="10" style="width: 80px; height: 10px; margin: 1.6rem auto; opacity: 0.8;" aria-hidden="true">
+          <line x1="2" y1="6" x2="98" y2="6" stroke="#D04848" stroke-width="1.1"/>
+          <!-- Central suture tie -->
+          <line x1="47" y1="2" x2="53" y2="10" stroke="#1A1208" stroke-width="1"/>
+          <line x1="47" y1="10" x2="53" y2="2" stroke="#1A1208" stroke-width="1"/>
         </svg>
 
         <p class="stanza">Is bravery a whisper, soft and old,<br/>
@@ -30,10 +113,10 @@
         Or is it embracing the chaos, a bitter ache,<br/>
         To watch you paint a world I couldn't take?</p>
 
-        <p class="stanza verse--pull">Each breath a countdown, every hour a waiting bay.<br/>
+        <p class="stanza verse--pull" style="border-left: 1.5px solid #D04848; padding-left: 1.2rem; text-align: left;">Each breath a countdown, every hour a waiting bay.<br/>
         Is bravery letting go, or holding on in pain?</p>
 
-        <span class="poem__sig">tai khan</span>
+        <span class="poem__sig" style="font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: lowercase; font-style: normal; color: #7A6A5A;">tai khan</span>
       </div>
 
       <nav class="poem__nav">
@@ -43,6 +126,26 @@
     </div>
   </article>
 </main>
+
+<!-- Mobile Keepsake Ergonomic Dock -->
+<nav class="keepsake-dock" aria-label="Keepsake Navigation">
+  <a href="guiding-light.html" id="dock-prev" class="dock-btn" title="Guiding Light" aria-label="Previous: Guiding Light" data-turn>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+  </a>
+  <a href="../toc.html" id="dock-desk" class="dock-btn dock-btn--seal" title="The Desk" aria-label="Return to Writing Desk">
+    <span class="dock-seal-mark">VI</span>
+  </a>
+  <a href="memoirs.html" id="dock-next" class="dock-btn" title="Memoirs" aria-label="Next: Memoirs" data-turn>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+  <button type="button" id="dock-focus" class="dock-btn" title="Candlelight Focus" aria-label="Toggle Candlelight Focus Mode" aria-pressed="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c.5 1.5 1.5 2.5 1.5 4a1.5 1.5 0 0 1-3 0c0-1.5 1-2.5 1.5-4z"/><path d="M9 10h6v11H9z"/><path d="M7 21h10"/></svg>
+  </button>
+  <button type="button" id="dock-audio" class="dock-btn" title="Soundscape" aria-label="Toggle Soundscape Acoustics" aria-pressed="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8v3H8zM6 6h12l2 15H4L6 6zM10 11h4M10 15h4"/></svg>
+  </button>
+</nav>
+
 <script src="../assets/js/main.js"></script>
 </body>
 </html>

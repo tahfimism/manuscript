@@ -4,25 +4,61 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lost Answer: Ghost of Warmth — Manuscript</title>
+<meta name="description" content="Lost Answer: Ghost of Warmth — Poem 09 from Manuscript: a 90s vintage keepsake poetry collection by Tahfim Khan." />
+<meta name="theme-color" content="#DDE8EF" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="../assets/css/main.css" />
 </head>
-<body data-family="E-ghost" data-canvas="smoke">
+<body data-family="D" data-canvas="shoreline-tide">
 <main class="poem-stage">
+  <canvas class="poem__canvas-layer" id="poemCanvas" aria-hidden="true"></canvas>
   <div class="poem__scene" aria-hidden="true"><img src="../assets/img/svg/scene-wine-ghost.svg" alt="" /></div>
+
   <article class="poem">
-    <div class="poem-card" data-edge="torn">
+    <div class="poem-card poem-card--letter" data-edge="torn">
+      <!-- Punctured Red String Eyelet Hole (Top-Right) with Dangling Crimson Silk Thread -->
+      <div class="eyelet-hole eyelet-hole--tr" aria-hidden="true">
+        <div class="eyelet-ring"></div>
+        <div class="red-string red-string--dangling"></div>
+      </div>
+
+      <!-- Fresh Translucent Wine Ring Watermark with 4 Golden Constellation Star Dots -->
+      <div class="wine-ring-watermark wine-ring-watermark--fresh" aria-hidden="true">
+        <svg viewBox="0 0 130 130" width="80" height="80" style="width: 80px; height: 80px;">
+          <defs>
+            <radialGradient id="freshWineRing" cx="50%" cy="50%" r="50%">
+              <stop offset="55%" stop-color="transparent"/>
+              <stop offset="68%" stop-color="#7A1A28" stop-opacity="0.32"/>
+              <stop offset="80%" stop-color="#7A1A28" stop-opacity="0.18"/>
+              <stop offset="98%" stop-color="#7A1A28" stop-opacity="0.04"/>
+            </radialGradient>
+          </defs>
+          <circle cx="65" cy="65" r="54" fill="url(#freshWineRing)"/>
+          <g fill="#C9A24B">
+            <circle cx="56" cy="50" r="1.5"/>
+            <circle cx="74" cy="54" r="1.2"/>
+            <circle cx="62" cy="72" r="1.4"/>
+            <circle cx="78" cy="76" r="1.6"/>
+            <line x1="56" y1="50" x2="74" y2="54" stroke="#C9A24B" stroke-width="0.5" opacity="0.6"/>
+            <line x1="74" y1="54" x2="62" y2="72" stroke="#C9A24B" stroke-width="0.5" opacity="0.6"/>
+            <line x1="62" y1="72" x2="78" y2="76" stroke="#C9A24B" stroke-width="0.5" opacity="0.6"/>
+          </g>
+        </svg>
+      </div>
+
       <div class="poem__chapter">№ 09 &nbsp;·&nbsp; Lost Answer · i</div>
       <h1 class="poem__title">Lost Answer: Ghost of Warmth</h1>
       <p class="poem__sub">I raise the wine to memories that pass</p>
 
       <div class="poem__body">
-        <p class="stanza verse--display-strong verse--center">For the ghost of warmth in a cooling glass,<br/>
+        <p class="stanza">For the ghost of warmth in a cooling glass,<br/>
         I raise the wine to memories that pass.<br/>
         For the ache of absence in a crowded room,<br/>
         I search for ease in the fading bloom.</p>
 
-        <svg class="stanza-divider" viewBox="0 0 60 8" aria-hidden="true">
-          <path d="M 2 4 Q 15 0 30 4 T 58 4" stroke="#5C2A2E" stroke-width="0.8" fill="none" opacity="0.45"/>
+        <svg class="stanza-divider" viewBox="0 0 60 8" width="60" height="8" style="width: 60px; height: 8px; margin: 1.6rem auto;" aria-hidden="true">
+          <path d="M 2 4 Q 15 0 30 4 T 58 4" stroke="#7A1A28" stroke-width="0.8" fill="none" opacity="0.5"/>
         </svg>
 
         <p class="stanza">For the sting of tears beneath a starless sky,<br/>
@@ -33,15 +69,39 @@
         <p class="stanza verse--fade">Did walls rise high, or bridges fall away?<br/>
         The answer is lost, still today</p>
 
-        <span class="poem__sig">tai khan</span>
+        <span class="poem__sig" style="font-family: 'Yellowtail', cursive; font-size: 1.45rem; color: #677279;">tai khan</span>
       </div>
 
       <nav class="poem__nav">
-        <a class="back" href="../toc.html">← back to the desk</a>
+        <a class="back" href="starlight.html">← starlight</a>
         <a href="lost-answer-truth-known.html" data-turn>lost answer: truth known <span class="arrow">→</span></a>
       </nav>
     </div>
   </article>
+
+  <!-- Mobile Keepsake Dock -->
+  <nav class="keepsake-dock" aria-label="Keepsake Navigation">
+    <a class="dock-btn keepsake-dock__btn" id="dock-prev" href="starlight.html" title="Previous: Starlight" aria-label="Previous poem">
+      <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span class="dock-btn__tooltip">Starlight</span>
+    </a>
+    <a class="dock-btn keepsake-dock__btn dock-btn--desk keepsake-dock__btn--desk" id="dock-desk" href="../toc.html" title="Desk" aria-label="Writing Desk">
+      <span class="dock-seal-mark">№ 09</span>
+      <span class="dock-btn__tooltip">The Desk</span>
+    </a>
+    <a class="dock-btn keepsake-dock__btn" id="dock-next" href="lost-answer-truth-known.html" data-turn title="Next: Truth Known" aria-label="Next poem">
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <span class="dock-btn__tooltip">Truth Known</span>
+    </a>
+    <button class="dock-btn keepsake-dock__btn" id="dock-focus" type="button" title="Candlelight Focus" aria-label="Toggle Candlelight Focus" aria-pressed="false">
+      <svg viewBox="0 0 24 24"><path d="M12 2c-.5 2.5-2 4.5-2 7a4 4 0 0 0 8 0c0-2.5-1.5-4.5-2-7-1 2-3 2-4 0z"/><path d="M7 22h10M9 18h6v4H9z"/></svg>
+      <span class="dock-btn__tooltip">Focus</span>
+    </button>
+    <button class="dock-btn keepsake-dock__btn" id="dock-audio" type="button" title="Soundscape" aria-label="Toggle Soundscape" aria-pressed="false">
+      <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+      <span class="dock-btn__tooltip">Soundscape</span>
+    </button>
+  </nav>
 </main>
 <script src="../assets/js/main.js"></script>
 </body>

@@ -3,17 +3,58 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>The Blue Inside Ruin — Manuscript</title>
+<title>№ 23 · The Blue Inside Ruin — Manuscript</title>
+<meta name="description" content="A catalogue of blues, ending on the charred sea. Stop 3 of the Charred Arc by tai_khan." />
+<meta name="theme-color" content="#0A1628" />
+
+<!-- Preconnect to Google Fonts for accelerated font loading -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
 <link rel="stylesheet" href="../assets/css/main.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230A1628'/%3E%3Ccircle cx='50' cy='50' r='24' fill='%233F7BB0'/%3E%3Cellipse cx='50' cy='50' rx='40' ry='12' fill='none' stroke='%23C97A30' stroke-width='1.5'/%3E%3C/svg%3E" />
 </head>
-<body data-family="C-blue" data-canvas="stars">
+<body data-family="C-blue" data-canvas="blue-prism" style="background: linear-gradient(180deg, #0A1628 0%, #152B4D 12%, #1D3557 25%, #102238 38%, #4A6B82 50%, #6BA8C9 62%, #2E4A7D 75%, #1E385C 88%, #050B12 100%);">
+
 <main class="poem-stage">
-  <div class="poem__scene" aria-hidden="true"><img src="../assets/img/svg/scene-blue-inside-ruin.svg" alt="" /></div>
+  <!-- Procedural background atmosphere canvas -->
+  <canvas class="poem__canvas-layer" id="poemCanvas" aria-hidden="true"></canvas>
+
+  <!-- Ambient scene illustration -->
+  <div class="poem__scene" aria-hidden="true">
+    <img src="../assets/img/svg/scene-blue-inside-ruin.svg" alt="" />
+  </div>
+
   <article class="poem">
-    <div class="poem-card" data-edge="torn" style="background: rgba(20, 30, 60, 0.55); border: 1px solid rgba(244,236,216,0.3); backdrop-filter: blur(8px); --ink: #F4ECD8; --ink-faded: #B8C8D8; --hairline: rgba(244,236,216,0.18); box-shadow: 0 20px 50px -20px rgba(0,0,0,0.6), inset 0 0 80px rgba(169,196,214,0.08);">
-      <div class="poem__chapter">№ 23 &nbsp;·&nbsp; The Blue Inside Ruin <span style="color:var(--accent-ink); font-size:0.55rem; letter-spacing:0.18em;">· charred arc · iii</span></div>
-      <h1 class="poem__title">The Blue Inside Ruin</h1>
-      <p class="poem__sub">a catalogue of blues, ending on the charred sea</p>
+    <!-- Frosted Vellum Glassmorphic Card with Stained Glass Shards -->
+    <div class="poem-card blue-ruin-card" data-edge="torn" style="position: relative;">
+      <!-- Cathedral Stained Glass Shard Corner Motifs -->
+      <svg class="stained-glass-shard shard--tl" width="32" height="32" viewBox="0 0 40 40" fill="none" aria-hidden="true" style="position:absolute; top:12px; left:12px; width:32px; height:32px; pointer-events:none;">
+        <path d="M 0 0 L 40 0 L 0 40 Z" fill="#2E4A7D" fill-opacity="0.45"/>
+        <path d="M 0 0 L 25 0 L 0 25 Z" fill="#4361EE" fill-opacity="0.35"/>
+        <line x1="0" y1="40" x2="40" y2="0" stroke="#A9C4D6" stroke-width="1.2" opacity="0.65"/>
+        <line x1="0" y1="25" x2="25" y2="0" stroke="#A9C4D6" stroke-width="0.8" opacity="0.5"/>
+      </svg>
+      <svg class="stained-glass-shard shard--tr" width="32" height="32" viewBox="0 0 40 40" fill="none" aria-hidden="true" style="position:absolute; top:12px; right:12px; width:32px; height:32px; pointer-events:none; transform: scaleX(-1);">
+        <path d="M 0 0 L 40 0 L 0 40 Z" fill="#2E4A7D" fill-opacity="0.45"/>
+        <path d="M 0 0 L 25 0 L 0 25 Z" fill="#4361EE" fill-opacity="0.35"/>
+        <line x1="0" y1="40" x2="40" y2="0" stroke="#A9C4D6" stroke-width="1.2" opacity="0.65"/>
+        <line x1="0" y1="25" x2="25" y2="0" stroke="#A9C4D6" stroke-width="0.8" opacity="0.5"/>
+      </svg>
+      <svg class="stained-glass-shard shard--bl" width="32" height="32" viewBox="0 0 40 40" fill="none" aria-hidden="true" style="position:absolute; bottom:12px; left:12px; width:32px; height:32px; pointer-events:none; transform: scaleY(-1);">
+        <path d="M 0 0 L 40 0 L 0 40 Z" fill="#152B4D" fill-opacity="0.45"/>
+        <path d="M 0 0 L 25 0 L 0 25 Z" fill="#0A1628" fill-opacity="0.35"/>
+        <line x1="0" y1="40" x2="40" y2="0" stroke="#C97A30" stroke-width="1.2" opacity="0.6"/>
+      </svg>
+      <svg class="stained-glass-shard shard--br" width="32" height="32" viewBox="0 0 40 40" fill="none" aria-hidden="true" style="position:absolute; bottom:12px; right:12px; width:32px; height:32px; pointer-events:none; transform: scale(-1, -1);">
+        <path d="M 0 0 L 40 0 L 0 40 Z" fill="#152B4D" fill-opacity="0.45"/>
+        <path d="M 0 0 L 25 0 L 0 25 Z" fill="#0A1628" fill-opacity="0.35"/>
+        <line x1="0" y1="40" x2="40" y2="0" stroke="#C97A30" stroke-width="1.2" opacity="0.6"/>
+      </svg>
+
+      <div class="poem__chapter">№ 23 &nbsp;·&nbsp; The Blue Inside Ruin <span style="color: #C97A30; font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; margin-left: 0.6rem;">· charred arc · iii</span></div>
+      <h1 class="poem__title" style="font-family: var(--font-display-strong); font-style: italic; color: #F4ECD8;">The Blue Inside Ruin</h1>
+      <p class="poem__sub" style="color: #A9C4D6;">a catalogue of blues, ending on the charred sea</p>
 
       <div class="poem__body">
         <p class="stanza">I used to associate you with blue.<br/>
@@ -25,11 +66,14 @@
         Not the one that killed the kind in me<br/>
         that slowly darkened your hands and heart.</p>
 
-        <svg class="stanza-divider" viewBox="0 0 60 8" aria-hidden="true">
-          <path d="M 2 4 Q 15 0 30 4 T 58 4" stroke="#A9C4D6" stroke-width="0.8" fill="none" opacity="0.45"/>
+        <!-- Stained Glass Azure Divider -->
+        <svg class="stanza-divider" width="70" height="10" viewBox="0 0 80 12" style="width: 70px; height: 10px; margin: 1.6rem auto; opacity: 0.65;" aria-hidden="true">
+          <path d="M 2 6 Q 20 1, 40 6 T 78 6" stroke="#A9C4D6" stroke-width="1.0" fill="none"/>
+          <circle cx="40" cy="6" r="2" fill="#6BA8C9"/>
         </svg>
 
-        <p class="stanza verse--display verse--center">Its the blue of deep oceans where light enters softly<br/>
+        <!-- The Blue Catalogue -->
+        <p class="stanza" style="color: #D8ECF8; line-height: 1.85;">Its the blue of deep oceans where light enters softly<br/>
         The glazing blue of evening skies<br/>
         right before the world becomes quiet enough<br/>
         for lonely thoughts to grow louder.<br/>
@@ -46,8 +90,10 @@
         The blue of Earth seen from space,<br/>
         fragile and luminous against endless blackness.</p>
 
-        <svg class="stanza-divider" viewBox="0 0 60 8" aria-hidden="true">
-          <path d="M 2 4 Q 15 0 30 4 T 58 4" stroke="#A9C4D6" stroke-width="0.8" fill="none" opacity="0.45"/>
+        <!-- Stained Glass Azure Divider -->
+        <svg class="stanza-divider" width="70" height="10" viewBox="0 0 80 12" style="width: 70px; height: 10px; margin: 1.6rem auto; opacity: 0.65;" aria-hidden="true">
+          <path d="M 2 6 Q 20 1, 40 6 T 78 6" stroke="#A9C4D6" stroke-width="1.0" fill="none"/>
+          <circle cx="40" cy="6" r="2" fill="#6BA8C9"/>
         </svg>
 
         <p class="stanza">Maybe you carried too much ruin to ever become the charred sea. Maybe I loved a<br/>
@@ -62,18 +108,43 @@
         like someone staring at the sea at night,<br/>
         wanting desperately to deserve its stillness.</p>
 
-        <p class="poem__voice" style="margin-left: 0; border-left: none; font-style: italic; font-size: 1.35rem; margin-top: 2rem;">The blue of charred sea.</p>
+        <!-- Drowned Charred Sea Horizon Line -->
+        <div class="charred-sea-line" aria-hidden="true"></div>
 
-        <span class="poem__sig">tai khan</span>
+        <!-- Climax verse: charred gold -->
+        <p class="poem__voice" style="margin: 1.5rem 0 0; padding: 0; border-left: none; text-align: center; font-family: var(--font-display); font-style: italic; font-size: clamp(1.4rem, 2.5vw, 1.8rem); color: #C97A30; text-shadow: 0 0 16px rgba(201, 122, 48, 0.4);">The blue of charred sea.</p>
+
+        <span class="poem__sig" style="color: #8FBED4;">tai khan</span>
       </div>
 
-      <nav class="poem__nav" style="border-color: rgba(244,236,216,0.2); color: var(--ink-faded);">
-        <a class="back" href="../toc.html">← back to the desk</a>
+      <nav class="poem__nav" style="border-color: rgba(244,236,216,0.25); color: #B8C8D8;">
+        <a class="back" href="between-midnight-and-sleep.html" data-turn><span class="arrow">←</span> between midnight &amp; sleep</a>
+        <a href="../toc.html">the desk</a>
         <a href="end.html" data-turn>end <span class="arrow">→</span></a>
       </nav>
     </div>
   </article>
 </main>
+
+<!-- Mobile Keepsake Ergonomic Dock -->
+<nav class="keepsake-dock" aria-label="Keepsake Navigation">
+  <a href="between-midnight-and-sleep.html" id="dock-prev" class="dock-btn" title="Between Midnight &amp; Sleep" aria-label="Previous: Between Midnight &amp; Sleep" data-turn>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+  </a>
+  <a href="../toc.html" id="dock-desk" class="dock-btn dock-btn--seal" title="The Desk" aria-label="Return to Writing Desk">
+    <span class="dock-seal-mark">XXIII</span>
+  </a>
+  <a href="end.html" id="dock-next" class="dock-btn" title="End" aria-label="Next: End" data-turn>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+  <button type="button" id="dock-focus" class="dock-btn" title="Candlelight Focus" aria-label="Toggle Candlelight Focus Mode" aria-pressed="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c.5 1.5 1.5 2.5 1.5 4a1.5 1.5 0 0 1-3 0c0-1.5 1-2.5 1.5-4z"/><path d="M9 10h6v11H9z"/><path d="M7 21h10"/></svg>
+  </button>
+  <button type="button" id="dock-audio" class="dock-btn" title="Soundscape" aria-label="Toggle Soundscape Acoustics" aria-pressed="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8v3H8zM6 6h12l2 15H4L6 6zM10 11h4M10 15h4"/></svg>
+  </button>
+</nav>
+
 <script src="../assets/js/main.js"></script>
 </body>
 </html>

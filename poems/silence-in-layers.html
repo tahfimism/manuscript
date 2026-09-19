@@ -3,76 +3,135 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Silence, in layers — Manuscript</title>
+<title>№ 19 · Silence, in layers — Manuscript</title>
+<meta name="description" content="Even silence wasn't clean / It came in layers I had seen / But never meant to notice through. A poem by tai_khan." />
+<meta name="theme-color" content="#DCD5D8" />
+
+<!-- Preconnect to Google Fonts for accelerated font loading -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
 <link rel="stylesheet" href="../assets/css/main.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23DCD5D8'/%3E%3Ccircle cx='50' cy='50' r='24' fill='%236A6470' opacity='0.7'/%3E%3C/svg%3E" />
 </head>
-<body data-family="G-layers" data-canvas="fog">
+<body data-family="G" data-canvas="vellum-shimmer">
+
 <main class="poem-stage">
-  <div class="poem__scene" aria-hidden="true"><img src="../assets/img/svg/scene-layered.svg" alt="" /></div>
+  <!-- Procedural background atmosphere canvas -->
+  <canvas class="poem__canvas-layer" id="poemCanvas" aria-hidden="true"></canvas>
+
+  <!-- Ambient scene illustration -->
+  <div class="poem__scene" aria-hidden="true">
+    <img src="../assets/img/svg/scene-layered.svg" alt="" />
+  </div>
+
   <article class="poem">
-    <div class="poem-card" data-edge="torn">
-      <div class="poem__chapter">№ 19 &nbsp;·&nbsp; Silence, in layers</div>
-      <h1 class="poem__title">Silence, in layers</h1>
-      <p class="poem__sub">even silence wasn't clean</p>
-
-      <div class="poem__body">
-        <p class="stanza verse--display verse--center">I tried to hold a single thought,<br/>
-        But it split before it ever caught,<br/>
-        Not loud, not sharp, just slightly wrong<br/>
-        A shift I couldn't hold for long.</p>
-
-        <svg class="stanza-divider" viewBox="0 0 60 8" aria-hidden="true">
-          <path d="M 2 4 Q 15 0 30 4 T 58 4" stroke="#6A6470" stroke-width="0.8" fill="none" opacity="0.5"/>
-        </svg>
-
-        <p class="stanza">A word would start, then lose its place,<br/>
-        A meaning slip without a trace,<br/>
-        As if my mind forgot the rule<br/>
-        Of staying still, of being whole.</p>
-
-        <p class="stanza">Even silence wasn't clean<br/>
-        It came in layers I had seen<br/>
-        But never meant to notice through,<br/>
-        Each one pretending to be true.</p>
-
-        <p class="stanza">I'd look at something simple, plain,<br/>
-        And watch it fracture in my brain,<br/>
-        Not breaking outside, not in view<br/>
-        Just something only I could do.</p>
-
-        <p class="stanza">And worse than noise was when it paused,<br/>
-        That empty space with no clear cause,<br/>
-        Where nothing moved, yet something spun<br/>
-        Behind the sense of being done.</p>
-
-        <p class="stanza">Even time began to blur<br/>
-        Not fast, not slow, just hard to cure,<br/>
-        Like every moment overlapped<br/>
-        And nothing ever stayed intact.</p>
-
-        <p class="stanza">I tried to focus, tried to stay,<br/>
-        But thought kept folding in the way<br/>
-        A loop repeats until it learns<br/>
-        To turn itself into its turns.</p>
-
-        <p class="stanza">And somewhere in that quiet strain,<br/>
-        I stopped distinguishing the pain<br/>
-        From all the things I over-read<br/>
-        Until they both felt in my head.</p>
-
-        <p class="stanza verse--pull verse--center">Not broken. Not exactly lost.<br/>
-        Just everything at once, and crossed.</p>
-
-        <span class="poem__sig">tai khan</span>
+    <!-- 3-Tier Translucent Vellum Stack -->
+    <div class="vellum-stack">
+      <!-- Bottom Layer (Sheet 1): Rotated -2.4deg, blurred ghost text -->
+      <div class="vellum-sheet-bottom" aria-hidden="true">
+        <div style="font-family: var(--font-display); font-size: 1.8rem; color: #6A6470; opacity: 0.4; margin-bottom: 1.5rem;">Silence, in layers</div>
+        <p style="font-family: var(--font-body); font-size: 1rem; line-height: 1.8; color: #5A5460;">I tried to hold a single thought... Not loud, not sharp, just slightly wrong... Even silence wasn't clean, it came in layers I had seen...</p>
       </div>
 
-      <nav class="poem__nav">
-        <a class="back" href="../toc.html">← back to the desk</a>
-        <a href="things-i-learn-to-bury.html" data-turn>things i learn to bury <span class="arrow">→</span></a>
-      </nav>
+      <!-- Middle Layer (Sheet 2): Rotated +1.6deg semi-transparent vellum sheet -->
+      <div class="vellum-sheet-mid" aria-hidden="true"></div>
+
+      <!-- Antique Brass Paperclip pinning the layers together -->
+      <svg class="vellum-paperclip" viewBox="0 0 28 64" fill="none" aria-hidden="true">
+        <path d="M 8 22 V 50 C 8 57, 20 57, 20 50 V 14 C 20 6, 2 6, 2 14 V 46 C 2 51, 14 51, 14 46 V 20" stroke="#B89758" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M 8 22 V 50 C 8 57, 20 57, 20 50 V 14 C 20 6, 2 6, 2 14 V 46 C 2 51, 14 51, 14 46 V 20" stroke="#785828" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+      </svg>
+
+      <!-- Top Layer (Sheet 3): Primary reading card with crisp foreground text -->
+      <div class="poem-card" data-edge="torn">
+        <div class="poem__chapter">№ 19 &nbsp;·&nbsp; Silence, in layers</div>
+        <h1 class="poem__title" style="font-variation-settings: 'opsz' 144, 'SOFT' 80; color: #3A3640;">Silence, in layers</h1>
+        <p class="poem__sub">even silence wasn't clean</p>
+
+        <div class="poem__body stanzas-cascading">
+          <p class="stanza verse--display verse--center" style="color: #3A3640;">I tried to hold a single thought,<br/>
+          But it split before it ever caught,<br/>
+          Not loud, not sharp, just slightly wrong<br/>
+          A shift I couldn't hold for long.</p>
+
+          <!-- Tripled offset stanza divider mimicking double-exposure vision -->
+          <svg class="stanza-divider" viewBox="0 0 80 16" style="width: 72px; height: 14px; margin: 1.6rem auto; opacity: 0.75;" aria-hidden="true">
+            <path d="M 4 5 Q 22 1, 40 5 T 76 5" stroke="#6A6470" stroke-width="0.8" fill="none" opacity="0.35"/>
+            <path d="M 4 8 Q 22 4, 40 8 T 76 8" stroke="#6A6470" stroke-width="1.0" fill="none" opacity="0.65"/>
+            <path d="M 4 11 Q 22 7, 40 11 T 76 11" stroke="#A08868" stroke-width="0.8" fill="none" opacity="0.45"/>
+          </svg>
+
+          <p class="stanza" style="color: #3E3A45;">A word would start, then lose its place,<br/>
+          A meaning slip without a trace,<br/>
+          As if my mind forgot the rule<br/>
+          Of staying still, of being whole.</p>
+
+          <p class="stanza" style="color: #423E49;">Even silence wasn't clean<br/>
+          It came in layers I had seen<br/>
+          But never meant to notice through,<br/>
+          Each one pretending to be true.</p>
+
+          <p class="stanza" style="color: #46424D;">I'd look at something simple, plain,<br/>
+          And watch it fracture in my brain,<br/>
+          Not breaking outside, not in view<br/>
+          Just something only I could do.</p>
+
+          <p class="stanza" style="color: #4B4652;">And worse than noise was when it paused,<br/>
+          That empty space with no clear cause,<br/>
+          Where nothing moved, yet something spun<br/>
+          Behind the sense of being done.</p>
+
+          <p class="stanza" style="color: #504B57;">Even time began to blur<br/>
+          Not fast, not slow, just hard to cure,<br/>
+          Like every moment overlapped<br/>
+          And nothing ever stayed intact.</p>
+
+          <p class="stanza" style="color: #55505C;">I tried to focus, tried to stay,<br/>
+          But thought kept folding in the way<br/>
+          A loop repeats until it learns<br/>
+          To turn itself into its turns.</p>
+
+          <p class="stanza" style="color: #5A5460;">And somewhere in that quiet strain,<br/>
+          I stopped distinguishing the pain<br/>
+          From all the things I over-read<br/>
+          Until they both felt in my head.</p>
+
+          <p class="stanza verse--pull verse--center" style="color: #3A3640;">Not broken. Not exactly lost.<br/>
+          Just everything at once, and crossed.</p>
+
+          <span class="poem__sig" style="color: #6A6470;">tai khan</span>
+        </div>
+
+        <nav class="poem__nav">
+          <a class="back" href="out-of-frame.html" data-turn><span class="arrow">←</span> out of frame</a>
+          <a href="../toc.html">the desk</a>
+          <a href="things-i-learn-to-bury.html" data-turn>things i learn to bury <span class="arrow">→</span></a>
+        </nav>
+      </div>
     </div>
   </article>
 </main>
+
+<!-- Mobile Keepsake Ergonomic Dock -->
+<nav class="keepsake-dock" aria-label="Keepsake Navigation">
+  <a href="out-of-frame.html" id="dock-prev" class="dock-btn" title="Out of frame" aria-label="Previous: Out of frame" data-turn>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+  </a>
+  <a href="../toc.html" id="dock-desk" class="dock-btn dock-btn--seal" title="The Desk" aria-label="Return to Writing Desk">
+    <span class="dock-seal-mark">XIX</span>
+  </a>
+  <a href="things-i-learn-to-bury.html" id="dock-next" class="dock-btn" title="Things I Learn to Bury" aria-label="Next: Things I Learn to Bury" data-turn>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+  <button type="button" id="dock-focus" class="dock-btn" title="Candlelight Focus" aria-label="Toggle Candlelight Focus Mode" aria-pressed="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c.5 1.5 1.5 2.5 1.5 4a1.5 1.5 0 0 1-3 0c0-1.5 1-2.5 1.5-4z"/><path d="M9 10h6v11H9z"/><path d="M7 21h10"/></svg>
+  </button>
+  <button type="button" id="dock-audio" class="dock-btn" title="Soundscape" aria-label="Toggle Soundscape Acoustics" aria-pressed="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8v3H8zM6 6h12l2 15H4L6 6zM10 11h4M10 15h4"/></svg>
+  </button>
+</nav>
+
 <script src="../assets/js/main.js"></script>
 </body>
 </html>

@@ -4,24 +4,113 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Home — Manuscript</title>
+<meta name="description" content="“Footprints in the frosted sand / Rain on a window pane / In letting go, she finds her own home.” — № 14 of Manuscript by TAHFIM KHAN." />
+<meta name="theme-color" content="#5C7884" />
+
+<!-- Google Fonts Preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
 <link rel="stylesheet" href="../assets/css/main.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%235C7884' stroke='%23FFF7E8' stroke-width='2'/%3E%3C/svg%3E" />
+
+<style>
+  /* Poem 14: Hand-Drawn Footprints, Window Pane, & Distant Window Glow */
+  .poem-card--home {
+    position: relative;
+    border-right: 1px solid rgba(92, 120, 132, 0.28);
+    overflow: hidden;
+  }
+  .home-window-pane {
+    position: absolute;
+    top: 8%;
+    right: 22px;
+    bottom: 12%;
+    width: 1px;
+    background: linear-gradient(180deg, transparent 0%, rgba(92, 120, 132, 0.35) 15%, rgba(92, 120, 132, 0.35) 85%, transparent 100%);
+    pointer-events: none;
+    z-index: 2;
+  }
+  .footprint-svg {
+    position: absolute;
+    bottom: 4px;
+    right: 12px;
+    width: 60px;
+    height: 70px;
+    opacity: 0.38;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .home-climax-stanza {
+    font-family: var(--font-body, 'EB Garamond', serif);
+    font-style: italic;
+    font-size: 1.22rem;
+    border-left: 2.5px solid #5C7884;
+    padding-left: 1.1rem;
+    margin: 1.4rem 0;
+    color: var(--ink, #2A3A3E);
+  }
+  .distant-cabin-glow {
+    position: absolute;
+    bottom: 24px;
+    left: 28px;
+    width: 8px;
+    height: 8px;
+    border-radius: 1px;
+    background: #FFD680;
+    box-shadow: 0 0 12px 4px rgba(255, 214, 128, 0.65);
+    opacity: 0.85;
+    pointer-events: none;
+  }
+</style>
 </head>
-<body data-family="B-home" data-canvas="rain">
+<body data-family="B" data-canvas="rain-streaks">
 <main class="poem-stage">
+  <!-- Background procedural canvas layer -->
+  <canvas class="poem__canvas-layer" id="poemCanvas" aria-hidden="true"></canvas>
+
   <div class="poem__scene" aria-hidden="true"><img src="../assets/img/svg/scene-home.svg" alt="" /></div>
+
   <article class="poem">
-    <div class="poem-card" data-edge="torn">
+    <div class="poem-card poem-card--home" data-edge="torn">
+      <!-- Right margin window-pane division line -->
+      <div class="home-window-pane" aria-hidden="true"></div>
+
+      <!-- Solitary warm cabin window light in bottom left margin -->
+      <div class="distant-cabin-glow" title="distant window glow" aria-hidden="true"></div>
+
+      <!-- Hand-drawn footprint impressions walking off bottom-right edge -->
+      <svg class="footprint-svg" width="60" height="70" viewBox="0 0 120 140" fill="none" aria-hidden="true" style="width: 60px; height: auto;">
+        <!-- Pair 1 -->
+        <ellipse cx="70" cy="18" rx="4.5" ry="8" transform="rotate(16 70 18)" fill="#5C7884" opacity="0.35"/>
+        <ellipse cx="68" cy="28" rx="3.5" ry="4" transform="rotate(16 68 28)" fill="#5C7884" opacity="0.35"/>
+        <ellipse cx="86" cy="32" rx="4.5" ry="8" transform="rotate(22 86 32)" fill="#5C7884" opacity="0.4"/>
+        <ellipse cx="83" cy="42" rx="3.5" ry="4" transform="rotate(22 83 42)" fill="#5C7884" opacity="0.4"/>
+
+        <!-- Pair 2 -->
+        <ellipse cx="76" cy="56" rx="4.5" ry="8" transform="rotate(24 76 56)" fill="#5C7884" opacity="0.5"/>
+        <ellipse cx="73" cy="66" rx="3.5" ry="4" transform="rotate(24 73 66)" fill="#5C7884" opacity="0.5"/>
+        <ellipse cx="94" cy="72" rx="4.5" ry="8" transform="rotate(28 94 72)" fill="#5C7884" opacity="0.55"/>
+        <ellipse cx="90" cy="82" rx="3.5" ry="4" transform="rotate(28 90 82)" fill="#5C7884" opacity="0.55"/>
+
+        <!-- Pair 3 (walking off edge) -->
+        <ellipse cx="84" cy="98" rx="5" ry="8.5" transform="rotate(30 84 98)" fill="#5C7884" opacity="0.65"/>
+        <ellipse cx="80" cy="108" rx="3.8" ry="4.2" transform="rotate(30 80 108)" fill="#5C7884" opacity="0.65"/>
+        <ellipse cx="104" cy="116" rx="5" ry="8.5" transform="rotate(34 104 116)" fill="#5C7884" opacity="0.75"/>
+        <ellipse cx="100" cy="126" rx="3.8" ry="4.2" transform="rotate(34 100 126)" fill="#5C7884" opacity="0.75"/>
+      </svg>
+
       <div class="poem__chapter">№ 14 &nbsp;·&nbsp; Home</div>
       <h1 class="poem__title">Home</h1>
       <p class="poem__sub">footprints, and rain on glass</p>
 
       <div class="poem__body">
-        <p class="stanza verse--hand">Footprints in the frosted sand,<br/>
+        <p class="stanza">Footprints in the frosted sand,<br/>
         Whispering secrets I can't withstand.<br/>
         A hollow ring where laughter danced,<br/>
         A melody of memories now entranced.</p>
 
-        <svg class="stanza-divider" viewBox="0 0 60 8" aria-hidden="true">
+        <svg class="stanza-divider" width="60" height="8" viewBox="0 0 60 8" aria-hidden="true">
           <path d="M 2 4 Q 15 0 30 4 T 58 4" stroke="#5C7884" stroke-width="0.8" fill="none" opacity="0.5"/>
         </svg>
 
@@ -35,7 +124,7 @@
         Perhaps the truest cruelty is letting you be,<br/>
         A masterpiece I could never fully see.</p>
 
-        <p class="stanza verse--pull">So let me breathe, and let the river flow,<br/>
+        <p class="stanza verse--pull home-climax-stanza">So let me breathe, and let the river flow,<br/>
         Release the hold, and watch the sky grow.<br/>
         For in this torment, a pleasure I confess,<br/>
         To watch you crumble, utterly possessed.</p>
@@ -49,6 +138,40 @@
       </nav>
     </div>
   </article>
+
+  <!-- Mobile Keepsake Dock -->
+  <nav class="keepsake-dock" aria-label="Keepsake Navigation">
+    <a class="dock-btn dock-btn--prev" id="dock-prev" href="painted-sky.html" aria-label="Previous Poem: Painted Sky" title="Previous Poem">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      <span class="dock-label">prev</span>
+    </a>
+    <a class="dock-btn dock-btn--desk" id="dock-desk" href="../toc.html" aria-label="Return to Writing Desk" title="Writing Desk">
+      <span class="dock-seal" aria-hidden="true">XIV</span>
+      <span class="dock-label">desk</span>
+    </a>
+    <a class="dock-btn dock-btn--next" id="dock-next" href="landscape.html" aria-label="Next Poem: Landscape" title="Next Poem">
+      <span class="dock-label">next</span>
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+    <div class="dock-separator" aria-hidden="true"></div>
+    <button class="dock-btn dock-btn--focus" id="dock-focus" type="button" aria-label="Toggle Candlelight Focus Mode" title="Candlelight Focus">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 2c.5 1.5 2 3 2 4.5a2 2 0 0 1-4 0c0-1.5 1.5-3 2-4.5z" fill="currentColor"/>
+        <path d="M9 11h6v10H9zM7 21h10"/>
+      </svg>
+    </button>
+    <button class="dock-btn dock-btn--audio" id="dock-audio" type="button" aria-label="Toggle Ambient Soundscape" title="Soundscape Ambience">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+      </svg>
+    </button>
+  </nav>
 </main>
 <script src="../assets/js/main.js"></script>
 </body>

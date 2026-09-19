@@ -4,25 +4,58 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lost Answer: Truth Known — Manuscript</title>
+<meta name="description" content="Lost Answer: Truth Known — Poem 10 from Manuscript: a 90s vintage keepsake poetry collection by Tahfim Khan." />
+<meta name="theme-color" content="#D2DFE8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="../assets/css/main.css" />
 </head>
-<body data-family="E-truth" data-canvas="smoke">
+<body data-family="D-ash" data-canvas="ash-drift">
 <main class="poem-stage">
+  <canvas class="poem__canvas-layer" id="poemCanvas" aria-hidden="true"></canvas>
   <div class="poem__scene" aria-hidden="true"><img src="../assets/img/svg/scene-wine-truth.svg" alt="" /></div>
+
   <article class="poem">
-    <div class="poem-card" data-edge="torn">
+    <div class="poem-card poem-card--ash" data-edge="torn">
+      <!-- Sibling Pair Red String Partner Knot (Top-Left) connecting back to Poem 09 -->
+      <div class="eyelet-hole eyelet-hole--tl" aria-hidden="true">
+        <div class="eyelet-ring"></div>
+        <div class="red-string red-string--partner-knot"></div>
+      </div>
+
+      <!-- Dried Ash-Cracked Hollow Wine Ring Watermark with Fine Ash Specks -->
+      <div class="wine-ring-watermark wine-ring-watermark--dried" aria-hidden="true">
+        <svg viewBox="0 0 130 130">
+          <defs>
+            <radialGradient id="driedWineRing" cx="50%" cy="50%" r="50%">
+              <stop offset="55%" stop-color="transparent"/>
+              <stop offset="68%" stop-color="#5C453A" stop-opacity="0.22"/>
+              <stop offset="78%" stop-color="#5C453A" stop-opacity="0.12"/>
+              <stop offset="95%" stop-color="#5C453A" stop-opacity="0.02"/>
+            </radialGradient>
+          </defs>
+          <circle cx="65" cy="65" r="54" fill="url(#driedWineRing)"/>
+          <path d="M 45 40 L 52 55 L 60 52 L 68 64" stroke="#5C453A" stroke-width="0.8" fill="none" opacity="0.45"/>
+          <path d="M 72 70 L 80 82 L 88 80" stroke="#5C453A" stroke-width="0.7" fill="none" opacity="0.4"/>
+          <circle cx="62" cy="46" r="0.8" fill="#4A3B32" opacity="0.6"/>
+          <circle cx="75" cy="62" r="1.1" fill="#4A3B32" opacity="0.5"/>
+          <circle cx="58" cy="74" r="0.7" fill="#4A3B32" opacity="0.7"/>
+          <circle cx="82" cy="50" r="0.9" fill="#4A3B32" opacity="0.5"/>
+        </svg>
+      </div>
+
       <div class="poem__chapter">№ 10 &nbsp;·&nbsp; Lost Answer · ii</div>
       <h1 class="poem__title">Lost Answer: Truth Known</h1>
       <p class="poem__sub">the glass, now empty</p>
 
       <div class="poem__body">
-        <p class="stanza verse--display verse--center">But in the ashes, stories start to rise,<br/>
+        <p class="stanza dropcap verse--display verse--center">But in the ashes, stories start to rise,<br/>
         Of lessons learned beneath the moonless skies.<br/>
         For it's true weight isn't what we hold,<br/>
         But what we cherish, even when it's old.</p>
 
         <svg class="stanza-divider" viewBox="0 0 60 8" aria-hidden="true">
-          <path d="M 2 4 Q 15 0 30 4 T 58 4" stroke="#5C2A2E" stroke-width="0.8" fill="none" opacity="0.45"/>
+          <path d="M 2 4 Q 15 0 30 4 T 58 4" stroke="#5C453A" stroke-width="0.8" fill="none" opacity="0.45"/>
         </svg>
 
         <p class="stanza">For the hollow echo of a whispered name,<br/>
@@ -33,15 +66,39 @@
         <p class="stanza verse--pull verse--center">So let me raise to skies, though tears may fall,<br/>
         To a love that burned, though destined to null.</p>
 
-        <span class="poem__sig">tai khan</span>
+        <span class="poem__sig" style="font-family: 'Caveat', cursive; font-size: 1.3rem; color: #70584B;">tai khan</span>
       </div>
 
       <nav class="poem__nav">
-        <a class="back" href="../toc.html">← back to the desk</a>
+        <a class="back" href="lost-answer-ghost-of-warmth.html">← lost answer: ghost of warmth</a>
         <a href="every-winter.html" data-turn>every winter <span class="arrow">→</span></a>
       </nav>
     </div>
   </article>
+
+  <!-- Mobile Keepsake Dock -->
+  <nav class="keepsake-dock" aria-label="Keepsake Navigation">
+    <a class="dock-btn keepsake-dock__btn" id="dock-prev" href="lost-answer-ghost-of-warmth.html" title="Previous: Ghost of Warmth" aria-label="Previous poem">
+      <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span class="dock-btn__tooltip">Ghost of Warmth</span>
+    </a>
+    <a class="dock-btn keepsake-dock__btn dock-btn--desk keepsake-dock__btn--desk" id="dock-desk" href="../toc.html" title="Desk" aria-label="Writing Desk">
+      <span class="dock-seal-mark">№ 10</span>
+      <span class="dock-btn__tooltip">The Desk</span>
+    </a>
+    <a class="dock-btn keepsake-dock__btn" id="dock-next" href="every-winter.html" data-turn title="Next: Every Winter" aria-label="Next poem">
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <span class="dock-btn__tooltip">Every Winter</span>
+    </a>
+    <button class="dock-btn keepsake-dock__btn" id="dock-focus" type="button" title="Candlelight Focus" aria-label="Toggle Candlelight Focus" aria-pressed="false">
+      <svg viewBox="0 0 24 24"><path d="M12 2c-.5 2.5-2 4.5-2 7a4 4 0 0 0 8 0c0-2.5-1.5-4.5-2-7-1 2-3 2-4 0z"/><path d="M7 22h10M9 18h6v4H9z"/></svg>
+      <span class="dock-btn__tooltip">Focus</span>
+    </button>
+    <button class="dock-btn keepsake-dock__btn" id="dock-audio" type="button" title="Soundscape" aria-label="Toggle Soundscape" aria-pressed="false">
+      <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+      <span class="dock-btn__tooltip">Soundscape</span>
+    </button>
+  </nav>
 </main>
 <script src="../assets/js/main.js"></script>
 </body>
