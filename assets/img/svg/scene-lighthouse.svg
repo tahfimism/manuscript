@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="lhSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#F4D8B0"/>
+      <stop offset="40%" stop-color="#F0B888"/>
+      <stop offset="80%" stop-color="#E89868"/>
+      <stop offset="100%" stop-color="#C8704A"/>
+    </linearGradient>
+    <linearGradient id="lhSea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#A0B8BC"/>
+      <stop offset="60%" stop-color="#7A8E92"/>
+      <stop offset="100%" stop-color="#5C6E72"/>
+    </linearGradient>
+    <radialGradient id="lhBeam" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFE680" stop-opacity="0.7"/>
+      <stop offset="60%" stop-color="#F8B85C" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#F8B85C" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="lhSun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFEFC8"/>
+      <stop offset="100%" stop-color="#F8D08C" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="360" fill="url(#lhSky)"/>
+
+  <!-- Distant clouds -->
+  <ellipse cx="120" cy="100" rx="100" ry="14" fill="#FFFFFF" opacity="0.55"/>
+  <ellipse cx="640" cy="80"  rx="80"  ry="10" fill="#FFFFFF" opacity="0.45"/>
+  <ellipse cx="380" cy="60"  rx="120" ry="8"  fill="#FFFFFF" opacity="0.35"/>
+
+  <!-- Sun glow upper-left -->
+  <circle cx="140" cy="120" r="100" fill="url(#lhSun)"/>
+  <circle cx="140" cy="120" r="34" fill="#FFEFC8" opacity="0.9"/>
+  <circle cx="140" cy="120" r="22" fill="#FFFFFF" opacity="0.85"/>
+
+  <!-- Distant land mass -->
+  <path d="M 0 230 Q 80 200 180 215 Q 280 220 380 205 Q 480 195 580 210 Q 680 215 800 200 L 800 240 L 0 240 Z" fill="#8C5A40" opacity="0.5"/>
+  <path d="M 0 248 Q 100 230 220 240 Q 340 248 460 235 Q 580 225 700 240 Q 760 245 800 240 L 800 270 L 0 270 Z" fill="#6A4030" opacity="0.55"/>
+
+  <!-- Sea band -->
+  <rect x="0" y="250" width="800" height="110" fill="url(#lhSea)"/>
+  <!-- Sea shimmer lines -->
+  <g stroke="#FFFFFF" stroke-width="0.6" fill="none" opacity="0.45" stroke-linecap="round">
+    <path d="M 20 280 Q 80 275 140 282 T 260 280"/>
+    <path d="M 320 285 Q 380 280 440 287 T 560 285"/>
+    <path d="M 620 280 Q 680 275 740 282 T 800 280"/>
+    <path d="M 80 310 Q 140 305 200 312 T 320 310"/>
+    <path d="M 480 305 Q 540 300 600 308 T 720 305"/>
+  </g>
+
+  <!-- Sandy shore strip -->
+  <path d="M 0 270 Q 200 260 400 272 Q 600 280 800 268 L 800 290 L 0 290 Z" fill="#E8C8A0"/>
+
+  <!-- Lighthouse base rock -->
+  <ellipse cx="500" cy="282" rx="60" ry="6" fill="#9A6A4A" opacity="0.7"/>
+
+  <!-- Lighthouse body — much taller, more detail -->
+  <g>
+    <rect x="478" y="100" width="44" height="180" fill="#F8F4EC"/>
+    <rect x="478" y="125" width="44" height="20" fill="#D04848"/>
+    <rect x="478" y="170" width="44" height="20" fill="#D04848"/>
+    <rect x="478" y="215" width="44" height="20" fill="#D04848"/>
+    <rect x="478" y="260" width="44" height="20" fill="#D04848"/>
+    <!-- cap -->
+    <rect x="468" y="86" width="64" height="14" fill="#D04848"/>
+    <!-- light room -->
+    <rect x="482" y="50" width="36" height="36" fill="#F8F4EC" stroke="#D04848" stroke-width="1.1"/>
+    <rect x="488" y="56" width="24" height="24" fill="#FFE680"/>
+    <rect x="492" y="60" width="16" height="16" fill="#FFFFFF" opacity="0.85"/>
+    <!-- dome roof -->
+    <polygon points="478,50 500,28 522,50" fill="#D04848"/>
+    <rect x="498" y="22" width="4" height="8" fill="#3A2A1A"/>
+    <polygon points="500,10 516,16 500,22" fill="#D04848"/>
+    <!-- windows -->
+    <rect x="490" y="148" width="6" height="10" fill="#3A2A1A" opacity="0.7"/>
+    <rect x="504" y="148" width="6" height="10" fill="#3A2A1A" opacity="0.7"/>
+    <rect x="490" y="193" width="6" height="10" fill="#3A2A1A" opacity="0.7"/>
+    <rect x="504" y="193" width="6" height="10" fill="#3A2A1A" opacity="0.7"/>
+    <rect x="490" y="238" width="6" height="10" fill="#3A2A1A" opacity="0.7"/>
+    <rect x="504" y="238" width="6" height="10" fill="#3A2A1A" opacity="0.7"/>
+    <!-- door -->
+    <rect x="494" y="270" width="12" height="10" fill="#3A2A1A"/>
+  </g>
+
+  <!-- Light beam sweep -->
+  <path d="M 500 70 L 720 30 L 740 50 L 500 80 Z" fill="url(#lhBeam)" opacity="0.85"/>
+
+  <!-- Detailed cottage beside lighthouse -->
+  <g transform="translate(610 240)">
+    <!-- shadow on sand -->
+    <ellipse cx="32" cy="56" rx="46" ry="2.5" fill="#1A2030" opacity="0.22"/>
+    <!-- side wing -->
+    <rect x="-6" y="20" width="14" height="34" fill="#A89878" opacity="0.85"/>
+    <polygon points="-9,20 1,8 11,20" fill="#5A2418"/>
+    <rect x="-2" y="30" width="4" height="6" fill="#FFE680"/>
+    <rect x="-2" y="30" width="4" height="6" fill="none" stroke="#3A2A1A" stroke-width="0.4"/>
+    <!-- main body -->
+    <rect x="6" y="8" width="56" height="48" fill="#F8F4EC"/>
+    <!-- siding lines -->
+    <g stroke="#C8B898" stroke-width="0.35" opacity="0.6">
+      <line x1="6" y1="14" x2="62" y2="14"/>
+      <line x1="6" y1="20" x2="62" y2="20"/>
+      <line x1="6" y1="26" x2="62" y2="26"/>
+      <line x1="6" y1="32" x2="62" y2="32"/>
+      <line x1="6" y1="38" x2="62" y2="38"/>
+      <line x1="6" y1="44" x2="62" y2="44"/>
+      <line x1="6" y1="50" x2="62" y2="50"/>
+    </g>
+    <!-- roof -->
+    <polygon points="2,8 34,-18 66,8" fill="#7A2A2A"/>
+    <polygon points="34,-18 66,8 66,4 36,-22" fill="#4A1410" opacity="0.7"/>
+    <g stroke="#3A0A08" stroke-width="0.3" opacity="0.55">
+      <line x1="2" y1="8"  x2="66" y2="8"/>
+      <line x1="6" y1="2"  x2="62" y2="2"/>
+      <line x1="10" y1="-4" x2="58" y2="-4"/>
+      <line x1="14" y1="-10" x2="54" y2="-10"/>
+    </g>
+    <!-- eaves shadow -->
+    <rect x="2" y="8" width="64" height="2" fill="#3A0A08" opacity="0.6"/>
+    <!-- chimney -->
+    <rect x="50" y="-22" width="5" height="12" fill="#5A4A3A"/>
+    <rect x="49" y="-23" width="7" height="2" fill="#3A2A1A"/>
+    <!-- smoke -->
+    <g fill="#FFFFFF" opacity="0.75">
+      <ellipse cx="52.5" cy="-28" rx="2" ry="3"/>
+      <ellipse cx="55" cy="-36" rx="3" ry="3.5" opacity="0.55"/>
+      <ellipse cx="50" cy="-44" rx="3.5" ry="4" opacity="0.4"/>
+    </g>
+    <!-- window left -->
+    <rect x="12" y="20" width="14" height="14" fill="#FFE680"/>
+    <rect x="12" y="20" width="14" height="14" fill="none" stroke="#3A2A1A" stroke-width="0.7"/>
+    <line x1="19" y1="20" x2="19" y2="34" stroke="#3A2A1A" stroke-width="0.5"/>
+    <line x1="12" y1="27" x2="26" y2="27" stroke="#3A2A1A" stroke-width="0.5"/>
+    <rect x="11" y="34" width="16" height="1.5" fill="#3A2A1A"/>
+    <!-- window right -->
+    <rect x="42" y="20" width="14" height="20" fill="#FFE680"/>
+    <rect x="42" y="20" width="14" height="20" fill="none" stroke="#3A2A1A" stroke-width="0.7"/>
+    <line x1="49" y1="20" x2="49" y2="40" stroke="#3A2A1A" stroke-width="0.5"/>
+    <line x1="42" y1="27" x2="56" y2="27" stroke="#3A2A1A" stroke-width="0.5"/>
+    <line x1="42" y1="33" x2="56" y2="33" stroke="#3A2A1A" stroke-width="0.5"/>
+    <rect x="41" y="40" width="16" height="1.5" fill="#3A2A1A"/>
+    <!-- door -->
+    <rect x="28" y="36" width="8" height="20" fill="#5A3A2A"/>
+    <rect x="28" y="36" width="8" height="20" fill="none" stroke="#2A1408" stroke-width="0.5"/>
+    <circle cx="34" cy="48" r="0.6" fill="#FFE680"/>
+    <!-- porch step -->
+    <rect x="26" y="56" width="14" height="2" fill="#3A2A1A"/>
+  </g>
+
+  <!-- Lighthouse reflection in water -->
+  <rect x="478" y="282" width="44" height="20" fill="#D04848" opacity="0.18"/>
+  <rect x="470" y="290" width="60" height="6" fill="#FFE680" opacity="0.18"/>
+
+  <!-- Distant boat -->
+  <g transform="translate(180 290)" opacity="0.7">
+    <path d="M -16 0 L 16 0 L 12 6 L -12 6 Z" fill="#5A4A3A"/>
+    <line x1="0" y1="0" x2="0" y2="-14" stroke="#5A4A3A" stroke-width="0.8"/>
+    <polygon points="0,-14 8,-2 0,-2" fill="#F8F4EC" opacity="0.85"/>
+  </g>
+
+  <!-- Birds -->
+  <g stroke="#3A2A1A" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.6">
+    <path d="M 240 110 Q 246 105 252 110 Q 258 105 264 110"/>
+    <path d="M 320 140 Q 326 135 332 140 Q 338 135 344 140"/>
+    <path d="M 660 200 Q 666 195 672 200 Q 678 195 684 200"/>
+  </g>
+</svg>

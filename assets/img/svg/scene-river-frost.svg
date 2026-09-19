@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="rfSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#A8BCC0"/>
+      <stop offset="50%" stop-color="#D4DCE0"/>
+      <stop offset="100%" stop-color="#E0E6E4"/>
+    </linearGradient>
+    <linearGradient id="rfWater" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7A8E92"/>
+      <stop offset="50%" stop-color="#5C7884"/>
+      <stop offset="100%" stop-color="#3A5660"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="280" fill="url(#rfSky)"/>
+
+  <!-- Frost crystals top-left -->
+  <g stroke="#5C6878" stroke-width="0.8" fill="none" stroke-linecap="round" opacity="0.7">
+    <!-- main spine -->
+    <path d="M 0 0 L 30 30 L 70 25 L 100 50 L 130 35"/>
+    <!-- second spine -->
+    <path d="M 0 0 L 30 -8"/>
+    <!-- branches -->
+    <path d="M 10 12 L 18 24 M 10 12 L 4 24 M 25 24 L 32 36 M 25 24 L 18 36 M 50 28 L 58 38 M 50 28 L 42 38 M 80 36 L 88 48 M 80 36 L 72 48"/>
+    <!-- finer -->
+    <path d="M 35 30 L 40 40 M 65 32 L 70 42 M 95 42 L 100 52"/>
+    <!-- small star flecks -->
+    <g fill="#5C6878" opacity="1">
+      <circle cx="0" cy="0" r="0.8"/>
+      <circle cx="30" cy="30" r="0.8"/>
+      <circle cx="70" cy="25" r="0.8"/>
+      <circle cx="100" cy="50" r="0.8"/>
+    </g>
+  </g>
+
+  <!-- Distant tree silhouettes (cluster) -->
+  <g fill="#3A4A4A" opacity="0.75">
+    <polygon points="180,180 192,150 204,180"/>
+    <polygon points="200,180 212,148 224,180"/>
+    <polygon points="240,180 252,154 264,180"/>
+    <polygon points="280,180 292,140 304,180"/>
+    <polygon points="340,180 356,148 372,180"/>
+    <polygon points="440,180 456,150 472,180"/>
+    <polygon points="480,180 495,140 510,180"/>
+    <polygon points="540,180 556,148 572,180"/>
+    <polygon points="600,180 616,152 632,180"/>
+    <polygon points="660,180 675,142 690,180"/>
+    <polygon points="700,180 715,148 730,180"/>
+  </g>
+
+  <!-- Closer snow-topped ground -->
+  <path d="M 0 200 Q 200 185 400 195 T 800 188 L 800 230 L 0 230 Z" fill="#C8D4D8" opacity="0.85"/>
+
+  <!-- River flowing -->
+  <path d="M 0 240 Q 80 215 160 235 Q 240 255 320 230 Q 400 205 480 230 Q 560 255 640 230 Q 720 215 800 230 L 800 360 L 0 360 Z" fill="url(#rfWater)"/>
+
+  <!-- River highlights (ripples) -->
+  <g stroke="#A8C0C8" stroke-width="1" fill="none" stroke-linecap="round">
+    <path d="M 20 260 Q 80 245 140 258 Q 200 270 280 252 Q 360 235 440 252 Q 520 270 600 252 Q 680 240 740 250"/>
+    <path d="M 40 280 Q 100 265 180 278 Q 260 290 340 275 Q 420 260 500 278 Q 580 290 660 275 Q 740 265 800 275" opacity="0.85"/>
+    <path d="M 60 300 Q 140 285 220 298 Q 300 310 380 295 Q 460 280 540 298 Q 620 310 700 295" opacity="0.75"/>
+    <path d="M 80 320 Q 160 305 240 318 Q 320 330 400 315 Q 480 300 560 318 Q 640 330 720 318" opacity="0.6"/>
+    <path d="M 120 340 Q 200 325 280 338 Q 360 350 440 335 Q 520 320 600 338 Q 680 350 760 338" opacity="0.5"/>
+  </g>
+
+  <!-- Viper coil thread (right side) -->
+  <g stroke="#3A4A4A" stroke-width="0.8" fill="none" opacity="0.55" stroke-linecap="round">
+    <path d="M 700 60 Q 720 70 700 80 Q 680 90 700 100 Q 720 110 700 120 Q 680 130 700 140"/>
+    <!-- head detail -->
+    <circle cx="700" cy="60" r="1.5" fill="#3A4A4A"/>
+    <path d="M 700 56 L 705 52 M 700 56 L 695 52" stroke="#3A4A4A" stroke-width="0.6"/>
+  </g>
+
+  <!-- Vapor wisps rising from water -->
+  <g stroke="#FFFFFF" stroke-width="0.7" fill="none" opacity="0.45" stroke-linecap="round">
+    <path d="M 200 220 Q 195 210 200 200"/>
+    <path d="M 380 215 Q 375 205 380 195"/>
+    <path d="M 540 220 Q 535 210 540 200"/>
+    <path d="M 280 222 Q 275 212 280 202"/>
+    <path d="M 480 218 Q 475 208 480 198"/>
+  </g>
+</svg>

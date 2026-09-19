@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="wtSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#A8C0C8"/>
+      <stop offset="50%" stop-color="#C8D8E0"/>
+      <stop offset="100%" stop-color="#DCE6EA"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="240" fill="url(#wtSky)"/>
+
+  <!-- Distant clouds -->
+  <ellipse cx="200" cy="50" rx="120" ry="8" fill="#FFFFFF" opacity="0.5"/>
+  <ellipse cx="600" cy="80" rx="100" ry="9" fill="#FFFFFF" opacity="0.45"/>
+
+  <!-- Sea -->
+  <rect x="0" y="180" width="800" height="80" fill="#5C7C84" opacity="0.55"/>
+  <path d="M 0 185 Q 200 182 400 188 T 800 184" stroke="#FFFFFF" stroke-width="0.5" fill="none" opacity="0.5"/>
+
+  <!-- Shore -->
+  <rect x="0" y="220" width="800" height="40" fill="#DCD0DC" opacity="0.85"/>
+
+  <!-- Empty wine glass (left) - bone-white, dry -->
+  <g transform="translate(160 90)">
+    <ellipse cx="0" cy="138" rx="20" ry="3" fill="#000000" opacity="0.3"/>
+    <line x1="0" y1="40" x2="0" y2="128" stroke="#F4ECD8" stroke-width="2"/>
+    <ellipse cx="0" cy="132" rx="22" ry="4" fill="#F4ECD8" opacity="0.95"/>
+    <ellipse cx="0" cy="132" rx="22" ry="4" fill="none" stroke="#3A2A1A" stroke-width="0.6"/>
+    <path d="M -36 -22 Q -36 30 0 40 Q 36 30 36 -22 Z" fill="none" stroke="#F4ECD8" stroke-width="2"/>
+    <!-- dried wine ring inside -->
+    <ellipse cx="0" cy="20" rx="22" ry="2" fill="none" stroke="#5A2020" stroke-width="0.8" opacity="0.7"/>
+    <ellipse cx="0" cy="20" rx="18" ry="1.5" fill="none" stroke="#5A2020" stroke-width="0.4" opacity="0.5"/>
+    <ellipse cx="0" cy="-22" rx="36" ry="3" fill="none" stroke="#F4ECD8" stroke-width="1.4"/>
+    <!-- crack in bowl -->
+    <path d="M -36 -10 L -10 14 L 6 18" stroke="#3A2A1A" stroke-width="0.4" fill="none" opacity="0.6"/>
+  </g>
+
+  <!-- Lone figure (right) -->
+  <g transform="translate(640 218)">
+    <ellipse cx="0" cy="6" rx="22" ry="2.5" fill="#5A4860" opacity="0.6"/>
+    <path d="M -14 0 L 14 0 L 18 32 L -18 32 Z" fill="#5A5860"/>
+    <path d="M -6 4 L -4 30 M 6 4 L 4 30" stroke="#3A3640" stroke-width="0.5" opacity="0.7"/>
+    <circle cx="0" cy="-10" r="6" fill="#5A5860"/>
+    <path d="M -7 -10 Q 0 -14 7 -10" stroke="#3A3640" stroke-width="1" fill="none"/>
+  </g>
+
+  <!-- Ash rising from glass (more dramatic, traced upward) -->
+  <g fill="#5A4A3A" opacity="0.65">
+    <circle cx="148" cy="80"  r="0.8"/>
+    <circle cx="160" cy="60"  r="0.7"/>
+    <circle cx="170" cy="40"  r="0.5"/>
+    <circle cx="150" cy="50"  r="0.6"/>
+    <circle cx="180" cy="20"  r="0.5"/>
+    <circle cx="160" cy="20"  r="0.4"/>
+    <circle cx="155" cy="100" r="0.7"/>
+    <circle cx="170" cy="90"  r="0.6"/>
+  </g>
+  <!-- Trail of smoke -->
+  <g stroke="#5A4A3A" stroke-width="0.5" fill="none" opacity="0.4" stroke-linecap="round">
+    <path d="M 160 100 Q 165 80 155 60 Q 145 40 160 20"/>
+  </g>
+
+  <!-- A single torn page flutter (the truth) -->
+  <g transform="translate(420 130)" opacity="0.5">
+    <polygon points="0,0 60,4 56,30 4,28" fill="#F4ECD8" stroke="#3A2A1A" stroke-width="0.5"/>
+    <line x1="6" y1="10" x2="50" y2="12" stroke="#3A2A1A" stroke-width="0.3" opacity="0.5"/>
+    <line x1="6" y1="16" x2="48" y2="18" stroke="#3A2A1A" stroke-width="0.3" opacity="0.5"/>
+    <line x1="6" y1="22" x2="46" y2="24" stroke="#3A2A1A" stroke-width="0.3" opacity="0.5"/>
+  </g>
+
+  <!-- Distant birds -->
+  <g stroke="#3A3640" stroke-width="0.8" fill="none" stroke-linecap="round" opacity="0.55">
+    <path d="M 320 90 Q 326 85 332 90 Q 338 85 344 90"/>
+    <path d="M 460 60 Q 466 55 472 60 Q 478 55 484 60"/>
+  </g>
+</svg>

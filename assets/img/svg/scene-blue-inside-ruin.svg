@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="biBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#0E1A33"/>
+      <stop offset="15%" stop-color="#1A3458"/>
+      <stop offset="32%" stop-color="#3F7BB0"/>
+      <stop offset="48%" stop-color="#6BA8C9"/>
+      <stop offset="62%" stop-color="#8FBED4"/>
+      <stop offset="78%" stop-color="#4E6A82"/>
+      <stop offset="92%" stop-color="#1B2733"/>
+      <stop offset="100%" stop-color="#0A0E14"/>
+    </linearGradient>
+    <radialGradient id="biMoonGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E8F4FA" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#E8F4FA" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="360" fill="url(#biBg)"/>
+
+  <!-- Moon -->
+  <circle cx="160" cy="80" r="80" fill="url(#biMoonGlow)"/>
+  <circle cx="160" cy="80" r="22" fill="#E8F4FA" opacity="0.85"/>
+  <circle cx="155" cy="76" r="3" fill="#A8C0D0" opacity="0.4"/>
+  <circle cx="166" cy="84" r="2" fill="#A8C0D0" opacity="0.4"/>
+
+  <!-- Stars -->
+  <g fill="#E8F4FA">
+    <circle cx="60"  cy="40"  r="1"/><circle cx="100" cy="60"  r="0.7"/>
+    <circle cx="240" cy="40"  r="0.9"/><circle cx="280" cy="70"  r="0.6"/>
+    <circle cx="320" cy="50"  r="0.8"/><circle cx="380" cy="80"  r="0.6"/>
+    <circle cx="440" cy="60"  r="0.9"/><circle cx="500" cy="40"  r="0.7"/>
+    <circle cx="560" cy="80"  r="0.8"/><circle cx="620" cy="50"  r="0.6"/>
+    <circle cx="680" cy="70"  r="0.9"/><circle cx="740" cy="40"  r="0.7"/>
+  </g>
+
+  <!-- Stained-glass kaleidoscope shards (more, varied) -->
+  <g stroke="#A9C4D6" stroke-width="0.8" fill="none">
+    <polygon points="60,30 95,20 100,55 70,60" fill="#A9C4D6" fill-opacity="0.35"/>
+    <polygon points="320,15 355,8 360,42 332,48" fill="#8FBED4" fill-opacity="0.3"/>
+    <polygon points="540,20 580,12 585,45 552,50" fill="#6B8FAE" fill-opacity="0.4"/>
+    <polygon points="700,30 740,22 745,55 712,60" fill="#A9C4D6" fill-opacity="0.32"/>
+    <polygon points="100,80 135,72 140,108 110,112" fill="#6B8FAE" fill-opacity="0.45"/>
+    <polygon points="280,75 315,68 318,103 288,108" fill="#A9C4D6" fill-opacity="0.32"/>
+    <polygon points="460,80 495,72 498,108 470,112" fill="#8FBED4" fill-opacity="0.35"/>
+    <polygon points="640,75 675,68 678,103 648,108" fill="#6B8FAE" fill-opacity="0.4"/>
+  </g>
+
+  <!-- Sea horizon band -->
+  <rect x="0" y="240" width="800" height="120" fill="#0A0E14" opacity="0.7"/>
+  <path d="M 0 244 Q 200 240 400 246 T 800 244" stroke="#A9C4D6" stroke-width="0.7" fill="none" opacity="0.55"/>
+  <path d="M 0 248 Q 200 244 400 250 T 800 248" stroke="#6B8FAE" stroke-width="0.4" fill="none" opacity="0.4"/>
+
+  <!-- Glass shard reflection in sea (largest fragment) -->
+  <g stroke="#A9C4D6" stroke-width="0.7" fill="none" opacity="0.6">
+    <polygon points="380,270 420,260 430,295 390,300" fill="#6B8FAE" fill-opacity="0.3"/>
+    <polygon points="440,290 470,284 472,310 442,314" fill="#A9C4D6" fill-opacity="0.25"/>
+  </g>
+
+  <!-- Faraway single figure silhouette at sea edge (the lost one) -->
+  <g transform="translate(580 240)" fill="#0A0E14" opacity="0.85">
+    <ellipse cx="0" cy="6" rx="14" ry="2"/>
+    <path d="M -6 0 L 6 0 L 8 16 L -8 16 Z"/>
+    <circle cx="0" cy="-4" r="3"/>
+  </g>
+
+  <!-- Subtle stardust motes drifting -->
+  <g fill="#A9C4D6" opacity="0.7">
+    <circle cx="80"  cy="180" r="0.7"/>
+    <circle cx="180" cy="200" r="0.5"/>
+    <circle cx="280" cy="180" r="0.6"/>
+    <circle cx="380" cy="220" r="0.5"/>
+    <circle cx="480" cy="200" r="0.7"/>
+    <circle cx="580" cy="180" r="0.6"/>
+    <circle cx="680" cy="220" r="0.5"/>
+    <circle cx="720" cy="180" r="0.6"/>
+  </g>
+</svg>

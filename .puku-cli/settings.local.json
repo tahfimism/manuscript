@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//g/projects/manuscript/**)",
+      "Bash(done)",
+      "Bash(find . -type d -iname *image* -o -iname *img*)",
+      "Bash(ls *.html)",
+      "Bash(grep -l \"scene-candle\\\\|scene-spring\\\\|scene-figure-shore\" poems/*.html)",
+      "Bash(rm -f scene-figure-shore.svg scene-spring.svg scene-candle.svg)",
+      "Bash(ls scene-*.svg)",
+      "Bash(grep -c \"verse--\" poems/*.html)",
+      "Bash(sort -t: -k2 -n)",
+      "Bash(grep -L \"main.js\" poems/*.html)",
+      "Bash(grep -h \"data-canvas\" poems/*.html index.html)",
+      "Bash(node -c assets/js/main.js)",
+      "Bash(wc -l assets/img/svg/scene-*.svg)",
+      "Bash(grep -h \"scene-\" poems/*.html index.html)",
+      "Bash(grep -ho \"scene-[a-z-]*\\\\.svg\" poems/*.html index.html)",
+      "Bash(grep -l \"scene-winter-day\\\\|scene-winter-night\\\\|scene-home\\\\|scene-lighthouse\" poems/*.html)",
+      "Bash(grep -n \"polygon points.*14,4\\\\|polygon points.*28,20\\\\|polygon points.*36,24\\\\|polygon points.*20,4\\\\|polygon points.*16,4\" assets/img/svg/scene-*.svg)",
+      "Bash(grep -n \"polygon\" assets/img/svg/scene-*.svg)",
+      "Bash(grep -l \"verse--script\" poems/*.html)",
+      "Bash(grep -rn \"color:var\\(--accent\\)\" poems/*.html)",
+      "Bash(grep -rn \"color:var\\(--accent\\)\" poems/*.html index.html toc.html about.html)",
+      "Bash(grep -h \"polygon\" assets/img/svg/scene-*.svg)",
+      "Bash(do grep:*)",
+      "Bash(grep -l \"polygon\" assets/img/svg/scene-*.svg)",
+      "Bash(grep -l 'points=\"\"\"\"0,[0-9].*[0-9],[0-9].*-[0-9]' *.svg)",
+      "Read(//g/projects/manuscript/poems/**)",
+      "Bash(do if:*)",
+      "Bash(then echo:*)",
+      "Bash(fi)"
+    ]
+  }
+}

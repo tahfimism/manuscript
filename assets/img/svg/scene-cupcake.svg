@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="ccBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#FAEDD6"/>
+      <stop offset="100%" stop-color="#F0DCC0"/>
+    </linearGradient>
+    <radialGradient id="ccFrosting" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#F4B8B8"/>
+      <stop offset="60%" stop-color="#D04A52"/>
+      <stop offset="100%" stop-color="#8A1F28"/>
+    </radialGradient>
+    <linearGradient id="ccWrapper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E0BDD8"/>
+      <stop offset="100%" stop-color="#A87898"/>
+    </linearGradient>
+    <radialGradient id="ccCherry" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#F47878"/>
+      <stop offset="60%" stop-color="#C02020"/>
+      <stop offset="100%" stop-color="#6A0E14"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="360" fill="url(#ccBg)"/>
+
+  <!-- Scattered confetti -->
+  <g fill="#D04A52" opacity="0.5">
+    <circle cx="80" cy="60" r="2"/>
+    <circle cx="160" cy="100" r="1.5"/>
+    <circle cx="240" cy="40" r="2"/>
+    <circle cx="580" cy="60" r="1.5"/>
+    <circle cx="660" cy="100" r="2"/>
+    <circle cx="740" cy="50" r="1.5"/>
+  </g>
+  <g fill="#C9A24B" opacity="0.55">
+    <rect x="100" y="80" width="6" height="2" transform="rotate(20 103 81)"/>
+    <rect x="200" y="60" width="6" height="2" transform="rotate(-30 203 61)"/>
+    <rect x="620" y="80" width="6" height="2" transform="rotate(45 623 81)"/>
+    <rect x="700" y="50" width="6" height="2" transform="rotate(-15 703 51)"/>
+  </g>
+
+  <!-- Table surface line -->
+  <path d="M 0 320 L 800 320" stroke="#3A2A1A" stroke-width="0.8" opacity="0.35"/>
+  <ellipse cx="400" cy="324" rx="200" ry="6" fill="#3A2A1A" opacity="0.1"/>
+
+  <!-- Big cupcake center -->
+  <g transform="translate(310 80)">
+    <!-- shadow -->
+    <ellipse cx="90" cy="252" rx="90" ry="6" fill="#3A2A1A" opacity="0.2"/>
+    <!-- wrapper (proper muffin shape: wider at top, narrower at base) -->
+    <path d="M 20 150 L 160 150 L 140 252 L 40 252 Z" fill="url(#ccWrapper)"/>
+    <!-- wrapper ridges (vertical pleats) -->
+    <g stroke="#7A4868" stroke-width="0.7" fill="none" opacity="0.55">
+      <path d="M 50 156 L 56 248"/>
+      <path d="M 70 156 L 74 250"/>
+      <path d="M 90 156 L 90 252"/>
+      <path d="M 110 156 L 106 250"/>
+      <path d="M 130 156 L 124 248"/>
+    </g>
+    <!-- wrapper top rim (where frosting sits) -->
+    <ellipse cx="90" cy="150" rx="70" ry="10" fill="#7A4868"/>
+    <ellipse cx="90" cy="148" rx="70" ry="8" fill="#E0BDD8"/>
+
+    <!-- Frosting drip layer (bottom, overflowing the rim) -->
+    <path d="M 24 148 Q 24 124 50 122 Q 70 108 90 116 Q 110 108 130 122 Q 156 124 156 148 Q 158 158 148 158 L 32 158 Q 22 158 24 148 Z" fill="url(#ccFrosting)"/>
+    <!-- Highlight on frosting drip -->
+    <path d="M 38 130 Q 55 122 72 128" stroke="#F8DCC8" stroke-width="2" fill="none" opacity="0.7"/>
+    <path d="M 110 130 Q 125 124 138 132" stroke="#F8DCC8" stroke-width="1.5" fill="none" opacity="0.5"/>
+
+    <!-- Mid frosting layer (the main swirl base) -->
+    <path d="M 38 124 Q 38 96 70 92 Q 90 78 110 92 Q 142 96 142 124 Q 144 134 134 132 L 46 132 Q 36 134 38 124 Z" fill="url(#ccFrosting)" opacity="0.95"/>
+    <!-- Highlight -->
+    <path d="M 50 108 Q 70 96 90 102" stroke="#F8DCC8" stroke-width="1.8" fill="none" opacity="0.65"/>
+
+    <!-- Top frosting swirl (the dome/peak) -->
+    <path d="M 56 100 Q 56 72 90 68 Q 124 72 124 100 Q 126 112 116 112 L 64 112 Q 54 112 56 100 Z" fill="url(#ccFrosting)"/>
+    <!-- Swirl ridges -->
+    <path d="M 70 78 Q 90 70 110 78" stroke="#F8B0B0" stroke-width="1.2" fill="none" opacity="0.6"/>
+    <path d="M 65 90 Q 90 84 115 90" stroke="#F8B0B0" stroke-width="1.2" fill="none" opacity="0.5"/>
+
+    <!-- Cherry on top -->
+    <ellipse cx="90" cy="50" rx="13" ry="14" fill="url(#ccCherry)"/>
+    <ellipse cx="84" cy="44" rx="3.5" ry="5" fill="#F8B8B8" opacity="0.85"/>
+    <!-- cherry stem -->
+    <path d="M 90 36 Q 100 22 112 18 Q 118 16 114 24" stroke="#5A8A2A" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <!-- cherry leaf -->
+    <path d="M 112 18 Q 122 16 124 26 Q 118 28 112 24 Z" fill="#5A8A2A"/>
+    <path d="M 116 20 Q 120 22 122 26" stroke="#3A6A18" stroke-width="0.6" fill="none" opacity="0.7"/>
+  </g>
+
+  <!-- Small notes/serif marks scattered -->
+  <g fill="#D04A52" opacity="0.6">
+    <path d="M 100 280 q 4 -8 8 0 q 4 8 8 0" fill="none" stroke="#D04A52" stroke-width="1.2"/>
+    <path d="M 600 290 q 4 -8 8 0 q 4 8 8 0" fill="none" stroke="#D04A52" stroke-width="1.2"/>
+  </g>
+</svg>

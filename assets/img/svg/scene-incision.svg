@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="inBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#3A2A22"/>
+      <stop offset="60%" stop-color="#1A1208"/>
+      <stop offset="100%" stop-color="#0A0808"/>
+    </linearGradient>
+    <radialGradient id="inGlow" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#F4ECD8" stop-opacity="0.4"/>
+      <stop offset="60%" stop-color="#D04848" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#D04848" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="360" fill="url(#inBg)"/>
+
+  <!-- Subtle void halo around the cut -->
+  <ellipse cx="400" cy="180" rx="360" ry="80" fill="url(#inGlow)"/>
+
+  <!-- Single bright incision line — exact, surgical -->
+  <line x1="100" y1="180" x2="700" y2="180" stroke="#F4ECD8" stroke-width="1.6" opacity="0.95"/>
+  <!-- Soft halo above -->
+  <line x1="100" y1="178" x2="700" y2="178" stroke="#F4ECD8" stroke-width="0.5" opacity="0.4"/>
+  <line x1="100" y1="182" x2="700" y2="182" stroke="#F4ECD8" stroke-width="0.5" opacity="0.4"/>
+  <!-- Hairline stitch dashes below (suggesting the cut can be reopened) -->
+  <line x1="100" y1="184" x2="700" y2="184" stroke="#D04848" stroke-width="0.4" opacity="0.55" stroke-dasharray="2 4"/>
+  <!-- Tiniest blood-tinted dots -->
+  <g fill="#D04848" opacity="0.4">
+    <circle cx="160" cy="180" r="0.6"/>
+    <circle cx="380" cy="180" r="0.4"/>
+    <circle cx="540" cy="180" r="0.5"/>
+    <circle cx="620" cy="180" r="0.4"/>
+  </g>
+  <!-- Twin shadow lines suggesting depth -->
+  <line x1="100" y1="172" x2="700" y2="172" stroke="#0A0808" stroke-width="0.4" opacity="0.6"/>
+  <line x1="100" y1="188" x2="700" y2="188" stroke="#0A0808" stroke-width="0.4" opacity="0.6"/>
+
+  <!-- Two tiny end caps (the surgical marks) -->
+  <circle cx="100" cy="180" r="3" fill="#F4ECD8" opacity="0.6"/>
+  <circle cx="700" cy="180" r="3" fill="#F4ECD8" opacity="0.6"/>
+  <circle cx="100" cy="180" r="1" fill="#1A1208"/>
+  <circle cx="700" cy="180" r="1" fill="#1A1208"/>
+</svg>

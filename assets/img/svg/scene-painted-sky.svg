@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="psBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#D04848"/>
+      <stop offset="20%" stop-color="#C03A48"/>
+      <stop offset="45%" stop-color="#7A3A4C"/>
+      <stop offset="70%" stop-color="#3A2030"/>
+      <stop offset="100%" stop-color="#0E0814"/>
+    </linearGradient>
+    <radialGradient id="psSun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFEFC8"/>
+      <stop offset="40%" stop-color="#F8B868"/>
+      <stop offset="100%" stop-color="#D04848" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="psMoon" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E8DCC0" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#E8DCC0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="360" fill="url(#psBg)"/>
+
+  <!-- Sun bleeding -->
+  <circle cx="240" cy="140" r="80" fill="url(#psSun)"/>
+  <circle cx="240" cy="140" r="34" fill="#FFEFC8" opacity="0.9"/>
+  <circle cx="240" cy="140" r="22" fill="#FFFAEC" opacity="0.85"/>
+  <!-- horizontal light bleed rays -->
+  <rect x="120" y="138" width="240" height="4" fill="#FFEFC8" opacity="0.45"/>
+  <rect x="140" y="148" width="200" height="3" fill="#F8B868" opacity="0.55"/>
+  <rect x="160" y="158" width="160" height="2" fill="#F8D08C" opacity="0.45"/>
+
+  <!-- Drifting clouds -->
+  <ellipse cx="540" cy="60"  rx="120" ry="10" fill="#F4D0A0" opacity="0.5"/>
+  <ellipse cx="520" cy="80"  rx="160" ry="8"  fill="#F4D0A0" opacity="0.4"/>
+  <ellipse cx="600" cy="100" rx="100" ry="6"  fill="#F4D0A0" opacity="0.35"/>
+
+  <!-- Moon rising right -->
+  <circle cx="640" cy="100" r="60" fill="url(#psMoon)"/>
+  <circle cx="640" cy="100" r="22" fill="#E8DCC0" opacity="0.85"/>
+  <circle cx="635" cy="96" r="20" fill="#0E0814"/>
+
+  <!-- Horizon glow strip -->
+  <path d="M 0 240 Q 200 235 400 240 T 800 238" stroke="#F4D0A0" stroke-width="1" fill="none" opacity="0.5"/>
+
+  <!-- Far ground silhouette -->
+  <path d="M 0 250 L 800 250 L 800 290 L 0 290 Z" fill="#1B1A2E" opacity="0.7"/>
+  <path d="M 0 270 Q 200 263 400 268 Q 600 273 800 268 L 800 360 L 0 360 Z" fill="#0A0814" opacity="0.85"/>
+
+  <!-- Lone tree silhouette -->
+  <g transform="translate(620 250)">
+    <rect x="-2" y="0" width="4" height="40" fill="#0A0814"/>
+    <ellipse cx="0" cy="-5" rx="16" ry="22" fill="#0A0814"/>
+    <path d="M -8 8 Q -16 0 -14 -8" stroke="#0A0814" stroke-width="2" fill="none"/>
+    <path d="M 8 8 Q 16 0 14 -8" stroke="#0A0814" stroke-width="2" fill="none"/>
+  </g>
+
+  <!-- Second smaller tree -->
+  <g transform="translate(680 268)">
+    <rect x="-1.5" y="0" width="3" height="26" fill="#0A0814"/>
+    <ellipse cx="0" cy="-3" rx="10" ry="14" fill="#0A0814"/>
+  </g>
+
+  <!-- Falling embers -->
+  <g fill="#F5B868" opacity="0.85">
+    <circle cx="160" cy="220" r="0.9"/>
+    <circle cx="200" cy="240" r="1.1"/>
+    <circle cx="280" cy="200" r="0.7"/>
+    <circle cx="320" cy="220" r="0.8"/>
+    <circle cx="380" cy="240" r="1"/>
+    <circle cx="440" cy="200" r="0.7"/>
+    <circle cx="500" cy="220" r="0.9"/>
+    <circle cx="560" cy="200" r="0.6"/>
+    <circle cx="220" cy="200" r="1.2"/>
+    <circle cx="420" cy="180" r="0.8"/>
+  </g>
+  <!-- Larger glowing motes -->
+  <g>
+    <circle cx="200" cy="170" r="1.6" fill="#FFE680" opacity="0.95"/>
+    <circle cx="200" cy="170" r="4" fill="#F5B868" opacity="0.3"/>
+    <circle cx="400" cy="190" r="1.4" fill="#FFE680" opacity="0.9"/>
+    <circle cx="400" cy="190" r="3" fill="#F5B868" opacity="0.3"/>
+  </g>
+</svg>

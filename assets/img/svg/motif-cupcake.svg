@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" aria-hidden="true">
+  <!-- Cupcake — flat icon matching reference image -->
+  <g>
+    <!-- shadow -->
+    <ellipse cx="100" cy="200" rx="60" ry="6" fill="#C8A8A8" opacity="0.4"/>
+    <!-- cake base (the cup/wrapper, drawn inverted-trapezoid) -->
+    <path d="M 50 110 L 150 110 L 160 195 L 40 195 Z" fill="#D04A52"/>
+    <!-- cake ridges on the wrapper -->
+    <line x1="70"  y1="120" x2="68"  y2="190" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+    <line x1="90"  y1="120" x2="90"  y2="195" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+    <line x1="110" y1="120" x2="112" y2="190" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+    <line x1="130" y1="120" x2="134" y2="190" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+    <!-- Top edge of wrapper -->
+    <ellipse cx="100" cy="110" rx="50" ry="6" fill="#A0303A"/>
+
+    <!-- Frosting swirl layer 1 (bottom bump) -->
+    <path d="M 50 110 Q 50 95 70 95 Q 80 85 95 90 Q 110 80 130 90 Q 145 88 150 100 Q 152 110 140 115 L 60 115 Q 50 115 50 110 Z" fill="#D04A52"/>
+    <!-- Layer 2 -->
+    <path d="M 60 95 Q 60 78 85 78 Q 100 70 120 78 Q 140 75 140 95 Q 138 105 130 100 L 70 100 Q 60 105 60 95 Z" fill="#D04A52"/>
+    <!-- Layer 3 (top) -->
+    <path d="M 75 80 Q 80 65 100 65 Q 120 65 125 80 Q 122 88 115 85 L 85 85 Q 78 88 75 80 Z" fill="#D04A52"/>
+    <!-- Cherry on top -->
+    <circle cx="100" cy="58" r="10" fill="#D04A52"/>
+    <!-- highlight on cherry -->
+    <ellipse cx="96" cy="54" rx="2" ry="3" fill="#F4B8B8" opacity="0.7"/>
+    <!-- cherry stem -->
+    <path d="M 100 48 Q 102 40 108 38 Q 112 36 110 42" stroke="#3A5A2A" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>

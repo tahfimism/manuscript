@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" aria-hidden="true">
+  <circle cx="40" cy="40" r="28" fill="#F4E8C8"/>
+  <circle cx="48" cy="36" r="26" fill="var(--moon-bg, #1F2D44)"/>
+</svg>

@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="wdSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#B8D4DC"/>
+      <stop offset="50%" stop-color="#D8E8EC"/>
+      <stop offset="100%" stop-color="#EAF2F4"/>
+    </linearGradient>
+    <radialGradient id="wdSun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFAEC"/>
+      <stop offset="100%" stop-color="#F8E8C8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wdRoof" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7A2A1A"/>
+      <stop offset="100%" stop-color="#4A1810"/>
+    </linearGradient>
+    <linearGradient id="wdWall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F8F0DC"/>
+      <stop offset="100%" stop-color="#E0CFB0"/>
+    </linearGradient>
+    <linearGradient id="wdWin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFD680"/>
+      <stop offset="100%" stop-color="#F5B868"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="360" fill="url(#wdSky)"/>
+
+  <!-- Distant clouds -->
+  <ellipse cx="140" cy="60"  rx="100" ry="10" fill="#FFFFFF" opacity="0.65"/>
+  <ellipse cx="540" cy="80"  rx="120" ry="8"  fill="#FFFFFF" opacity="0.55"/>
+  <ellipse cx="380" cy="40"  rx="80"  ry="6"  fill="#FFFFFF" opacity="0.45"/>
+
+  <!-- Pale sun -->
+  <circle cx="640" cy="80" r="80" fill="url(#wdSun)"/>
+  <circle cx="640" cy="80" r="22" fill="#FFFAEC" opacity="0.85"/>
+
+  <!-- Far mountains -->
+  <path d="M 0 220 L 80 170 L 140 200 L 220 165 L 300 195 L 380 175 L 460 200 L 540 170 L 620 195 L 700 175 L 800 200 L 800 250 L 0 250 Z" fill="#A0B4B8" opacity="0.65"/>
+
+  <!-- Snow hill silhouette (back) -->
+  <path d="M 0 250 Q 100 220 200 235 T 400 225 T 600 230 T 800 220 L 800 290 L 0 290 Z" fill="#E8EEEF"/>
+  <!-- Snow hill (front) -->
+  <path d="M 0 285 Q 150 265 320 280 Q 480 290 640 275 Q 740 268 800 275 L 800 360 L 0 360 Z" fill="#FFFFFF"/>
+
+  <!-- Pine tree cluster left -->
+  <g transform="translate(80 200)">
+    <polygon points="0,20 28,80 -28,80" fill="#1F4E5F"/>
+    <polygon points="0,12 22,60 -22,60" fill="#2A6478"/>
+    <polygon points="0,4 16,42 -16,42" fill="#3A7A92"/>
+    <rect x="-3.5" y="80" width="7" height="10" fill="#3A2A1A"/>
+    <path d="M -3 60 Q -16 56 -22 50" stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M 3 42 Q 14 38 18 32" stroke="#FFFFFF" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(140 220) scale(0.7)">
+    <polygon points="0,20 28,80 -28,80" fill="#1F4E5F"/>
+    <polygon points="0,12 22,60 -22,60" fill="#2A6478"/>
+    <rect x="-3.5" y="80" width="7" height="10" fill="#3A2A1A"/>
+  </g>
+  <g transform="translate(40 250) scale(0.55)">
+    <polygon points="0,20 28,80 -28,80" fill="#1F4E5F"/>
+    <polygon points="0,12 22,60 -22,60" fill="#2A6478"/>
+    <rect x="-3.5" y="80" width="7" height="10" fill="#3A2A1A"/>
+  </g>
+
+  <!-- Pine cluster right (taller) -->
+  <g transform="translate(680 180)">
+    <polygon points="0,24 36,100 -36,100" fill="#1F4E5F"/>
+    <polygon points="0,14 28,75 -28,75" fill="#2A6478"/>
+    <polygon points="0,4 20,52 -20,52" fill="#3A7A92"/>
+    <rect x="-4" y="100" width="8" height="12" fill="#3A2A1A"/>
+    <path d="M -4 75 Q -20 70 -28 62" stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M 4 52 Q 18 46 22 38" stroke="#FFFFFF" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(740 220) scale(0.7)">
+    <polygon points="0,20 28,80 -28,80" fill="#1F4E5F"/>
+    <polygon points="0,12 22,60 -22,60" fill="#2A6478"/>
+    <rect x="-3.5" y="80" width="7" height="10" fill="#3A2A1A"/>
+  </g>
+
+  <!-- Center small pines -->
+  <g transform="translate(360 240) scale(0.6)">
+    <polygon points="0,20 28,80 -28,80" fill="#1F4E5F"/>
+    <polygon points="0,12 22,60 -22,60" fill="#2A6478"/>
+    <rect x="-3.5" y="80" width="7" height="10" fill="#3A2A1A"/>
+  </g>
+  <g transform="translate(420 250) scale(0.5)">
+    <polygon points="0,20 28,80 -28,80" fill="#1F4E5F"/>
+    <polygon points="0,12 22,60 -22,60" fill="#2A6478"/>
+    <rect x="-3.5" y="80" width="7" height="10" fill="#3A2A1A"/>
+  </g>
+
+  <!-- Snowman -->
+  <g transform="translate(280 270)">
+    <ellipse cx="0" cy="22" rx="14" ry="3" fill="#A8C0C4" opacity="0.6"/>
+    <circle cx="0" cy="0" r="14" fill="#FFFFFF" stroke="#C8D0D2" stroke-width="0.8"/>
+    <circle cx="0" cy="-16" r="9" fill="#FFFFFF" stroke="#C8D0D2" stroke-width="0.8"/>
+    <rect x="-4" y="-26" width="8" height="4" fill="#1A1A1A"/>
+    <circle cx="-2" cy="-18" r="1" fill="#1A1A1A"/>
+    <circle cx="2" cy="-18" r="1" fill="#1A1A1A"/>
+    <path d="M 0 -16 Q 2 -14 4 -12" stroke="#D04848" stroke-width="1" fill="#D04848"/>
+    <!-- arms -->
+    <line x1="-12" y1="-2" x2="-26" y2="-12" stroke="#5A3A2A" stroke-width="1.4" stroke-linecap="round"/>
+    <line x1="12" y1="-2" x2="26" y2="-12" stroke="#5A3A2A" stroke-width="1.4" stroke-linecap="round"/>
+    <!-- scarf -->
+    <path d="M -10 -8 Q 0 -4 10 -8 L 14 4 L 4 0 Z" fill="#D04848" opacity="0.85"/>
+  </g>
+
+  <!-- Detailed cottage (right) -->
+  <g transform="translate(490 240)">
+    <!-- shadow on snow -->
+    <ellipse cx="32" cy="60" rx="50" ry="3.5" fill="#1A2030" opacity="0.18"/>
+    <!-- side wing (left, behind main) -->
+    <rect x="-6" y="20" width="14" height="38" fill="#A89878" opacity="0.85"/>
+    <polygon points="-9,20 1,8 11,20" fill="#5A2418"/>
+    <rect x="-2" y="32" width="4" height="4" fill="url(#wdWin)"/>
+    <!-- main body wall -->
+    <rect x="6" y="6" width="56" height="52" fill="url(#wdWall)"/>
+    <!-- wall siding (horizontal clapboard lines) -->
+    <g stroke="#A89070" stroke-width="0.35" opacity="0.55">
+      <line x1="6" y1="14" x2="62" y2="14"/>
+      <line x1="6" y1="22" x2="62" y2="22"/>
+      <line x1="6" y1="30" x2="62" y2="30"/>
+      <line x1="6" y1="38" x2="62" y2="38"/>
+      <line x1="6" y1="46" x2="62" y2="46"/>
+      <line x1="6" y1="54" x2="62" y2="54"/>
+    </g>
+    <!-- roof front face (pitched gable) -->
+    <polygon points="2,6 34,-26 66,6" fill="url(#wdRoof)"/>
+    <!-- roof shadow side (depth) -->
+    <polygon points="34,-26 66,6 66,2 36,-30" fill="#2A1408" opacity="0.7"/>
+    <!-- roof shingle lines -->
+    <g stroke="#3A1410" stroke-width="0.3" opacity="0.55">
+      <line x1="2" y1="6"  x2="66" y2="6"/>
+      <line x1="6" y1="0"  x2="62" y2="0"/>
+      <line x1="10" y1="-6" x2="58" y2="-6"/>
+      <line x1="14" y1="-12" x2="54" y2="-12"/>
+      <line x1="18" y1="-18" x2="50" y2="-18"/>
+    </g>
+    <!-- eaves overhang shadow -->
+    <rect x="2" y="6" width="64" height="2" fill="#3A1410" opacity="0.6"/>
+    <!-- chimney -->
+    <rect x="50" y="-30" width="5" height="14" fill="#5A4A3A"/>
+    <rect x="49" y="-31" width="7" height="2" fill="#3A2A1A"/>
+    <!-- chimney smoke (wisp) -->
+    <g fill="#FFFFFF" opacity="0.7">
+      <ellipse cx="52.5" cy="-36" rx="2" ry="3"/>
+      <ellipse cx="55" cy="-44" rx="3" ry="3.5" opacity="0.55"/>
+      <ellipse cx="50" cy="-52" rx="3.5" ry="4" opacity="0.4"/>
+    </g>
+    <!-- window left -->
+    <rect x="12" y="18" width="14" height="14" fill="url(#wdWin)"/>
+    <rect x="12" y="18" width="14" height="14" fill="none" stroke="#3A2A1A" stroke-width="0.7"/>
+    <line x1="19" y1="18" x2="19" y2="32" stroke="#3A2A1A" stroke-width="0.5"/>
+    <line x1="12" y1="25" x2="26" y2="25" stroke="#3A2A1A" stroke-width="0.5"/>
+    <!-- window sill -->
+    <rect x="11" y="32" width="16" height="1.5" fill="#3A2A1A"/>
+    <!-- window right (taller, two-pane) -->
+    <rect x="42" y="18" width="14" height="20" fill="url(#wdWin)"/>
+    <rect x="42" y="18" width="14" height="20" fill="none" stroke="#3A2A1A" stroke-width="0.7"/>
+    <line x1="49" y1="18" x2="49" y2="38" stroke="#3A2A1A" stroke-width="0.5"/>
+    <line x1="42" y1="25" x2="56" y2="25" stroke="#3A2A1A" stroke-width="0.5"/>
+    <line x1="42" y1="32" x2="56" y2="32" stroke="#3A2A1A" stroke-width="0.5"/>
+    <rect x="41" y="38" width="16" height="1.5" fill="#3A2A1A"/>
+    <!-- door -->
+    <rect x="28" y="36" width="8" height="22" fill="#5A3A2A"/>
+    <rect x="28" y="36" width="8" height="22" fill="none" stroke="#2A1408" stroke-width="0.5"/>
+    <circle cx="34" cy="48" r="0.6" fill="#F5B868"/>
+    <!-- porch step -->
+    <rect x="26" y="58" width="14" height="2" fill="#3A2A1A"/>
+    <!-- snow on roof -->
+    <path d="M 4 6 Q 34 -24 64 6 L 64 4 Q 34 -28 4 4 Z" fill="#FFFFFF" opacity="0.85"/>
+    <!-- snow accumulation at base -->
+    <path d="M -8 58 Q 32 62 70 58 L 70 60 L -8 60 Z" fill="#FFFFFF" opacity="0.7"/>
+  </g>
+
+  <!-- Snowflakes scattered -->
+  <g fill="#FFFFFF">
+    <circle cx="60"  cy="40"  r="1.4"/><circle cx="120" cy="80"  r="1.2"/>
+    <circle cx="200" cy="30"  r="1.6"/><circle cx="280" cy="60"  r="1"/>
+    <circle cx="340" cy="100" r="1.4"/><circle cx="420" cy="40"  r="1.2"/>
+    <circle cx="480" cy="80"  r="1"/><circle cx="560" cy="50"  r="1.5"/>
+    <circle cx="640" cy="100" r="1.2"/><circle cx="720" cy="60" r="1.4"/>
+    <circle cx="780" cy="120" r="1"/>
+    <circle cx="100" cy="160" r="1"/><circle cx="260" cy="180" r="1.2"/>
+    <circle cx="380" cy="160" r="1"/><circle cx="500" cy="180" r="1.3"/>
+    <circle cx="620" cy="160" r="1"/><circle cx="740" cy="200" r="1"/>
+  </g>
+</svg>

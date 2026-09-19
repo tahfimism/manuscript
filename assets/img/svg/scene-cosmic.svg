@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+  <defs>
+    <radialGradient id="cSky" cx="55%" cy="35%" r="78%">
+      <stop offset="0%" stop-color="#3A2E58"/>
+      <stop offset="35%" stop-color="#221C3E"/>
+      <stop offset="100%" stop-color="#0A0818"/>
+    </radialGradient>
+    <radialGradient id="cNeb1" cx="35%" cy="40%" r="35%">
+      <stop offset="0%" stop-color="#C9A24B" stop-opacity="0.55"/>
+      <stop offset="60%" stop-color="#8B5A9A" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#0A0818" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cNeb2" cx="75%" cy="55%" r="28%">
+      <stop offset="0%" stop-color="#5A4A8C" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#0A0818" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cPlanet" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#F4D88C"/>
+      <stop offset="60%" stop-color="#C97A30"/>
+      <stop offset="100%" stop-color="#3A1818"/>
+    </radialGradient>
+    <filter id="cBlur"><feGaussianBlur stdDeviation="2"/></filter>
+  </defs>
+
+  <rect width="800" height="360" fill="url(#cSky)"/>
+  <ellipse cx="280" cy="140" rx="320" ry="140" fill="url(#cNeb1)"/>
+  <ellipse cx="600" cy="200" rx="220" ry="120" fill="url(#cNeb2)"/>
+
+  <!-- Distant planet at upper-right -->
+  <g transform="translate(640 70)">
+    <circle r="38" fill="url(#cPlanet)" opacity="0.85"/>
+    <ellipse rx="48" ry="6" fill="none" stroke="#C9A24B" stroke-width="0.6" opacity="0.4" transform="rotate(-18)"/>
+  </g>
+
+  <!-- Milky-way band of stars -->
+  <g fill="#F4ECD8">
+    <circle cx="40"  cy="40"  r="0.7"/><circle cx="80"  cy="20"  r="1.1"/>
+    <circle cx="120" cy="55"  r="0.6"/><circle cx="160" cy="30"  r="0.8"/>
+    <circle cx="200" cy="60"  r="1.2"/><circle cx="240" cy="35"  r="0.6"/>
+    <circle cx="280" cy="65"  r="0.9"/><circle cx="320" cy="20"  r="0.7"/>
+    <circle cx="360" cy="50"  r="1.1"/><circle cx="400" cy="40"  r="0.8"/>
+    <circle cx="440" cy="25"  r="0.5"/><circle cx="480" cy="55"  r="1"/>
+    <circle cx="520" cy="35"  r="0.7"/><circle cx="560" cy="65"  r="0.9"/>
+    <circle cx="600" cy="40"  r="0.6"/><circle cx="700" cy="50"  r="1"/>
+    <circle cx="750" cy="30"  r="0.8"/><circle cx="780" cy="80"  r="0.6"/>
+    <circle cx="60"  cy="110" r="0.5"/><circle cx="160" cy="100" r="0.8"/>
+    <circle cx="260" cy="120" r="0.6"/><circle cx="340" cy="100" r="0.9"/>
+    <circle cx="430" cy="130" r="0.7"/><circle cx="540" cy="100" r="0.6"/>
+    <circle cx="630" cy="120" r="0.8"/><circle cx="740" cy="105" r="0.5"/>
+  </g>
+
+  <!-- 4-point bright sparkles -->
+  <g stroke="#F4ECD8" stroke-width="0.8" fill="none" stroke-linecap="round">
+    <g transform="translate(220 80)"><line x1="0" y1="-10" x2="0" y2="10"/><line x1="-10" y1="0" x2="10" y2="0"/></g>
+    <g transform="translate(540 90)" opacity="0.8"><line x1="0" y1="-8" x2="0" y2="8"/><line x1="-8" y1="0" x2="8" y2="0"/></g>
+    <g transform="translate(720 160)" opacity="0.6"><line x1="0" y1="-6" x2="0" y2="6"/><line x1="-6" y1="0" x2="6" y2="0"/></g>
+    <g transform="translate(110 200)" opacity="0.7"><line x1="0" y1="-7" x2="0" y2="7"/><line x1="-7" y1="0" x2="7" y2="0"/></g>
+  </g>
+
+  <!-- Constellation: a flower-resolving line + tiny stars -->
+  <g fill="none" stroke="#C9A24B" stroke-width="0.7" stroke-linecap="round" opacity="0.75">
+    <path d="M 60 320 L 130 270 L 220 290 L 310 240 L 410 260 L 510 210 L 600 230 L 690 180 L 760 220"/>
+    <!-- petals at the resolved end -->
+    <path d="M 690 180 Q 720 160 715 130" opacity="0.6"/>
+    <path d="M 690 180 Q 730 200 720 230" opacity="0.6"/>
+    <path d="M 600 230 Q 600 200 615 180" opacity="0.6"/>
+    <path d="M 510 210 Q 500 180 515 165" opacity="0.6"/>
+  </g>
+  <g fill="#C9A24B">
+    <circle cx="60"  cy="320" r="1.6"/>
+    <circle cx="130" cy="270" r="1.4"/>
+    <circle cx="220" cy="290" r="1.6"/>
+    <circle cx="310" cy="240" r="1.4"/>
+    <circle cx="410" cy="260" r="1.6"/>
+    <circle cx="510" cy="210" r="1.4"/>
+    <circle cx="600" cy="230" r="1.8"/>
+    <circle cx="690" cy="180" r="2.4"/>
+    <circle cx="760" cy="220" r="1.4"/>
+  </g>
+
+  <!-- Horizon glow -->
+  <rect x="0" y="300" width="800" height="60" fill="url(#cSky)" opacity="0"/>
+  <ellipse cx="400" cy="360" rx="500" ry="40" fill="#C9A24B" opacity="0.05"/>
+  <path d="M 0 340 Q 200 332 400 338 T 800 335" stroke="#C9A24B" stroke-width="0.6" fill="none" opacity="0.35"/>
+</svg>

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="cfBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#F8E8D0"/>
+      <stop offset="100%" stop-color="#E8D0B0"/>
+    </linearGradient>
+    <radialGradient id="cfCoffeeTop" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8A5A30"/>
+      <stop offset="100%" stop-color="#3A2A18"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="360" fill="url(#cfBg)"/>
+
+  <!-- Table line -->
+  <path d="M 0 280 L 800 280" stroke="#3A2A1A" stroke-width="0.8" opacity="0.4"/>
+  <ellipse cx="400" cy="284" rx="280" ry="6" fill="#3A2A1A" opacity="0.08"/>
+
+  <!-- Coffee mug (large, detailed) -->
+  <g transform="translate(340 130)">
+    <!-- shadow -->
+    <ellipse cx="60" cy="178" rx="80" ry="6" fill="#3A2A1A" opacity="0.2"/>
+    <!-- handle -->
+    <path d="M 120 35 Q 156 35 156 70 Q 156 105 120 105" fill="none" stroke="#FFFFFF" stroke-width="11"/>
+    <path d="M 120 35 Q 156 35 156 70 Q 156 105 120 105" fill="none" stroke="#3A2A1A" stroke-width="0.8"/>
+    <path d="M 120 50 Q 144 50 144 70 Q 144 90 120 90" fill="none" stroke="#3A2A1A" stroke-width="0.5" opacity="0.5"/>
+    <!-- body (slight taper) -->
+    <path d="M 0 35 L 120 35 L 116 150 L 4 150 Z" fill="#FFFFFF" stroke="#3A2A1A" stroke-width="1"/>
+    <!-- face/rim -->
+    <ellipse cx="60" cy="35" rx="60" ry="6" fill="url(#cfCoffeeTop)"/>
+    <ellipse cx="60" cy="32" rx="56" ry="4" fill="#5C3A1A"/>
+    <!-- crema highlight -->
+    <ellipse cx="50" cy="32" rx="20" ry="1.5" fill="#A87850" opacity="0.7"/>
+    <!-- steam -->
+    <g stroke="#3A2A1A" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.45">
+      <path d="M 25 18 Q 22 5 28 -10 Q 32 -25 22 -38"/>
+      <path d="M 50 18 Q 53 5 47 -10 Q 43 -25 53 -42"/>
+      <path d="M 75 18 Q 72 5 78 -10 Q 84 -25 74 -42"/>
+      <path d="M 95 18 Q 98 5 92 -10 Q 86 -25 95 -38"/>
+    </g>
+    <!-- heart label on mug -->
+    <g transform="translate(50 90)">
+      <path d="M 0 12 C -8 4 -16 8 -10 18 L 0 28 L 10 18 C 16 8 8 4 0 12 Z" fill="#D04848" opacity="0.85"/>
+      <ellipse cx="-3" cy="14" rx="2" ry="3" fill="#F8B8B8" opacity="0.7"/>
+    </g>
+    <!-- name "you" handwritten -->
+    <g transform="translate(30 110)" font-family="'Yellowtail', cursive" font-size="14" fill="#3A2A1A" opacity="0.7">
+      <text x="0" y="0">you</text>
+    </g>
+  </g>
+
+  <!-- Coffee ring stain (left, fainter) -->
+  <g transform="translate(140 240)" opacity="0.45">
+    <circle cx="0" cy="0" r="32" fill="none" stroke="#5C3A2A" stroke-width="2"/>
+    <circle cx="0" cy="0" r="28" fill="none" stroke="#5C3A2A" stroke-width="0.6" opacity="0.7"/>
+    <circle cx="0" cy="0" r="26" fill="none" stroke="#5C3A2A" stroke-width="0.3" opacity="0.4"/>
+  </g>
+
+  <!-- Another faint ring right -->
+  <g transform="translate(680 250)" opacity="0.3">
+    <circle cx="0" cy="0" r="22" fill="none" stroke="#5C3A2A" stroke-width="1.4"/>
+    <circle cx="0" cy="0" r="18" fill="none" stroke="#5C3A2A" stroke-width="0.5"/>
+  </g>
+
+  <!-- Crack line top-left corner (with branch) -->
+  <g stroke="#3A2A1A" stroke-width="0.9" fill="none" opacity="0.6" stroke-linecap="round">
+    <path d="M 0 0 L 30 24 L 50 18 L 70 36 L 95 30 L 130 48 L 160 42"/>
+  </g>
+
+  <!-- A small spilled coffee drip -->
+  <ellipse cx="240" cy="270" rx="6" ry="4" fill="#5C3A2A" opacity="0.7"/>
+  <ellipse cx="245" cy="272" rx="2" ry="1.5" fill="#5C3A2A" opacity="0.5"/>
+
+  <!-- Subtle paper edge at top right (suggesting torn paper) -->
+  <path d="M 800 30 L 720 30 L 700 36 L 680 30 L 660 38 L 640 30 L 620 36 L 600 30" stroke="#3A2A1A" stroke-width="0.5" fill="none" opacity="0.35"/>
+</svg>

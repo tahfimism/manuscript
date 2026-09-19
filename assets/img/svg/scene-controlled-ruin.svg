@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="crSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#2A1A18"/>
+      <stop offset="40%" stop-color="#1A1010"/>
+      <stop offset="100%" stop-color="#080606"/>
+    </linearGradient>
+    <radialGradient id="crGlow" cx="50%" cy="60%" r="55%">
+      <stop offset="0%" stop-color="#3A1A18" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#0A0808" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="crSea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1A1010"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="360" fill="url(#crSky)"/>
+  <rect width="800" height="360" fill="url(#crGlow)"/>
+
+  <!-- Charred sea still and flat -->
+  <rect x="0" y="240" width="800" height="120" fill="url(#crSea)"/>
+  <path d="M 0 244 Q 200 240 400 246 T 800 244" stroke="#C97A30" stroke-width="1" fill="none" opacity="0.45"/>
+
+  <!-- Surface cracks - pronounced -->
+  <g stroke="#C97A30" stroke-width="0.8" fill="none" opacity="0.7" stroke-linecap="round">
+    <path d="M 40 270 L 90 262 L 140 274 L 200 266 L 260 280"/>
+    <path d="M 540 270 L 600 262 L 660 274 L 720 266 L 780 280"/>
+    <path d="M 80 296 L 160 290 L 240 298 L 320 292"/>
+    <path d="M 480 298 L 560 292 L 640 300 L 720 294"/>
+    <path d="M 120 326 L 200 320 L 280 328"/>
+    <path d="M 520 326 L 600 320 L 680 328"/>
+  </g>
+
+  <!-- Faint horizon line -->
+  <path d="M 0 240 Q 200 235 400 240 T 800 238" stroke="#C97A30" stroke-width="0.6" fill="none" opacity="0.35"/>
+
+  <!-- Two figures (you / I) facing each other -->
+  <g transform="translate(220 240)">
+    <ellipse cx="0" cy="6" rx="36" ry="3" fill="#000000" opacity="0.65"/>
+    <!-- coat -->
+    <path d="M -16 0 L 16 0 L 22 38 L -22 38 Z" fill="#1A0808"/>
+    <path d="M -16 0 L 16 0 L 18 6 L -18 6 Z" fill="#2A1210"/>
+    <!-- head -->
+    <circle cx="0" cy="-10" r="7" fill="#1A0808"/>
+    <!-- shoulders shadow -->
+    <path d="M -10 -2 Q 0 -4 10 -2" stroke="#2A1210" stroke-width="2" fill="none"/>
+    <!-- arm reaching slightly -->
+    <line x1="14" y1="6" x2="26" y2="14" stroke="#1A0808" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(580 240)">
+    <ellipse cx="0" cy="6" rx="36" ry="3" fill="#000000" opacity="0.65"/>
+    <!-- coat -->
+    <path d="M -16 0 L 16 0 L 22 38 L -22 38 Z" fill="#1A0808"/>
+    <path d="M -16 0 L 16 0 L 18 6 L -18 6 Z" fill="#2A1210"/>
+    <!-- head -->
+    <circle cx="0" cy="-10" r="7" fill="#1A0808"/>
+    <!-- arm reaching slightly -->
+    <line x1="-14" y1="6" x2="-26" y2="14" stroke="#1A0808" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Single thin gap between them (the charred sea "between") -->
+  <path d="M 240 240 L 580 240" stroke="#C97A30" stroke-width="0.4" fill="none" opacity="0.3"/>
+
+  <!-- Floating embers between figures -->
+  <g fill="#F8B85C" opacity="0.85">
+    <circle cx="320" cy="180" r="0.9"/>
+    <circle cx="360" cy="140" r="1.2"/>
+    <circle cx="400" cy="100" r="1"/>
+    <circle cx="440" cy="140" r="1.1"/>
+    <circle cx="480" cy="180" r="0.9"/>
+    <circle cx="340" cy="200" r="0.8"/>
+    <circle cx="460" cy="200" r="0.8"/>
+  </g>
+  <g>
+    <circle cx="400" cy="120" r="2" fill="#FFE680" opacity="0.95"/>
+    <circle cx="400" cy="120" r="6" fill="#F8B85C" opacity="0.3"/>
+    <circle cx="350" cy="160" r="1.6" fill="#FFE680" opacity="0.85"/>
+    <circle cx="450" cy="160" r="1.6" fill="#FFE680" opacity="0.85"/>
+  </g>
+
+  <!-- Smoke wisps -->
+  <g fill="#1A1010" opacity="0.5">
+    <ellipse cx="380" cy="60" rx="20" ry="6"/>
+    <ellipse cx="420" cy="40" rx="16" ry="5"/>
+    <ellipse cx="400" cy="20" rx="14" ry="4"/>
+  </g>
+</svg>

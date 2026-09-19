@@ -1,0 +1,247 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="wnSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#0E1424"/>
+      <stop offset="50%" stop-color="#1F2A38"/>
+      <stop offset="100%" stop-color="#2A3548"/>
+    </linearGradient>
+    <radialGradient id="wnMoonGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F4ECD8" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#F4ECD8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wnRoof" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3A1410"/>
+      <stop offset="100%" stop-color="#1A0808"/>
+    </linearGradient>
+    <linearGradient id="wnWall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C8B898"/>
+      <stop offset="100%" stop-color="#9A8A6A"/>
+    </linearGradient>
+    <linearGradient id="wnWin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFE680"/>
+      <stop offset="60%" stop-color="#F8B85C"/>
+      <stop offset="100%" stop-color="#D08838"/>
+    </linearGradient>
+    <radialGradient id="wnWinGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F8B85C" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#F8B85C" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="360" fill="url(#wnSky)"/>
+
+  <!-- Stars (dense) -->
+  <g fill="#E8DCC0">
+    <circle cx="40"  cy="20"  r="1.1"/><circle cx="80"  cy="50"  r="0.6"/>
+    <circle cx="120" cy="30"  r="0.9"/><circle cx="160" cy="60"  r="0.7"/>
+    <circle cx="200" cy="20"  r="1.2"/><circle cx="240" cy="50"  r="0.5"/>
+    <circle cx="280" cy="80"  r="0.8"/><circle cx="320" cy="30"  r="0.9"/>
+    <circle cx="360" cy="60"  r="0.6"/><circle cx="400" cy="40"  r="0.8"/>
+    <circle cx="440" cy="70"  r="1"/><circle cx="480" cy="30" r="0.7"/>
+    <circle cx="520" cy="60"  r="0.9"/><circle cx="560" cy="20"  r="0.6"/>
+    <circle cx="600" cy="80"  r="1.1"/><circle cx="640" cy="40" r="0.7"/>
+    <circle cx="680" cy="60"  r="0.9"/><circle cx="720" cy="30" r="0.6"/>
+    <circle cx="760" cy="80"  r="0.8"/>
+    <circle cx="60"  cy="120" r="0.5"/><circle cx="180" cy="120" r="0.7"/>
+    <circle cx="300" cy="140" r="0.5"/><circle cx="420" cy="120" r="0.6"/>
+    <circle cx="540" cy="140" r="0.8"/><circle cx="660" cy="120" r="0.5"/>
+    <circle cx="780" cy="160" r="0.7"/>
+  </g>
+  <!-- Bright sparkles -->
+  <g stroke="#F4ECD8" stroke-width="0.7" fill="none" stroke-linecap="round">
+    <g transform="translate(160 100)"><line x1="0" y1="-9" x2="0" y2="9"/><line x1="-9" y1="0" x2="9" y2="0"/></g>
+    <g transform="translate(440 110)" opacity="0.8"><line x1="0" y1="-7" x2="0" y2="7"/><line x1="-7" y1="0" x2="7" y2="0"/></g>
+    <g transform="translate(660 90)"><line x1="0" y1="-10" x2="0" y2="10"/><line x1="-10" y1="0" x2="10" y2="0"/></g>
+  </g>
+
+  <!-- Moon -->
+  <circle cx="640" cy="100" r="60" fill="url(#wnMoonGlow)"/>
+  <g transform="translate(640 100)">
+    <circle r="22" fill="#F4ECD8"/>
+    <circle cx="-7" cy="-3" r="20" fill="#1F2A38"/>
+    <circle cx="-2" cy="6" r="1.5" fill="#A8A89C" opacity="0.4"/>
+    <circle cx="6" cy="-6" r="1" fill="#A8A89C" opacity="0.4"/>
+  </g>
+
+  <!-- Distant mountains -->
+  <path d="M 0 230 L 80 195 L 160 215 L 240 185 L 320 210 L 400 195 L 480 215 L 560 195 L 640 215 L 720 200 L 800 220 L 800 250 L 0 250 Z" fill="#2A3548" opacity="0.8"/>
+
+  <!-- Snow hill (back) -->
+  <path d="M 0 250 Q 100 225 200 235 T 400 230 T 600 235 T 800 230 L 800 280 L 0 280 Z" fill="#5A6E78" opacity="0.85"/>
+  <!-- Snow hill (front, brighter) -->
+  <path d="M 0 280 Q 150 260 320 275 Q 480 285 640 270 Q 740 263 800 270 L 800 360 L 0 360 Z" fill="#A0B4B8"/>
+  <path d="M 0 300 Q 200 285 400 295 Q 600 305 800 290 L 800 360 L 0 360 Z" fill="#D8E4E8" opacity="0.7"/>
+
+  <!-- Window glows on snow (warm light pools) -->
+  <ellipse cx="200" cy="282" rx="38" ry="6" fill="url(#wnWinGlow)"/>
+  <ellipse cx="290" cy="282" rx="28" ry="5" fill="url(#wnWinGlow)"/>
+  <ellipse cx="360" cy="282" rx="20" ry="4" fill="url(#wnWinGlow)"/>
+
+  <!-- Detailed cottage cluster (3 houses) -->
+  <!-- House 1 (left, main) -->
+  <g transform="translate(160 246)">
+    <!-- shadow -->
+    <ellipse cx="22" cy="44" rx="40" ry="2.5" fill="#0A1018" opacity="0.35"/>
+    <!-- side wing -->
+    <rect x="-6" y="12" width="10" height="30" fill="#8A7A5A"/>
+    <polygon points="-9,12 6,2 14,12" fill="#2A1408"/>
+    <!-- main body -->
+    <rect x="4" y="0" width="44" height="42" fill="url(#wnWall)"/>
+    <!-- siding lines -->
+    <g stroke="#5A4838" stroke-width="0.3" opacity="0.5">
+      <line x1="4" y1="6" x2="48" y2="6"/>
+      <line x1="4" y1="12" x2="48" y2="12"/>
+      <line x1="4" y1="18" x2="48" y2="18"/>
+      <line x1="4" y1="24" x2="48" y2="24"/>
+      <line x1="4" y1="30" x2="48" y2="30"/>
+      <line x1="4" y1="36" x2="48" y2="36"/>
+    </g>
+    <!-- roof front face -->
+    <polygon points="0,0 26,-22 52,0" fill="url(#wnRoof)"/>
+    <!-- roof shadow side (depth) -->
+    <polygon points="26,-22 52,0 52,-3 28,-26" fill="#0A0408" opacity="0.7"/>
+    <!-- shingle lines -->
+    <g stroke="#1A0808" stroke-width="0.25" opacity="0.6">
+      <line x1="0" y1="0" x2="52" y2="0"/>
+      <line x1="4" y1="-4" x2="48" y2="-4"/>
+      <line x1="8" y1="-8" x2="44" y2="-8"/>
+      <line x1="12" y1="-12" x2="40" y2="-12"/>
+      <line x1="16" y1="-16" x2="36" y2="-16"/>
+    </g>
+    <!-- chimney -->
+    <rect x="38" y="-26" width="4" height="10" fill="#3A2A1A"/>
+    <rect x="37" y="-27" width="6" height="2" fill="#1A0808"/>
+    <!-- smoke wisp -->
+    <g fill="#A8B0B8" opacity="0.65">
+      <ellipse cx="40" cy="-32" rx="1.5" ry="2"/>
+      <ellipse cx="42" cy="-38" rx="2" ry="2.5" opacity="0.5"/>
+      <ellipse cx="38" cy="-44" rx="2.5" ry="3" opacity="0.35"/>
+    </g>
+    <!-- window with warm glow -->
+    <rect x="10" y="10" width="10" height="12" fill="url(#wnWin)"/>
+    <rect x="10" y="10" width="10" height="12" fill="none" stroke="#1A0808" stroke-width="0.6"/>
+    <line x1="15" y1="10" x2="15" y2="22" stroke="#1A0808" stroke-width="0.4"/>
+    <line x1="10" y1="16" x2="20" y2="16" stroke="#1A0808" stroke-width="0.4"/>
+    <rect x="9" y="22" width="12" height="1.2" fill="#1A0808"/>
+    <!-- window right (taller) -->
+    <rect x="30" y="10" width="10" height="16" fill="url(#wnWin)"/>
+    <rect x="30" y="10" width="10" height="16" fill="none" stroke="#1A0808" stroke-width="0.6"/>
+    <line x1="35" y1="10" x2="35" y2="26" stroke="#1A0808" stroke-width="0.4"/>
+    <line x1="30" y1="15" x2="40" y2="15" stroke="#1A0808" stroke-width="0.4"/>
+    <line x1="30" y1="20" x2="40" y2="20" stroke="#1A0808" stroke-width="0.4"/>
+    <rect x="29" y="26" width="12" height="1.2" fill="#1A0808"/>
+    <!-- door -->
+    <rect x="20" y="26" width="6" height="16" fill="#3A1408"/>
+    <circle cx="24.5" cy="35" r="0.5" fill="#F8B85C"/>
+    <!-- snow on roof -->
+    <path d="M 2 0 Q 26 -20 50 0 L 50 -2 Q 26 -24 2 -2 Z" fill="#FFFFFF" opacity="0.7"/>
+    <!-- snow at base -->
+    <path d="M -8 42 Q 24 46 56 42 L 56 44 L -8 44 Z" fill="#FFFFFF" opacity="0.6"/>
+  </g>
+
+  <!-- House 2 (middle, smaller) -->
+  <g transform="translate(268 256) scale(0.85)">
+    <ellipse cx="20" cy="42" rx="34" ry="2" fill="#0A1018" opacity="0.35"/>
+    <rect x="-4" y="10" width="8" height="28" fill="#8A7A5A"/>
+    <polygon points="-7,10 5,2 13,10" fill="#2A1408"/>
+    <rect x="2" y="0" width="38" height="38" fill="url(#wnWall)"/>
+    <g stroke="#5A4838" stroke-width="0.3" opacity="0.5">
+      <line x1="2" y1="6" x2="40" y2="6"/>
+      <line x1="2" y1="12" x2="40" y2="12"/>
+      <line x1="2" y1="18" x2="40" y2="18"/>
+      <line x1="2" y1="24" x2="40" y2="24"/>
+      <line x1="2" y1="30" x2="40" y2="30"/>
+    </g>
+    <polygon points="-2,0 22,-20 44,0" fill="url(#wnRoof)"/>
+    <polygon points="22,-20 44,0 44,-3 24,-24" fill="#0A0408" opacity="0.7"/>
+    <g stroke="#1A0808" stroke-width="0.25" opacity="0.6">
+      <line x1="-2" y1="0" x2="44" y2="0"/>
+      <line x1="2" y1="-4" x2="40" y2="-4"/>
+      <line x1="6" y1="-8" x2="36" y2="-8"/>
+      <line x1="10" y1="-12" x2="32" y2="-12"/>
+    </g>
+    <rect x="32" y="-24" width="3" height="9" fill="#3A2A1A"/>
+    <rect x="31" y="-25" width="5" height="2" fill="#1A0808"/>
+    <g fill="#A8B0B8" opacity="0.65">
+      <ellipse cx="33.5" cy="-29" rx="1.2" ry="1.6"/>
+      <ellipse cx="35" cy="-34" rx="1.6" ry="2" opacity="0.45"/>
+    </g>
+    <rect x="8" y="8" width="9" height="11" fill="url(#wnWin)"/>
+    <rect x="8" y="8" width="9" height="11" fill="none" stroke="#1A0808" stroke-width="0.5"/>
+    <line x1="12.5" y1="8" x2="12.5" y2="19" stroke="#1A0808" stroke-width="0.35"/>
+    <line x1="8" y1="13.5" x2="17" y2="13.5" stroke="#1A0808" stroke-width="0.35"/>
+    <rect x="7" y="19" width="11" height="1" fill="#1A0808"/>
+    <rect x="26" y="8" width="9" height="14" fill="url(#wnWin)"/>
+    <rect x="26" y="8" width="9" height="14" fill="none" stroke="#1A0808" stroke-width="0.5"/>
+    <line x1="30.5" y1="8" x2="30.5" y2="22" stroke="#1A0808" stroke-width="0.35"/>
+    <line x1="26" y1="13" x2="35" y2="13" stroke="#1A0808" stroke-width="0.35"/>
+    <line x1="26" y1="17" x2="35" y2="17" stroke="#1A0808" stroke-width="0.35"/>
+    <rect x="25" y="22" width="11" height="1" fill="#1A0808"/>
+    <rect x="17" y="24" width="6" height="14" fill="#3A1408"/>
+    <circle cx="21" cy="32" r="0.4" fill="#F8B85C"/>
+    <path d="M 0 0 Q 22 -18 42 0 L 42 -2 Q 22 -22 0 -2 Z" fill="#FFFFFF" opacity="0.7"/>
+    <path d="M -8 38 Q 22 42 50 38 L 50 40 L -8 40 Z" fill="#FFFFFF" opacity="0.6"/>
+  </g>
+
+  <!-- House 3 (small, far) -->
+  <g transform="translate(348 264) scale(0.7)">
+    <ellipse cx="18" cy="40" rx="28" ry="1.8" fill="#0A1018" opacity="0.35"/>
+    <rect x="-2" y="8" width="6" height="24" fill="#8A7A5A"/>
+    <polygon points="-5,8 3,2 9,8" fill="#2A1408"/>
+    <rect x="2" y="0" width="34" height="32" fill="url(#wnWall)"/>
+    <g stroke="#5A4838" stroke-width="0.3" opacity="0.5">
+      <line x1="2" y1="6" x2="36" y2="6"/>
+      <line x1="2" y1="12" x2="36" y2="12"/>
+      <line x1="2" y1="18" x2="36" y2="18"/>
+      <line x1="2" y1="24" x2="36" y2="24"/>
+    </g>
+    <polygon points="-2,0 19,-18 38,0" fill="url(#wnRoof)"/>
+    <polygon points="19,-18 38,0 38,-2 20,-20" fill="#0A0408" opacity="0.7"/>
+    <g stroke="#1A0808" stroke-width="0.25" opacity="0.6">
+      <line x1="-2" y1="0" x2="38" y2="0"/>
+      <line x1="2" y1="-4" x2="34" y2="-4"/>
+      <line x1="6" y1="-8" x2="30" y2="-8"/>
+    </g>
+    <rect x="6" y="8" width="8" height="10" fill="url(#wnWin)"/>
+    <rect x="6" y="8" width="8" height="10" fill="none" stroke="#1A0808" stroke-width="0.5"/>
+    <line x1="10" y1="8" x2="10" y2="18" stroke="#1A0808" stroke-width="0.35"/>
+    <line x1="6" y1="13" x2="14" y2="13" stroke="#1A0808" stroke-width="0.35"/>
+    <rect x="22" y="8" width="8" height="12" fill="url(#wnWin)"/>
+    <rect x="22" y="8" width="8" height="12" fill="none" stroke="#1A0808" stroke-width="0.5"/>
+    <line x1="26" y1="8" x2="26" y2="20" stroke="#1A0808" stroke-width="0.35"/>
+    <line x1="22" y1="13" x2="30" y2="13" stroke="#1A0808" stroke-width="0.35"/>
+    <line x1="22" y1="17" x2="30" y2="17" stroke="#1A0808" stroke-width="0.35"/>
+    <rect x="14" y="20" width="6" height="12" fill="#3A1408"/>
+    <path d="M 0 0 Q 19 -16 36 0 L 36 -2 Q 19 -20 0 -2 Z" fill="#FFFFFF" opacity="0.7"/>
+    <path d="M -6 32 Q 18 36 40 32 L 40 34 L -6 34 Z" fill="#FFFFFF" opacity="0.6"/>
+  </g>
+
+  <!-- Bare trees scattered -->
+  <g transform="translate(60 240)" stroke="#0A1018" stroke-linecap="round" fill="none">
+    <line x1="0" y1="40" x2="0" y2="-2" stroke-width="2.2"/>
+    <line x1="0" y1="14" x2="12" y2="-2" stroke-width="1"/>
+    <line x1="0" y1="22" x2="-10" y2="8" stroke-width="1"/>
+    <line x1="0" y1="6" x2="10" y2="-10" stroke-width="0.8"/>
+    <line x1="0" y1="32" x2="-8" y2="22" stroke-width="0.7"/>
+  </g>
+  <g transform="translate(450 248)" stroke="#0A1018" stroke-linecap="round" fill="none">
+    <line x1="0" y1="36" x2="0" y2="0" stroke-width="1.8"/>
+    <line x1="0" y1="10" x2="9" y2="-4" stroke-width="0.9"/>
+    <line x1="0" y1="18" x2="-8" y2="6" stroke-width="0.9"/>
+    <line x1="0" y1="26" x2="6" y2="18" stroke-width="0.7"/>
+  </g>
+  <g transform="translate(720 250)" stroke="#0A1018" stroke-linecap="round" fill="none">
+    <line x1="0" y1="42" x2="0" y2="-2" stroke-width="2"/>
+    <line x1="0" y1="14" x2="11" y2="-2" stroke-width="1"/>
+    <line x1="0" y1="24" x2="-9" y2="10" stroke-width="1"/>
+    <line x1="0" y1="6" x2="9" y2="-10" stroke-width="0.8"/>
+  </g>
+
+  <!-- Falling snow (lighter at top) -->
+  <g fill="#FFFFFF">
+    <circle cx="60"  cy="120" r="1"/><circle cx="140" cy="80"  r="0.8"/>
+    <circle cx="220" cy="160" r="1.2"/><circle cx="320" cy="100" r="0.8"/>
+    <circle cx="420" cy="180" r="1"/><circle cx="520" cy="120" r="0.8"/>
+    <circle cx="620" cy="200" r="1.1"/><circle cx="720" cy="140" r="0.8"/>
+  </g>
+</svg>

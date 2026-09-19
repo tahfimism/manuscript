@@ -1,0 +1,1195 @@
+/* =========================================================
+   MANUSCRIPT — a poetry collection
+   v2 design system: full-bleed pastel scenes + letter-paper card
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Yellowtail&family=Caveat:wght@400;600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Permanent+Marker&family=Rubik+Marker+Hatch&family=Splash&display=swap');
+
+/* ---------- Base / shared tokens ---------- */
+:root {
+  --paper: #FFF7E8;
+  --paper-shadow: #E3D5BC;
+  --ink: #2A1F18;
+  --ink-faded: #6B5340;
+  --hairline: rgba(60,42,30,0.18);
+
+  --font-display: 'Fraunces', 'EB Garamond', Georgia, serif;
+  --font-display-strong: 'DM Serif Display', 'Playfair Display', serif;
+  --font-script: 'Yellowtail', 'Caveat', cursive;
+  --font-body: 'EB Garamond', 'Playfair Display', Georgia, serif;
+  --font-hand: 'Caveat', cursive;
+  --font-mono: 'Courier Prime', 'Courier New', monospace;
+
+  --grain-opacity: 0.025;
+
+  /* Scene accent tokens (defaults; overridden per family below) */
+  --scene-glow: rgba(255,255,255,0.5);
+  --scene-mid: rgba(60,42,30,0.3);
+  --scene-fg: rgba(40,28,18,0.85);
+  --scene-warm: #D04848;
+  --scene-cool: #5C7C84;
+}
+
+/* =========================================================
+   POEM PAGE — full-bleed background + scene + card
+   ========================================================= */
+
+/* Each family sets 3 things: bg (page color), accent (signature color), ink-on-paper (text color on the card)
+   Plus scene accent tokens: --scene-glow, --scene-mid, --scene-fg, --scene-warm, --scene-cool */
+[data-family="A"]  { /* Cosmic devotion — Manuscript */
+  --bg: #1B1A2E;
+  --bg-gradient: linear-gradient(180deg, #1B1A2E 0%, #252244 50%, #2E1A38 100%);
+  --scene-opacity: 0.9;
+  --accent: #C9A24B;
+  --accent-ink: #8A6820;
+  --paper: #F4ECD8;
+  --ink: #2A1F18;
+  --ink-faded: #6B5340;
+  --scene-glow: rgba(244,232,168,0.55);
+  --scene-mid: rgba(201,162,75,0.35);
+  --scene-fg: rgba(40,30,60,0.85);
+  --scene-warm: #E4B858;
+  --scene-cool: #6B6BA0;
+}
+[data-family="A-cover"] { /* Manuscript cover — crimson book-jacket, handdrawn canvas */
+  --bg: #2A0810;
+  --bg-gradient: radial-gradient(ellipse at center, #4A0810 0%, #2A0810 60%, #150308 100%);
+  --scene-opacity: 1;
+  --accent: #F4ECD8;
+  --accent-ink: #8A6028;
+  --paper: #F4ECD8;
+  --ink: #F4ECD8;
+  --ink-faded: #C8B898;
+  --ink-on-bg: #F4ECD8;
+  --scene-glow: rgba(244,236,216,0.55);
+  --scene-mid: rgba(90,10,18,0.4);
+  --scene-fg: rgba(244,236,216,0.85);
+  --scene-warm: #F4ECD8;
+  --scene-cool: #C42E3A;
+}
+[data-family="A-script"] { /* Divine Letter — deep bright red */
+  --bg: #5A0A12;
+  --bg-gradient: linear-gradient(180deg, #7A0E18 0%, #A01628 35%, #C42E3A 60%, #7A0E18 100%);
+  --scene-opacity: 1;
+  --accent: #FFD89A;
+  --accent-ink: #C42E3A;
+  --paper: #FFF0DC;
+  --ink: #2A0A0E;
+  --ink-faded: #6B2030;
+  --scene-glow: rgba(255,216,154,0.55);
+  --scene-mid: rgba(255,180,120,0.4);
+  --scene-fg: rgba(255,220,180,0.85);
+  --scene-warm: #FFD89A;
+  --scene-cool: #A01628;
+}
+[data-family="D-script"] { /* Memoirs — cream w/ script */
+  --bg: #FAF0E0;
+  --bg-gradient: linear-gradient(180deg, #FAF0E0 0%, #F0E2CC 50%, #E8D8C0 100%);
+  --scene-opacity: 0.95;
+  --accent: #D04848;
+  --accent-ink: #A02828;
+  --paper: #FFF7E8;
+  --ink: #2A1F18;
+  --ink-faded: #6B5340;
+  --scene-glow: rgba(255,240,200,0.55);
+  --scene-mid: rgba(208,72,72,0.3);
+  --scene-fg: rgba(120,40,30,0.8);
+  --scene-warm: #D04848;
+  --scene-cool: #A08868;
+}
+[data-family="B-day"] { /* Every Winter day */
+  --bg: #D8E8EC;
+  --bg-gradient: linear-gradient(180deg, #D8E8EC 0%, #E8F0F2 60%, #F4F0E0 100%);
+  --scene-opacity: 0.95;
+  --accent: #2C6A78;
+  --paper: #FFF7E8;
+  --ink: #2A3A3E;
+  --ink-faded: #5C6E72;
+  --scene-glow: rgba(255,255,255,0.6);
+  --scene-mid: rgba(92,124,132,0.4);
+  --scene-fg: rgba(44,106,120,0.85);
+  --scene-warm: #F4D080;
+  --scene-cool: #2C6A78;
+}
+[data-family="B-night"] { /* Every Winter: Free Fall night */
+  --bg: #1F2A38;
+  --bg-gradient: linear-gradient(180deg, #0F1A28 0%, #1F2A38 50%, #2A3548 100%);
+  --scene-opacity: 1;
+  --accent: #F4E8C8;
+  --accent-ink: #8A7038;
+  --paper: #F4ECD8;
+  --ink: #1A1F28;
+  --ink-faded: #4A5560;
+  --scene-glow: rgba(244,232,200,0.7);
+  --scene-mid: rgba(244,232,200,0.3);
+  --scene-fg: rgba(244,232,200,0.85);
+  --scene-warm: #F4E8C8;
+  --scene-cool: #5C7C9A;
+}
+[data-family="C-ash"] { /* Hollow Shell */
+  --bg: #F0E2CC;
+  --bg-gradient: linear-gradient(180deg, #F0E2CC 0%, #E8D8C0 50%, #D8C8B0 100%);
+  --scene-opacity: 0.9;
+  --accent: #B4432A;
+  --paper: #FFF7E8;
+  --ink: #2A1F18;
+  --ink-faded: #6B5340;
+  --scene-glow: rgba(255,220,180,0.5);
+  --scene-mid: rgba(180,67,42,0.35);
+  --scene-fg: rgba(90,40,20,0.8);
+  --scene-warm: #B4432A;
+  --scene-cool: #5A4A3A;
+}
+[data-family="C-char"] { /* Dissection — black w/ single line */
+  --bg: #1A1208;
+  --bg-gradient: linear-gradient(180deg, #2A1A10 0%, #1A1208 50%, #0A0808 100%);
+  --scene-opacity: 1;
+  --accent: #F4ECD8;
+  --accent-ink: #D04848;
+  --paper: #F4ECD8;
+  --ink: #1A1208;
+  --ink-faded: #6B5340;
+  --scene-glow: rgba(244,236,216,0.6);
+  --scene-mid: rgba(208,72,72,0.25);
+  --scene-fg: rgba(244,236,216,0.9);
+  --scene-warm: #D04848;
+  --scene-cool: #4A3A28;
+}
+[data-family="D-dawn"] { /* Guiding Light, Landscape, Memoirs */
+  --bg: #F5E1C8;
+  --bg-gradient: linear-gradient(180deg, #F5E1C8 0%, #EDD0A8 60%, #E8B888 100%);
+  --scene-opacity: 0.95;
+  --accent: #D04848;
+  --paper: #FFF7E8;
+  --ink: #2A1F18;
+  --ink-faded: #6B5340;
+  --scene-glow: rgba(255,232,180,0.6);
+  --scene-mid: rgba(208,72,72,0.3);
+  --scene-fg: rgba(160,60,40,0.75);
+  --scene-warm: #D04848;
+  --scene-cool: #C8A878;
+}
+[data-family="D-script"] { /* Memoirs — cream w/ script */
+  --bg: #FAF0E0;
+  --bg-gradient: linear-gradient(180deg, #FAF0E0 0%, #F0E2CC 50%, #E8D8C0 100%);
+  --scene-opacity: 0.95;
+  --accent: #D04848;
+  --accent-ink: #A02828;
+  --paper: #FFF7E8;
+  --ink: #2A1F18;
+  --ink-faded: #6B5340;
+  --scene-glow: rgba(255,240,200,0.55);
+  --scene-mid: rgba(208,72,72,0.3);
+  --scene-fg: rgba(120,40,30,0.8);
+  --scene-warm: #D04848;
+  --scene-cool: #A08868;
+}
+[data-family="D-stars"] { /* Starlight */
+  --bg: #0F1428;
+  --bg-gradient: linear-gradient(180deg, #0A0E1F 0%, #0F1428 40%, #1F1A30 100%);
+  --scene-opacity: 1;
+  --accent: #F4E8A8;
+  --accent-ink: #8A7820;
+  --paper: #F4ECD8;
+  --ink: #1A1830;
+  --ink-faded: #5A5268;
+  --scene-glow: rgba(244,232,168,0.7);
+  --scene-mid: rgba(244,232,168,0.25);
+  --scene-fg: rgba(244,232,168,0.85);
+  --scene-warm: #F4E8A8;
+  --scene-cool: #6B6BA0;
+}
+[data-family="E-ghost"] { /* Lost Answer Ghost of Warmth */
+  --bg: #D6E1E8;
+  --bg-gradient: linear-gradient(180deg, #A0BCC8 0%, #D6E1E8 50%, #E8EFF2 100%);
+  --scene-opacity: 0.95;
+  --accent: #5C2A2E;
+  --paper: #FFF7E8;
+  --ink: #2A1F18;
+  --ink-faded: #6B5340;
+  --scene-glow: rgba(255,200,180,0.5);
+  --scene-mid: rgba(92,42,46,0.35);
+  --scene-fg: rgba(60,40,40,0.8);
+  --scene-warm: #D04848;
+  --scene-cool: #5C7C84;
+}
+[data-family="E-truth"] { /* Lost Answer Truth known — slightly more stripped */
+  --bg: #C8D8E4;
+  --bg-gradient: linear-gradient(180deg, #A8C0C8 0%, #C8D8E4 50%, #DDE8EC 100%);
+  --scene-opacity: 0.95;
+  --accent: #5C2A2E;
+  --paper: #FFF7E8;
+  --ink: #2A1F18;
+  --ink-faded: #6B5340;
+  --scene-glow: rgba(255,255,255,0.4);
+  --scene-mid: rgba(90,40,40,0.3);
+  --scene-fg: rgba(60,40,40,0.85);
+  --scene-warm: #B4432A;
+  --scene-cool: #5C7C84;
+}
+[data-family="F"] { /* Things I Learn to Bury / Rage in cage */
+  --bg: #DCD6CB;
+  --bg-gradient: linear-gradient(180deg, #E0DAD0 0%, #DCD6CB 50%, #D0CABF 100%);
+  --scene-opacity: 0.45;
+  --accent: #8B2E2E;
+  --paper: #F0EAD8;
+  --ink: #2A2722;
+  --ink-faded: #4A4740;
+  --scene-glow: rgba(255,240,220,0.5);
+  --scene-mid: rgba(139,46,46,0.3);
+  --scene-fg: rgba(60,30,30,0.85);
+  --scene-warm: #8B2E2E;
+  --scene-cool: #5A5048;
+}
+[data-family="G-photo"] { /* Out of frame */
+  --bg: #E5E1E4;
+  --bg-gradient: linear-gradient(180deg, #EAE6E8 0%, #E5E1E4 50%, #D8D2D6 100%);
+  --scene-opacity: 0.9;
+  --accent: #5A5C68;
+  --paper: #F4ECDC;
+  --ink: #2A2530;
+  --ink-faded: #5A5860;
+  --scene-glow: rgba(255,255,255,0.5);
+  --scene-mid: rgba(90,92,104,0.35);
+  --scene-fg: rgba(40,30,50,0.85);
+  --scene-warm: #8B6E5A;
+  --scene-cool: #5A5C68;
+}
+[data-family="G-layers"] { /* Silence, in layers */
+  --bg: #DCD5D8;
+  --bg-gradient: linear-gradient(180deg, #E2D8DC 0%, #DCD5D8 50%, #CFC8CC 100%);
+  --scene-opacity: 0.9;
+  --accent: #6A6470;
+  --paper: #F4ECDC;
+  --ink: #3A3640;
+  --ink-faded: #6A6470;
+  --scene-glow: rgba(255,255,255,0.45);
+  --scene-mid: rgba(106,100,112,0.35);
+  --scene-fg: rgba(50,40,60,0.8);
+  --scene-warm: #A08868;
+  --scene-cool: #6A6470;
+}
+[data-family="G-clock"] { /* Between Midnight & Sleep */
+  --bg: #1F2438;
+  --bg-gradient: linear-gradient(180deg, #15192A 0%, #1F2438 50%, #2A3548 100%);
+  --scene-opacity: 1;
+  --accent: #F4E8C8;
+  --accent-ink: #8A7038;
+  --paper: #F4ECD8;
+  --ink: #1A1F2A;
+  --ink-faded: #5A5468;
+  --scene-glow: rgba(244,232,200,0.6);
+  --scene-mid: rgba(244,232,200,0.25);
+  --scene-fg: rgba(244,232,200,0.85);
+  --scene-warm: #F4E8C8;
+  --scene-cool: #5C7C9A;
+}
+[data-family="H"] { /* End */
+  --bg: #FAF0E0;
+  --bg-gradient: linear-gradient(180deg, #FAF0E0 0%, #F0E2CC 50%, #E0D0B0 100%);
+  --scene-opacity: 0.9;
+  --accent: #3C2A1E;
+  --paper: #FFF7E8;
+  --ink: #2A1F18;
+  --ink-faded: #6B5340;
+  --scene-glow: rgba(255,240,200,0.5);
+  --scene-mid: rgba(60,42,30,0.3);
+  --scene-fg: rgba(60,42,30,0.85);
+  --scene-warm: #B48858;
+  --scene-cool: #5A4030;
+}
+/* Ember & ash family — special cases */
+[data-family="C-candle"] { /* Within the World I Define */
+  --bg: #181010;
+  --bg-gradient: linear-gradient(180deg, #281810 0%, #181010 50%, #0A0808 100%);
+  --scene-opacity: 1;
+  --accent: #F8B85C;
+  --accent-ink: #8A4A0E;
+  --paper: #F4ECD8;
+  --ink: #1A1010;
+  --ink-faded: #5A4838;
+  --scene-glow: rgba(248,184,92,0.7);
+  --scene-mid: rgba(248,184,92,0.3);
+  --scene-fg: rgba(248,184,92,0.85);
+  --scene-warm: #F8B85C;
+  --scene-cool: #5A2A18;
+}
+[data-family="C-ruin"] { /* Controlled Ruin */
+  --bg: #0A0808;
+  --bg-gradient: linear-gradient(180deg, #2A1818 0%, #181010 40%, #0A0808 100%);
+  --scene-opacity: 1;
+  --accent: #C97A30;
+  --accent-ink: #8A4818;
+  --paper: #F4ECD8;
+  --ink: #1A0808;
+  --ink-faded: #5A3828;
+  --scene-glow: rgba(248,184,92,0.65);
+  --scene-mid: rgba(201,122,48,0.4);
+  --scene-fg: rgba(248,184,92,0.85);
+  --scene-warm: #F8B85C;
+  --scene-cool: #4A2A1A;
+}
+[data-family="C-sky"] { /* Painted Sky */
+  --bg: #2C2838;
+  --bg-gradient: linear-gradient(180deg, #D04848 0%, #C03A48 25%, #7A3A4C 50%, #4A3858 75%, #2C2838 100%);
+  --scene-opacity: 1;
+  --accent: #F5B868;
+  --accent-ink: #8A5028;
+  --paper: #F4ECD8;
+  --ink: #2A1830;
+  --ink-faded: #5A4A58;
+  --scene-glow: rgba(255,200,140,0.6);
+  --scene-mid: rgba(245,184,104,0.4);
+  --scene-fg: rgba(245,184,104,0.85);
+  --scene-warm: #F5B868;
+  --scene-cool: #4A3858;
+}
+[data-family="C-river"] { /* From River to Winter */
+  --bg: #E4E8E8;
+  --bg-gradient: linear-gradient(180deg, #E4E8E8 0%, #DCE0DE 60%, #C8D0CC 100%);
+  --scene-opacity: 0.95;
+  --accent: #5C7884;
+  --paper: #FFF7E8;
+  --ink: #2A3A3E;
+  --ink-faded: #5C6E72;
+  --scene-glow: rgba(255,255,255,0.5);
+  --scene-mid: rgba(92,120,132,0.35);
+  --scene-fg: rgba(40,60,68,0.85);
+  --scene-warm: #C8B888;
+  --scene-cool: #5C7884;
+}
+[data-family="C-blue"] { /* The Blue Inside Ruin */
+  --bg: #0E1A33;
+  --bg-gradient: linear-gradient(180deg, #0E1A33 0%, #1A3458 20%, #3F7BB0 45%, #6BA8C9 60%, #3E566F 80%, #0A0E14 100%);
+  --scene-opacity: 1;
+  --accent: #A9C4D6;
+  --accent-ink: #5A8AAC;
+  --paper: rgba(244,236,216,0.08);
+  --ink: #F4ECD8;
+  --ink-faded: #B8C8D8;
+  --scene-glow: rgba(169,196,214,0.55);
+  --scene-mid: rgba(105,168,201,0.35);
+  --scene-fg: rgba(169,196,214,0.85);
+  --scene-warm: #C8B870;
+  --scene-cool: #6BA8C9;
+}
+[data-family="B-home"] { /* Home */
+  --bg: #D8E0DC;
+  --bg-gradient: linear-gradient(180deg, #C8D8DC 0%, #D8E0DC 50%, #C8D0CC 100%);
+  --scene-opacity: 0.95;
+  --accent: #5C7884;
+  --paper: #FFF7E8;
+  --ink: #2A3A3E;
+  --ink-faded: #5C6E72;
+  --scene-glow: rgba(255,255,255,0.45);
+  --scene-mid: rgba(92,120,132,0.35);
+  --scene-fg: rgba(44,60,68,0.85);
+  --scene-warm: #C8A878;
+  --scene-cool: #5C7884;
+}
+
+/* =========================================================
+   RESET / GLOBAL
+   ========================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--ink-on-bg, var(--ink));
+  line-height: 1.7;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background 600ms ease;
+}
+
+/* Dark-themed families: body text on the dark page bg needs to be light,
+   but the card text (--ink) must remain dark for card readability.
+   We use --ink-on-bg for body-level text (nav, scene, etc). */
+[data-family="B-night"]  { --ink-on-bg: #F4E8C8; }
+[data-family="C-char"]   { --ink-on-bg: #F4ECD8; }
+[data-family="C-candle"] { --ink-on-bg: #F4ECD8; }
+[data-family="C-ruin"]   { --ink-on-bg: #F4ECD8; }
+[data-family="C-sky"]    { --ink-on-bg: #F4ECD8; }
+[data-family="D-stars"]  { --ink-on-bg: #F4ECD8; }
+[data-family="G-clock"]  { --ink-on-bg: #F4E8C8; }
+[data-family="A"]        { --ink-on-bg: #F4ECD8; }
+[data-family="A-script"] { --ink-on-bg: #2A0A0E; }
+[data-family="C-blue"]   { --ink-on-bg: #F4ECD8; }
+
+/* Subtle grain */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.2  0 0 0 0 0.16  0 0 0 0 0.1  0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  opacity: var(--grain-opacity);
+  mix-blend-mode: multiply;
+}
+
+/* Soft vignette */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.22) 100%);
+}
+
+a { color: inherit; text-decoration: none; }
+img, svg { max-width: 100%; }
+
+::selection { background: var(--accent); color: var(--paper); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   POEM STAGE — the layout
+   ========================================================= */
+.poem-stage {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 4rem 1.5rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.poem {
+  width: min(620px, 100%);
+  position: relative;
+  z-index: 5;
+}
+
+/* Scene — bottom-anchored full-bleed illustration */
+.poem__scene {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 38vh;
+  min-height: 240px;
+  max-height: 360px;
+  z-index: 3;
+  pointer-events: none;
+  opacity: var(--scene-opacity, 0.95);
+}
+.poem__scene img,
+.poem__scene svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom center;
+  display: block;
+}
+
+/* Canvas FX overlay (procedural animation on top of the SVG) */
+.poem__fx {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: screen;
+}
+[data-canvas="candle"] .poem__fx,
+[data-canvas="embers"] .poem__fx,
+[data-canvas="smoke"] .poem__fx {
+  mix-blend-mode: screen;
+}
+
+/* The card — torn-edge paper holding the poem */
+.poem-card {
+  position: relative;
+  background: var(--paper);
+  color: var(--ink);
+  padding: clamp(2.4rem, 5vw, 4rem) clamp(2rem, 5vw, 3.5rem);
+  z-index: 5;
+  /* Subtle drop shadow */
+  box-shadow:
+    0 20px 50px -20px rgba(0,0,0,0.4),
+    inset 0 0 60px rgba(60,42,30,0.05);
+}
+
+/* Default torn edge via mask */
+.poem-card[data-edge="torn"] {
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 800' preserveAspectRatio='none'><path d='M0 0 H600 V800 H0 Z M0 0 L3 5 L8 1 L14 6 L20 2 L27 7 L33 1 L40 5 L46 0 L52 6 L58 2 L65 7 L71 1 L77 5 L83 0 L90 6 L96 2 L102 7 L108 1 L115 5 L121 0 L127 6 L134 2 L140 7 L146 1 L152 5 L159 0 L165 6 L171 2 L178 7 L184 1 L190 5 L196 0 L203 6 L209 2 L215 7 L222 1 L228 5 L234 0 L240 6 L247 2 L253 7 L259 1 L265 5 L272 0 L278 6 L284 2 L291 7 L297 1 L303 5 L309 0 L316 6 L322 2 L328 7 L334 1 L341 5 L347 0 L353 6 L359 2 L366 7 L372 1 L378 5 L384 0 L391 6 L397 2 L403 7 L410 1 L416 5 L422 0 L428 6 L435 2 L441 7 L447 1 L453 5 L459 0 L466 6 L472 2 L478 7 L484 1 L491 5 L497 0 L503 6 L509 2 L516 7 L522 1 L528 5 L534 0 L541 6 L547 2 L553 7 L559 1 L566 5 L572 0 L578 6 L584 2 L591 7 L597 1 L600 0 V800 H0 Z' fill='black'/></svg>") center / 100% 100% no-repeat;
+          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 800' preserveAspectRatio='none'><path d='M0 0 H600 V800 H0 Z M0 0 L3 5 L8 1 L14 6 L20 2 L27 7 L33 1 L40 5 L46 0 L52 6 L58 2 L65 7 L71 1 L77 5 L83 0 L90 6 L96 2 L102 7 L108 1 L115 5 L121 0 L127 6 L134 2 L140 7 L146 1 L152 5 L159 0 L165 6 L171 2 L178 7 L184 1 L190 5 L196 0 L203 6 L209 2 L215 7 L222 1 L228 5 L234 0 L240 6 L247 2 L253 7 L259 1 L265 5 L272 0 L278 6 L284 2 L291 7 L297 1 L303 5 L309 0 L316 6 L322 2 L328 7 L334 1 L341 5 L347 0 L353 6 L359 2 L366 7 L372 1 L378 5 L384 0 L391 6 L397 2 L403 7 L410 1 L416 5 L422 0 L428 6 L435 2 L441 7 L447 1 L453 5 L459 0 L466 6 L472 2 L478 7 L484 1 L491 5 L497 0 L503 6 L509 2 L516 7 L522 1 L528 5 L534 0 L541 6 L547 2 L553 7 L559 1 L566 5 L572 0 L578 6 L584 2 L591 7 L597 1 L600 0 V800 H0 Z' fill='black'/></svg>") center / 100% 100% no-repeat;
+}
+
+/* Clean straight-cut edge (Dissection) */
+.poem-card[data-edge="clean"] {
+  border-left: 1px solid var(--hairline);
+}
+
+/* =========================================================
+   POEM INTERIOR
+   ========================================================= */
+.poem__chapter {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.poem__chapter::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--ink-faded);
+  opacity: 0.5;
+}
+
+.poem__title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "WONK" 1, "SOFT" 30;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.4rem;
+  color: var(--ink);
+}
+/* Variant: red brush script */
+.poem__title--script {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(2.8rem, 6vw, 4rem);
+  color: var(--accent-ink, var(--accent));
+  letter-spacing: 0;
+  line-height: 0.95;
+}
+/* Variant: modern geometric serif */
+.poem__title--strong {
+  font-family: var(--font-display-strong);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: -0.01em;
+}
+
+.poem__sub {
+  font-family: var(--font-hand);
+  font-size: 1.05rem;
+  color: var(--ink-faded);
+  margin: 0 0 2rem;
+}
+
+.poem__body {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: var(--ink);
+  max-width: 56ch;
+}
+.poem__body p { margin: 0 0 1.4rem; }
+.poem__body .stanza { margin-bottom: 1.8rem; }
+
+.poem__body .stanza-divider {
+  display: block;
+  width: 50px;
+  height: 8px;
+  margin: 1.6rem auto;
+  opacity: 0.5;
+}
+
+.poem__body .poem__voice {
+  font-family: var(--font-hand);
+  font-size: 1.25rem;
+  color: var(--accent-ink, var(--accent));
+  margin: 1.2rem 0 1.2rem 1.5rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--hairline);
+  line-height: 1.6;
+}
+
+/* =========================================================
+   TYPOGRAPHIC VARIATION — per-stanza / per-line
+   Apply these classes on .stanza or <p> elements to vary
+   the typographic feel within a single poem.
+   ========================================================= */
+.verse--display {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "WONK" 1, "SOFT" 30;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2.5vw, 1.9rem);
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+}
+.verse--display-strong {
+  font-family: var(--font-display-strong);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.4rem, 2.2vw, 1.7rem);
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+}
+.verse--italic {
+  font-style: italic;
+  font-family: var(--font-body);
+  color: var(--ink-faded);
+  line-height: 1.85;
+}
+.verse--script {
+  font-family: var(--font-script);
+  font-size: clamp(1.55rem, 2.6vw, 2rem);
+  line-height: 1.45;
+  color: var(--accent-ink, var(--accent));
+  letter-spacing: 0;
+}
+.verse--hand {
+  font-family: var(--font-hand);
+  font-size: 1.3rem;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.verse--mono {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  line-height: 2;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+}
+.verse--small {
+  font-size: 0.92rem;
+  line-height: 1.95;
+  letter-spacing: 0.01em;
+  color: var(--ink-faded);
+}
+.verse--large {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144;
+  font-weight: 300;
+  font-size: clamp(1.5rem, 2.6vw, 1.95rem);
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+}
+.verse--center {
+  text-align: center;
+  padding: 0 1rem;
+}
+.verse--quote {
+  font-family: var(--font-display-strong);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.35rem;
+  line-height: 1.55;
+  text-align: center;
+  padding: 0.6rem 1.4rem;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  margin: 1.6rem 0;
+  color: var(--ink);
+}
+.verse--pull {
+  font-family: var(--font-display-strong);
+  font-style: italic;
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  text-align: center;
+  padding: 1rem 0.5rem;
+  color: var(--ink);
+  position: relative;
+}
+.verse--pull::before,
+.verse--pull::after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 1px;
+  background: var(--ink-faded);
+  opacity: 0.5;
+  margin: 0.6rem auto;
+}
+.verse--narrow {
+  max-width: 36ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.verse--wide {
+  max-width: 64ch;
+}
+.verse--right {
+  text-align: right;
+  padding-right: 0.5rem;
+}
+.verse--left-indent {
+  padding-left: 2rem;
+}
+.verse--accent {
+  color: var(--accent-ink, var(--accent));
+  font-weight: 500;
+}
+.verse--fade {
+  opacity: 0.85;
+  color: var(--ink-faded);
+}
+.verse--tracked {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  line-height: 2.1;
+}
+.verse--single {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "WONK" 1;
+  font-weight: 400;
+  font-size: clamp(1.6rem, 2.6vw, 2rem);
+  line-height: 1.4;
+  text-align: center;
+  margin: 1rem auto;
+  max-width: 32ch;
+}
+.verse--broken {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  line-height: 2.2;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+  word-spacing: 0.5em;
+}
+.verse--star {
+  text-align: center;
+  color: var(--accent);
+  font-size: 0.8rem;
+  letter-spacing: 1.4em;
+  margin: 1.4rem 0;
+  padding-left: 1.4em;
+}
+.verse--divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.6rem 0;
+  color: var(--ink-faded);
+  opacity: 0.6;
+  font-size: 0.8rem;
+}
+.verse--divider::before,
+.verse--divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--hairline);
+}
+
+/* Cosmic drop-cap for Manuscript */
+.poem__body .dropcap::first-letter {
+  font-family: var(--font-display-strong);
+  font-weight: 400;
+  font-size: 4em;
+  float: left;
+  line-height: 0.85;
+  padding: 0.1em 0.12em 0 0;
+  color: var(--accent);
+}
+
+/* Signature */
+.poem__sig {
+  display: block;
+  margin: 2.5rem auto 0;
+  text-align: right;
+  font-family: var(--font-hand);
+  font-size: 1.3rem;
+  color: var(--ink-faded);
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/* Poem nav */
+.poem__nav {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+  border-top: 1px solid var(--hairline);
+  padding-top: 1.2rem;
+  max-width: 56ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.poem__nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid transparent;
+  transition: border-color 200ms ease, color 200ms ease;
+}
+.poem__nav a:hover { color: var(--accent); border-color: var(--accent); }
+.poem__nav .back { color: var(--ink-faded); opacity: 0.7; }
+.poem__nav .arrow {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+/* Day/night toggle chip on Every Winter */
+.scene-toggle {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--hairline);
+  padding: 0.5rem 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 6px 14px -8px rgba(0,0,0,0.25);
+  transition: transform 200ms ease;
+}
+.scene-toggle:hover { transform: translateY(-2px); }
+.scene-toggle svg { width: 14px; height: 14px; }
+
+/* =========================================================
+   COVER — handdrawn canvas + brush-stroke typography
+   No SVG illustration. A single full-bleed canvas paints
+   the entire scene (frame, Saturn, stars, splatters).
+   Saturn sits in the LOWER half so it never collides
+   with the title block.
+   ========================================================= */
+.cover {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem 1rem;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+/* Canvas fills the cover completely */
+.cover__art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: block;
+}
+
+/* Text content — stacked vertically, pinned to the upper-middle.
+   Saturn illustration (in canvas) lives below this block, never overlapping. */
+.cover__content {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: min(640px, 92%);
+  pointer-events: auto;
+  /* Vertically bias toward the top so the title doesn't sit on Saturn */
+  align-self: start;
+  margin-top: clamp(2.5rem, 8vh, 5rem);
+}
+
+/* Title — Permanent Marker brush (thick, painted, slight tilt) */
+.cover__title {
+  font-family: 'Permanent Marker', 'Yellowtail', cursive;
+  font-weight: 400;
+  font-size: clamp(3.6rem, 11vw, 6.4rem);
+  line-height: 0.95;
+  letter-spacing: 0.005em;
+  margin: 0 0 0.5rem;
+  color: var(--ink);
+  text-shadow: 0 2px 6px rgba(0,0,0,0.55), 0 0 14px rgba(244,236,216,0.06);
+  transform: rotate(-2deg);
+}
+
+/* Subtitle — Rubik Marker Hatch brush (cross-hatched painted texture) */
+.cover__sub {
+  font-family: 'Rubik Marker Hatch', 'Permanent Marker', cursive;
+  font-weight: 400;
+  font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+  margin: 0.1rem 0 0.6rem;
+  opacity: 0.92;
+  transform: rotate(-1.5deg);
+}
+
+/* Tagline — Caveat handwriting (smaller, soft) */
+.cover__tagline {
+  font-family: 'Caveat', cursive;
+  font-weight: 400;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: var(--ink-faded);
+  margin: 0.2rem 0 1.6rem;
+  opacity: 0.78;
+  letter-spacing: 0.02em;
+}
+
+/* Enter CTA — brushed outlined pill, hand-drawn feel */
+.cover__enter {
+  display: inline-block;
+  background: transparent;
+  color: var(--ink);
+  font-family: 'Permanent Marker', cursive;
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.7rem 1.9rem;
+  border: 2px solid rgba(244,236,216,0.85);
+  border-radius: 999px;
+  transition: background 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+  text-decoration: none;
+  margin-top: 0.4rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+.cover__enter:hover {
+  background: rgba(244,236,216,0.14);
+  transform: translateY(-2px) rotate(-1.5deg);
+  box-shadow: 0 6px 20px -6px rgba(0,0,0,0.4);
+}
+
+/* Author at bottom of canvas frame — Permanent Marker */
+.cover__author {
+  font-family: 'Permanent Marker', cursive;
+  font-weight: 400;
+  font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0;
+  opacity: 0.95;
+  transform: rotate(-1deg);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.45);
+}
+
+@media (max-width: 640px) {
+  .cover { padding: 1rem 0.75rem; }
+  .cover__content { margin-top: 2rem; }
+  .cover__title { font-size: clamp(3rem, 14vw, 4.6rem); }
+  .cover__sub { font-size: 1.1rem; }
+  .cover__enter { padding: 0.6rem 1.4rem; font-size: 1rem; }
+}
+
+/* =========================================================
+   TABLE OF CONTENTS
+   ========================================================= */
+.desk {
+  min-height: 100dvh;
+  padding: 4rem 1.5rem 6rem;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5;
+}
+
+.desk__title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.desk__title h1 {
+  font-family: var(--font-display-strong);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  letter-spacing: -0.015em;
+  margin: 0 0 0.5rem;
+  color: var(--ink);
+}
+
+.desk__title p {
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  color: var(--ink-faded);
+  margin: 0;
+}
+
+.toc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.2rem;
+  background: var(--paper);
+  padding: 1.3rem 1.5rem;
+  text-decoration: none;
+  color: var(--ink);
+  position: relative;
+  box-shadow: 0 8px 18px -10px rgba(0,0,0,0.3);
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+.toc-card:hover {
+  transform: translateX(4px) rotate(-0.4deg);
+  box-shadow: 0 14px 24px -10px rgba(0,0,0,0.35);
+}
+.toc-card__no {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: var(--ink-faded);
+  min-width: 3rem;
+}
+.toc-card__title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 60, "WONK" 1;
+  font-weight: 500;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+.toc-card__title--script {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: var(--accent-ink, var(--accent));
+  line-height: 1.1;
+}
+.toc-card__arrow {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--ink-faded);
+  opacity: 0.6;
+  transition: transform 240ms ease, opacity 240ms ease;
+}
+.toc-card:hover .toc-card__arrow { transform: translateX(4px); opacity: 1; color: var(--accent); }
+
+.toc-pair-flag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-left: 0.6rem;
+  vertical-align: middle;
+  padding: 2px 6px;
+  border: 1px solid var(--accent);
+  border-radius: 2px;
+}
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+.about {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 6rem 1.5rem;
+  position: relative;
+  z-index: 5;
+}
+.about__card {
+  background: var(--paper);
+  padding: 3rem 2.5rem;
+  box-shadow: 0 20px 50px -20px rgba(0,0,0,0.3);
+  position: relative;
+}
+.about h1 {
+  font-family: var(--font-display-strong);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  margin: 0 0 1.5rem;
+  letter-spacing: -0.01em;
+}
+.about__meta {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.6rem 1.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  margin: 1.5rem 0;
+}
+.about__meta dt { color: var(--ink-faded); text-transform: uppercase; }
+.about__meta dd { margin: 0; color: var(--ink); }
+.about p { font-family: var(--font-body); line-height: 1.7; }
+.about__return {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+  border-bottom: 1px solid var(--ink-faded);
+  margin-top: 1.5rem;
+  padding-bottom: 2px;
+}
+
+/* =========================================================
+   MOTION
+   ========================================================= */
+@keyframes page-turn-out {
+  0%   { transform: perspective(1200px) rotateY(0deg); opacity: 1; }
+  100% { transform: perspective(1200px) rotateY(-90deg); opacity: 0; transform-origin: left center; }
+}
+@keyframes page-turn-in {
+  0%   { transform: perspective(1200px) rotateY(90deg); opacity: 0; transform-origin: right center; }
+  100% { transform: perspective(1200px) rotateY(0deg); opacity: 1; transform-origin: right center; }
+}
+.poem-turn-out { animation: page-turn-out 480ms ease forwards; }
+.poem-turn-in  { animation: page-turn-in 480ms ease forwards; }
+
+/* Fade-in for cards on load */
+@keyframes card-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.poem-card { animation: card-rise 700ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 640px) {
+  .poem-stage { padding: 2rem 1rem 4rem; }
+  .poem-card { padding: 2rem 1.4rem; }
+  .poem__scene { height: 30vh; min-height: 200px; }
+  .toc-card { grid-template-columns: auto 1fr auto; padding: 1rem 1.1rem; gap: 0.8rem; }
+  .toc-card__title { font-size: 1.05rem; }
+  .toc-card__title--script { font-size: 1.25rem; }
+  .desk { padding: 2.5rem 1rem 4rem; }
+  .scene-toggle { top: 1rem; right: 1rem; padding: 0.4rem 0.6rem; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

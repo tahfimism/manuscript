@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="clSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#0E1424"/>
+      <stop offset="50%" stop-color="#1F2438"/>
+      <stop offset="100%" stop-color="#2A3548"/>
+    </linearGradient>
+    <radialGradient id="clMoonGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F4E8C8" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#F4E8C8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="clPhoneGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#A9C4D6" stop-opacity="0.75"/>
+      <stop offset="80%" stop-color="#A9C4D6" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#A9C4D6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="360" fill="url(#clSky)"/>
+
+  <!-- Stars -->
+  <g fill="#E8DCC0">
+    <circle cx="60"  cy="40" r="0.8"/><circle cx="120" cy="80" r="0.6"/>
+    <circle cx="200" cy="40" r="0.9"/><circle cx="280" cy="80" r="0.6"/>
+    <circle cx="380" cy="40" r="0.7"/><circle cx="500" cy="60" r="0.9"/>
+    <circle cx="600" cy="40" r="0.6"/><circle cx="680" cy="80" r="0.8"/>
+    <circle cx="740" cy="40" r="0.5"/>
+    <circle cx="100" cy="140" r="0.6"/><circle cx="240" cy="160" r="0.5"/>
+    <circle cx="440" cy="140" r="0.7"/><circle cx="620" cy="160" r="0.5"/>
+    <circle cx="720" cy="140" r="0.6"/>
+  </g>
+
+  <!-- Crescent moon -->
+  <circle cx="120" cy="60" r="50" fill="url(#clMoonGlow)"/>
+  <g transform="translate(120 60)">
+    <circle r="20" fill="#F4E8C8"/>
+    <circle cx="-7" cy="-3" r="18" fill="#1F2438"/>
+  </g>
+
+  <!-- Window frame hint (vague architectural line behind clock) -->
+  <g stroke="#3A4058" stroke-width="0.7" fill="none" opacity="0.4">
+    <line x1="40" y1="190" x2="760" y2="190"/>
+    <line x1="40" y1="280" x2="760" y2="280"/>
+    <line x1="80" y1="190" x2="80" y2="280"/>
+    <line x1="720" y1="190" x2="720" y2="280"/>
+  </g>
+
+  <!-- Wall clock -->
+  <g transform="translate(380 130)">
+    <!-- shadow on wall -->
+    <ellipse cx="6" cy="80" rx="120" ry="6" fill="#000000" opacity="0.35"/>
+    <!-- face -->
+    <circle r="100" fill="#F4ECDC"/>
+    <circle r="100" fill="none" stroke="#3A2A1A" stroke-width="1.6"/>
+    <circle r="92" fill="none" stroke="#3A2A1A" stroke-width="0.4"/>
+    <!-- 12 ticks -->
+    <g stroke="#3A2A1A" stroke-width="1">
+      <line x1="0" y1="-92" x2="0" y2="-82"/>
+      <line x1="0" y1="92" x2="0" y2="82"/>
+      <line x1="-92" y1="0" x2="-82" y2="0"/>
+      <line x1="92" y1="0" x2="82" y2="0"/>
+    </g>
+    <g stroke="#3A2A1A" stroke-width="0.6">
+      <line x1="46" y1="-80" x2="42" y2="-72"/>
+      <line x1="80" y1="-46" x2="72" y2="-42"/>
+      <line x1="80" y1="46"  x2="72" y2="42"/>
+      <line x1="46" y1="80" x2="42" y2="72"/>
+      <line x1="-46" y1="80" x2="-42" y2="72"/>
+      <line x1="-80" y1="46" x2="-72" y2="42"/>
+      <line x1="-80" y1="-46" x2="-72" y2="-42"/>
+      <line x1="-46" y1="-80" x2="-42" y2="-72"/>
+    </g>
+    <!-- pendulum case opening -->
+    <rect x="-6" y="100" width="12" height="32" fill="#3A2A1A"/>
+    <rect x="-22" y="132" width="44" height="10" fill="#3A2A1A"/>
+    <!-- Hands (stopped at ambiguous hour) -->
+    <line x1="0" y1="0" x2="38" y2="-50" stroke="#3A2A1A" stroke-width="3.4" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="-40" y2="-32" stroke="#3A2A1A" stroke-width="2.6" stroke-linecap="round"/>
+    <circle r="4" fill="#3A2A1A"/>
+    <!-- pendulum rod -->
+    <line x1="0" y1="100" x2="0" y2="160" stroke="#3A2A1A" stroke-width="1.6"/>
+    <ellipse cx="0" cy="160" rx="12" ry="6" fill="#3A2A1A"/>
+  </g>
+
+  <!-- Phone glow at right (the anachronism) -->
+  <g transform="translate(620 200)">
+    <circle r="80" fill="url(#clPhoneGlow)"/>
+    <!-- phone outline -->
+    <rect x="-30" y="-18" width="60" height="100" rx="6" fill="#0A0A14" stroke="#3A4058" stroke-width="0.9"/>
+    <rect x="-26" y="-14" width="52" height="84" rx="2" fill="#A9C4D6" opacity="0.55"/>
+    <!-- backlit "Your seen-zone" tiny lines -->
+    <g stroke="#FFFFFF" stroke-width="0.5" opacity="0.5">
+      <line x1="-20" y1="-6" x2="20" y2="-6"/>
+      <line x1="-20" y1="0"  x2="12" y2="0"/>
+      <line x1="-20" y1="6"  x2="16" y2="6"/>
+      <line x1="-20" y1="12" x2="6"  y2="12"/>
+    </g>
+    <circle cx="0" cy="76" r="2.5" fill="#3A4058"/>
+  </g>
+
+  <!-- Tiny floating dust motes -->
+  <g fill="#A9C4D6" opacity="0.35">
+    <circle cx="200" cy="220" r="0.8"/>
+    <circle cx="300" cy="260" r="0.6"/>
+    <circle cx="540" cy="240" r="0.7"/>
+    <circle cx="180" cy="290" r="0.5"/>
+  </g>
+</svg>
