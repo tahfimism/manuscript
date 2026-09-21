@@ -1155,4 +1155,77 @@ ${textarea.value || '(Empty letter slip)'}
     window.toggleLunaMode = toggleLunaMode;
   })();
 
+  /* ---------- 6. Unsent Airmail Letter to Luna Modal Controller ---------- */
+  (function setupLunaLetterModal() {
+    const envelope = document.getElementById('lunaAirmailEnvelope');
+    const modal = document.getElementById('lunaLetterModal');
+    const closeBtn = document.getElementById('closeLunaModalBtn');
+    const closeX = document.getElementById('closeLunaModalX');
+    const backdrop = document.getElementById('lunaModalBackdrop');
+    const pen = document.querySelector('.desk-fountain-pen-wrapper');
+
+    if (!envelope || !modal) return;
+
+    function openModal() {
+      modal.style.display = 'flex';
+      // Force reflow for CSS transition
+      void modal.offsetHeight;
+      modal.classList.add('is-active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+
+      if (window.ManuscriptSound) {
+        window.ManuscriptSound.playPenNibScritch();
+        setTimeout(() => {
+          if (window.ManuscriptSound) window.ManuscriptSound.playWaxSealCrack();
+        }, 120);
+      }
+    }
+
+    function closeModal() {
+      modal.classList.remove('is-active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        if (!modal.classList.contains('is-active')) {
+          modal.style.display = 'none';
+        }
+      }, 380);
+
+      if (window.ManuscriptSound) {
+        window.ManuscriptSound.playPaperTurn();
+      }
+    }
+
+    envelope.addEventListener('click', openModal);
+    envelope.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModal();
+      }
+    });
+
+    // Fountain Pen hover animation synergy
+    envelope.addEventListener('mouseenter', () => {
+      if (pen) {
+        pen.style.transform = 'translateY(-4px) rotate(-1.5deg)';
+      }
+    });
+    envelope.addEventListener('mouseleave', () => {
+      if (pen) {
+        pen.style.transform = '';
+      }
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (closeX) closeX.addEventListener('click', closeModal);
+    if (backdrop) backdrop.addEventListener('click', closeModal);
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('is-active')) {
+        closeModal();
+      }
+    });
+  })();
+
 })();

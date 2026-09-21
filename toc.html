@@ -376,6 +376,69 @@
     </div>
 
 
+    <!-- Visual Element 6: The Unsent Airmail Letter to Luna (Archival Centerpiece) -->
+    <div class="desk-airmail-container" id="lunaAirmailSection">
+      <div class="desk-airmail-envelope" id="lunaAirmailEnvelope" role="button" tabindex="0" title="The Unsent Airmail Letter to Luna · Click to Unseal &amp; Read" aria-label="Open Unsent Airmail Letter to Luna">
+        <!-- Vintage Airmail Chevron Border -->
+        <div class="airmail-border-frame">
+          <div class="airmail-inner-card">
+            <div class="airmail-top-row">
+              <div class="airmail-par-avion-badge">
+                <span class="par-avion-icon">✈</span>
+                <span class="par-avion-text">PAR AVION · AIR MAIL</span>
+                <span class="par-avion-sub">1996 ARCHIVAL KEEPSAKE</span>
+              </div>
+              
+              <!-- Miniature Vintage Postal Stamp & Franking -->
+              <div class="airmail-stamp-cluster" aria-hidden="true">
+                <svg viewBox="0 0 110 65" width="110" height="65">
+                  <!-- Miniature 32¢ Stamp -->
+                  <g transform="translate(48, 5) rotate(2.5 25 25)">
+                    <rect x="0" y="0" width="46" height="52" rx="1.5" fill="#F4ECD8" stroke="#E2D6C0" stroke-width="1" />
+                    <rect x="0" y="0" width="46" height="52" fill="none" stroke="#FAF4E8" stroke-dasharray="2,2" stroke-width="1.5" />
+                    <rect x="3" y="3" width="40" height="46" fill="#121B2B" />
+                    <circle cx="23" cy="18" r="8" fill="#FCEAB8" opacity="0.3" />
+                    <path d="M 27 12 A 9 9 0 1 0 27 28 A 7 7 0 1 1 27 12 Z" fill="#FCEAB8" />
+                    <text x="23" y="38" font-family="'Courier Prime', monospace" font-size="5.5" font-weight="bold" fill="#FCEAB8" text-anchor="middle">USA 32¢</text>
+                    <text x="23" y="44" font-family="'Fraunces', serif" font-size="4" font-style="italic" fill="#E2D5C3" text-anchor="middle">LUNA '96</text>
+                  </g>
+                  <!-- Circular Postal Franking Mark -->
+                  <g style="mix-blend-mode: multiply; opacity: 0.85;">
+                    <circle cx="34" cy="32" r="18" fill="none" stroke="#2B1D12" stroke-width="1.2" stroke-dasharray="40 4 2 3" />
+                    <text x="34" y="29" font-family="'Courier Prime', monospace" font-size="4" font-weight="bold" fill="#2B1D12" text-anchor="middle">14 OCT</text>
+                    <text x="34" y="35" font-family="'Courier Prime', monospace" font-size="4" font-weight="bold" fill="#2B1D12" text-anchor="middle">1996</text>
+                    <text x="34" y="41" font-family="'Courier Prime', monospace" font-size="3" fill="#2B1D12" text-anchor="middle">UNCLAIMED</text>
+                    <path d="M 0 25 Q 15 20 30 25 T 50 25" fill="none" stroke="#2B1D12" stroke-width="1" />
+                    <path d="M 0 32 Q 15 27 30 32 T 50 32" fill="none" stroke="#2B1D12" stroke-width="1" />
+                    <path d="M 0 39 Q 15 34 30 39 T 50 39" fill="none" stroke="#2B1D12" stroke-width="1" />
+                  </g>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Address Block & Luna Dedication -->
+            <div class="airmail-address-block">
+              <div class="airmail-to-label">To:</div>
+              <div class="airmail-recipient-name">Luna</div>
+              <div class="airmail-address-lines">
+                <span>The muse for whom all twenty-four were written</span>
+                <span class="airmail-status-tag">✦ Preserved in Silence · Never Dispatched · Autumn 1996 ✦</span>
+              </div>
+            </div>
+
+            <!-- Red Wax Seal Prompt -->
+            <div class="airmail-wax-seal-strip">
+              <div class="airmail-seal-pill">
+                <span class="airmail-seal-gem">☽</span>
+                <span class="airmail-seal-text">Break Seal &amp; Read Unsent Letter</span>
+                <span class="airmail-seal-arrow">→</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- 24 Letter Cards with deterministic physical rotations -->
     <ul class="desk-grid" id="deskGrid">
 <li class="desk-card-wrapper" data-family-tag="cosmic">
@@ -1222,5 +1285,42 @@
   setTimeout(updateConnections, 150);
 })();
 </script>
+
+  <!-- Modal: The Unsent Letter to Luna -->
+  <div class="luna-modal-overlay" id="lunaLetterModal" role="dialog" aria-modal="true" aria-hidden="true" style="display:none;">
+    <div class="luna-modal-backdrop" id="lunaModalBackdrop"></div>
+    <div class="luna-modal-letter-wrapper">
+      <article class="luna-modal-letter">
+        <button type="button" class="luna-modal-letter__close-corner" id="closeLunaModalX" title="Close letter" aria-label="Close letter">×</button>
+        
+        <header class="luna-modal-letter__header">
+          <div class="luna-modal-letter__dateline">October 14, 1996 · St. Paul · 2:40 AM</div>
+          <div class="luna-modal-letter__airmail-tag">PAR AVION / UNPOSTED MANUSCRIPT</div>
+        </header>
+
+        <h2 class="luna-modal-letter__salutation">Dear Luna,</h2>
+
+        <div class="luna-modal-letter__body">
+          <p>If you ever find your way to this page, it means you typed the name that lives quietly between every line of these twenty-four letters.</p>
+          
+          <p>I wrote all of them during the long winter nights when the silence in my room grew too loud. I never gave them to you, and I never will. Some feelings are too fragile for daylight, and having you as a friend—warm, laughing, and present in this world—mattered infinitely more to me than burdening you with something you could never return.</p>
+          
+          <p>So instead of speaking words that might build a wall between us, I built an archive. A quiet manuscript where the moments we shared don’t have to fade: the walks in the biting rain, the way your voice carried over the cold streets, and the quiet realization that some people are meant to be cherished from a careful, reverent distance.</p>
+          
+          <p>You will live your life, and I will live mine. But should you ever wonder if anyone in this wide, indifferent world looked at you and saw something truly sacred—let these twenty-four poems be your quiet proof.</p>
+          
+          <p class="luna-modal-letter__closing-note">Take care of your heart, always.</p>
+        </div>
+
+        <footer class="luna-modal-letter__footer">
+          <div class="luna-modal-letter__signoff">Yours in quiet devotion,</div>
+          <div class="luna-modal-letter__signature">— The Author</div>
+          <button type="button" class="luna-modal-letter__fold-btn" id="closeLunaModalBtn">
+            <span aria-hidden="true">✦</span> Reseal Letter &amp; Return to Desk
+          </button>
+        </footer>
+      </article>
+    </div>
+  </div>
 </body>
 </html>

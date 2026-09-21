@@ -1,19 +1,42 @@
 ---
-id: "c3331230-37ff-46fc-a4d7-7dfc5ced7577"
-title: "Git co-change pattern: .refact/buddy/state.json + toc.html"
-kind: pattern
+id: c3331230-37ff-46fc-a4d7-7dfc5ced7577
+title: 'Git co-change pattern: .refact/buddy/state.json + toc.html'
+tags:
+- cochange
+- git
+- pattern
 created: 2026-09-21
 updated: 2026-09-21
-review_after: 2026-10-21
+filenames:
+- .refact/buddy/state.json
+- toc.html
+links: []
+kind: pattern
 status: proposed
-tags: ["cochange", "git", "pattern"]
-filenames: [".refact/buddy/state.json", "toc.html"]
-created_at: "2026-09-21T17:46:30.209658900+00:00"
-content_hash: "159737285e71e8376d30fbf51b18b80070294c1d48edd8c88e354dcfc9200df4"
-source_tool: "buddy_memory_lifecycle:git"
-source_confidence: 0.780
-source_commit: "be63ad91c797"
-source_content_hash: "159737285e71e8376d30fbf51b18b80070294c1d48edd8c88e354dcfc9200df4"
+superseded_by: null
+deprecated_at: null
+review_after: 2026-09-21
+source_chat_id: null
+created_at: 2026-09-21T17:46:30.209658900+00:00
+summary: null
+description: null
+entities: []
+related_files: []
+related_entities: []
+content_hash: 159737285e71e8376d30fbf51b18b80070294c1d48edd8c88e354dcfc9200df4
+source_tool: buddy_memory_lifecycle:git
+source_confidence: 0.7799999713897705
+source_trajectory_id: null
+source_message_range: null
+source_commit: be63ad91c797
+topic: null
+last_used_at: null
+use_count: 0
+last_injected_at: null
+dismissed_count: 0
+source_content_hash: 159737285e71e8376d30fbf51b18b80070294c1d48edd8c88e354dcfc9200df4
+review_needed: true
+occurrences: 0
 ---
 
 Git co-change pattern: .refact/buddy/state.json + toc.html

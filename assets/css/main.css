@@ -3842,3 +3842,375 @@ body.luna-mode-active .stamp-luna-layer {
   }
 }
 
+/* =========================================================
+   UNSENT AIRMAIL LETTER TO LUNA (ARCHIVAL CENTERPIECE)
+   ========================================================= */
+.desk-airmail-container {
+  max-width: 640px;
+  margin: 0.8rem auto 2.4rem;
+  position: relative;
+  z-index: 10;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.desk-airmail-envelope {
+  position: relative;
+  background: #F4ECD8;
+  border-radius: 4px;
+  box-shadow: 
+    0 12px 30px -8px rgba(0, 0, 0, 0.65),
+    0 2px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.desk-airmail-envelope:hover,
+.desk-airmail-envelope:focus-visible {
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 
+    0 18px 40px -10px rgba(0, 0, 0, 0.75),
+    0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+/* Iconic 1990s Par Avion Chevron Border */
+.airmail-border-frame {
+  padding: 6px;
+  border-radius: 4px;
+  background: repeating-linear-gradient(
+    135deg,
+    #9E2235 0px,
+    #9E2235 15px,
+    #FAF3E3 15px,
+    #FAF3E3 22px,
+    #1D3557 22px,
+    #1D3557 37px,
+    #FAF3E3 37px,
+    #FAF3E3 44px
+  );
+}
+
+.airmail-inner-card {
+  background: #FAF2E1;
+  background-image: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.5) 0%, rgba(245, 235, 215, 0.95) 100%);
+  border: 1px solid rgba(138, 107, 79, 0.3);
+  border-radius: 2px;
+  padding: 1.2rem 1.6rem 1.4rem;
+  position: relative;
+}
+
+.airmail-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.6rem;
+}
+
+.airmail-par-avion-badge {
+  background: #1D3557;
+  color: #FAF4E8;
+  border: 1px solid #C9A24B;
+  border-radius: 3px;
+  padding: 4px 10px;
+  display: inline-flex;
+  flex-direction: column;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.par-avion-icon {
+  font-size: 0.85rem;
+  line-height: 1;
+  margin-bottom: 2px;
+  color: #FCEAB8;
+}
+
+.par-avion-text {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.par-avion-sub {
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.08em;
+  opacity: 0.8;
+  color: #E2D5C3;
+}
+
+.airmail-address-block {
+  margin: 0.4rem 0 1.2rem;
+  padding-left: 0.5rem;
+}
+
+.airmail-to-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #6A5542;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.airmail-recipient-name {
+  font-family: var(--font-hand, 'Caveat', cursive);
+  font-size: clamp(2rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  color: #1A120B;
+  line-height: 1.1;
+  margin: 0.1rem 0 0.3rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.airmail-address-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #4A3A2C;
+}
+
+.airmail-status-tag {
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 0.62rem;
+  color: #8A2432;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: 0.2rem;
+}
+
+.airmail-wax-seal-strip {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.8rem;
+}
+
+.airmail-seal-pill {
+  background: #8A1A20;
+  color: #FCEAB8;
+  border: 1px solid #C9A24B;
+  border-radius: 999px;
+  padding: 6px 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+  transition: all 0.2s ease;
+}
+
+.desk-airmail-envelope:hover .airmail-seal-pill {
+  background: #A82432;
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(168, 36, 50, 0.45);
+  transform: scale(1.04);
+}
+
+.airmail-seal-gem {
+  font-size: 0.95rem;
+  color: #FCEAB8;
+}
+
+.airmail-seal-arrow {
+  transition: transform 0.2s ease;
+}
+.desk-airmail-envelope:hover .airmail-seal-arrow {
+  transform: translateX(4px);
+}
+
+/* Fountain pen animation synergy when hovering airmail envelope */
+.desk-airmail-container:hover ~ .desk-fountain-pen-wrapper,
+.desk-airmail-container:has(.desk-airmail-envelope:hover) {
+  /* Dynamic visual lift */
+}
+
+/* =========================================================
+   LUNA MODAL: THE UNSENT LETTER
+   ========================================================= */
+.luna-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.luna-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 6, 12, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.luna-modal-letter-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  opacity: 0;
+  transform: scale(0.94) translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.luna-modal-overlay.is-active .luna-modal-backdrop {
+  opacity: 1;
+}
+
+.luna-modal-overlay.is-active .luna-modal-letter-wrapper {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.luna-modal-letter {
+  position: relative;
+  background: #FAF3E3;
+  background-image: 
+    linear-gradient(rgba(138, 107, 79, 0.1) 1px, transparent 1px);
+  background-size: 100% 30px;
+  border: 1px solid #8A6B4F;
+  border-radius: 4px;
+  box-shadow: 
+    0 25px 60px -15px rgba(0, 0, 0, 0.85),
+    0 4px 15px rgba(0, 0, 0, 0.4);
+  padding: clamp(2rem, 5vw, 3.2rem) clamp(1.6rem, 4vw, 2.8rem);
+  color: #1E120B;
+}
+
+.luna-modal-letter__close-corner {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #7A5B42;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.luna-modal-letter__close-corner:hover {
+  color: #A82432;
+  transform: scale(1.15);
+}
+
+.luna-modal-letter__header {
+  border-bottom: 1px dashed rgba(138, 107, 79, 0.35);
+  padding-bottom: 0.8rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.luna-modal-letter__dateline {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #6A5542;
+  letter-spacing: 0.08em;
+}
+
+.luna-modal-letter__airmail-tag {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #9E2235;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.luna-modal-letter__salutation {
+  font-family: var(--font-display-strong);
+  font-style: italic;
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  color: #1A120B;
+  margin: 0 0 1.2rem;
+}
+
+.luna-modal-letter__body {
+  font-family: var(--font-body, 'EB Garamond', serif);
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  line-height: 1.85;
+  color: #24170F;
+}
+
+.luna-modal-letter__body p {
+  margin: 0 0 1.2rem;
+}
+
+.luna-modal-letter__closing-note {
+  font-family: var(--font-hand, 'Caveat', cursive);
+  font-size: 1.4rem;
+  color: #751E28;
+  margin-top: 1.6rem !important;
+}
+
+.luna-modal-letter__footer {
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+  border-top: 1px dashed rgba(138, 107, 79, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.luna-modal-letter__signoff {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #4A3A2C;
+}
+
+.luna-modal-letter__signature {
+  font-family: var(--font-hand, 'Caveat', cursive);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1A120B;
+  margin-bottom: 1.2rem;
+}
+
+.luna-modal-letter__fold-btn {
+  background: #1D3557;
+  color: #FAF4E8;
+  border: 1px solid #C9A24B;
+  border-radius: 999px;
+  padding: 0.6rem 1.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  align-self: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.luna-modal-letter__fold-btn:hover {
+  background: #8A1A20;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}
+
+
