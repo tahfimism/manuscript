@@ -2358,7 +2358,8 @@ ins.pencil-margin {
 }
 
 .desk {
-  max-width: 1200px;
+  max-width: 1480px;
+  width: 95%;
   margin: 0 auto;
   padding: 2.5rem 1.5rem 7rem;
   position: relative;
