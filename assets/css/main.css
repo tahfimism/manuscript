@@ -3840,3 +3840,139 @@ body.luna-mode-active .desk-card {
   aspect-ratio: 16 / 10 !important;
   min-height: 320px !important;
 }
+
+
+/* =========================================================
+   TOP-RIGHT KEEPSAKE PHOTOCARDS (LUNA ARCHIVE CLUSTER)
+   ========================================================= */
+.desk-photocards-cluster {
+  position: absolute;
+  top: 18px;
+  right: 28px;
+  width: 270px;
+  height: 200px;
+  pointer-events: auto;
+  z-index: 8;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.desk-photocards-cluster:hover {
+  transform: translateY(-2px);
+}
+
+/* Base Photocard */
+.desk-photocard {
+  position: absolute;
+  background: #FAF7F2;
+  border: 1px solid rgba(90, 85, 100, 0.25);
+  border-radius: 2px;
+  padding: 8px 8px 18px;
+  box-shadow:
+    0 14px 35px -8px rgba(0, 0, 0, 0.55),
+    0 3px 10px rgba(0, 0, 0, 0.25),
+    inset 0 0 30px rgba(90, 92, 104, 0.06);
+  cursor: default;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+.desk-photocard:hover {
+  box-shadow:
+    0 20px 45px -10px rgba(0, 0, 0, 0.7),
+    0 6px 16px rgba(0, 0, 0, 0.35);
+  z-index: 10;
+}
+
+/* Larger Photocard */
+.desk-photocard--large {
+  top: 0;
+  left: 0;
+  width: 145px;
+  transform: rotate(-3.5deg);
+  z-index: 5;
+}
+.desk-photocard--large:hover {
+  transform: rotate(-1deg) scale(1.04);
+}
+
+/* Smaller Photocard (Overlapping) */
+.desk-photocard--small {
+  top: 35px;
+  right: 0;
+  width: 115px;
+  transform: rotate(6.5deg);
+  z-index: 6;
+}
+.desk-photocard--small:hover {
+  transform: rotate(3deg) scale(1.06);
+}
+
+/* Inner Photo Image Holder */
+.desk-photocard__inner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: #1C1820;
+  border-radius: 1px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.desk-photocard__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: sepia(0.12) contrast(1.04) brightness(0.96);
+  transition: filter 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.desk-photocard:hover .desk-photocard__img {
+  filter: sepia(0) contrast(1.08) brightness(1.02);
+  transform: scale(1.03);
+}
+
+/* Penciled Margin Caption */
+.desk-photocard__caption {
+  font-family: var(--font-mono, 'Courier Prime', monospace);
+  font-size: 0.52rem;
+  letter-spacing: 0.08em;
+  color: #7A7482;
+  text-transform: uppercase;
+  margin-top: 5px;
+  text-align: center;
+  user-select: none;
+}
+
+/* Postmark Layer */
+.desk-photocards-postmark {
+  position: absolute;
+  top: 25px;
+  left: 55px;
+  width: 170px;
+  height: 110px;
+  pointer-events: none;
+  z-index: 7;
+}
+
+/* Luna Mode Glow */
+body.luna-mode-active .desk-photocard {
+  border-color: rgba(201, 162, 75, 0.55);
+  box-shadow:
+    0 16px 40px -8px rgba(0, 0, 0, 0.65),
+    0 0 25px rgba(244, 232, 200, 0.35);
+}
+
+@media (max-width: 768px) {
+  .desk-photocards-cluster {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 0 auto 1.5rem;
+    width: 220px;
+    height: 160px;
+  }
+  .desk-photocard--large {
+    width: 115px;
+  }
+  .desk-photocard--small {
+    width: 95px;
+    top: 25px;
+  }
+}
