@@ -3605,3 +3605,173 @@ noscript .keepsake-dock {
     display: none;
   }
 }
+
+
+/* =========================================================
+   PHOTOCARD & LUNA MODE ENGINE (SECRET "LUNA" KEYSTROKE)
+   ========================================================= */
+.poem-card--photo-mount {
+  background: #F8F5EE;
+  position: relative;
+  max-width: min(820px, 95vw);
+  margin: 0 auto;
+  padding: clamp(2.8rem, 5.5vw, 4.8rem) clamp(2.4rem, 5vw, 4.2rem);
+  transform: rotate(-0.6deg);
+  box-shadow:
+    0 24px 70px -15px rgba(28, 24, 32, 0.45),
+    0 4px 18px rgba(0, 0, 0, 0.15),
+    inset 0 0 70px rgba(90, 92, 104, 0.08);
+  border: 1px solid rgba(74, 69, 86, 0.22);
+}
+
+/* Embossed 42px Triangular Photo Mounting Corners */
+.photo-corner {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  pointer-events: none;
+  z-index: 12;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
+}
+.photo-corner--tl { top: 8px; left: 8px; }
+.photo-corner--tr { top: 8px; right: 8px; transform: rotate(90deg); }
+.photo-corner--br { bottom: 8px; right: 8px; transform: rotate(180deg); }
+.photo-corner--bl { bottom: 8px; left: 8px; transform: rotate(270deg); }
+
+/* The Detailed Photographic Image Holder / Frame */
+.photocard-frame {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  margin: 1.6rem auto 2.2rem;
+  background: #ECE6D8;
+  border: 1px solid rgba(110, 105, 120, 0.35);
+  box-shadow:
+    inset 0 2px 8px rgba(0, 0, 0, 0.12),
+    0 8px 24px rgba(20, 16, 24, 0.15);
+  border-radius: 2px;
+  padding: 12px;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.photocard-inner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #E0D8C8;
+  background-image: 
+    radial-gradient(ellipse at center, rgba(235, 228, 214, 0.8) 0%, rgba(205, 195, 180, 0.95) 100%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='0.08'/%3E%3C/svg%3E");
+  border: 1px dashed rgba(120, 115, 130, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Default State (Empty / Sun-Bleached Emulsion) */
+.photocard-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #7A7482;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  transition: opacity 0.5s ease;
+  user-select: none;
+  text-align: center;
+  padding: 1rem;
+}
+
+.photocard-placeholder__reticle {
+  width: 40px;
+  height: 40px;
+  border: 1px dashed #9A94A2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 4px;
+}
+.photocard-placeholder__reticle::before,
+.photocard-placeholder__reticle::after {
+  content: '';
+  position: absolute;
+  background: #9A94A2;
+}
+.photocard-placeholder__reticle::before { width: 14px; height: 1px; }
+.photocard-placeholder__reticle::after { width: 1px; height: 14px; }
+
+/* The Real Image Holder (Revealed in Luna Mode) */
+.photocard-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.04);
+  filter: sepia(0.2) contrast(1.05) brightness(0.95);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+  pointer-events: none;
+}
+
+/* --- LUNA MODE ACTIVATED --- */
+body.luna-mode-active .photocard-frame {
+  box-shadow:
+    0 0 35px rgba(244, 232, 200, 0.35),
+    0 12px 32px rgba(20, 16, 24, 0.25);
+  border-color: rgba(201, 162, 75, 0.5);
+}
+
+body.luna-mode-active .photocard-placeholder {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.luna-mode-active .photocard-image {
+  opacity: 1;
+  transform: scale(1);
+  filter: sepia(0.08) contrast(1.02) brightness(1);
+  pointer-events: auto;
+}
+
+/* Subtle Luna Mode Badge / Toast Notification */
+.luna-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: rgba(24, 18, 30, 0.94);
+  border: 1px solid rgba(201, 162, 75, 0.4);
+  color: #F4ECD8;
+  font-family: var(--font-hand, 'Caveat', cursive);
+  font-size: 1.25rem;
+  padding: 8px 20px;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+/* Card 22 Photocard highlight in Luna Mode */
+body.luna-mode-active #card-22 {
+  border-color: rgba(201, 162, 75, 0.6);
+  box-shadow: 
+    0 16px 40px -10px rgba(0, 0, 0, 0.7),
+    0 0 25px rgba(244, 232, 200, 0.3);
+}
+
+.luna-toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

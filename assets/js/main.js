@@ -1086,5 +1086,66 @@ ${textarea.value || '(Empty letter slip)'}
       navigator.serviceWorker.register('/sw.js').catch(() => {});
     });
   }
-})();
 
+
+  /* ---------- 5. Luna Mode Secret Keystroke Engine ---------- */
+  (function setupLunaMode() {
+    const STORAGE_KEY = 'manuscript_luna_mode';
+    let keyBuffer = '';
+    const SECRET = 'luna';
+
+    function showLunaToast(msg) {
+      let toast = document.getElementById('lunaToast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'lunaToast';
+        toast.className = 'luna-toast';
+        document.body.appendChild(toast);
+      }
+      toast.textContent = msg;
+      toast.classList.add('is-visible');
+      setTimeout(() => {
+        toast.classList.remove('is-visible');
+      }, 3200);
+    }
+
+    function toggleLunaMode(forceState) {
+      const isCurrentlyActive = document.body.classList.contains('luna-mode-active');
+      const newState = typeof forceState === 'boolean' ? forceState : !isCurrentlyActive;
+
+      if (newState) {
+        document.body.classList.add('luna-mode-active');
+        try { localStorage.setItem(STORAGE_KEY, 'true'); } catch (e) {}
+        showLunaToast('✦ Luna Mode: Revealed ✦');
+        if (window.ManuscriptSound) window.ManuscriptSound.playSoftTap();
+        if ('vibrate' in navigator) navigator.vibrate([30, 50, 30]);
+      } else {
+        document.body.classList.remove('luna-mode-active');
+        try { localStorage.setItem(STORAGE_KEY, 'false'); } catch (e) {}
+        showLunaToast('✦ Luna Mode: Concealed ✦');
+        if (window.ManuscriptSound) window.ManuscriptSound.playSoftTap();
+      }
+    }
+
+    // Restore saved state
+    try {
+      if (localStorage.getItem(STORAGE_KEY) === 'true') {
+        document.body.classList.add('luna-mode-active');
+      }
+    } catch (e) {}
+
+    window.addEventListener('keydown', (e) => {
+      if (['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
+      if (e.key && e.key.length === 1) {
+        keyBuffer = (keyBuffer + e.key.toLowerCase()).slice(-SECRET.length);
+        if (keyBuffer === SECRET) {
+          toggleLunaMode();
+          keyBuffer = '';
+        }
+      }
+    });
+
+    window.toggleLunaMode = toggleLunaMode;
+  })();
+
+})();
