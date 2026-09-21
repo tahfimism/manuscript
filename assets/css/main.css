@@ -3847,7 +3847,7 @@ body.luna-mode-active .stamp-luna-layer {
    ========================================================= */
 .desk-envelope-container {
   max-width: 580px;
-  margin: 0.8rem auto 2.2rem;
+  margin: 0 auto;
   perspective: 1200px;
   position: relative;
   z-index: 10;
@@ -3855,12 +3855,11 @@ body.luna-mode-active .stamp-luna-layer {
   opacity: 0;
   transform: translateY(28px) scale(0.96);
   pointer-events: none;
-  max-height: 0;
-  overflow: hidden;
+  visibility: hidden;
+  height: 0;
   transition:
     opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-    max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1),
     margin 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -3868,8 +3867,9 @@ body.luna-mode-active .desk-envelope-container {
   opacity: 1;
   transform: translateY(0) scale(1);
   pointer-events: auto;
-  max-height: 420px;
-  overflow: visible;
+  visibility: visible;
+  height: auto;
+  margin: 0.8rem auto 2.2rem;
 }
 
 .desk-3d-envelope {
