@@ -1135,8 +1135,15 @@ ${textarea.value || '(Empty letter slip)'}
     } catch (e) {}
 
     window.addEventListener('keydown', (e) => {
+      // Direct shortcut: Ctrl + Shift + L (or Cmd + Shift + L on Mac)
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'L' || e.key === 'l' || e.code === 'KeyL')) {
+        e.preventDefault();
+        toggleLunaMode();
+        return;
+      }
+
       if (['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
-      if (e.key && e.key.length === 1) {
+      if (e.key && e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
         keyBuffer = (keyBuffer + e.key.toLowerCase()).slice(-SECRET.length);
         if (keyBuffer === SECRET) {
           toggleLunaMode();

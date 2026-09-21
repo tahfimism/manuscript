@@ -3765,19 +3765,10 @@ body.luna-mode-active .photocard-image {
   transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
 }
-/* Card 22 Photocard highlight in Luna Mode */
-body.luna-mode-active #card-22 {
-  border-color: rgba(201, 162, 75, 0.6);
-  box-shadow: 
-    0 16px 40px -10px rgba(0, 0, 0, 0.7),
-    0 0 25px rgba(244, 232, 200, 0.3);
-}
-
 .luna-toast.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
-
 
 /* =========================================================
    TOP-RIGHT PROMINENT STAMPS & LUNA MODE PHOTOCARDS
@@ -3791,7 +3782,7 @@ body.luna-mode-active #card-22 {
   pointer-events: auto;
   z-index: 8;
   cursor: default;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .desk-stamps-wrapper:hover {
@@ -3825,11 +3816,6 @@ body.luna-mode-active .stamp-art-layer {
 body.luna-mode-active .stamp-luna-layer {
   opacity: 1;
   pointer-events: auto;
-}
-
-/* Luna Mode Ambient Celestial Glow on the Stamps */
-body.luna-mode-active .desk-stamps-wrapper {
-  filter: drop-shadow(0 0 24px rgba(244, 232, 200, 0.45));
 }
 
 @media (max-width: 900px) {
