@@ -3779,129 +3779,66 @@ body.luna-mode-active #card-22 {
 }
 
 
-/* TOC Photocard Image Holder Frame (Inside each Desk Card) */
-.desk-card__photo-frame {
-  position: relative;
-  width: 100%;
-  height: 0;
-  opacity: 0;
-  margin: 0;
-  border-radius: 2px;
-  overflow: hidden;
-  background: #1A120B;
-  border: 1px solid rgba(138, 107, 79, 0.3);
-  box-shadow: inset 0 2px 6px rgba(0,0,0,0.5);
-  transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease, margin 0.5s ease;
-  pointer-events: none;
-}
-
-.desk-card__photo-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: sepia(0.15) contrast(1.05);
-  transform: scale(1.05);
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
-}
-
-/* Luna Mode on Desk Cards */
-body.luna-mode-active .desk-card__photo-frame {
-  height: 160px;
-  opacity: 1;
-  margin: 1rem 0 0.8rem;
-  pointer-events: auto;
-}
-
-body.luna-mode-active .desk-card:hover .desk-card__photo-img {
-  transform: scale(1);
-  filter: sepia(0) contrast(1.08);
-}
-
-body.luna-mode-active .desk-card {
-  border-color: rgba(201, 162, 75, 0.45);
-  box-shadow: 
-    0 16px 36px -8px rgba(0, 0, 0, 0.6),
-    0 0 20px rgba(244, 232, 200, 0.2);
-}
-
-/* Expanded Out of Frame Photocard */
-.poem-card--photo-mount {
-  max-width: min(880px, 96vw) !important;
-  padding: clamp(3rem, 6vw, 5.2rem) clamp(2.6rem, 5.5vw, 4.6rem) !important;
-}
-
-.photocard-frame {
-  max-width: 680px !important;
-  margin: 2rem auto 2.6rem !important;
-  padding: 14px !important;
-}
-
-.photocard-inner {
-  aspect-ratio: 16 / 10 !important;
-  min-height: 320px !important;
-}
-
-
 /* =========================================================
-   TOP-RIGHT KEEPSAKE PHOTOCARDS (LUNA ARCHIVE CLUSTER)
+   TOP-RIGHT KEEPSAKE PHOTOCARDS (LARGE & PROMINENT)
    ========================================================= */
 .desk-photocards-cluster {
   position: absolute;
-  top: 18px;
-  right: 28px;
-  width: 270px;
-  height: 200px;
+  top: 16px;
+  right: 24px;
+  width: 320px;
+  height: 270px;
   pointer-events: auto;
   z-index: 8;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .desk-photocards-cluster:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.02);
 }
 
 /* Base Photocard */
 .desk-photocard {
   position: absolute;
   background: #FAF7F2;
-  border: 1px solid rgba(90, 85, 100, 0.25);
+  border: 1px solid rgba(74, 69, 86, 0.25);
   border-radius: 2px;
-  padding: 8px 8px 18px;
+  padding: 10px 10px 22px;
   box-shadow:
-    0 14px 35px -8px rgba(0, 0, 0, 0.55),
-    0 3px 10px rgba(0, 0, 0, 0.25),
-    inset 0 0 30px rgba(90, 92, 104, 0.06);
+    0 18px 45px -10px rgba(0, 0, 0, 0.65),
+    0 4px 14px rgba(0, 0, 0, 0.3),
+    inset 0 0 35px rgba(90, 92, 104, 0.08);
   cursor: default;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
 }
 .desk-photocard:hover {
   box-shadow:
-    0 20px 45px -10px rgba(0, 0, 0, 0.7),
-    0 6px 16px rgba(0, 0, 0, 0.35);
-  z-index: 10;
+    0 26px 60px -12px rgba(0, 0, 0, 0.8),
+    0 8px 22px rgba(0, 0, 0, 0.45);
+  z-index: 12;
 }
 
-/* Larger Photocard */
+/* Larger Photocard (Prominent Size) */
 .desk-photocard--large {
   top: 0;
   left: 0;
-  width: 145px;
-  transform: rotate(-3.5deg);
+  width: 195px;
+  transform: rotate(-4deg);
   z-index: 5;
 }
 .desk-photocard--large:hover {
-  transform: rotate(-1deg) scale(1.04);
+  transform: rotate(-1.5deg) scale(1.05);
 }
 
-/* Smaller Photocard (Overlapping) */
+/* Smaller Photocard (Prominent Size, Overlapping) */
 .desk-photocard--small {
-  top: 35px;
+  top: 45px;
   right: 0;
-  width: 115px;
-  transform: rotate(6.5deg);
+  width: 155px;
+  transform: rotate(7.5deg);
   z-index: 6;
 }
 .desk-photocard--small:hover {
-  transform: rotate(3deg) scale(1.06);
+  transform: rotate(3.5deg) scale(1.08);
 }
 
 /* Inner Photo Image Holder */
@@ -3909,10 +3846,11 @@ body.luna-mode-active .desk-card {
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 5;
-  background: #1C1820;
+  background: #18141C;
   border-radius: 1px;
   overflow: hidden;
-  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.4);
 }
 
 .desk-photocard__img {
@@ -3920,22 +3858,22 @@ body.luna-mode-active .desk-card {
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: sepia(0.12) contrast(1.04) brightness(0.96);
+  filter: sepia(0.08) contrast(1.05) brightness(0.98);
   transition: filter 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .desk-photocard:hover .desk-photocard__img {
   filter: sepia(0) contrast(1.08) brightness(1.02);
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
-/* Penciled Margin Caption */
+/* Caption below photo */
 .desk-photocard__caption {
   font-family: var(--font-mono, 'Courier Prime', monospace);
-  font-size: 0.52rem;
-  letter-spacing: 0.08em;
-  color: #7A7482;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: #6E6878;
   text-transform: uppercase;
-  margin-top: 5px;
+  margin-top: 7px;
   text-align: center;
   user-select: none;
 }
@@ -3943,36 +3881,36 @@ body.luna-mode-active .desk-card {
 /* Postmark Layer */
 .desk-photocards-postmark {
   position: absolute;
-  top: 25px;
-  left: 55px;
-  width: 170px;
-  height: 110px;
+  top: 35px;
+  left: 65px;
+  width: 200px;
+  height: 130px;
   pointer-events: none;
   z-index: 7;
 }
 
-/* Luna Mode Glow */
+/* Luna Mode Highlight */
 body.luna-mode-active .desk-photocard {
-  border-color: rgba(201, 162, 75, 0.55);
+  border-color: rgba(201, 162, 75, 0.65);
   box-shadow:
-    0 16px 40px -8px rgba(0, 0, 0, 0.65),
-    0 0 25px rgba(244, 232, 200, 0.35);
+    0 20px 50px -10px rgba(0, 0, 0, 0.75),
+    0 0 30px rgba(244, 232, 200, 0.4);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .desk-photocards-cluster {
     position: relative;
     top: auto;
     right: auto;
-    margin: 0 auto 1.5rem;
-    width: 220px;
-    height: 160px;
+    margin: 0 auto 2rem;
+    width: 280px;
+    height: 230px;
   }
   .desk-photocard--large {
-    width: 115px;
+    width: 165px;
   }
   .desk-photocard--small {
-    width: 95px;
-    top: 25px;
+    width: 135px;
+    top: 35px;
   }
 }
