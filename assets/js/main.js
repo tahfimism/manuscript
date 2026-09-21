@@ -516,7 +516,7 @@
   window.MANUSCRIPT_GATE = Object.assign({
     enabled: true,
     maxWidth: 900,
-    copy: 'exclusively crafter for large screen'
+    copy: 'exclusively crafted for large screen'
   }, window.MANUSCRIPT_GATE || {});
 
   (function setupScreenGate() {
@@ -527,9 +527,13 @@
     let resizeTimer = null;
 
     function getGateEl() {
-      if (gateEl && document.body.contains(gateEl)) return gateEl;
-      gateEl = document.getElementById('screenGate');
-      if (!gateEl) {
+      const existingGates = document.querySelectorAll('.screen-gate, #screenGate');
+      if (existingGates.length > 0) {
+        gateEl = existingGates[0];
+        for (let i = 1; i < existingGates.length; i++) {
+          existingGates[i].remove();
+        }
+      } else if (!gateEl || !document.body.contains(gateEl)) {
         gateEl = document.createElement('div');
         gateEl.id = 'screenGate';
         gateEl.className = 'screen-gate';
@@ -563,6 +567,9 @@
 
     window.addEventListener('resize', onResize, { passive: true });
     window.addEventListener('pageshow', applyGate);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', applyGate);
+    }
 
     applyGate();
   })();
