@@ -30,7 +30,7 @@
   </div>
 
   <article class="poem">
-    <div class="poem-card" data-edge="deckled" style="position: relative; overflow: hidden;">
+    <div class="poem-card" data-edge="deckled" style="position: relative; overflow: hidden; filter: none;">
       <!-- Postal Cancellation Stamp Mark (Top Right) -->
       <div style="position: absolute; top: 1.5rem; right: 1.8rem; pointer-events: none; opacity: 0.45; transform: rotate(-8deg);" aria-hidden="true">
         <svg viewBox="0 0 80 80" width="68" height="68" fill="none">
@@ -79,8 +79,8 @@
           <path d="M 325 62 H 335 M 330 57 V 67" stroke="#4A3A2A" stroke-width="0.9" opacity="0.6"/>
         </svg>
 
-        <!-- Script title breaking gracefully outside the wireframe box -->
-        <h1 class="poem__title poem__title--script" style="position: relative; z-index: 2; margin: -0.8rem 0 -0.2rem; transform: rotate(-1.5deg); text-shadow: 0 1px 3px rgba(216,30,52,0.15);">Divine Letter</h1>
+        <!-- Title: clean DM Serif Display, no italic, no rotation, no scribble effect, no swash -->
+        <h1 class="poem__title" style="position: relative; z-index: 2; margin: -0.8rem 0 -0.2rem; font-family: 'DM Serif Display', 'Fraunces', serif !important; font-weight: 400 !important; font-style: normal !important; font-feature-settings: 'kern' 1, 'liga' 1 !important; font-size: clamp(2.6rem, 5.6vw, 3.8rem); letter-spacing: 0.005em; color: #4A1A22; transform: none; text-shadow: 0 1px 3px rgba(216,30,52,0.15);">Divine Letter</h1>
       </div>
 
       <p class="poem__sub" style="margin-top: 0.2rem;">litany, in your name</p>
@@ -150,5 +150,6 @@
 </nav>
 
 <script src="../assets/js/main.js"></script>
+<div class="screen-gate" id="screenGate" aria-hidden="true"></div>
 </body>
 </html>

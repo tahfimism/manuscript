@@ -207,7 +207,7 @@
   --scene-opacity: 1;
   --accent: #A9C4D6;
   --accent-ink: #5A8AAC;
-  --paper: rgba(244, 236, 216, 0.08);
+  --paper: rgba(244, 236, 216, 0.55);
   --ink: #F4ECD8;
   --ink-faded: #B8C8D8;
   --scene-glow: rgba(169, 196, 214, 0.55);
@@ -1669,10 +1669,18 @@ ins.pencil-margin {
 }
 [data-family="C-blue"] .poem-card {
   padding: clamp(2.2rem, 4.5vw, 3.8rem) clamp(1.4rem, 3.6vw, 2.6rem);
+  background: rgba(10, 18, 40, 0.72);
+  backdrop-filter: blur(12px) saturate(1.4);
+  -webkit-backdrop-filter: blur(12px) saturate(1.4);
+  border: 1px solid rgba(169, 196, 214, 0.18);
+  box-shadow:
+    0 0 0 1px rgba(169, 196, 214, 0.1),
+    0 20px 60px -20px rgba(0, 0, 0, 0.7),
+    inset 0 0 40px rgba(15, 30, 60, 0.4);
 }
 [data-family="C-blue"] .poem__body {
-  font-size: clamp(0.95rem, 0.88rem + 0.2vw, 1.03rem);
-  line-height: 1.82;
+  font-size: clamp(1.05rem, 0.98rem + 0.28vw, 1.18rem);
+  line-height: 1.88;
 }
 
 /* 2. Things I Learn to Bury (Reflective lines up to 65ch) */
@@ -4317,4 +4325,46 @@ body.luna-mode-active .desk-envelope-container {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
 }
 
+
+/* =========================================================
+   SCREEN-SIZE GATE
+   Driven by window.MANUSCRIPT_GATE in main.js. Hidden unless
+   body.is-gated is present, in which case it covers the
+   entire viewport with a blurred paper overlay and the
+   configured copy. To disable: set enabled:false in main.js.
+   ========================================================= */
+.screen-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  background: rgba(241, 232, 216, 0.72); /* paper, from PRD §5 */
+  backdrop-filter: blur(14px) saturate(0.85);
+  -webkit-backdrop-filter: blur(14px) saturate(0.85);
+  font-family: var(--font-display, 'Fraunces', serif);
+  font-style: italic;
+  font-size: clamp(1.4rem, 4.5vw, 2.6rem);
+  line-height: 1.35;
+  color: #3C2A1E; /* ink, from PRD §5 */
+  letter-spacing: 0.01em;
+}
+
+body.is-gated .screen-gate {
+  display: flex;
+}
+
+body.is-gated {
+  overflow: hidden;
+}
+
+/* Older browsers: heavier paper fallback, no blur */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  body.is-gated .screen-gate {
+    background: rgba(241, 232, 216, 0.96);
+  }
+}
 

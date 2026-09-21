@@ -62,7 +62,11 @@
       "Bash(grep -n 'data-turn' /g/projects/manuscript/poems/*.html)",
       "Bash(grep -L 'data-turn' /g/projects/manuscript/poems/*.html)",
       "Bash(grep -n 'filter=\"\"\"\"url' /g/projects/manuscript/poems/*.html)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(python -m http.server 8765 --bind 127.0.0.1)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://127.0.0.1:8765/poems/starlight.html)",
+      "Bash(pip show:*)",
+      "Bash(python -c \"import playwright\")"
     ]
   }
 }

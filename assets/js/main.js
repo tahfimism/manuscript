@@ -507,6 +507,66 @@
     });
   })();
 
+  /* ---------- 3b. Screen-Size Gate ----------
+     A single declarative block controls the whole gate.
+     To disable entirely: set window.MANUSCRIPT_GATE.enabled = false before
+     this script runs (or simply edit the literal below).
+     To change the threshold: edit .maxWidth. 900 = block phones & small tablets.
+     To change the message: edit .copy. */
+  window.MANUSCRIPT_GATE = Object.assign({
+    enabled: true,
+    maxWidth: 900,
+    copy: 'exclusively crafter for large screen'
+  }, window.MANUSCRIPT_GATE || {});
+
+  (function setupScreenGate() {
+    const cfg = window.MANUSCRIPT_GATE;
+    if (!cfg || !cfg.enabled) return;
+
+    let gateEl = null;
+    let resizeTimer = null;
+
+    function getGateEl() {
+      if (gateEl && document.body.contains(gateEl)) return gateEl;
+      gateEl = document.getElementById('screenGate');
+      if (!gateEl) {
+        gateEl = document.createElement('div');
+        gateEl.id = 'screenGate';
+        gateEl.className = 'screen-gate';
+        gateEl.setAttribute('role', 'alert');
+        gateEl.setAttribute('aria-live', 'polite');
+        document.body.appendChild(gateEl);
+      }
+      return gateEl;
+    }
+
+    function applyGate() {
+      const isGated = window.innerWidth <= cfg.maxWidth;
+      if (isGated) {
+        const el = getGateEl();
+        if (el.textContent !== cfg.copy) el.textContent = cfg.copy;
+        if (el.getAttribute('aria-hidden') !== 'false') el.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('is-gated');
+      } else {
+        if (gateEl) {
+          if (gateEl.textContent) gateEl.textContent = '';
+          gateEl.setAttribute('aria-hidden', 'true');
+        }
+        document.body.classList.remove('is-gated');
+      }
+    }
+
+    function onResize() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(applyGate, 80);
+    }
+
+    window.addEventListener('resize', onResize, { passive: true });
+    window.addEventListener('pageshow', applyGate);
+
+    applyGate();
+  })();
+
   /* ---------- 4. Canvas Procedural Atmospheres ---------- */
   (function setupCanvasFx() {
     const rawKind = (document.body.getAttribute('data-canvas') || '').trim().toLowerCase();
@@ -1125,8 +1185,7 @@ ${textarea.value || '(Empty letter slip)'}
         showLunaToast('✦ Luna Mode: Concealed ✦');
         if (window.ManuscriptSound) window.ManuscriptSound.playSoftTap();
         // Reset envelope to front face so it re-enters cleanly next time
-        const flipper = document.getElementById('envelopeFlipper');
-        if (flipper) flipper.classList.remove('is-flipped');
+        if (window.__resetEnvelopeFlip) window.__resetEnvelopeFlip();
       }
     }
 

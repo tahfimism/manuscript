@@ -18,14 +18,14 @@
 <link rel="stylesheet" href="../assets/css/main.css" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230A1628'/%3E%3Ccircle cx='50' cy='50' r='24' fill='%233F7BB0'/%3E%3Cellipse cx='50' cy='50' rx='40' ry='12' fill='none' stroke='%23C97A30' stroke-width='1.5'/%3E%3C/svg%3E" />
 </head>
-<body data-family="C-blue" data-canvas="blue-prism" style="background: linear-gradient(180deg, #0A1628 0%, #152B4D 12%, #1D3557 25%, #102238 38%, #4A6B82 50%, #6BA8C9 62%, #2E4A7D 75%, #1E385C 88%, #050B12 100%);">
+<body data-family="C-blue" data-canvas="blue-prism" style="background: url('../images/blue-inside-ruin.png') center / cover no-repeat fixed, linear-gradient(180deg, #0A1628 0%, #152B4D 12%, #1D3557 25%, #102238 38%, #4A6B82 50%, #6BA8C9 62%, #2E4A7D 75%, #1E385C 88%, #050B12 100%); background-attachment: fixed, scroll;">
 
 <main class="poem-stage">
   <!-- Procedural background atmosphere canvas -->
   <canvas class="poem__canvas-layer" id="poemCanvas" aria-hidden="true"></canvas>
 
   <!-- Ambient scene illustration -->
-  <div class="poem__scene" aria-hidden="true">
+  <div class="poem__scene" aria-hidden="true" style="display: none;">
     <img src="../assets/img/svg/scene-blue-inside-ruin.svg" alt="" />
   </div>
 
@@ -154,5 +154,6 @@
 </nav>
 
 <script src="../assets/js/main.js"></script>
+<div class="screen-gate" id="screenGate" aria-hidden="true"></div>
 </body>
 </html>

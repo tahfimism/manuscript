@@ -23,6 +23,57 @@
 </head>
 <body data-family="A-cover">
 <main class="cover">
+
+  <!-- TEST OVERLAY: fullscreen cover.png with central click target. Remove this block to revert to the canvas+HTML cover. -->
+  <div class="cover__image-test" aria-label="Manuscript cover image — click to enter">
+    <img class="cover__image-test-img" src="images/cover.png" alt="" aria-hidden="true" />
+    <a class="cover__image-test-hit" href="toc.html" aria-label="Enter the collection">
+      <span class="cover__image-test-hit-label">enter</span>
+    </a>
+  </div>
+  <style>
+    .cover__image-test {
+      position: absolute;
+      inset: 0;
+      z-index: 50;
+      overflow: hidden;
+    }
+    .cover__image-test-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+    .cover__image-test-hit {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60%;
+      height: 50%;
+      display: block;
+      background: transparent;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      outline: none;
+    }
+    .cover__image-test-hit:focus-visible {
+      outline: 2px dashed #F4ECD8;
+      outline-offset: -8px;
+    }
+    .cover__image-test-hit-label {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0);
+      white-space: nowrap; border: 0;
+    }
+  </style>
+
   <!-- Handdrawn canvas illustration -->
   <canvas class="cover__art" id="coverCanvas" aria-hidden="true"></canvas>
 
@@ -36,5 +87,6 @@
   </div>
 </main>
 <script src="assets/js/cover.js"></script>
+<div class="screen-gate" id="screenGate" aria-hidden="true"></div>
 </body>
 </html>

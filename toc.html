@@ -383,72 +383,76 @@
           
           <!-- SIDE 1: ENVELOPE FRONT -->
           <div class="envelope-face envelope-face--front" id="envelopeFront">
-            <!-- Top Right Postage Stamp & Cancellation Postmark -->
-            <div class="envelope-stamp-area" aria-hidden="true">
-              <svg viewBox="0 0 120 70" width="120" height="70">
-                <!-- 32¢ Moon Stamp -->
-                <g transform="translate(52, 6) rotate(2 25 25)">
-                  <rect x="0" y="0" width="48" height="56" rx="2" fill="#F4ECD8" stroke="#E2D6C0" stroke-width="1.2" />
-                  <rect x="0" y="0" width="48" height="56" fill="none" stroke="#FAF4E8" stroke-dasharray="2,2.5" stroke-width="1.8" />
-                  <rect x="4" y="4" width="40" height="48" fill="#121B2B" stroke="#8A6D3B" stroke-width="0.8" />
-                  <circle cx="24" cy="18" r="8" fill="#FCEAB8" opacity="0.25" />
-                  <path d="M 28 12 A 9 9 0 1 0 28 28 A 7 7 0 1 1 28 12 Z" fill="#FCEAB8" />
-                  <text x="24" y="39" font-family="'Courier Prime', monospace" font-size="5.5" font-weight="bold" fill="#FCEAB8" text-anchor="middle">USA 32¢</text>
-                  <text x="24" y="46" font-family="'Fraunces', serif" font-size="4" font-style="italic" fill="#E2D5C3" text-anchor="middle">LUNA '96</text>
-                </g>
-                <!-- Ink Cancellation -->
-                <g style="mix-blend-mode: multiply; opacity: 0.82;">
-                  <circle cx="36" cy="34" r="19" fill="none" stroke="#24170E" stroke-width="1.2" stroke-dasharray="45 5 2 3" />
-                  <text x="36" y="31" font-family="'Courier Prime', monospace" font-size="4.2" font-weight="bold" fill="#24170E" text-anchor="middle">14 OCT</text>
-                  <text x="36" y="37" font-family="'Courier Prime', monospace" font-size="4.2" font-weight="bold" fill="#24170E" text-anchor="middle">1996</text>
-                  <text x="36" y="43" font-family="'Courier Prime', monospace" font-size="3.2" fill="#24170E" text-anchor="middle">UNSENT</text>
-                  <path d="M 2 27 Q 18 22 34 27 T 52 27" fill="none" stroke="#24170E" stroke-width="1.1" />
-                  <path d="M 2 34 Q 18 29 34 34 T 52 34" fill="none" stroke="#24170E" stroke-width="1.1" />
-                  <path d="M 2 41 Q 18 36 34 41 T 52 41" fill="none" stroke="#24170E" stroke-width="1.1" />
-                </g>
-              </svg>
-            </div>
+            <div class="envelope-inner">
+              <!-- Top Right Postage Stamp & Cancellation Postmark -->
+              <div class="envelope-stamp-area" aria-hidden="true">
+                <svg viewBox="0 0 120 70" width="120" height="70">
+                  <!-- 32¢ Moon Stamp -->
+                  <g transform="translate(52, 6) rotate(2 25 25)">
+                    <rect x="0" y="0" width="48" height="56" rx="2" fill="#F4ECD8" stroke="#E2D6C0" stroke-width="1.2" />
+                    <rect x="0" y="0" width="48" height="56" fill="none" stroke="#FAF4E8" stroke-dasharray="2,2.5" stroke-width="1.8" />
+                    <rect x="4" y="4" width="40" height="48" fill="#121B2B" stroke="#8A6D3B" stroke-width="0.8" />
+                    <circle cx="24" cy="18" r="8" fill="#FCEAB8" opacity="0.25" />
+                    <path d="M 28 12 A 9 9 0 1 0 28 28 A 7 7 0 1 1 28 12 Z" fill="#FCEAB8" />
+                    <text x="24" y="39" font-family="'Courier Prime', monospace" font-size="5.5" font-weight="bold" fill="#FCEAB8" text-anchor="middle">USA 32¢</text>
+                    <text x="24" y="46" font-family="'Fraunces', serif" font-size="4" font-style="italic" fill="#E2D5C3" text-anchor="middle">LUNA '96</text>
+                  </g>
+                  <!-- Ink Cancellation -->
+                  <g style="mix-blend-mode: multiply; opacity: 0.82;">
+                    <circle cx="36" cy="34" r="19" fill="none" stroke="#24170E" stroke-width="1.2" stroke-dasharray="45 5 2 3" />
+                    <text x="36" y="31" font-family="'Courier Prime', monospace" font-size="4.2" font-weight="bold" fill="#24170E" text-anchor="middle">14 OCT</text>
+                    <text x="36" y="37" font-family="'Courier Prime', monospace" font-size="4.2" font-weight="bold" fill="#24170E" text-anchor="middle">1996</text>
+                    <text x="36" y="43" font-family="'Courier Prime', monospace" font-size="3.2" fill="#24170E" text-anchor="middle">UNSENT</text>
+                    <path d="M 2 27 Q 18 22 34 27 T 52 27" fill="none" stroke="#24170E" stroke-width="1.1" />
+                    <path d="M 2 34 Q 18 29 34 34 T 52 34" fill="none" stroke="#24170E" stroke-width="1.1" />
+                    <path d="M 2 41 Q 18 36 34 41 T 52 41" fill="none" stroke="#24170E" stroke-width="1.1" />
+                  </g>
+                </svg>
+              </div>
 
-            <!-- Handwritten Recipient Address Block -->
-            <div class="envelope-address-block">
-              <span class="envelope-to-label">To:</span>
-              <div class="envelope-recipient-name">Luna</div>
-              <div class="envelope-recipient-sub">Somewhere beyond this autumn</div>
-              <div class="envelope-archival-note">Autumn 1996 · Held in silence</div>
-            </div>
+              <!-- Handwritten Recipient Address Block -->
+              <div class="envelope-address-block">
+                <span class="envelope-to-label">To:</span>
+                <div class="envelope-recipient-name">Luna</div>
+                <div class="envelope-recipient-sub">Somewhere beyond this autumn</div>
+                <div class="envelope-archival-note">Autumn 1996 · Held in silence</div>
+              </div>
 
-            <!-- Subtle flip hint at bottom corner -->
-            <button type="button" class="envelope-flip-action" id="flipToBackBtn" title="Turn envelope over to back">
-              <span class="flip-icon">↺</span> Turn to Back Flap
-            </button>
+              <!-- Subtle flip hint at bottom corner -->
+              <button type="button" class="envelope-flip-action" id="flipToBackBtn" title="Turn envelope over to back">
+                <span class="flip-icon">↺</span> Turn to Back Flap
+              </button>
+            </div>
           </div>
 
           <!-- SIDE 2: ENVELOPE BACK (Flap & Wax Seal) -->
           <div class="envelope-face envelope-face--back" id="envelopeBack">
-            <!-- Diagonal Seams of Folded Envelope Back -->
-            <svg class="envelope-back-seams" viewBox="0 0 600 320" preserveAspectRatio="none" aria-hidden="true">
-              <!-- Bottom & Side Seams -->
-              <polygon points="0,320 300,160 600,320" fill="#F2E6CD" stroke="#DFCFAF" stroke-width="1.2" />
-              <polygon points="0,0 300,160 0,320" fill="#EFE2C6" stroke="#DFCFAF" stroke-width="1.2" opacity="0.6" />
-              <polygon points="600,0 300,160 600,320" fill="#EFE2C6" stroke="#DFCFAF" stroke-width="1.2" opacity="0.6" />
-              <!-- Top Triangular Flap folding down -->
-              <polygon points="0,0 300,175 600,0" fill="#FAF2DF" stroke="#D8C5A2" stroke-width="1.5" />
-            </svg>
+            <div class="envelope-inner">
+              <!-- Diagonal Seams of Folded Envelope Back -->
+              <svg class="envelope-back-seams" viewBox="0 0 600 320" preserveAspectRatio="none" aria-hidden="true">
+                <!-- Bottom & Side Seams -->
+                <polygon points="0,320 300,160 600,320" fill="#F2E6CD" stroke="#DFCFAF" stroke-width="1.2" />
+                <polygon points="0,0 300,160 0,320" fill="#EFE2C6" stroke="#DFCFAF" stroke-width="1.2" opacity="0.6" />
+                <polygon points="600,0 300,160 600,320" fill="#EFE2C6" stroke="#DFCFAF" stroke-width="1.2" opacity="0.6" />
+                <!-- Top Triangular Flap folding down -->
+                <polygon points="0,0 300,175 600,0" fill="#FAF2DF" stroke="#D8C5A2" stroke-width="1.5" />
+              </svg>
 
-            <!-- Physical Red Wax Seal with Crescent Moon Imprint -->
-            <div class="envelope-wax-seal-anchor">
-              <button type="button" class="envelope-wax-seal-btn" id="unsealLetterBtn" title="Break wax seal &amp; unfold letter" aria-label="Break wax seal and unfold letter">
-                <div class="envelope-wax-seal-gem">
-                  <span class="wax-moon-glyph">☽</span>
-                </div>
-                <span class="wax-seal-subtext">Click Seal to Open</span>
+              <!-- Physical Red Wax Seal with Crescent Moon Imprint -->
+              <div class="envelope-wax-seal-anchor">
+                <button type="button" class="envelope-wax-seal-btn" id="unsealLetterBtn" title="Break wax seal &amp; unfold letter" aria-label="Break wax seal and unfold letter">
+                  <div class="envelope-wax-seal-gem">
+                    <span class="wax-moon-glyph">☽</span>
+                  </div>
+                  <span class="wax-seal-subtext">Click Seal to Open</span>
+                </button>
+              </div>
+
+              <!-- Flip Back Button -->
+              <button type="button" class="envelope-flip-action envelope-flip-action--back" id="flipToFrontBtn" title="Turn envelope over to front">
+                <span class="flip-icon">↻</span> View Front Address
               </button>
             </div>
-
-            <!-- Flip Back Button -->
-            <button type="button" class="envelope-flip-action envelope-flip-action--back" id="flipToFrontBtn" title="Turn envelope over to front">
-              <span class="flip-icon">↻</span> View Front Address
-            </button>
           </div>
 
         </div>
@@ -1338,5 +1342,80 @@
       </article>
     </div>
   </div>
+
+<script>
+/* Envelope Controller — runs after full DOM is parsed (modal included) */
+(function initEnvelopeController() {
+  var flipper    = document.getElementById('envelopeFlipper');
+  var frontFace  = document.getElementById('envelopeFront');
+  var flipToBackBtn  = document.getElementById('flipToBackBtn');
+  var flipToFrontBtn = document.getElementById('flipToFrontBtn');
+  var unsealBtn  = document.getElementById('unsealLetterBtn');
+  var modal      = document.getElementById('lunaLetterModal');
+  var closeBtn   = document.getElementById('closeLunaModalBtn');
+  var closeX     = document.getElementById('closeLunaModalX');
+  var backdrop   = document.getElementById('lunaModalBackdrop');
+
+  if (!flipper || !modal) {
+    console.warn('[Envelope] Critical elements missing. flipper:', !!flipper, 'modal:', !!modal);
+    return;
+  }
+
+  function doFlipToBack(e) {
+    if (e) { e.stopPropagation(); }
+    flipper.classList.add('is-flipped');
+    if (window.ManuscriptSound) window.ManuscriptSound.playPaperTurn();
+  }
+
+  function doFlipToFront(e) {
+    if (e) { e.stopPropagation(); }
+    flipper.classList.remove('is-flipped');
+    if (window.ManuscriptSound) window.ManuscriptSound.playPaperTurn();
+  }
+
+  function doOpenModal(e) {
+    if (e) { e.stopPropagation(); }
+    modal.style.display = 'flex';
+    void modal.offsetHeight;
+    modal.classList.add('is-active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    if (window.ManuscriptSound) {
+      window.ManuscriptSound.playPenNibScritch();
+      setTimeout(function() {
+        if (window.ManuscriptSound) window.ManuscriptSound.playWaxSealCrack();
+      }, 120);
+    }
+  }
+
+  function doCloseModal() {
+    modal.classList.remove('is-active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    setTimeout(function() {
+      if (!modal.classList.contains('is-active')) modal.style.display = 'none';
+    }, 380);
+    if (window.ManuscriptSound) window.ManuscriptSound.playPaperTurn();
+  }
+
+  if (flipToBackBtn)  flipToBackBtn.addEventListener('click', doFlipToBack);
+  if (flipToFrontBtn) flipToFrontBtn.addEventListener('click', doFlipToFront);
+  if (frontFace)      frontFace.addEventListener('click', doFlipToBack);
+  if (unsealBtn)      unsealBtn.addEventListener('click', doOpenModal);
+  if (closeBtn)       closeBtn.addEventListener('click', doCloseModal);
+  if (closeX)         closeX.addEventListener('click', doCloseModal);
+  if (backdrop)       backdrop.addEventListener('click', doCloseModal);
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('is-active')) doCloseModal();
+  });
+
+  /* Expose reset for Luna Mode toggle */
+  window.__resetEnvelopeFlip = function() { flipper.classList.remove('is-flipped'); };
+
+  console.log('[Envelope] Controller ready.');
+})();
+</script>
+<div class="screen-gate" id="screenGate" aria-hidden="true"></div>
 </body>
 </html>
