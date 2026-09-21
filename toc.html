@@ -298,11 +298,11 @@
       
       <!-- Quick Thematic Family Filters -->
       <div class="desk-filters" role="group" aria-label="Mood Family Filters">
-        <button type="button" class="desk-filter-btn is-active" data-filter="all">All 24 Letters</button>
-        <button type="button" class="desk-filter-btn" data-filter="cosmic">Cosmic Devotion</button>
-        <button type="button" class="desk-filter-btn" data-filter="winter">Winter Ash</button>
-        <button type="button" class="desk-filter-btn" data-filter="charred">Charred Sea Arc</button>
-        <button type="button" class="desk-filter-btn" data-filter="memory">Wine &amp; Memory</button>
+        <button type="button" class="desk-filter-btn is-active" data-filter="all" aria-pressed="true">All 24 Letters</button>
+        <button type="button" class="desk-filter-btn" data-filter="cosmic" aria-pressed="false">Cosmic Devotion</button>
+        <button type="button" class="desk-filter-btn" data-filter="winter" aria-pressed="false">Winter Ash</button>
+        <button type="button" class="desk-filter-btn" data-filter="charred" aria-pressed="false">Charred Sea Arc</button>
+        <button type="button" class="desk-filter-btn" data-filter="memory" aria-pressed="false">Wine &amp; Memory</button>
       </div>
     </header>
 
@@ -1274,8 +1274,12 @@
   const filterBtns = document.querySelectorAll('.desk-filter-btn');
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('is-active'));
+      filterBtns.forEach(b => {
+        b.classList.remove('is-active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('is-active');
+      btn.setAttribute('aria-pressed', 'true');
       const filter = btn.dataset.filter;
 
       const cardWrappers = document.querySelectorAll('.desk-card-wrapper');

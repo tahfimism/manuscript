@@ -1,0 +1,3 @@
+## 2026-09-21 - Filter Button ARIA Toggle States and Focus Ring
+**Learning:** Custom UI filter groups using `<button>` elements need explicit `aria-pressed="true|false"` state management alongside CSS classes so screen readers communicate whether a filter is active. Additionally, pill-shaped filter buttons require explicit `:focus-visible` styling with `outline-offset` to remain clearly legible against dark textured backgrounds when navigating via keyboard.
+**Action:** Always include `aria-pressed` on filter/toggle buttons, sync `aria-pressed` in JS event handlers, and provide `:focus-visible` styling with sufficient contrast and offset.
