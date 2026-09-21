@@ -5,10 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Starlight — Manuscript</title>
 <meta name="description" content="Starlight — Poem 08 from Manuscript: a 90s vintage keepsake poetry collection by Tahfim Khan." />
+<meta property="og:title" content="Starlight — Manuscript" />
+<meta property="og:description" content="Starlight — Poem 08 from Manuscript: a 90s vintage keepsake poetry collection by Tahfim Khan." />
+<meta property="og:image" content="../images/cover.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="theme-color" content="#0F1018" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Yellowtail&family=Caveat:wght@400;600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Permanent+Marker&family=Rubik+Marker+Hatch&family=Splash&display=swap" />
+<link rel="preload" as="image" href="../assets/img/svg/scene-starlight.svg" />
 <link rel="stylesheet" href="../assets/css/main.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230D1B2A'/%3E%3Cpolygon points='50,15 58,42 85,50 58,58 50,85 42,58 15,50 42,42' fill='%23FFE082'/%3E%3C/svg%3E" />
 </head>
 <body data-family="C" data-canvas="star-cascade">
 <main class="poem-stage">
@@ -61,7 +68,8 @@
       </div>
 
       <nav class="poem__nav">
-        <a class="back" href="memoirs.html">← memoirs</a>
+        <a class="back" href="memoirs.html" data-turn><span class="arrow">←</span> memoirs</a>
+        <a class="poem-nav__desk" href="../toc.html">the desk</a>
         <a href="lost-answer-ghost-of-warmth.html" data-turn>lost answer: ghost of warmth <span class="arrow">→</span></a>
       </nav>
     </div>
@@ -74,20 +82,23 @@
       <span class="dock-btn__tooltip">Memoirs</span>
     </a>
     <a class="dock-btn keepsake-dock__btn dock-btn--desk keepsake-dock__btn--desk" id="dock-desk" href="../toc.html" title="Desk" aria-label="Writing Desk">
-      <span class="dock-seal-mark">№ 08</span>
+      <span class="dock-seal-mark">VIII</span>
       <span class="dock-btn__tooltip">The Desk</span>
     </a>
     <a class="dock-btn keepsake-dock__btn" id="dock-next" href="lost-answer-ghost-of-warmth.html" data-turn title="Next: Lost Answer" aria-label="Next poem">
       <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       <span class="dock-btn__tooltip">Lost Answer</span>
     </a>
-    <button class="dock-btn keepsake-dock__btn" id="dock-focus" type="button" title="Candlelight Focus" aria-label="Toggle Candlelight Focus" aria-pressed="false">
-      <svg viewBox="0 0 24 24"><path d="M12 2c-.5 2.5-2 4.5-2 7a4 4 0 0 0 8 0c0-2.5-1.5-4.5-2-7-1 2-3 2-4 0z"/><path d="M7 22h10M9 18h6v4H9z"/></svg>
-      <span class="dock-btn__tooltip">Focus</span>
-    </button>
-    <button class="dock-btn keepsake-dock__btn" id="dock-audio" type="button" title="Soundscape" aria-label="Toggle Soundscape" aria-pressed="false">
+<button class="dock-btn keepsake-dock__btn" id="dock-audio" type="button" title="Soundscape" aria-label="Toggle Soundscape" aria-pressed="false">
       <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
       <span class="dock-btn__tooltip">Soundscape</span>
+    </button>
+      <button class="dock-btn dock-btn--share" id="dock-share" aria-label="Share letter link" title="Share letter">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+      </svg>
+      <span class="dock-btn__tooltip">Share</span>
     </button>
   </nav>
 </main>

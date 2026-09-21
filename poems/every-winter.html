@@ -5,22 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Every Winter — Manuscript</title>
 <meta name="description" content="Every Winter — Poem 11 from Manuscript: a 90s vintage keepsake poetry collection by Tahfim Khan." />
+<meta property="og:title" content="Every Winter — Manuscript" />
+<meta property="og:description" content="Every Winter — Poem 11 from Manuscript: a 90s vintage keepsake poetry collection by Tahfim Khan." />
+<meta property="og:image" content="../images/cover.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="theme-color" content="#E5EDEE" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Yellowtail&family=Caveat:wght@400;600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Permanent+Marker&family=Rubik+Marker+Hatch&family=Splash&display=swap" />
+<link rel="preload" as="image" href="../assets/img/svg/scene-winter-day.svg" />
 <link rel="stylesheet" href="../assets/css/main.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23EAF2F6'/%3E%3Cpath d='M50 20 L75 55 L25 55 Z M50 45 L80 80 L20 80 Z' fill='%235A7C88'/%3E%3C/svg%3E" />
 </head>
 <body data-family="B-day" data-canvas="frost-crystals">
 <main class="poem-stage">
   <canvas class="poem__canvas-layer" id="poemCanvas" aria-hidden="true"></canvas>
 
-  <!-- Sun Medallion Toggle to Sibling Poem 12 (Every Winter: Free Fall) -->
-  <a class="scene-toggle medallion-toggle" href="every-winter-free-fall.html" aria-label="Toggle to nocturnal blizzard (Every Winter: Free Fall)" title="Every Winter: Free Fall (Night)">
+  <!-- Medallion Toggle to Sibling Poem 12 (Every Winter: Free Fall - Night) -->
+  <a class="scene-toggle medallion-toggle" href="every-winter-free-fall.html" aria-label="Switch to nocturnal blizzard (Every Winter: Free Fall)" title="Switch to Every Winter: Free Fall (Night)" data-scene="scene-winter-day.svg" data-alt="scene-winter-night.svg" data-family="B-day" data-family-alt="B-night">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-      <circle cx="12" cy="12" r="4.5"/>
-      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
     </svg>
-    <span class="scene-toggle__label">day</span>
+    <span class="scene-toggle__label">Night &rarr;</span>
   </a>
 
   <div class="poem__scene" aria-hidden="true"><img src="../assets/img/svg/scene-winter-day.svg" alt="" /></div>
@@ -29,7 +35,7 @@
     <div class="poem-card poem-card--winter" data-edge="torn">
       <!-- Crystalline Fern Frost Creeping from Top-Left Corner -->
       <div class="corner-frost corner-frost--tl" aria-hidden="true">
-        <svg viewBox="0 0 100 100">
+        <svg viewBox="0 0 100 100" width="70" height="70" style="width: 70px; height: 70px;">
           <g stroke="#7CA4AC" stroke-width="0.8" fill="none" opacity="0.45" stroke-linecap="round">
             <path d="M 0 0 L 60 60 L 95 45"/>
             <path d="M 15 15 L 22 28 M 15 15 L 8 26"/>
@@ -46,7 +52,7 @@
       <p class="poem__sub">cold hands, silent rooms</p>
 
       <div class="poem__body">
-        <p class="stanza dropcap verse--display verse--center">Empty hand, cold and still,<br/>
+        <p class="stanza">Empty hand, cold and still,<br/>
         Like fire gone, memories chill.<br/>
         Sun hid away, winter's hold,<br/>
         Stories I knew, turned story told.</p>
@@ -66,7 +72,8 @@
       </div>
 
       <nav class="poem__nav">
-        <a class="back" href="lost-answer-truth-known.html">← lost answer: truth known</a>
+        <a class="back" href="lost-answer-truth-known.html" data-turn><span class="arrow">←</span> lost answer: truth known</a>
+        <a class="poem-nav__desk" href="../toc.html">the desk</a>
         <a href="every-winter-free-fall.html" data-turn>free fall <span class="arrow">→</span></a>
       </nav>
     </div>
@@ -79,20 +86,23 @@
       <span class="dock-btn__tooltip">Truth Known</span>
     </a>
     <a class="dock-btn keepsake-dock__btn dock-btn--desk keepsake-dock__btn--desk" id="dock-desk" href="../toc.html" title="Desk" aria-label="Writing Desk">
-      <span class="dock-seal-mark">№ 11</span>
+      <span class="dock-seal-mark">XI</span>
       <span class="dock-btn__tooltip">The Desk</span>
     </a>
     <a class="dock-btn keepsake-dock__btn" id="dock-next" href="every-winter-free-fall.html" data-turn title="Next: Free Fall" aria-label="Next poem">
       <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       <span class="dock-btn__tooltip">Free Fall</span>
     </a>
-    <button class="dock-btn keepsake-dock__btn" id="dock-focus" type="button" title="Candlelight Focus" aria-label="Toggle Candlelight Focus" aria-pressed="false">
-      <svg viewBox="0 0 24 24"><path d="M12 2c-.5 2.5-2 4.5-2 7a4 4 0 0 0 8 0c0-2.5-1.5-4.5-2-7-1 2-3 2-4 0z"/><path d="M7 22h10M9 18h6v4H9z"/></svg>
-      <span class="dock-btn__tooltip">Focus</span>
-    </button>
-    <button class="dock-btn keepsake-dock__btn" id="dock-audio" type="button" title="Soundscape" aria-label="Toggle Soundscape" aria-pressed="false">
+<button class="dock-btn keepsake-dock__btn" id="dock-audio" type="button" title="Soundscape" aria-label="Toggle Soundscape" aria-pressed="false">
       <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
       <span class="dock-btn__tooltip">Soundscape</span>
+    </button>
+      <button class="dock-btn dock-btn--share" id="dock-share" aria-label="Share letter link" title="Share letter">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+      </svg>
+      <span class="dock-btn__tooltip">Share</span>
     </button>
   </nav>
 </main>

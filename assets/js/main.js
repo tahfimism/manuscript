@@ -4,6 +4,20 @@
 (function () {
   'use strict';
 
+  if (window.__manuscriptBooted) return;
+  window.__manuscriptBooted = true;
+
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+      const card = document.querySelector('.poem-card');
+      if (card) {
+        card.classList.remove('poem-turn-out');
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }
+    }
+  });
+
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const prefersReducedTransparency = window.matchMedia('(prefers-reduced-transparency: reduce)').matches;
   const isMobile = window.innerWidth < 768 || ('ontouchstart' in window);
@@ -36,32 +50,197 @@
     }
   }
 
-  /* ---------- 2. Scene Toggle (Every Winter pair) ---------- */
-  document.querySelectorAll('.scene-toggle').forEach((btn) => {
-    const scene = document.querySelector('.poem__scene img');
-    const scenePath = scene ? scene.getAttribute('src') : '';
-    const family = document.body.getAttribute('data-family');
-    btn.setAttribute('aria-pressed', 'false');
+  /* ---------- 0. Master SVG Filters Auto-Injection ---------- */
+  (function injectMasterFilters() {
+    if (document.getElementById('deckled-edge')) return;
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('class', 'svg-filters');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.style.cssText = 'position:absolute;width:0;height:0;overflow:hidden;pointer-events:none;';
+    svg.innerHTML = `
+      <defs>
+        <filter id="ink-bleed" x="-20%" y="-20%" width="140%" height="140%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="74" result="fiber" />
+          <feDisplacementMap in="SourceGraphic" in2="fiber" scale="2.5" xChannelSelector="R" yChannelSelector="G" result="feathered" />
+          <feGaussianBlur in="feathered" stdDeviation="0.45" result="absorbed" />
+          <feComponentTransfer in="absorbed" result="density">
+            <feFuncA type="linear" slope="1.4" intercept="-0.08" />
+          </feComponentTransfer>
+          <feMerge>
+            <feMergeNode in="density" />
+            <feMergeNode in="SourceGraphic" opacity="0.65" />
+          </feMerge>
+        </filter>
+        <filter id="deckled-edge" x="-10%" y="-10%" width="120%" height="120%">
+          <feTurbulence type="turbulence" baseFrequency="0.018 0.035" numOctaves="5" seed="19" result="tear" />
+          <feTurbulence type="fractalNoise" baseFrequency="0.15 0.25" numOctaves="3" seed="42" result="fringe" />
+          <feComposite in="tear" in2="fringe" operator="arithmetic" k1="0.6" k2="0.6" k3="0" k4="0" result="combinedTear" />
+          <feDisplacementMap in="SourceGraphic" in2="combinedTear" scale="8.5" xChannelSelector="R" yChannelSelector="B" result="tornCard" />
+          <feGaussianBlur in="tornCard" stdDeviation="1.5" result="tearBlur" />
+          <feColorMatrix in="tearBlur" type="matrix" values="0 0 0 0 0.15  0 0 0 0 0.11  0 0 0 0 0.08  0 0 0 0.4 0" result="tornShadow" />
+          <feOffset in="tornShadow" dx="0" dy="2" result="offsetShadow" />
+          <feMerge>
+            <feMergeNode in="offsetShadow" />
+            <feMergeNode in="tornCard" />
+          </feMerge>
+        </filter>
+        <filter id="paper-tooth" x="0%" y="0%" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.75 0.75" numOctaves="4" stitchTiles="stitch" result="tooth" />
+          <feColorMatrix in="tooth" type="matrix" values="0 0 0 0 0.22  0 0 0 0 0.16  0 0 0 0 0.11  0 0 0 0.045 0" result="tintedTooth" />
+        </filter>
+        <filter id="wax-seal-filter" x="-25%" y="-25%" width="150%" height="150%">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="2.2" result="blur" />
+          <feDiffuseLighting in="blur" surfaceScale="4.5" diffuseConstant="1.2" lighting-color="#FFEED8" result="diffuse">
+            <feDistantLight azimuth="225" elevation="45" />
+          </feDiffuseLighting>
+          <feSpecularLighting in="blur" surfaceScale="5.5" specularConstant="1.3" specularExponent="22" lighting-color="#FFF8EE" result="specular">
+            <feDistantLight azimuth="225" elevation="55" />
+          </feSpecularLighting>
+          <feComposite in="diffuse" in2="SourceGraphic" operator="in" result="diffuseGraphic" />
+          <feBlend in="diffuseGraphic" in2="SourceGraphic" mode="multiply" result="shaded" />
+          <feComposite in="specular" in2="SourceAlpha" operator="in" result="specularCut" />
+          <feBlend in="specularCut" in2="shaded" mode="screen" result="lit" />
+          <feDropShadow dx="1.5" dy="3.5" stdDeviation="3.5" flood-color="#260408" flood-opacity="0.55" result="final" />
+        </filter>
+        <filter id="charred-edge" x="-15%" y="-15%" width="130%" height="130%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.05 0.08" numOctaves="4" seed="88" result="burnNoise" />
+          <feDisplacementMap in="SourceGraphic" in2="burnNoise" scale="5" xChannelSelector="R" yChannelSelector="G" result="burntShape" />
+          <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#E25822" flood-opacity="0.7" result="glow" />
+          <feDropShadow in="glow" dx="0" dy="1" stdDeviation="6" flood-color="#140602" flood-opacity="0.9" result="soot" />
+          <feMerge>
+            <feMergeNode in="soot" />
+            <feMergeNode in="burntShape" />
+          </feMerge>
+        </filter>
+      </defs>`;
+    document.body.prepend(svg);
+  })();
 
-    btn.addEventListener('click', () => {
-      const { alt: altScene, familyAlt, scene: curScene, family: curFamily } = btn.dataset;
-      const label = btn.querySelector('.scene-toggle__label');
-      if (!scene || !altScene || !familyAlt) return;
+  /* ---------- 2. Ambient Soundscape ---------- */
+  (function setupSoundscape() {
+    try { localStorage.removeItem('manuscript_candlelight'); } catch (e) {}
+    document.body.classList.remove('candlelight-active');
 
-      const isCur = (scenePath.indexOf(curScene) !== -1) || (family === curFamily);
-      if (!isCur) {
-        scene.src = scene.src.replace(altScene, curScene);
-        document.body.setAttribute('data-family', curFamily);
-        if (label) label.textContent = curFamily === 'B-day' ? 'day' : 'night';
-        btn.setAttribute('aria-pressed', 'false');
-        return;
+    const audioBtn = document.getElementById('dock-audio');
+
+    // Ambient Soundscape via Web Audio API (Zero external assets, procedural vintage acoustics)
+    if (audioBtn) {
+      let audioCtx = null;
+      let masterGain = null;
+      let isPlaying = false;
+      let soundGenerators = [];
+
+      function stopSoundscape() {
+        soundGenerators.forEach(g => {
+          try { g.stop(); g.disconnect(); } catch (e) {}
+        });
+        soundGenerators = [];
+        if (masterGain && audioCtx) {
+          masterGain.gain.linearRampToValueAtTime(0.0001, audioCtx.currentTime + 0.5);
+        }
+        isPlaying = false;
+        audioBtn.setAttribute('aria-pressed', 'false');
       }
-      scene.src = scene.src.replace(curScene, altScene);
-      document.body.setAttribute('data-family', familyAlt);
-      if (label) label.textContent = familyAlt === 'B-day' ? 'day' : 'night';
-      btn.setAttribute('aria-pressed', 'true');
-    });
-  });
+
+      function startSoundscape() {
+        if (!audioCtx) {
+          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+          if (!AudioContextClass) return;
+          audioCtx = new AudioContextClass();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+
+        masterGain = audioCtx.createGain();
+        masterGain.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+        masterGain.gain.linearRampToValueAtTime(0.18, audioCtx.currentTime + 1.2);
+        masterGain.connect(audioCtx.destination);
+
+        const canvasKind = (document.body.getAttribute('data-canvas') || '').trim().toLowerCase();
+
+        // 1. Rain / River soundscape (Filtered pink/white noise with gentle water patter)
+        if (canvasKind.includes('rain') || canvasKind.includes('river') || canvasKind.includes('tide')) {
+          const bufferSize = audioCtx.sampleRate * 2;
+          const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+          const output = noiseBuffer.getChannelData(0);
+          let b0 = 0, b1 = 0, b2 = 0;
+          for (let i = 0; i < bufferSize; i++) {
+            const white = Math.random() * 2 - 1;
+            b0 = 0.99 * b0 + white * 0.05;
+            b1 = 0.95 * b1 + white * 0.08;
+            b2 = 0.85 * b2 + white * 0.12;
+            output[i] = (b0 + b1 + b2) * 0.4;
+          }
+          const whiteNoise = audioCtx.createBufferSource();
+          whiteNoise.buffer = noiseBuffer;
+          whiteNoise.loop = true;
+
+          const filter = audioCtx.createBiquadFilter();
+          filter.type = 'lowpass';
+          filter.frequency.setValueAtTime(750, audioCtx.currentTime);
+
+          whiteNoise.connect(filter);
+          filter.connect(masterGain);
+          whiteNoise.start();
+          soundGenerators.push(whiteNoise);
+        }
+        // 2. Winter / Blizzard wind drift (Filtered low-frequency wind breath)
+        else if (canvasKind.includes('snow') || canvasKind.includes('blizzard') || canvasKind.includes('frost')) {
+          const bufferSize = audioCtx.sampleRate * 2;
+          const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+          const output = noiseBuffer.getChannelData(0);
+          for (let i = 0; i < bufferSize; i++) output[i] = (Math.random() * 2 - 1) * 0.3;
+          const noise = audioCtx.createBufferSource();
+          noise.buffer = noiseBuffer;
+          noise.loop = true;
+
+          const bandpass = audioCtx.createBiquadFilter();
+          bandpass.type = 'bandpass';
+          bandpass.frequency.setValueAtTime(320, audioCtx.currentTime);
+          bandpass.Q.setValueAtTime(3.0, audioCtx.currentTime);
+
+          noise.connect(bandpass);
+          bandpass.connect(masterGain);
+          noise.start();
+          soundGenerators.push(noise);
+        }
+        // 3. Cosmic / Celestial harmonic drone (Warm ethereal fifths)
+        else {
+          const osc1 = audioCtx.createOscillator();
+          const osc2 = audioCtx.createOscillator();
+          const osc3 = audioCtx.createOscillator();
+          osc1.type = 'sine';
+          osc2.type = 'sine';
+          osc3.type = 'triangle';
+          osc1.frequency.setValueAtTime(146.83, audioCtx.currentTime);
+          osc2.frequency.setValueAtTime(220.00, audioCtx.currentTime);
+          osc3.frequency.setValueAtTime(440.00, audioCtx.currentTime);
+
+          const droneGain = audioCtx.createGain();
+          droneGain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+
+          osc1.connect(droneGain);
+          osc2.connect(droneGain);
+          osc3.connect(droneGain);
+          droneGain.connect(masterGain);
+
+          osc1.start();
+          osc2.start();
+          osc3.start();
+          soundGenerators.push(osc1, osc2, osc3);
+        }
+
+        isPlaying = true;
+        audioBtn.setAttribute('aria-pressed', 'true');
+      }
+
+      audioBtn.addEventListener('click', () => {
+        if (isPlaying) stopSoundscape();
+        else startSoundscape();
+      });
+    }
+  })();
 
   /* ---------- 3. Mobile Keepsake Dock ---------- */
   (function setupKeepsakeDock() {
@@ -85,21 +264,6 @@
         <a href="${nextUrl}" id="dock-next" class="dock-btn" title="Next" aria-label="Next poem"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       `;
       document.body.appendChild(dock);
-
-      if (!document.getElementById('keepsake-dock-styles')) {
-        const style = document.createElement('style');
-        style.id = 'keepsake-dock-styles';
-        style.textContent = `
-          .keepsake-dock { position: fixed; bottom: clamp(16px, 3vh, 28px); left: 50%; transform: translate(-50%, 0); display: flex; align-items: center; gap: 16px; padding: 6px 14px; background: rgba(244,236,216,0.94); border: 1px solid rgba(60,42,30,0.22); border-radius: 999px; box-shadow: 0 8px 24px rgba(25,18,12,0.22); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); z-index: 1000; transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.3s ease; }
-          .keepsake-dock.dock--hidden { transform: translate(-50%, 75px); opacity: 0; pointer-events: none; }
-          .dock-btn { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; color: #3C2A1E; text-decoration: none; transition: transform 0.15s ease, background 0.2s ease; }
-          .dock-btn:hover { transform: scale(1.08); background: rgba(60,42,30,0.08); }
-          .dock-btn--desk { background: #8A1A20; color: #F4ECD8; box-shadow: 0 2px 6px rgba(138,26,32,0.4); }
-          .dock-btn--desk:hover { background: #A02028; color: #FFFFFF; }
-          .dock-seal-mark { font-family: var(--font-mono, monospace); font-size: 0.72rem; font-weight: 700; }
-        `;
-        document.head.appendChild(style);
-      }
     }
 
     if (dock) {
@@ -111,12 +275,102 @@
         lastY = currY;
       }, { passive: true });
     }
+
+    // Share Button Handling (IMP-11)
+    const shareBtn = document.getElementById('dock-share');
+    if (shareBtn) {
+      shareBtn.addEventListener('click', async () => {
+        const title = document.querySelector('.poem__title')?.textContent?.trim() || document.title || 'Manuscript';
+        const url = window.location.href;
+        if (navigator.share && /mobile|android|iphone|ipad/i.test(navigator.userAgent)) {
+          try {
+            await navigator.share({ title, url });
+            return;
+          } catch (err) {
+            if (err.name !== 'AbortError') console.warn(err);
+          }
+        }
+        try {
+          await navigator.clipboard.writeText(url);
+          const tooltip = shareBtn.querySelector('.dock-btn__tooltip');
+          if (tooltip) {
+            const originalText = tooltip.textContent;
+            tooltip.textContent = 'Copied!';
+            tooltip.style.color = '#8A6D3B';
+            setTimeout(() => {
+              tooltip.textContent = originalText;
+              tooltip.style.color = '';
+            }, 2000);
+          }
+          if ('vibrate' in navigator) navigator.vibrate(30);
+        } catch (e) {
+          prompt('Copy letter link:', url);
+        }
+      });
+    }
+
+    // Time-of-day atmospheric cue for the Every Winter diptych (IMP-04)
+    const sceneToggle = document.querySelector('.scene-toggle');
+    if (sceneToggle) {
+      const hour = new Date().getHours();
+      const isNightTime = hour < 6 || hour >= 18;
+      const onDayPoem = window.location.pathname.endsWith('every-winter.html');
+      const onNightPoem = window.location.pathname.endsWith('every-winter-free-fall.html');
+
+      if (onDayPoem && isNightTime) {
+        sceneToggle.setAttribute('title', 'It is nighttime outside · Switch to Free Fall (Night)');
+        sceneToggle.classList.add('scene-toggle--time-hint');
+      } else if (onNightPoem && !isNightTime) {
+        sceneToggle.setAttribute('title', 'It is daylight outside · Switch to Every Winter (Day)');
+        sceneToggle.classList.add('scene-toggle--time-hint');
+      }
+
+        sceneToggle.addEventListener('click', (e) => {
+        if (prefersReduced) return;
+        const href = sceneToggle.getAttribute('href');
+        if (!href) return;
+        const card = document.querySelector('.poem-card');
+        if (card) {
+          e.preventDefault();
+          card.classList.add('poem-turn-out');
+          setTimeout(() => { window.location.href = href; }, 380);
+        }
+      });
+    }
+
+    // Desktop Keyboard Navigation for Poems (ArrowLeft, ArrowRight, Escape)
+    window.addEventListener('keydown', (e) => {
+      if (['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
+      if (document.querySelector('.epistolary-modal.is-open')) return;
+
+      if (e.key === 'ArrowLeft') {
+        const prev = document.getElementById('dock-prev') || document.querySelector('.poem__nav .back') || document.querySelector('.poem__nav a:first-child');
+        if (prev && prev.getAttribute('href')) {
+          e.preventDefault();
+          window.location.href = prev.getAttribute('href');
+        }
+      } else if (e.key === 'ArrowRight') {
+        const next = document.getElementById('dock-next') || document.querySelector('.poem__nav a[data-turn]') || document.querySelector('.poem__nav a:last-child');
+        if (next && next.getAttribute('href')) {
+          e.preventDefault();
+          window.location.href = next.getAttribute('href');
+        }
+      } else if (e.key === 'Escape') {
+        const desk = document.getElementById('dock-desk') || document.querySelector('.poem__nav .poem-nav__desk');
+        if (desk && desk.getAttribute('href')) {
+          e.preventDefault();
+          window.location.href = desk.getAttribute('href');
+        }
+      }
+    });
   })();
 
   /* ---------- 4. Canvas Procedural Atmospheres ---------- */
   (function setupCanvasFx() {
     const rawKind = (document.body.getAttribute('data-canvas') || '').trim().toLowerCase();
-    if (!rawKind || prefersReducedTransparency) return;
+    if (!rawKind) return;
+
+    const transparencyFactor = prefersReducedTransparency ? 0.45 : 1;
 
     const aliasMap = {
       rain: 'rain-streaks', snow: 'nocturnal-blizzard', embers: 'embers-drift', candle: 'candle-flame',
@@ -143,18 +397,23 @@
 
     function resize() {
       dpr = Math.max(1, Math.min(window.devicePixelRatio || 1, 2));
-      const isFull = canvas.id === 'poemCanvas';
-      const rect = isFull ? null : scene.getBoundingClientRect();
-      w = Math.max(300, Math.floor(isFull ? window.innerWidth : rect.width));
-      h = Math.max(200, Math.floor(isFull ? window.innerHeight : rect.height));
+      const isFull = canvas.id === 'poemCanvas' || canvas.classList.contains('poem__canvas-layer') || canvas.classList.contains('poem__fx');
+      w = Math.max(300, Math.floor(isFull ? window.innerWidth : (scene.getBoundingClientRect().width || window.innerWidth)));
+      h = Math.max(200, Math.floor(isFull ? window.innerHeight : (scene.getBoundingClientRect().height || window.innerHeight)));
       canvas.width = Math.floor(w * dpr);
       canvas.height = Math.floor(h * dpr);
-      canvas.style.width = '100%';
-      canvas.style.height = '100%';
+      canvas.style.width = '100vw';
+      canvas.style.height = '100vh';
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
     resize();
-    window.addEventListener('resize', resize, { passive: true });
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(resize, 60);
+    }, { passive: true });
+    window.addEventListener('orientationchange', resize, { passive: true });
 
     const css = getComputedStyle(document.body);
     const accent = (css.getPropertyValue('--scene-warm').trim() || '#C9A24B').replace(' ', '');
@@ -162,8 +421,9 @@
     const hex = (hStr, a = 1) => {
       const c = hStr.replace('#', '');
       const n = parseInt(c.length === 3 ? c.split('').map(x => x + x).join('') : c, 16);
-      if (isNaN(n)) return `rgba(200,200,200,${a})`;
-      return `rgba(${(n >> 16) & 255},${(n >> 8) & 255},${n & 255},${a})`;
+      const finalA = a * transparencyFactor;
+      if (isNaN(n)) return `rgba(200,200,200,${finalA})`;
+      return `rgba(${(n >> 16) & 255},${(n >> 8) & 255},${n & 255},${finalA})`;
     };
 
     let isVisible = true, animId = null;
@@ -180,20 +440,41 @@
       if (prefersReduced) fn(); else animId = requestAnimationFrame(loop);
     }
 
-    const makeP = (n, init) => Array.from({ length: Math.floor(n * particleScale) }, init);
+    const getDensity = (factor = 1) => {
+      const area = w * h;
+      const scale = Math.max(0.75, Math.min(2.2, area / 1200000));
+      return scale * particleScale * factor;
+    };
+    const makeP = (n, init, factor = 1) => Array.from({ length: Math.max(12, Math.floor(n * getDensity(factor))) }, init);
 
     const engines = {
       'stars': () => {
-        const s = makeP(150, () => ({ x: Math.random() * w, y: Math.random() * h, r: 0.3 + Math.random() * 1.4, c: ['#FFF', '#F4ECD8', '#A9C4E8', '#C9A24B'][Math.floor(Math.random() * 4)], ph: Math.random() * 6.28, sp: 0.01 + Math.random() * 0.02 }));
+        const s = makeP(150, () => ({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: 0.5 + Math.random() * 1.5,
+          c: ['#FFF', '#F4ECD8', '#A9C4E8', '#FFE082'][Math.floor(Math.random() * 4)],
+          ph: Math.random() * 6.28,
+          sp: 0.012 + Math.random() * 0.024
+        }));
         run(() => {
           ctx.clearRect(0, 0, w, h);
           for (const p of s) {
-            p.ph += p.sp; ctx.fillStyle = p.c; ctx.globalAlpha = 0.2 + 0.7 * (0.5 + 0.5 * Math.sin(p.ph));
-            ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.28); ctx.fill();
-            if (p.r > 1.1 && Math.sin(p.ph * 2) > 0.65) {
-              ctx.strokeStyle = p.c; ctx.lineWidth = 0.4; ctx.beginPath();
-              ctx.moveTo(p.x - p.r * 3.5, p.y); ctx.lineTo(p.x + p.r * 3.5, p.y);
-              ctx.moveTo(p.x - p.r * 3.5); ctx.lineTo(p.x + p.r * 3.5); ctx.stroke();
+            p.ph += p.sp;
+            ctx.fillStyle = p.c;
+            ctx.globalAlpha = 0.25 + 0.7 * (0.5 + 0.5 * Math.sin(p.ph));
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, 6.28);
+            ctx.fill();
+            if (p.r > 1.2 && Math.sin(p.ph * 2) > 0.6) {
+              ctx.strokeStyle = p.c;
+              ctx.lineWidth = 0.5;
+              ctx.beginPath();
+              ctx.moveTo(p.x - p.r * 3.2, p.y);
+              ctx.lineTo(p.x + p.r * 3.2, p.y);
+              ctx.moveTo(p.x, p.y - p.r * 3.2);
+              ctx.lineTo(p.x, p.y + p.r * 3.2);
+              ctx.stroke();
             }
           }
           ctx.globalAlpha = 1;
@@ -266,15 +547,68 @@
         });
       },
       'star-cascade': () => {
-        const meteors = []; let fr = 0;
+        const stars = makeP(120, () => ({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: 0.5 + Math.random() * 1.5,
+          ph: Math.random() * 6.28,
+          sp: 0.01 + Math.random() * 0.022,
+          c: ['#FFE082', '#FFFFFF', '#E8A88A', '#A9C4D6'][Math.floor(Math.random() * 4)]
+        }));
+        const meteors = [];
+        let fr = 0;
         run(() => {
-          ctx.clearRect(0, 0, w, h); fr++;
-          if (fr % 16 === 0 && Math.random() < 0.6) meteors.push({ x: Math.random() * w * 1.2, y: -20, len: 45 + Math.random() * 55, sp: 5 + Math.random() * 4, a: 0.75 });
+          ctx.clearRect(0, 0, w, h);
+          for (const s of stars) {
+            s.ph += s.sp;
+            ctx.fillStyle = s.c;
+            ctx.globalAlpha = 0.2 + 0.7 * (0.5 + 0.5 * Math.sin(s.ph));
+            ctx.beginPath();
+            ctx.arc(s.x, s.y, s.r, 0, 6.28);
+            ctx.fill();
+          }
+          ctx.globalAlpha = 1;
+
+          fr++;
+          if (fr % 28 === 0 && Math.random() < 0.85) {
+            meteors.push({
+              x: Math.random() * (w + 200),
+              y: -40,
+              len: 60 + Math.random() * 70,
+              sp: 6 + Math.random() * 4,
+              maxLife: Math.floor(h / (5 + Math.random() * 3)),
+              life: 0
+            });
+          }
+
           for (let i = meteors.length - 1; i >= 0; i--) {
-            const m = meteors[i]; m.x -= m.sp * 0.75; m.y += m.sp; m.a -= 0.015;
-            if (m.a <= 0 || m.y > h + 50) { meteors.splice(i, 1); continue; }
-            const gr = ctx.createLinearGradient(m.x, m.y, m.x + m.len * 0.75, m.y - m.len); gr.addColorStop(0, '#FFF'); gr.addColorStop(1, 'transparent');
-            ctx.strokeStyle = gr; ctx.lineWidth = 1.1; ctx.beginPath(); ctx.moveTo(m.x, m.y); ctx.lineTo(m.x + m.len * 0.75, m.y - m.len); ctx.stroke();
+            const m = meteors[i];
+            m.x -= m.sp * 0.75;
+            m.y += m.sp;
+            m.life++;
+            const progress = m.life / m.maxLife;
+            if (progress >= 1 || m.y > h + 50 || m.x < -100) {
+              meteors.splice(i, 1);
+              continue;
+            }
+            const alpha = Math.sin(progress * Math.PI) * 0.85;
+            ctx.save();
+            ctx.globalAlpha = alpha;
+            const gr = ctx.createLinearGradient(m.x, m.y, m.x + m.len * 0.75, m.y - m.len);
+            gr.addColorStop(0, '#FFF9E6');
+            gr.addColorStop(0.25, '#FFE082');
+            gr.addColorStop(1, 'transparent');
+            ctx.strokeStyle = gr;
+            ctx.lineWidth = 1.4;
+            ctx.beginPath();
+            ctx.moveTo(m.x, m.y);
+            ctx.lineTo(m.x + m.len * 0.75, m.y - m.len);
+            ctx.stroke();
+            ctx.fillStyle = '#FFFFFF';
+            ctx.beginPath();
+            ctx.arc(m.x, m.y, 1.2, 0, 6.28);
+            ctx.fill();
+            ctx.restore();
           }
         });
       },
@@ -289,14 +623,28 @@
         });
       },
       'ash-drift': () => {
-        const a = makeP(35, () => ({ x: Math.random() * w, y: Math.random() * h, vy: -0.4 - Math.random() * 0.7, ph: Math.random() * 6.28, r: 0.6 + Math.random() * 1.5 }));
+        const a = makeP(45, () => ({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          vy: -0.4 - Math.random() * 0.8,
+          ph: Math.random() * 6.28,
+          r: 0.8 + Math.random() * 1.8
+        }));
         run(() => {
           ctx.clearRect(0, 0, w, h);
           for (const p of a) {
-            p.y += p.vy; p.ph += 0.03; p.x += Math.sin(p.ph) * 0.5;
-            if (p.y < -10) { p.y = h + 10; p.x = Math.random() * w; }
-            ctx.fillStyle = '#A09890'; ctx.globalAlpha = 0.35 + 0.25 * Math.sin(p.ph);
-            ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.28); ctx.fill();
+            p.y += p.vy;
+            p.ph += 0.025;
+            p.x += Math.sin(p.ph) * 0.6;
+            if (p.y < -10) {
+              p.y = h + 10;
+              p.x = Math.random() * w;
+            }
+            ctx.fillStyle = '#C4BCB4';
+            ctx.globalAlpha = 0.35 + 0.3 * Math.sin(p.ph);
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, 6.28);
+            ctx.fill();
           }
           ctx.globalAlpha = 1;
         });
@@ -304,19 +652,43 @@
       'frost-crystals': () => {
         let g = 0;
         run(() => {
-          ctx.clearRect(0, 0, w, h); g = Math.min(1.0, g + 0.003); ctx.strokeStyle = 'rgba(235,245,255,0.4)'; ctx.lineWidth = 0.8;
-          for (let b = 0; b < 16; b++) { const bx = (w / 16) * b, len = 30 * g; ctx.beginPath(); ctx.moveTo(bx, h); ctx.lineTo(bx + (b % 2 === 0 ? 6 : -6), h - len); ctx.stroke(); }
+          ctx.clearRect(0, 0, w, h);
+          g = Math.min(1.0, g + 0.003);
+          ctx.strokeStyle = 'rgba(235,245,255,0.4)';
+          ctx.lineWidth = 0.8;
+          for (let b = 0; b < 16; b++) {
+            const bx = (w / 16) * b, len = 30 * g;
+            ctx.beginPath();
+            ctx.moveTo(bx, h);
+            ctx.lineTo(bx + (b % 2 === 0 ? 6 : -6), h - len);
+            ctx.stroke();
+          }
         });
       },
       'nocturnal-blizzard': () => {
-        const f = makeP(90, () => ({ x: Math.random() * w, y: Math.random() * h, vx: -1.2 - Math.random() * 1.5, vy: 1.5 + Math.random() * 2.5, r: 0.6 + Math.random() * 2.2 }));
+        const f = makeP(100, () => ({
+          x: Math.random() * (w + 120),
+          y: Math.random() * h,
+          vx: -1.2 - Math.random() * 1.8,
+          vy: 1.6 + Math.random() * 2.8,
+          r: 0.7 + Math.random() * 2.4,
+          op: 0.4 + Math.random() * 0.45
+        }));
         run(() => {
           ctx.clearRect(0, 0, w, h);
           for (const p of f) {
-            p.x += p.vx; p.y += p.vy;
-            if (p.y > h + 10) { p.y = -10; p.x = Math.random() * w + 30; }
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.y > h + 10) {
+              p.y = -10;
+              p.x = Math.random() * (w + 120);
+            }
             if (p.x < -10) p.x = w + 10;
-            ctx.fillStyle = '#FFF'; ctx.globalAlpha = 0.6; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.28); ctx.fill();
+            ctx.fillStyle = '#FFFFFF';
+            ctx.globalAlpha = p.op;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, 6.28);
+            ctx.fill();
           }
           ctx.globalAlpha = 1;
         });
@@ -324,19 +696,40 @@
       'watercolor-bloom': () => {
         let t = 0;
         run(() => {
-          ctx.clearRect(0, 0, w, h); t += 0.008;
+          ctx.clearRect(0, 0, w, h);
+          t += 0.008;
           const rad = ctx.createRadialGradient(w * 0.4, h * 0.5, 0, w * 0.4, h * 0.5, Math.min(w, h) * (0.35 + 0.05 * Math.sin(t)));
-          rad.addColorStop(0, hex(accent, 0.12)); rad.addColorStop(0.7, hex(cool, 0.04)); rad.addColorStop(1, 'transparent');
-          ctx.fillStyle = rad; ctx.fillRect(0, 0, w, h);
+          rad.addColorStop(0, hex(accent, 0.12));
+          rad.addColorStop(0.7, hex(cool, 0.04));
+          rad.addColorStop(1, 'transparent');
+          ctx.fillStyle = rad;
+          ctx.fillRect(0, 0, w, h);
         });
       },
       'rain-streaks': () => {
-        const d = makeP(65, () => ({ x: Math.random() * w, y: Math.random() * h, len: 12 + Math.random() * 16, vy: 8 + Math.random() * 6 }));
+        const d = makeP(120, () => ({
+          x: Math.random() * (w + 120),
+          y: Math.random() * h,
+          len: 16 + Math.random() * 22,
+          vy: 9 + Math.random() * 7,
+          op: 0.45 + Math.random() * 0.35
+        }));
         run(() => {
-          ctx.clearRect(0, 0, w, h); ctx.strokeStyle = hex(cool, 0.35); ctx.lineWidth = 0.85; ctx.lineCap = 'round';
+          ctx.clearRect(0, 0, w, h);
+          ctx.lineWidth = 1.25;
+          ctx.lineCap = 'round';
           for (const p of d) {
-            ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x - 1, p.y + p.len); ctx.stroke();
-            p.y += p.vy; p.x -= 0.3; if (p.y > h + p.len) { p.y = -p.len; p.x = Math.random() * w; }
+            ctx.strokeStyle = hex(cool, p.op);
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p.x - 1.5, p.y + p.len);
+            ctx.stroke();
+            p.y += p.vy;
+            p.x -= 0.4;
+            if (p.y > h + p.len) {
+              p.y = -p.len - 10;
+              p.x = Math.random() * (w + 120);
+            }
           }
         });
       },
@@ -447,4 +840,109 @@
       engines[kind]();
     }
   })();
+
+  /* ---------- 5. Back/Forward Cache (bfcache) Restoration Guard ---------- */
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+      const card = document.querySelector('.poem-card');
+      if (card) {
+        card.classList.remove('poem-turn-out');
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }
+    }
+  });
+
+  /* ---------- 6. Letter Writing Easter Egg (Cmd/Ctrl+E) (IMP-02) ---------- */
+  (function setupLetterWritingMode() {
+    let modal = null;
+
+    function openEpistolary() {
+      if (!modal) {
+        modal = document.createElement('div');
+        modal.className = 'epistolary-modal';
+        modal.setAttribute('role', 'dialog');
+        modal.setAttribute('aria-modal', 'true');
+        modal.setAttribute('aria-label', 'Keepsake Letter Writer');
+        const title = document.querySelector('.poem__title')?.textContent || document.title;
+        modal.innerHTML = `
+          <div class="epistolary-paper">
+            <div class="epistolary-header">
+              <span>Keepsake Reply · ${title}</span>
+              <button type="button" class="epistolary-close" aria-label="Close letter notepad">✕</button>
+            </div>
+            <textarea class="epistolary-textarea" placeholder="Write your letter response in ink...&#10;&#10;“The words we never spoke out loud...”"></textarea>
+            <div class="epistolary-footer">
+              <span class="epistolary-hint">Press Esc to close · Letter saved locally</span>
+              <button type="button" class="epistolary-btn">Download Letter (.txt)</button>
+            </div>
+          </div>
+        `;
+        document.body.appendChild(modal);
+
+        const textarea = modal.querySelector('textarea');
+        const closeBtn = modal.querySelector('.epistolary-close');
+        const downloadBtn = modal.querySelector('.epistolary-btn');
+
+        const saved = localStorage.getItem('manuscript_draft_' + window.location.pathname);
+        if (saved) textarea.value = saved;
+
+        textarea.addEventListener('input', () => {
+          localStorage.setItem('manuscript_draft_' + window.location.pathname, textarea.value);
+        });
+
+        closeBtn.addEventListener('click', closeEpistolary);
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeEpistolary();
+        });
+
+        downloadBtn.addEventListener('click', () => {
+          const content = `--- MANUSCRIPT KEEPSAKE LETTER ---
+Response to: ${title}
+Date: ${new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}
+
+${textarea.value || '(Empty letter slip)'}
+
+--- Kept on cedar desk ---`;
+          const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `letter-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.txt`;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        });
+      }
+
+      modal.classList.add('is-open');
+      const ta = modal.querySelector('textarea');
+      if (ta) ta.focus();
+    }
+
+    function closeEpistolary() {
+      if (modal) modal.classList.remove('is-open');
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && (e.key === 'e' || e.key === 'E')) {
+        // Don't trigger if user is actively writing in a different form input
+        if (e.target.tagName === 'INPUT' || (e.target.tagName === 'TEXTAREA' && (!modal || !modal.contains(e.target)))) return;
+        e.preventDefault();
+        if (modal && modal.classList.contains('is-open')) closeEpistolary();
+        else openEpistolary();
+      } else if (e.key === 'Escape' && modal && modal.classList.contains('is-open')) {
+        closeEpistolary();
+      }
+    });
+  })();
+
+  /* ---------- 7. Offline Service Worker Registration (IMP-10) ---------- */
+  if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch(() => {});
+    });
+  }
 })();
+

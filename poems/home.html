@@ -5,64 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Home — Manuscript</title>
 <meta name="description" content="“Footprints in the frosted sand / Rain on a window pane / In letting go, she finds her own home.” — № 14 of Manuscript by TAHFIM KHAN." />
+<meta property="og:title" content="Home — Manuscript" />
+<meta property="og:description" content="“Footprints in the frosted sand / Rain on a window pane / In letting go, she finds her own home.” — № 14 of Manuscript by TAHFIM KHAN." />
+<meta property="og:image" content="../images/cover.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="theme-color" content="#5C7884" />
 
-<!-- Google Fonts Preconnect -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Yellowtail&family=Caveat:wght@400;600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Permanent+Marker&family=Rubik+Marker+Hatch&family=Splash&display=swap" />
+<link rel="preload" as="image" href="../assets/img/svg/scene-home.svg" />
 <link rel="stylesheet" href="../assets/css/main.css" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%235C7884' stroke='%23FFF7E8' stroke-width='2'/%3E%3C/svg%3E" />
-
-<style>
-  /* Poem 14: Hand-Drawn Footprints, Window Pane, & Distant Window Glow */
-  .poem-card--home {
-    position: relative;
-    border-right: 1px solid rgba(92, 120, 132, 0.28);
-    overflow: hidden;
-  }
-  .home-window-pane {
-    position: absolute;
-    top: 8%;
-    right: 22px;
-    bottom: 12%;
-    width: 1px;
-    background: linear-gradient(180deg, transparent 0%, rgba(92, 120, 132, 0.35) 15%, rgba(92, 120, 132, 0.35) 85%, transparent 100%);
-    pointer-events: none;
-    z-index: 2;
-  }
-  .footprint-svg {
-    position: absolute;
-    bottom: 4px;
-    right: 12px;
-    width: 60px;
-    height: 70px;
-    opacity: 0.38;
-    pointer-events: none;
-    z-index: 1;
-  }
-  .home-climax-stanza {
-    font-family: var(--font-body, 'EB Garamond', serif);
-    font-style: italic;
-    font-size: 1.22rem;
-    border-left: 2.5px solid #5C7884;
-    padding-left: 1.1rem;
-    margin: 1.4rem 0;
-    color: var(--ink, #2A3A3E);
-  }
-  .distant-cabin-glow {
-    position: absolute;
-    bottom: 24px;
-    left: 28px;
-    width: 8px;
-    height: 8px;
-    border-radius: 1px;
-    background: #FFD680;
-    box-shadow: 0 0 12px 4px rgba(255, 214, 128, 0.65);
-    opacity: 0.85;
-    pointer-events: none;
-  }
-</style>
 </head>
 <body data-family="B" data-canvas="rain-streaks">
 <main class="poem-stage">
@@ -133,7 +87,8 @@
       </div>
 
       <nav class="poem__nav">
-        <a class="back" href="../toc.html">← back to the desk</a>
+        <a class="back" href="painted-sky.html" data-turn><span class="arrow">←</span> painted sky</a>
+        <a class="poem-nav__desk" href="../toc.html">the desk</a>
         <a href="landscape.html" data-turn>landscape <span class="arrow">→</span></a>
       </nav>
     </div>
@@ -158,18 +113,19 @@
       </svg>
     </a>
     <div class="dock-separator" aria-hidden="true"></div>
-    <button class="dock-btn dock-btn--focus" id="dock-focus" type="button" aria-label="Toggle Candlelight Focus Mode" title="Candlelight Focus">
-      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M12 2c.5 1.5 2 3 2 4.5a2 2 0 0 1-4 0c0-1.5 1.5-3 2-4.5z" fill="currentColor"/>
-        <path d="M9 11h6v10H9zM7 21h10"/>
-      </svg>
-    </button>
-    <button class="dock-btn dock-btn--audio" id="dock-audio" type="button" aria-label="Toggle Ambient Soundscape" title="Soundscape Ambience">
+<button class="dock-btn dock-btn--audio" id="dock-audio" type="button" aria-label="Toggle Ambient Soundscape" title="Soundscape Ambience">
       <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M11 5L6 9H2v6h4l5 4V5z"/>
         <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
         <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
       </svg>
+    </button>
+      <button class="dock-btn dock-btn--share" id="dock-share" aria-label="Share letter link" title="Share letter">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+      </svg>
+      <span class="dock-btn__tooltip">Share</span>
     </button>
   </nav>
 </main>

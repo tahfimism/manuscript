@@ -4,7 +4,7 @@
    v3.0 Keepsake Edition · 60-30-10 Color Tokens · OpenType Suite
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Yellowtail&family=Caveat:wght@400;600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Permanent+Marker&family=Rubik+Marker+Hatch&family=Splash&display=swap');
+/* Font styles linked asynchronously in HTML head for non-blocking rendering */
 
 /* =========================================================
    BASE / SHARED TOKENS & TYPOGRAPHIC CLAMPS
@@ -50,6 +50,16 @@
   --scene-fg: rgba(40, 28, 18, 0.85);
   --scene-warm: #D04848;
   --scene-cool: #5C7C84;
+
+  /* Colophon & Keepsake Card Tokens */
+  --card-bg: #FAF0E0;
+  --ink-color: #2A1F18;
+  --suntan-spread: 0px;
+  --suntan-color: transparent;
+  --colophon-viewport: #1C1512;
+  --card-rot: 0deg;
+  --card-dx: 0px;
+  --card-dy: 0px;
 }
 
 /* =========================================================
@@ -429,9 +439,9 @@
 
 /* --- Poem 07 Memoirs Scrapbook Details --- */
 .poem-card--scrapbook {
-  width: min(520px, 90vw);
+  width: min(740px, 94vw);
   position: relative;
-  background: #F4E8E4;
+  background: color-mix(in srgb, var(--paper, #FBF4EA), #F4E8E4 40%);
 }
 .washi-tape {
   position: absolute;
@@ -688,6 +698,289 @@
   100% { transform: scale(0.9) rotate(-5deg); opacity: 0.35; }
 }
 
+/* =========================================================
+   POEMS 13 TO 18: SPECIALIZED GEOMETRIC & ARTIFACT COMPONENTS
+   ========================================================= */
+
+/* --- Poem 13: Painted Sky (Sunset Watercolor Wash & Celestial Arc) --- */
+.poem-card--painted-sky {
+  background: linear-gradient(180deg, #FAF1E6 0%, #F6E2CE 38%, #F2E5D8 100%);
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 20px 50px -20px rgba(40, 15, 25, 0.45),
+    0 0 70px -10px rgba(208, 72, 72, 0.28),
+    inset 0 0 60px rgba(122, 43, 58, 0.08);
+}
+.poem-card--painted-sky::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(208, 72, 72, 0.22) 0%, rgba(245, 184, 104, 0.14) 45%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+.celestial-arc-wrap {
+  margin: 0.5rem auto 1.4rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+.moon-path-climax {
+  font-family: var(--font-display, 'Fraunces', serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--ink, #2A1820);
+  padding: 0.9rem 1.1rem;
+  border-top: 1px dashed rgba(201, 162, 75, 0.6);
+  border-bottom: 1px dashed rgba(201, 162, 75, 0.6);
+  margin: 1.4rem 0;
+  text-align: center;
+  background: rgba(245, 184, 104, 0.06);
+  border-radius: 2px;
+}
+
+/* --- Poem 14: Home (Footprints, Window Pane & Distant Glow) --- */
+.poem-card--home {
+  position: relative;
+  border-right: 1px solid rgba(92, 120, 132, 0.28);
+  overflow: hidden;
+}
+.home-window-pane {
+  position: absolute;
+  top: 8%;
+  right: 22px;
+  bottom: 12%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent 0%, rgba(92, 120, 132, 0.35) 15%, rgba(92, 120, 132, 0.35) 85%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+.footprint-svg {
+  position: absolute;
+  bottom: 4px;
+  right: 12px;
+  width: 60px;
+  height: 70px;
+  opacity: 0.38;
+  pointer-events: none;
+  z-index: 1;
+}
+.home-climax-stanza {
+  font-family: var(--font-body, 'EB Garamond', serif);
+  font-style: italic;
+  font-size: 1.22rem;
+  border-left: 2.5px solid #5C7884;
+  padding-left: 1.1rem;
+  margin: 1.4rem 0;
+  color: var(--ink, #2A3A3E);
+}
+.distant-cabin-glow {
+  position: absolute;
+  bottom: 24px;
+  left: 28px;
+  width: 8px;
+  height: 8px;
+  border-radius: 1px;
+  background: #FFD680;
+  box-shadow: 0 0 12px 4px rgba(255, 214, 128, 0.65);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+/* --- Poem 15: Landscape (Panoramic 16:9 Letterboxed Card) --- */
+.poem-stage--panoramic {
+  padding: 3rem 1.5rem 6rem;
+}
+.poem-stage--panoramic .poem {
+  width: min(940px, 96vw);
+  max-width: 940px;
+}
+.poem-card--panoramic {
+  width: 100%;
+  max-width: 940px;
+  background: #FFF9EE;
+  color: #2C1F18;
+  padding: clamp(2.2rem, 4vw, 3.6rem) clamp(2rem, 4.5vw, 3.8rem);
+  position: relative;
+  box-shadow:
+    0 24px 60px -20px rgba(60, 35, 20, 0.35),
+    inset 0 0 60px rgba(217, 139, 107, 0.06);
+  border: 1px solid rgba(217, 139, 107, 0.25);
+}
+.panoramic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.8rem, 3.8vw, 3.6rem);
+  align-items: start;
+}
+@media (max-width: 780px) {
+  .panoramic-grid {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+}
+.panoramic-horizon-wrap {
+  margin-top: 1.8rem;
+  padding-top: 0.8rem;
+  border-top: 1.5px solid rgba(217, 139, 107, 0.35);
+}
+.landscape-marginalia {
+  font-family: var(--font-hand, 'Caveat', cursive);
+  font-size: 1.15rem;
+  color: #8A5A44;
+  opacity: 0.85;
+  margin-top: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* --- Poem 16: Within the World I Define (Nested Card Sanctuary) --- */
+.poem-stage--nested {
+  padding: 3rem 1.5rem 6rem;
+}
+.poem-card-outer {
+  background: #231714;
+  border: 1px solid rgba(248, 184, 92, 0.22);
+  border-radius: 4px;
+  padding: clamp(1.2rem, 2.5vw, 2rem);
+  box-shadow:
+    0 24px 60px -20px rgba(0, 0, 0, 0.8),
+    inset 0 0 50px rgba(0, 0, 0, 0.65);
+  position: relative;
+  max-width: 660px;
+  width: min(660px, 100%);
+  margin: 0 auto;
+}
+.poem-card-inner {
+  background: #FFF7E8;
+  color: #1A1010;
+  padding: clamp(2rem, 4vw, 3.4rem);
+  position: relative;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    inset 0 0 40px rgba(60, 42, 30, 0.05);
+}
+.wax-droplets-svg {
+  position: absolute;
+  top: 22%;
+  left: -7px;
+  width: 14px;
+  height: 80px;
+  pointer-events: none;
+  z-index: 10;
+}
+.candle-illustration-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem auto 1.2rem;
+}
+.sanctuary-vow {
+  font-family: var(--font-display, 'Fraunces', serif);
+  font-style: italic;
+  font-size: clamp(1.06rem, 1.4vw, 1.18rem);
+  color: #7A2810;
+  text-align: center;
+  margin: 1.4rem 0;
+  padding: 0.7rem 0.5rem;
+  border-top: 1px solid rgba(122, 40, 16, 0.22);
+  border-bottom: 1px solid rgba(122, 40, 16, 0.22);
+  text-wrap: pretty;
+}
+.embryonic-horizon-line {
+  width: 100%;
+  height: 2.5px;
+  background: #110B0B;
+  opacity: 0.85;
+  margin: 1.6rem 0 0.6rem;
+  border-radius: 1px;
+}
+
+/* --- Poem 17: Controlled Ruin (Two-Hand Dialogue & Scorched Fissures) --- */
+.poem-card--ruin {
+  background: #F4ECD8;
+  color: #1A0808;
+  position: relative;
+  border: 1px solid rgba(201, 122, 48, 0.28);
+  box-shadow:
+    0 24px 60px -20px rgba(0, 0, 0, 0.75),
+    0 0 45px -10px rgba(201, 122, 48, 0.22),
+    inset 0 0 70px rgba(20, 10, 10, 0.1);
+}
+.voice-narrator {
+  font-family: var(--font-mono, 'Courier Prime', monospace);
+  font-size: 1.02rem;
+  line-height: 1.85;
+  color: #1A0808;
+}
+.voice-reply {
+  font-family: var(--font-hand, 'Caveat', cursive);
+  font-size: clamp(1.15rem, 1.8vw, 1.34rem);
+  font-weight: 600;
+  color: #C97A30;
+  margin-left: clamp(1rem, 3vw, 2.4rem);
+  display: inline-block;
+  transform: rotate(-1deg);
+  line-height: 1.5;
+  text-shadow: 0 0 8px rgba(248, 184, 92, 0.2);
+}
+.scorched-fissure-svg {
+  width: 100%;
+  max-width: 440px;
+  margin: 1.2rem auto;
+  display: block;
+}
+
+/* --- Poem 18: Out of Frame (Photo Mounts & Sun-Bleached Board) --- */
+.poem-card--photo-mount {
+  background: #FAF7F2;
+  position: relative;
+  padding: clamp(2.5rem, 5vw, 4.2rem) clamp(2.2rem, 5vw, 3.8rem);
+  transform: rotate(-0.8deg);
+  box-shadow:
+    0 18px 45px -15px rgba(42, 37, 48, 0.35),
+    inset 0 0 50px rgba(90, 92, 104, 0.06);
+  border: 1px solid rgba(90, 92, 104, 0.18);
+}
+.photo-corner {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+  z-index: 10;
+}
+.photo-corner--tl { top: 6px; left: 6px; }
+.photo-corner--tr { top: 6px; right: 6px; transform: rotate(90deg); }
+.photo-corner--br { bottom: 6px; right: 6px; transform: rotate(180deg); }
+.photo-corner--bl { bottom: 6px; left: 6px; transform: rotate(270deg); }
+.photo-stamp-date {
+  font-family: var(--font-mono, 'Courier Prime', monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  color: #7A7682;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.rubber-cement-stain {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 100px;
+  background: radial-gradient(ellipse, rgba(212, 180, 120, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
 /* --- FAMILY F: Contained --- */
 [data-family="F"] { /* Things I Learn to Bury / Rage in Cage */
   --bg: #DCD6CB;
@@ -807,6 +1100,12 @@ body {
   transition: background 600ms ease;
 }
 
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+  }
+}
+
 /* Dark-themed families: body text on dark viewport needs light contrast */
 [data-family="B-night"],
 [data-family="C"],
@@ -845,8 +1144,8 @@ body::after {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 2;
-  background: radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.22) 100%);
+  z-index: 4;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.26) 100%);
 }
 
 a { color: inherit; text-decoration: none; }
@@ -962,19 +1261,18 @@ img, svg { max-width: 100%; }
   font-weight: 460;
 }
 
-/* Illuminated Dropcap Styling */
+/* Dropcaps neutralized for reading clarity */
 .dropcap::first-letter,
 .poem__body .dropcap::first-letter {
-  font-family: var(--font-display-strong);
-  font-weight: 400;
-  font-size: 3.8em;
-  float: left;
-  line-height: 0.82;
-  margin-top: 0.04em;
-  padding: 0.08em 0.14em 0 0;
-  color: var(--accent);
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.08), 0 0 16px rgba(201, 162, 75, 0.3);
-  font-feature-settings: "swsh" 1, "dlig" 1;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: 1em;
+  float: none;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  text-shadow: none;
 }
 
 /* Authorial Revision Typography (Graphite Scribbles & Ink Strikes) */
@@ -1023,42 +1321,41 @@ ins.pencil-margin {
 }
 
 .poem {
-  width: min(620px, 100%);
+  width: min(780px, 95vw);
   position: relative;
   z-index: 5;
 }
 
-/* Scene — bottom-anchored full-bleed illustration */
+/* Scene — full-bleed atmospheric landscape illustration */
 .poem__scene {
   position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 38vh;
-  min-height: 240px;
-  max-height: 360px;
-  z-index: 3;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
   pointer-events: none;
   opacity: var(--scene-opacity, 0.95);
+  overflow: hidden;
 }
 .poem__scene img,
 .poem__scene svg {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: bottom center;
+  object-position: center bottom;
   display: block;
 }
 
-/* Canvas FX overlay */
+/* Canvas FX layer — fixed fullscreen procedural atmosphere */
+.poem__canvas-layer,
+#poemCanvas,
 .poem__fx {
-  position: absolute;
+  position: fixed;
   inset: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw !important;
+  height: 100vh !important;
   pointer-events: none;
-  z-index: 1;
-  mix-blend-mode: screen;
+  z-index: 3;
 }
 [data-canvas="candle"] .poem__fx,
 [data-canvas="embers"] .poem__fx,
@@ -1075,12 +1372,24 @@ ins.pencil-margin {
   position: relative;
   background: var(--paper);
   color: var(--ink);
-  padding: clamp(2.4rem, 5vw, 4rem) clamp(2rem, 5vw, 3.5rem);
+  padding: clamp(2.2rem, 4.5vw, 3.8rem) clamp(1.6rem, 4vw, 3.2rem);
   z-index: 5;
   box-shadow:
     0 20px 50px -20px rgba(0, 0, 0, 0.4),
     inset 0 0 60px rgba(60, 42, 30, 0.05);
   transition: transform 300ms ease, box-shadow 300ms ease;
+}
+.poem-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: var(--paper);
+  mix-blend-mode: multiply;
+  filter: url('#paper-tooth');
+  opacity: 0.15;
+  z-index: 1;
 }
 
 /* 1. Torn Edge (Hand-ripped paper via SVG mask) */
@@ -1165,6 +1474,11 @@ ins.pencil-margin {
   background: var(--ink-faded);
   opacity: 0.5;
 }
+@media (max-width: 640px) {
+  .poem__chapter::before {
+    display: none;
+  }
+}
 
 .poem__title {
   font-family: var(--font-display);
@@ -1205,13 +1519,18 @@ ins.pencil-margin {
 
 .poem__body {
   font-family: var(--font-body);
-  font-size: var(--type-body, 1.15rem);
-  line-height: var(--leading-body, 1.9);
+  font-size: var(--type-body, clamp(1.02rem, 0.94rem + 0.3vw, 1.14rem));
+  line-height: var(--leading-body, 1.88);
   color: var(--ink);
-  max-width: var(--measure-poem, 56ch);
+  width: 100%;
+  max-width: 100%;
 }
 .poem__body p { margin: 0 0 1.4rem; }
-.poem__body .stanza { margin-bottom: 1.8rem; }
+.poem__body .stanza {
+  margin-bottom: 1.8rem;
+  text-wrap: pretty;
+  word-break: normal;
+}
 
 .poem__body .stanza-divider {
   display: block;
@@ -1223,7 +1542,7 @@ ins.pencil-margin {
 
 .poem__body .poem__voice {
   font-family: var(--font-hand);
-  font-size: 1.25rem;
+  font-size: clamp(1.06rem, 1.4vw, 1.2rem);
   color: var(--accent-ink, var(--accent));
   margin: 1.2rem 0 1.2rem 1.5rem;
   padding-left: 1rem;
@@ -1233,91 +1552,100 @@ ins.pencil-margin {
 
 /* =========================================================
    TYPOGRAPHIC VARIATION — PER-STANZA / PER-LINE
+   Sized adaptively so poetic verses remain on a single line
    ========================================================= */
 .verse--display {
   font-family: var(--font-display);
-  font-variation-settings: "opsz" 144, "WONK" 1, "SOFT" 30;
+  font-variation-settings: "opsz" 72, "WONK" 0, "SOFT" 15;
   font-weight: 400;
-  font-size: clamp(1.5rem, 2.5vw, 1.9rem);
-  line-height: 1.55;
-  letter-spacing: -0.01em;
+  font-size: clamp(1.02rem, 1.35vw, 1.15rem);
+  line-height: 1.8;
+  letter-spacing: -0.005em;
+  text-wrap: pretty;
 }
 .verse--display-strong {
   font-family: var(--font-display-strong);
   font-style: italic;
   font-weight: 400;
-  font-size: clamp(1.4rem, 2.2vw, 1.7rem);
-  line-height: 1.6;
+  font-size: clamp(1.02rem, 1.35vw, 1.15rem);
+  line-height: 1.8;
   letter-spacing: -0.005em;
+  text-wrap: pretty;
 }
 .verse--italic {
   font-style: italic;
   font-family: var(--font-body);
   color: var(--ink-faded);
   line-height: 1.85;
+  text-wrap: pretty;
 }
 .verse--script {
   font-family: var(--font-script);
-  font-size: clamp(1.55rem, 2.6vw, 2rem);
-  line-height: 1.45;
+  font-size: clamp(1.08rem, 1.5vw, 1.24rem);
+  line-height: 1.7;
   color: var(--accent-ink, var(--accent));
   letter-spacing: 0;
+  text-wrap: pretty;
 }
 .verse--hand {
   font-family: var(--font-hand);
-  font-size: 1.3rem;
+  font-size: clamp(1.08rem, 1.4vw, 1.2rem);
   line-height: 1.7;
   color: var(--ink);
+  text-wrap: pretty;
 }
 .verse--mono {
   font-family: var(--font-mono);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   letter-spacing: 0.04em;
-  line-height: 2;
+  line-height: 1.9;
   text-transform: uppercase;
   color: var(--ink-faded);
 }
 .verse--small {
-  font-size: var(--type-body-small, 0.92rem);
-  line-height: 1.95;
+  font-size: var(--type-body-small, 0.95rem);
+  line-height: 1.85;
   letter-spacing: 0.01em;
   color: var(--ink-faded);
 }
 .verse--large {
   font-family: var(--font-display);
-  font-variation-settings: "opsz" 144;
-  font-weight: 300;
-  font-size: clamp(1.5rem, 2.6vw, 1.95rem);
-  line-height: 1.55;
-  letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 72;
+  font-weight: 400;
+  font-size: clamp(1.04rem, 1.4vw, 1.18rem);
+  line-height: 1.8;
+  letter-spacing: -0.005em;
+  text-wrap: pretty;
 }
 .verse--center {
   text-align: center;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
 }
 .verse--quote {
   font-family: var(--font-display-strong);
   font-style: italic;
   font-weight: 400;
-  font-size: 1.35rem;
-  line-height: 1.55;
+  font-size: clamp(1.04rem, 1.35vw, 1.16rem);
+  line-height: 1.65;
   text-align: center;
-  padding: 0.6rem 1.4rem;
+  padding: 0.6rem 0.8rem;
   border-top: 1px solid var(--hairline);
   border-bottom: 1px solid var(--hairline);
   margin: 1.6rem 0;
   color: var(--ink);
+  text-wrap: pretty;
 }
 .verse--pull {
   font-family: var(--font-display-strong);
   font-style: italic;
-  font-size: clamp(1.7rem, 3vw, 2.2rem);
-  line-height: 1.25;
-  letter-spacing: -0.015em;
+  font-size: clamp(1.04rem, 1.4vw, 1.18rem);
+  line-height: 1.65;
+  letter-spacing: -0.01em;
   text-align: center;
-  padding: 1rem 0.5rem;
+  padding: 0.7rem 0.4rem;
   color: var(--ink);
   position: relative;
+  text-wrap: pretty;
 }
 .verse--pull::before,
 .verse--pull::after {
@@ -1329,8 +1657,176 @@ ins.pencil-margin {
   opacity: 0.5;
   margin: 0.6rem auto;
 }
+
+/* =========================================================
+   PER-POEM TYPOGRAPHIC TUNING (Adaptive Verse Sizing)
+   Ensures single continuous lines without awkward mid-verse line breaks
+   ========================================================= */
+
+/* 1. The Blue Inside Ruin (Expansive 79ch, 60ch verses) */
+[data-family="C-blue"] .poem {
+  width: min(830px, 96vw);
+}
+[data-family="C-blue"] .poem-card {
+  padding: clamp(2.2rem, 4.5vw, 3.8rem) clamp(1.4rem, 3.6vw, 2.6rem);
+}
+[data-family="C-blue"] .poem__body {
+  font-size: clamp(0.95rem, 0.88rem + 0.2vw, 1.03rem);
+  line-height: 1.82;
+}
+
+/* 2. Things I Learn to Bury (Reflective lines up to 65ch) */
+[data-canvas="frozen-lake"] .poem,
+.poem-card--ledger .poem {
+  width: min(800px, 95vw);
+}
+[data-canvas="frozen-lake"] .poem-card {
+  padding: clamp(2.2rem, 4.5vw, 3.8rem) clamp(1.5rem, 3.8vw, 2.8rem);
+}
+[data-canvas="frozen-lake"] .poem__body,
+.poem-card--ledger .poem__body {
+  font-size: clamp(0.96rem, 0.88rem + 0.22vw, 1.04rem);
+  line-height: 1.82;
+}
+
+/* 3. Between Midnight & Sleep (Verses up to 65ch) */
+[data-canvas="clock-hand"] .poem {
+  width: min(800px, 95vw);
+}
+[data-canvas="clock-hand"] .poem-card {
+  padding: clamp(2.2rem, 4.5vw, 3.8rem) clamp(1.5rem, 3.8vw, 2.8rem);
+}
+[data-canvas="clock-hand"] .poem__body {
+  font-size: clamp(0.96rem, 0.88rem + 0.22vw, 1.05rem);
+}
+[data-canvas="clock-hand"] .verse--pull {
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+}
+
+/* 4. From River to Winter (Ballad lines up to 63ch) */
+[data-canvas="river-current"] .poem {
+  width: min(800px, 95vw);
+}
+[data-canvas="river-current"] .poem-card {
+  padding: clamp(2.2rem, 4.5vw, 3.8rem) clamp(1.5rem, 3.8vw, 2.8rem);
+}
+[data-canvas="river-current"] .poem__body {
+  font-size: clamp(0.98rem, 0.90rem + 0.22vw, 1.06rem);
+}
+[data-canvas="river-current"] .verse--pull {
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+}
+
+/* 5. Out of Frame (Observational lines up to 59ch) */
+[data-canvas="sun-dust"] .poem {
+  width: min(800px, 95vw);
+}
+[data-canvas="sun-dust"] .poem-card,
+.poem-card--photo-mount {
+  padding: clamp(2.2rem, 4.5vw, 3.8rem) clamp(1.5rem, 3.8vw, 2.8rem);
+}
+[data-canvas="sun-dust"] .poem__body,
+.poem-card--photo-mount .poem__body {
+  font-size: clamp(0.98rem, 0.90rem + 0.22vw, 1.06rem);
+}
+.poem-card--photo-mount .verse--pull,
+[data-canvas="sun-dust"] .verse--pull {
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+}
+.poem-card--photo-mount .verse--display,
+[data-canvas="sun-dust"] .verse--display {
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+}
+
+/* 6. Rage in Cage (Contained intensity lines up to 55ch) */
+[data-canvas="wire-vibrate"] .poem {
+  width: min(780px, 95vw);
+}
+[data-canvas="wire-vibrate"] .poem__body {
+  font-size: clamp(0.98rem, 0.90rem + 0.22vw, 1.06rem);
+}
+[data-canvas="wire-vibrate"] .verse--pull {
+  font-size: clamp(1.0rem, 1.25vw, 1.1rem);
+}
+
+/* 7. Compact / Short-Line Poems (lines 25-42ch) */
+[data-canvas="star-cascade"] .poem__body,
+[data-canvas="nocturnal-blizzard"] .poem__body,
+[data-canvas="frost-crystals"] .poem__body,
+[data-canvas="embers-drift"] .poem__body,
+[data-canvas="dawn-dust"] .poem__body {
+  font-size: clamp(1.06rem, 0.98rem + 0.3vw, 1.16rem);
+}
+
+/* Decorative inline motifs & shards constrained */
+.stained-glass-shard {
+  position: absolute;
+  width: 32px !important;
+  height: 32px !important;
+  max-width: 32px !important;
+  max-height: 32px !important;
+  pointer-events: none;
+  z-index: 2;
+}
+.shard--tl { top: 12px; left: 12px; }
+.shard--tr { top: 12px; right: 12px; }
+.shard--bl { bottom: 12px; left: 12px; }
+.shard--br { bottom: 12px; right: 12px; }
+
+.starlight-star-cascade {
+  width: 140px !important;
+  max-width: 140px !important;
+  height: auto !important;
+  max-height: 90px !important;
+  opacity: 0.35;
+}
+
+.footprint-svg {
+  width: 60px !important;
+  max-width: 60px !important;
+  height: auto !important;
+  max-height: 70px !important;
+  opacity: 0.4;
+}
+
+.collapsing-spiral,
+.ice-fracture {
+  width: 54px !important;
+  max-width: 54px !important;
+  height: 54px !important;
+  max-height: 54px !important;
+  opacity: 0.35;
+}
+
+.photo-corner {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.vellum-paperclip {
+  width: 22px !important;
+  height: 50px !important;
+}
+
+.corner-frost {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70px !important;
+  height: 70px !important;
+  pointer-events: none;
+}
+
+.wine-ring-watermark {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 80px !important;
+  height: 80px !important;
+  pointer-events: none;
+}
 .verse--narrow {
-  max-width: 36ch;
+  max-width: min(100%, 54ch);
   margin-left: auto;
   margin-right: auto;
 }
@@ -1381,9 +1877,9 @@ ins.pencil-margin {
   text-align: center;
   color: var(--accent);
   font-size: 0.8rem;
-  letter-spacing: 1.4em;
+  letter-spacing: clamp(0.6em, 1.4em, 2em);
   margin: 1.4rem 0;
-  padding-left: 1.4em;
+  padding-left: clamp(0.6em, 1.4em, 2em);
 }
 .verse--divider {
   display: flex;
@@ -1421,17 +1917,17 @@ ins.pencil-margin {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.2rem;
   font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink-faded);
   border-top: 1px solid var(--hairline);
   padding-top: 1.2rem;
-  max-width: 56ch;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  max-width: 100%;
 }
 .poem__nav a {
   display: inline-flex;
@@ -1442,7 +1938,17 @@ ins.pencil-margin {
   transition: border-color 200ms ease, color 200ms ease;
 }
 .poem__nav a:hover { color: var(--accent); border-color: var(--accent); }
-.poem__nav .back { color: var(--ink-faded); opacity: 0.7; }
+.poem__nav .back { color: var(--ink-faded); opacity: 0.75; }
+.poem__nav .poem-nav__desk {
+  color: var(--ink-faded);
+  opacity: 0.65;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+}
+.poem__nav .poem-nav__desk:hover {
+  opacity: 1;
+  color: var(--accent);
+}
 .poem__nav .arrow {
   font-family: var(--font-display);
   font-size: 1rem;
@@ -1472,6 +1978,15 @@ ins.pencil-margin {
 }
 .scene-toggle:hover { transform: translateY(-2px); }
 .scene-toggle svg { width: 14px; height: 14px; }
+.scene-toggle--time-hint {
+  box-shadow: 0 0 14px rgba(196, 46, 58, 0.45);
+  border-color: rgba(196, 46, 58, 0.5);
+  animation: pulse-time-hint 3s ease-in-out infinite;
+}
+@keyframes pulse-time-hint {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
 
 /* =========================================================
    MOBILE KEEPSAKE DOCK (Section 10.1)
@@ -1576,73 +2091,57 @@ ins.pencil-margin {
   stroke: #F4ECD8;
 }
 
-/* =========================================================
-   CANDLELIGHT FOCUS MODE (Section 10.5)
-   Deep concentration: 12% opacity outer field & radial vignette pool
-   ========================================================= */
-body.candlelight-active {
-  background: #080605 !important;
-}
-
-body.candlelight-active .poem__scene,
-body.candlelight-active .site-header,
-body.candlelight-active .site-footer,
-body.candlelight-active .poem__chapter,
-body.candlelight-active .poem__sig,
-body.candlelight-active .scene-toggle,
-body.candlelight-active .poem__nav {
-  opacity: 0.12 !important;
-  filter: brightness(0.35) saturate(0.5);
-  transition: opacity 0.6s ease, filter 0.6s ease;
-}
-
-body.candlelight-active .poem-card {
-  background: #15110E !important;
-  color: #E2D5C0 !important;
-  box-shadow: 0 0 100px rgba(0, 0, 0, 0.85), inset 0 0 70px rgba(0, 0, 0, 0.6) !important;
-  transition: background 0.6s ease, color 0.6s ease, box-shadow 0.6s ease;
-}
-
-body.candlelight-active .poem__title {
-  color: #F4E8C8 !important;
-  text-shadow: 0 0 20px rgba(248, 184, 92, 0.4);
-}
-
-body.candlelight-active .poem__verse,
-body.candlelight-active .poem__stanza,
-body.candlelight-active .stanza {
-  opacity: 0.35;
-  transition: opacity 0.45s ease, color 0.45s ease;
-}
-
-body.candlelight-active .stanza.is-active,
-body.candlelight-active .poem__stanza.is-active,
-body.candlelight-active .poem__verse.is-active,
-body.candlelight-active .stanza:hover,
-body.candlelight-active .poem__stanza:hover {
-  opacity: 1 !important;
+/* Keepsake Dock Tooltips & Layout Cleanliness */
+.keepsake-dock a,
+.keepsake-dock button {
   position: relative;
-  z-index: 2;
-  color: #FFF2DB !important;
 }
 
-/* Warm radial vignette pool on active stanza */
-body.candlelight-active .stanza.is-active::before,
-body.candlelight-active .poem__stanza.is-active::before {
-  content: '';
+.dock-btn__tooltip {
   position: absolute;
-  inset: -2rem -2.5rem;
-  background: radial-gradient(ellipse 680px 420px at center, rgba(255, 244, 220, 0.18) 0%, rgba(255, 240, 205, 0.05) 55%, rgba(0, 0, 0, 0) 100%);
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: rgba(26, 17, 11, 0.94);
+  color: #F4ECD8;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
   pointer-events: none;
-  z-index: -1;
-  border-radius: 50%;
-  animation: candle-flame-subtle 3.2s ease-in-out infinite alternate;
+  opacity: 0;
+  transition: opacity 180ms ease, transform 180ms ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(201, 162, 75, 0.25);
+  z-index: 1001;
 }
 
-@keyframes candle-flame-subtle {
-  0%   { opacity: 0.88; transform: scale(0.98); }
-  50%  { opacity: 1.00; transform: scale(1.02); }
-  100% { opacity: 0.92; transform: scale(1.00); }
+.keepsake-dock a:hover .dock-btn__tooltip,
+.keepsake-dock button:hover .dock-btn__tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dock-label {
+  display: none; /* Hide inline text to preserve clean 48px circle targets */
+}
+
+.dock-separator {
+  width: 1px;
+  height: 22px;
+  background: rgba(138, 107, 79, 0.3);
+  margin: 0 3px;
+}
+
+.dock-seal-mark,
+.dock-seal {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #F4ECD8;
 }
 
 /* =========================================================
@@ -1690,6 +2189,7 @@ body.candlelight-active .poem__stanza.is-active::before {
   color: var(--ink);
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.55), 0 0 14px rgba(244, 236, 216, 0.06);
   transform: rotate(-2deg);
+  transform-origin: 50% 60%;
 }
 
 .cover__sub {
@@ -1734,6 +2234,10 @@ body.candlelight-active .poem__stanza.is-active::before {
   background: rgba(244, 236, 216, 0.14);
   transform: translateY(-2px) rotate(-1.5deg);
   box-shadow: 0 6px 20px -6px rgba(0, 0, 0, 0.4);
+}
+.cover__enter:focus-visible {
+  outline: 2px solid #C42E3A;
+  outline-offset: 4px;
 }
 
 .cover__author {
@@ -1793,17 +2297,50 @@ body.candlelight-active .poem__stanza.is-active::before {
 .desk-toolbar__drawer-btn {
   color: #E2D5C3;
   text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  padding: 0;
   transition: color 200ms ease;
 }
 .desk-toolbar a:hover,
-.desk-toolbar__drawer-btn:hover {
+.desk-toolbar__drawer-btn:hover,
+.desk-toolbar__drawer-btn:focus-visible {
   color: #C9A24B;
+  outline: none;
+}
+.desk-toolbar__reset-btn {
+  background: none;
+  border: none;
+  color: #C9A24B;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-decoration: underline;
+  padding: 0 0 0 4px;
+  transition: color 180ms ease, opacity 180ms ease;
+}
+.desk-toolbar__reset-btn:hover,
+.desk-toolbar__reset-btn:focus-visible {
+  color: #F4ECD8;
+  outline: none;
 }
 .desk-toolbar__badge {
   display: flex;
   align-items: center;
   gap: 0.6rem;
   color: #C8B898;
+}
+.desk-toolbar__title-text {
+  font-family: var(--font-display-strong);
+  font-style: italic;
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+  color: #E2D5C3;
+  opacity: 0.9;
 }
 
 .desk {
@@ -2006,8 +2543,9 @@ body.candlelight-active .poem__stanza.is-active::before {
   right: 0;
   width: 24px;
   height: 24px;
-  background: linear-gradient(135deg, transparent 50%, #DCD0BC 50%);
-  box-shadow: -2px 2px 4px rgba(0,0,0,0.15);
+  background: linear-gradient(135deg, transparent 50%, #C4B59D 50%);
+  border-bottom-left-radius: 2px;
+  box-shadow: -2px 2px 5px rgba(42, 31, 24, 0.25);
 }
 
 /* Wax Seal Buttons */
@@ -2051,7 +2589,7 @@ body.candlelight-active .poem__stanza.is-active::before {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.6rem;
-  padding-left: 18px; /* space for ribbon */
+  padding-left: 28px; /* space for ribbon */
 }
 .desk-card__no {
   font-family: var(--font-mono);
@@ -2068,6 +2606,21 @@ body.candlelight-active .poem__stanza.is-active::before {
   background: rgba(158, 58, 38, 0.08);
   padding: 1px 5px;
   border-radius: 2px;
+}
+.desk-card__pair-tag--red-cord {
+  background: #FFE6E6;
+  border: 1px solid #C42E3A;
+  color: #8C1C28;
+}
+.desk-card__pair-tag--winter {
+  background: #FFEAEA;
+  border: 1px solid #A3495A;
+  color: #A3495A;
+}
+.desk-card__pair-tag--charred {
+  background: #26110B;
+  border: 1px solid #FF5A1F;
+  color: #FFAA77;
 }
 
 .desk-card__title {
@@ -2093,6 +2646,7 @@ body.candlelight-active .poem__stanza.is-active::before {
   margin: 0 0 1rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -2119,142 +2673,6 @@ body.candlelight-active .poem__stanza.is-active::before {
 .desk-card:hover .desk-card__arrow {
   transform: translateX(4px);
   color: #8A1A20;
-}
-
-/* Cedar Drawer Quick-Index Component */
-.cedar-drawer-tab-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 3.5rem;
-}
-
-.cedar-drawer-tab {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.6rem;
-  background: #3D2214;
-  background-image: linear-gradient(180deg, #4A2B1A 0%, #351C0F 100%);
-  color: #E2D5C3;
-  border: 1px solid #C9A24B;
-  border-radius: 4px;
-  padding: 0.75rem 1.8rem;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  cursor: pointer;
-  user-select: none;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
-  transition: background 180ms ease, transform 180ms ease;
-}
-.cedar-drawer-tab:hover {
-  background: #52311E;
-  transform: translateY(-2px);
-  color: #FFFFFF;
-}
-
-.cedar-drawer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  background: #24140B;
-  background-image: 
-    radial-gradient(circle at 50% 0%, rgba(138, 107, 79, 0.25) 0%, transparent 80%),
-    linear-gradient(180deg, #321B10 0%, #1A0D07 100%);
-  border-top: 3px solid #C9A24B;
-  box-shadow: 0 -15px 50px rgba(0, 0, 0, 0.85);
-  max-height: 82vh;
-  display: flex;
-  flex-direction: column;
-  transform: translateY(100%);
-  transition: transform 380ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-.cedar-drawer.is-open {
-  transform: translateY(0);
-}
-
-.cedar-drawer__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem 2rem;
-  border-bottom: 1px solid rgba(201, 162, 75, 0.25);
-  background: rgba(40, 22, 13, 0.9);
-}
-.cedar-drawer__title {
-  font-family: var(--font-display-strong);
-  font-weight: 400;
-  font-style: italic;
-  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
-  color: #F4ECD8;
-  margin: 0;
-}
-.cedar-drawer__close-btn {
-  background: rgba(201, 162, 75, 0.15);
-  border: 1px solid rgba(201, 162, 75, 0.4);
-  color: #F4ECD8;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.45rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 180ms ease, color 180ms ease;
-}
-.cedar-drawer__close-btn:hover {
-  background: #C9A24B;
-  color: #1A110B;
-}
-
-.cedar-drawer__grid,
-.cedar-drawer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 0.9rem;
-  padding: 1.5rem 2rem 2.5rem;
-  overflow-y: auto;
-  max-height: calc(82vh - 85px);
-}
-.cedar-drawer-item {
-  display: flex;
-  flex-direction: column;
-  background: #FAF3E6;
-  color: #2A1F18;
-  padding: 0.85rem 1.1rem;
-  border-radius: 3px;
-  text-decoration: none;
-  border-left: 3px solid #C9A24B;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 160ms ease, box-shadow 160ms ease;
-}
-.cedar-drawer-item:hover {
-  transform: translateX(3px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-}
-.cedar-drawer-item__call {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  color: #8C6544;
-  letter-spacing: 0.1em;
-}
-.cedar-drawer-item__title {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #1A110B;
-  margin: 0.2rem 0;
-}
-.cedar-drawer-item__excerpt {
-  font-family: var(--font-body);
-  font-size: 0.76rem;
-  color: #6B5340;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 /* =========================================================
@@ -2463,8 +2881,11 @@ body.candlelight-active .poem__stanza.is-active::before {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #1C1512;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.8), 0 1px 1px rgba(255, 255, 255, 0.3);
+  background: var(--colophon-viewport, #1C1512);
+  box-shadow:
+    inset 0 3px 6px rgba(0, 0, 0, 0.85),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.25),
+    0 1px 1px rgba(255, 255, 255, 0.3);
   margin: 2rem auto 1rem;
 }
 
@@ -2828,7 +3249,6 @@ body.candlelight-active .poem__stanza.is-active::before {
 @media (max-width: 640px) {
   .poem-stage { padding: 2rem 1rem 5.5rem; }
   .poem-card { padding: 2rem 1.4rem; }
-  .poem__scene { height: 30vh; min-height: 200px; }
   .toc-card { grid-template-columns: auto 1fr auto; padding: 1rem 1.1rem; gap: 0.8rem; }
   .toc-card__title { font-size: 1.05rem; }
   .toc-card__title--script { font-size: 1.25rem; }
@@ -2850,4 +3270,209 @@ body.candlelight-active .poem__stanza.is-active::before {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
+}
+
+/* =========================================================
+   LETTER WRITING COMPONENT (Easter Egg: Ctrl/Cmd+E) (IMP-02)
+   ========================================================= */
+.epistolary-modal {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(18, 12, 8, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 240ms ease;
+}
+.epistolary-modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.epistolary-paper {
+  background: #FAF0E0;
+  color: #2A1F18;
+  width: min(600px, 94vw);
+  border-radius: 4px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.65), inset 0 0 40px rgba(138,107,79,0.12);
+  border: 1px solid rgba(138, 107, 79, 0.35);
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.epistolary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(138, 107, 79, 0.3);
+  padding-bottom: 0.6rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6B5340;
+}
+.epistolary-close {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #6B5340;
+  padding: 0 4px;
+}
+.epistolary-close:hover {
+  color: #9E2A2B;
+}
+.epistolary-textarea {
+  width: 100%;
+  min-height: 200px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-hand, 'Caveat', cursive);
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: #2A1F18;
+  resize: vertical;
+}
+.epistolary-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(138, 107, 79, 0.25);
+  padding-top: 0.8rem;
+}
+.epistolary-hint {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  color: #8C7560;
+}
+.epistolary-btn {
+  background: #8A1A20;
+  color: #F4ECD8;
+  border: none;
+  border-radius: 999px;
+  padding: 0.5rem 1.4rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 180ms ease, transform 180ms ease;
+}
+.epistolary-btn:hover {
+  background: #A02028;
+  transform: translateY(-1px);
+}
+
+/* Accessible Reading Order Fallback List (IMP-03) */
+.desk-accessible-index {
+  margin: 1.5rem auto 2rem;
+  max-width: 900px;
+  background: rgba(26, 17, 11, 0.85);
+  border: 1px solid rgba(201, 162, 75, 0.25);
+  border-radius: 6px;
+  padding: 0.8rem 1.4rem;
+  color: #F4ECD8;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+}
+.desk-accessible-index summary {
+  cursor: pointer;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #C9A24B;
+  outline: none;
+}
+.desk-accessible-index summary:hover {
+  color: #F4ECD8;
+}
+.desk-accessible-index ol {
+  margin: 1rem 0 0.5rem;
+  padding-left: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.6rem 1.2rem;
+}
+.desk-accessible-index li a {
+  color: #E2D5C3;
+  text-decoration: none;
+}
+.desk-accessible-index li a:hover {
+  color: #C9A24B;
+  text-decoration: underline;
+}
+
+/* =========================================================
+   PRINT STYLESHEET REFINEMENT (IMP-05)
+   ========================================================= */
+@media print {
+  @page {
+    margin: 1.5cm;
+    size: portrait;
+  }
+  body {
+    background: #FFFFFF !important;
+    color: #111111 !important;
+  }
+  body::before,
+  body::after,
+  .poem__scene,
+  .poem__canvas-layer,
+  #poemCanvas,
+  .poem__fx,
+  .keepsake-dock,
+  .scene-toggle,
+  .desk-toolbar,
+  .desk-filters,
+  .epistolary-modal,
+  .svg-filters {
+    display: none !important;
+  }
+  .poem-stage {
+    padding: 0 !important;
+  }
+  .poem-card,
+  .colophon__card {
+    border: none !important;
+    box-shadow: none !important;
+    background: #FFFFFF !important;
+    color: #111111 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .poem-card::after {
+    display: none !important;
+  }
+  .poem__body {
+    font-size: 11pt !important;
+    line-height: 1.6 !important;
+    color: #111111 !important;
+  }
+  .poem__title {
+    color: #111111 !important;
+    font-size: 20pt !important;
+  }
+  .poem__sig {
+    color: #333333 !important;
+  }
+}
+
+/* =========================================================
+   NOSCRIPT FALLBACK (IMP-06)
+   ========================================================= */
+noscript .keepsake-dock {
+  display: flex !important;
+  opacity: 1 !important;
+  transform: translate(-50%, 0) !important;
 }

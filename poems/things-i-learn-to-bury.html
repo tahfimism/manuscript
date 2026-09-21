@@ -5,12 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>№ 20 · Things I Learn to Bury — Manuscript</title>
 <meta name="description" content="They teach us usefulness. Endurance. Like oceans trapped beneath ice, visible only through fractures. A poem by tai_khan." />
+<meta property="og:title" content="№ 20 · Things I Learn to Bury — Manuscript" />
+<meta property="og:description" content="They teach us usefulness. Endurance. Like oceans trapped beneath ice, visible only through fractures. A poem by tai_khan." />
+<meta property="og:image" content="../images/cover.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="theme-color" content="#DCD6CB" />
 
-<!-- Preconnect to Google Fonts for accelerated font loading -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Yellowtail&family=Caveat:wght@400;600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Permanent+Marker&family=Rubik+Marker+Hatch&family=Splash&display=swap" />
+<link rel="preload" as="image" href="../assets/img/svg/scene-notebook.svg" />
 <link rel="stylesheet" href="../assets/css/main.css" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23DCD6CB'/%3E%3Ccircle cx='50' cy='50' r='20' fill='%238B2E2E'/%3E%3C/svg%3E" />
 </head>
@@ -39,7 +43,7 @@
       <div class="ledger-margin-line" aria-hidden="true"></div>
 
       <!-- Hairline Ice Fracture in lower right corner -->
-      <svg class="ice-fracture" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+      <svg class="ice-fracture" width="54" height="54" viewBox="0 0 100 100" fill="none" aria-hidden="true" style="width: 54px; height: 54px;">
         <path d="M 90 95 L 65 72 L 58 50 M 65 72 L 45 78 M 58 50 L 40 38 L 48 20 M 40 38 L 22 44" stroke="#5C7A9E" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
         <path d="M 65 72 L 78 60 M 58 50 L 68 42" stroke="#5C7A9E" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
       </svg>
@@ -49,7 +53,7 @@
       <p class="poem__sub" style="font-family: var(--font-mono); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.12em; color: #8B2E2E;">oceans trapped beneath ice</p>
 
       <div class="poem__body" style="line-height: 28px;">
-        <p class="stanza verse--small verse--narrow" style="font-family: var(--font-mono); font-size: 0.95rem; line-height: 28px; color: #2A2722;">They teach us usefulness.<br/>
+        <p class="stanza" style="line-height: 28px;">They teach us usefulness.<br/>
         Endurance.<br/>
         How to survive embarrassment<br/>
         without visibly bleeeding from it.</p>
@@ -95,7 +99,7 @@
 
       <nav class="poem__nav">
         <a class="back" href="silence-in-layers.html" data-turn><span class="arrow">←</span> silence, in layers</a>
-        <a href="../toc.html">the desk</a>
+        <a class="poem-nav__desk" href="../toc.html">the desk</a>
         <a href="rage-in-cage.html" data-turn>rage in cage <span class="arrow">→</span></a>
       </nav>
     </div>
@@ -104,20 +108,24 @@
 
 <!-- Mobile Keepsake Ergonomic Dock -->
 <nav class="keepsake-dock" aria-label="Keepsake Navigation">
-  <a href="silence-in-layers.html" id="dock-prev" class="dock-btn" title="Silence, in layers" aria-label="Previous: Silence, in layers" data-turn>
+  <a href="silence-in-layers.html" id="dock-prev" class="dock-btn" title="Silence, in Layers" aria-label="Previous: Silence, in Layers" data-turn>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
   </a>
   <a href="../toc.html" id="dock-desk" class="dock-btn dock-btn--seal" title="The Desk" aria-label="Return to Writing Desk">
     <span class="dock-seal-mark">XX</span>
   </a>
-  <a href="rage-in-cage.html" id="dock-next" class="dock-btn" title="Rage in cage" aria-label="Next: Rage in cage" data-turn>
+  <a href="rage-in-cage.html" id="dock-next" class="dock-btn" title="Rage in Cage" aria-label="Next: Rage in Cage" data-turn>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
   </a>
-  <button type="button" id="dock-focus" class="dock-btn" title="Candlelight Focus" aria-label="Toggle Candlelight Focus Mode" aria-pressed="false">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c.5 1.5 1.5 2.5 1.5 4a1.5 1.5 0 0 1-3 0c0-1.5 1-2.5 1.5-4z"/><path d="M9 10h6v11H9z"/><path d="M7 21h10"/></svg>
-  </button>
-  <button type="button" id="dock-audio" class="dock-btn" title="Soundscape" aria-label="Toggle Soundscape Acoustics" aria-pressed="false">
+<button type="button" id="dock-audio" class="dock-btn" title="Soundscape" aria-label="Toggle Soundscape Acoustics" aria-pressed="false">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8v3H8zM6 6h12l2 15H4L6 6zM10 11h4M10 15h4"/></svg>
+  </button>
+  <button class="dock-btn dock-btn--share" id="dock-share" aria-label="Share letter link" title="Share letter">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+    </svg>
+    <span class="dock-btn__tooltip">Share</span>
   </button>
 </nav>
 

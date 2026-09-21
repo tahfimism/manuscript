@@ -5,51 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Controlled Ruin — Manuscript</title>
 <meta name="description" content="“The sea burned long before we spoke—still, black, unmoving... I scorch the edges, slow, exact.” — № 17 of Manuscript by TAHFIM KHAN." />
+<meta property="og:title" content="Controlled Ruin — Manuscript" />
+<meta property="og:description" content="“The sea burned long before we spoke—still, black, unmoving... I scorch the edges, slow, exact.” — № 17 of Manuscript by TAHFIM KHAN." />
+<meta property="og:image" content="../images/cover.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="theme-color" content="#0A0808" />
 
-<!-- Google Fonts Preconnect -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Yellowtail&family=Caveat:wght@400;600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Permanent+Marker&family=Rubik+Marker+Hatch&family=Splash&display=swap" />
+<link rel="preload" as="image" href="../assets/img/svg/scene-controlled-ruin.svg" />
 <link rel="stylesheet" href="../assets/css/main.css" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%230A0808' stroke='%23C97A30' stroke-width='2'/%3E%3C/svg%3E" />
-
-<style>
-  /* Poem 17: Two-Hand Dialogue Typography & Scorched Fissures */
-  .poem-card--ruin {
-    background: #F4ECD8;
-    color: #1A0808;
-    position: relative;
-    border: 1px solid rgba(201, 122, 48, 0.28);
-    box-shadow:
-      0 24px 60px -20px rgba(0, 0, 0, 0.75),
-      0 0 45px -10px rgba(201, 122, 48, 0.22),
-      inset 0 0 70px rgba(20, 10, 10, 0.1);
-  }
-  .voice-narrator {
-    font-family: var(--font-mono, 'Courier Prime', monospace);
-    font-size: 1.02rem;
-    line-height: 1.85;
-    color: #1A0808;
-  }
-  .voice-reply {
-    font-family: var(--font-hand, 'Caveat', cursive);
-    font-size: clamp(1.35rem, 2.4vw, 1.55rem);
-    font-weight: 600;
-    color: #C97A30;
-    margin-left: clamp(1.6rem, 5vw, 3.8rem);
-    display: inline-block;
-    transform: rotate(-1deg);
-    line-height: 1.5;
-    text-shadow: 0 0 8px rgba(248, 184, 92, 0.2);
-  }
-  .scorched-fissure-svg {
-    width: 100%;
-    max-width: 440px;
-    margin: 1.2rem auto;
-    display: block;
-  }
-</style>
 </head>
 <body data-family="F" data-canvas="embers-drift">
 <main class="poem-stage">
@@ -137,8 +104,9 @@
       </div>
 
       <nav class="poem__nav">
-        <a class="back" href="../toc.html">← back to the desk</a>
-        <a href="out-of-frame.html" data-turn>out of frame <span class="arrow">→</span></a>
+        <a class="back" href="within-the-world-i-define.html" data-turn><span class="arrow">←</span> within the world i define</a>
+        <a class="poem-nav__desk" href="../toc.html">the desk</a>
+        <a href="dissection.html" data-turn>dissection <span class="arrow">→</span></a>
       </nav>
     </div>
   </article>
@@ -155,25 +123,26 @@
       <span class="dock-seal" aria-hidden="true">XVII</span>
       <span class="dock-label">desk</span>
     </a>
-    <a class="dock-btn dock-btn--next" id="dock-next" href="out-of-frame.html" aria-label="Next Poem: Out of frame" title="Next Poem">
+    <a class="dock-btn dock-btn--next" id="dock-next" href="dissection.html" aria-label="Next Poem: Dissection" title="Next Poem">
       <span class="dock-label">next</span>
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M5 12h14M12 5l7 7-7 7"/>
       </svg>
     </a>
     <div class="dock-separator" aria-hidden="true"></div>
-    <button class="dock-btn dock-btn--focus" id="dock-focus" type="button" aria-label="Toggle Candlelight Focus Mode" title="Candlelight Focus">
-      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M12 2c.5 1.5 2 3 2 4.5a2 2 0 0 1-4 0c0-1.5 1.5-3 2-4.5z" fill="currentColor"/>
-        <path d="M9 11h6v10H9zM7 21h10"/>
-      </svg>
-    </button>
-    <button class="dock-btn dock-btn--audio" id="dock-audio" type="button" aria-label="Toggle Ambient Soundscape" title="Soundscape Ambience">
+<button class="dock-btn dock-btn--audio" id="dock-audio" type="button" aria-label="Toggle Ambient Soundscape" title="Soundscape Ambience">
       <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M11 5L6 9H2v6h4l5 4V5z"/>
         <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
         <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
       </svg>
+    </button>
+      <button class="dock-btn dock-btn--share" id="dock-share" aria-label="Share letter link" title="Share letter">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+      </svg>
+      <span class="dock-btn__tooltip">Share</span>
     </button>
   </nav>
 </main>
