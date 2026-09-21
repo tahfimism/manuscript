@@ -2407,15 +2407,18 @@ ins.pencil-margin {
 }
 .desk-string {
   fill: none;
-  stroke: #B42A38;
-  stroke-width: 2;
+  stroke: #A82432;
+  stroke-width: 2.4;
   stroke-linecap: round;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
-  transition: stroke-width 0.2s ease, stroke 0.2s ease;
+  stroke-linejoin: round;
+  stroke-dasharray: 8 1.5 6 1.5; /* Braided twine texture */
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.75));
+  transition: stroke-width 0.25s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.25s ease, filter 0.25s ease;
 }
 .desk-string--taut {
-  stroke-width: 3.5;
-  stroke: #E03548;
+  stroke-width: 3.8;
+  stroke: #D62839;
+  filter: drop-shadow(0 4px 10px rgba(214, 40, 57, 0.45));
 }
 .desk-singe-charred {
   fill: none;
@@ -3489,4 +3492,116 @@ noscript .keepsake-dock {
   display: flex !important;
   opacity: 1 !important;
   transform: translate(-50%, 0) !important;
+}
+
+
+/* =========================================================
+   TABLE OF CONTENTS — RICH HAND-DRAWN VISUAL ELEMENTS
+   ========================================================= */
+
+/* 1. Organic Coffee / Tea Watermark */
+.desk-patina-coffee {
+  position: absolute;
+  top: 14px;
+  left: 20px;
+  width: 150px;
+  height: 150px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.75;
+  transition: opacity 0.3s ease;
+}
+
+/* 2. Vintage 1990s Postage Stamps & Postmark */
+.desk-stamps-wrapper {
+  position: absolute;
+  top: 18px;
+  right: 28px;
+  width: 220px;
+  height: 130px;
+  pointer-events: none;
+  z-index: 4;
+  transition: transform 0.3s ease;
+}
+.desk-stamps-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* 3. Master Artisan Fountain Pen & Rest */
+.desk-fountain-pen-wrapper {
+  position: relative;
+  max-width: 580px;
+  margin: 0.4rem auto 1.4rem;
+  z-index: 10;
+  pointer-events: auto;
+  cursor: default;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.desk-fountain-pen-wrapper:hover {
+  transform: translateY(-2px) scale(1.01);
+}
+.desk-fountain-pen-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* 4. Pressed Dried Botanical Sprig */
+.desk-botanical-sprig {
+  position: absolute;
+  top: 240px;
+  left: -20px;
+  width: 110px;
+  height: 165px;
+  pointer-events: none;
+  z-index: 2;
+  transform: rotate(-14deg);
+  opacity: 0.85;
+}
+
+/* 5. Antique Hexagonal Brass Paperweight */
+.desk-paperweight {
+  position: absolute;
+  top: 255px;
+  right: 24px;
+  width: 76px;
+  height: 76px;
+  pointer-events: auto;
+  z-index: 9;
+  cursor: grab;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease;
+}
+.desk-paperweight:hover {
+  transform: translateY(-3px) rotate(4deg) scale(1.05);
+}
+
+/* Responsive adjustments for mobile writing desk */
+@media (max-width: 768px) {
+  .desk-patina-coffee {
+    top: 5px;
+    left: 5px;
+    width: 110px;
+    height: 110px;
+    opacity: 0.5;
+  }
+  .desk-stamps-wrapper {
+    top: 10px;
+    right: 10px;
+    width: 160px;
+    height: 95px;
+    opacity: 0.85;
+  }
+  .desk-fountain-pen-wrapper {
+    max-width: 340px;
+    margin: 0.2rem auto 1rem;
+  }
+  .desk-botanical-sprig {
+    display: none; /* Hide on narrow viewports to preserve clean grid flow */
+  }
+  .desk-paperweight {
+    display: none;
+  }
 }

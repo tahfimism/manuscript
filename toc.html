@@ -97,6 +97,158 @@
 
   <!-- The Antique Writing Desk Leather Blotter Pad -->
   <div class="desk-blotter" id="deskBlotter">
+    <!-- Visual Element 1: Hand-Drawn Dried Coffee/Tea Watermark -->
+    <div class="desk-patina-coffee" aria-hidden="true">
+      <svg viewBox="0 0 160 160" width="160" height="160">
+        <defs>
+          <radialGradient id="coffeeWash" cx="50%" cy="50%" r="50%">
+            <stop offset="60%" stop-color="rgba(139, 90, 43, 0)" />
+            <stop offset="85%" stop-color="rgba(139, 90, 43, 0.08)" />
+            <stop offset="96%" stop-color="rgba(90, 50, 20, 0.35)" />
+            <stop offset="100%" stop-color="rgba(60, 30, 10, 0.05)" />
+          </radialGradient>
+          <filter id="coffeeJitter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="3" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="3.5" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+        </defs>
+        <path d="M 80 18 C 114 17 142 45 142 80 C 141 115 113 143 78 142 C 43 141 17 113 18 78 C 19 43 46 19 80 18 Z" 
+              fill="url(#coffeeWash)" 
+              stroke="#4A260F" 
+              stroke-width="1.8" 
+              stroke-opacity="0.35" 
+              filter="url(#coffeeJitter)" />
+        <path d="M 82 22 C 112 21 138 47 137 79 C 136 111 110 137 77 136 C 45 135 21 109 22 77 C 23 45 49 23 82 22 Z" 
+              fill="none" 
+              stroke="#361A0A" 
+              stroke-width="0.8" 
+              stroke-opacity="0.22" 
+              filter="url(#coffeeJitter)" />
+        <circle cx="146" cy="62" r="2.2" fill="#4A260F" opacity="0.3" />
+        <circle cx="140" cy="54" r="1.2" fill="#4A260F" opacity="0.25" />
+        <circle cx="28" cy="118" r="1.8" fill="#4A260F" opacity="0.2" />
+      </svg>
+    </div>
+
+    <!-- Visual Element 2: 1990s Franked Postage Stamps & Wavy Postmark -->
+    <div class="desk-stamps-wrapper" aria-hidden="true">
+      <svg viewBox="0 0 240 140" width="240" height="140" class="desk-stamps-svg">
+        <defs>
+          <filter id="stampShadow" x="-15%" y="-15%" width="130%" height="130%">
+            <feDropShadow dx="2" dy="5" stdDeviation="4" flood-color="#080402" flood-opacity="0.6" />
+          </filter>
+          <linearGradient id="stampGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FCEAB8" />
+            <stop offset="100%" stop-color="#C9A24B" />
+          </linearGradient>
+        </defs>
+
+        <!-- Stamp 1: 32¢ Celestial Moon Stamp -->
+        <g transform="translate(18, 12) rotate(-3.5 45 55)" filter="url(#stampShadow)">
+          <rect x="0" y="0" width="84" height="104" rx="2" fill="#F4ECD8" stroke="#E2D6C0" stroke-width="1.5" />
+          <rect x="0" y="0" width="84" height="104" rx="2" fill="none" stroke="#FAF4E8" stroke-dasharray="2,3" stroke-width="2" />
+          <rect x="6" y="6" width="72" height="92" fill="#121B2B" stroke="#8A6D3B" stroke-width="1" />
+          <circle cx="18" cy="18" r="0.8" fill="#FCEAB8" opacity="0.8" />
+          <circle cx="62" cy="22" r="0.6" fill="#FCEAB8" opacity="0.7" />
+          <circle cx="24" cy="46" r="0.7" fill="#FCEAB8" opacity="0.9" />
+          <circle cx="68" cy="58" r="0.8" fill="#FCEAB8" opacity="0.6" />
+          <circle cx="32" cy="78" r="0.6" fill="#FCEAB8" opacity="0.8" />
+          <path d="M 46 22 A 18 18 0 1 0 46 58 A 14 14 0 1 1 46 22 Z" fill="url(#stampGold)" />
+          <text x="42" y="76" font-family="'Courier Prime', monospace" font-size="7" font-weight="bold" fill="#FCEAB8" text-anchor="middle" letter-spacing="1">USA 32¢</text>
+          <text x="42" y="87" font-family="'Fraunces', serif" font-size="5.5" font-style="italic" fill="#E2D5C3" text-anchor="middle" letter-spacing="0.5">1996 · CELESTIAL</text>
+        </g>
+
+        <!-- Stamp 2: Crimson Rose Botanical Stamp -->
+        <g transform="translate(86, 20) rotate(4.2 40 48)" filter="url(#stampShadow)">
+          <rect x="0" y="0" width="76" height="92" rx="2" fill="#F0E6D2" stroke="#E2D6C0" stroke-width="1.5" />
+          <rect x="0" y="0" width="76" height="92" rx="2" fill="none" stroke="#FAF4E8" stroke-dasharray="2,3" stroke-width="2" />
+          <rect x="5" y="5" width="66" height="82" fill="#58111A" stroke="#C9A24B" stroke-width="0.8" />
+          <circle cx="38" cy="36" r="14" fill="#841B2D" />
+          <path d="M 38 26 C 45 26 48 34 38 44 C 28 34 31 26 38 26 Z" fill="#9E2235" />
+          <path d="M 38 46 Q 36 60 38 66" stroke="#4A6B42" stroke-width="1.5" fill="none" />
+          <path d="M 38 52 Q 46 50 48 44" stroke="#4A6B42" stroke-width="1.2" fill="none" />
+          <text x="38" y="74" font-family="'Courier Prime', monospace" font-size="6.5" font-weight="bold" fill="#FCEAB8" text-anchor="middle">29¢</text>
+          <text x="38" y="82" font-family="'Fraunces', serif" font-size="5" font-style="italic" fill="#E2D5C3" text-anchor="middle">ARCHIVE</text>
+        </g>
+
+        <!-- Circular Franking Ink Stamp + Wavy Cancellation Lines -->
+        <g filter="url(#ink-bleed)" style="mix-blend-mode: multiply; opacity: 0.82;">
+          <circle cx="108" cy="62" r="32" fill="none" stroke="#1A120B" stroke-width="1.6" stroke-dasharray="80 8 4 6" />
+          <circle cx="108" cy="62" r="28" fill="none" stroke="#1A120B" stroke-width="0.8" />
+          <text x="108" y="58" font-family="'Courier Prime', monospace" font-size="6.5" font-weight="bold" fill="#1A120B" text-anchor="middle" letter-spacing="1">14 OCT</text>
+          <text x="108" y="67" font-family="'Courier Prime', monospace" font-size="6" font-weight="bold" fill="#1A120B" text-anchor="middle" letter-spacing="1">1996</text>
+          <text x="108" y="76" font-family="'Courier Prime', monospace" font-size="4.5" fill="#1A120B" text-anchor="middle" letter-spacing="0.5">POSTAL KEEPSAKE</text>
+          <path d="M 142 48 Q 165 42 188 48 T 234 48" fill="none" stroke="#1A120B" stroke-width="1.4" />
+          <path d="M 142 58 Q 165 52 188 58 T 234 58" fill="none" stroke="#1A120B" stroke-width="1.4" />
+          <path d="M 142 68 Q 165 62 188 68 T 234 68" fill="none" stroke="#1A120B" stroke-width="1.4" />
+          <path d="M 142 78 Q 165 72 188 78 T 234 78" fill="none" stroke="#1A120B" stroke-width="1.4" />
+        </g>
+      </svg>
+    </div>
+
+    <!-- Visual Element 3: Pressed Dried Lavender Sprig -->
+    <div class="desk-botanical-sprig" aria-hidden="true">
+      <svg viewBox="0 0 120 180" width="120" height="180" class="desk-botanical-svg">
+        <defs>
+          <filter id="botanicalShadow">
+            <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#0A1008" flood-opacity="0.45" />
+          </filter>
+        </defs>
+        <g filter="url(#botanicalShadow)" opacity="0.88">
+          <path d="M 60 170 Q 55 120 62 80 T 58 10" fill="none" stroke="#685838" stroke-width="1.6" stroke-linecap="round" />
+          <path d="M 58 140 Q 40 130 32 118 Q 44 124 57 132" fill="#58563A" opacity="0.8" stroke="#3A3824" stroke-width="0.6" />
+          <path d="M 61 125 Q 80 115 88 102 Q 76 110 61 118" fill="#58563A" opacity="0.8" stroke="#3A3824" stroke-width="0.6" />
+          <path d="M 59 105 Q 42 96 36 82 Q 48 88 59 98" fill="#625E40" opacity="0.85" stroke="#3A3824" stroke-width="0.6" />
+          <path d="M 62 90 Q 82 82 86 68 Q 75 75 62 84" fill="#625E40" opacity="0.85" stroke="#3A3824" stroke-width="0.6" />
+
+          <ellipse cx="58" cy="65" rx="3.5" ry="5.5" fill="#6A4E68" opacity="0.85" transform="rotate(-15 58 65)" />
+          <ellipse cx="64" cy="62" rx="3.5" ry="5.5" fill="#5C405A" opacity="0.85" transform="rotate(18 64 62)" />
+          <ellipse cx="56" cy="50" rx="3" ry="5" fill="#755272" opacity="0.9" transform="rotate(-20 56 50)" />
+          <ellipse cx="63" cy="48" rx="3.2" ry="5" fill="#634260" opacity="0.9" transform="rotate(22 63 48)" />
+          <ellipse cx="57" cy="35" rx="2.8" ry="4.5" fill="#7A5678" opacity="0.92" transform="rotate(-12 57 35)" />
+          <ellipse cx="62" cy="33" rx="2.8" ry="4.5" fill="#6B4668" opacity="0.92" transform="rotate(15 62 33)" />
+          <ellipse cx="58" cy="20" rx="2.4" ry="4" fill="#845D82" opacity="0.95" />
+          <ellipse cx="58" cy="10" rx="2" ry="3.2" fill="#8E668C" opacity="0.95" />
+        </g>
+      </svg>
+    </div>
+
+    <!-- Visual Element 4: Faceted Hexagonal Brass Paperweight -->
+    <div class="desk-paperweight" aria-hidden="true" title="Faceted Antique Brass Paperweight">
+      <svg viewBox="0 0 90 90" width="76" height="76">
+        <defs>
+          <filter id="paperweightShadow">
+            <feDropShadow dx="3" dy="8" stdDeviation="5" flood-color="#0C0804" flood-opacity="0.8" />
+          </filter>
+          <linearGradient id="facetTop" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFF4D0" />
+            <stop offset="50%" stop-color="#E5C158" />
+            <stop offset="100%" stop-color="#B88A28" />
+          </linearGradient>
+          <linearGradient id="facetSideL" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#6E4E10" />
+            <stop offset="100%" stop-color="#A2781E" />
+          </linearGradient>
+          <linearGradient id="facetSideR" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#462E08" />
+            <stop offset="100%" stop-color="#785312" />
+          </linearGradient>
+        </defs>
+        <g filter="url(#paperweightShadow)">
+          <polygon points="45,8 78,26 78,64 45,82 12,64 12,26" fill="#3A2408" stroke="#1A1004" stroke-width="1.2" />
+          <polygon points="45,8 78,26 62,36 45,24" fill="url(#facetTop)" />
+          <polygon points="78,26 78,64 62,54 62,36" fill="url(#facetSideR)" />
+          <polygon points="78,64 45,82 45,66 62,54" fill="#321E06" />
+          <polygon points="45,82 12,64 28,54 45,66" fill="#4E330C" />
+          <polygon points="12,64 12,26 28,36 28,54" fill="url(#facetSideL)" />
+          <polygon points="12,26 45,8 45,24 28,36" fill="url(#facetTop)" />
+          <polygon points="45,24 62,36 62,54 45,66 28,54 28,36" fill="url(#facetTop)" stroke="#6A4B12" stroke-width="0.6" />
+          <circle cx="45" cy="45" r="8" fill="none" stroke="#6A4B12" stroke-width="0.8" stroke-dasharray="2,2" />
+          <text x="45" y="47.5" font-family="'Fraunces', serif" font-size="6.5" font-style="italic" fill="#4A3208" text-anchor="middle">M</text>
+        </g>
+      </svg>
+    </div>
+
     <!-- Brass Filigree Corner Brackets -->
     <div class="blotter-corner blotter-corner--tl" aria-hidden="true"></div>
     <div class="blotter-corner blotter-corner--tr" aria-hidden="true"></div>
@@ -127,6 +279,76 @@
         <button type="button" class="desk-filter-btn" data-filter="memory">Wine &amp; Memory</button>
       </div>
     </header>
+
+    <!-- Visual Element 5: Master Artisan Fountain Pen & Engraved Rest -->
+    <div class="desk-fountain-pen-wrapper" aria-hidden="true" title="1996 Black Lacquer & 18K Gold Fountain Pen">
+      <svg viewBox="0 0 520 70" width="100%" height="70" class="desk-fountain-pen-svg">
+        <defs>
+          <filter id="penShadow" x="-10%" y="-20%" width="120%" height="160%">
+            <feDropShadow dx="0" dy="12" stdDeviation="7" flood-color="#080402" flood-opacity="0.75" />
+          </filter>
+          <linearGradient id="goldNibGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FFE8A3" />
+            <stop offset="25%" stop-color="#E5C158" />
+            <stop offset="50%" stop-color="#FFF3C4" />
+            <stop offset="75%" stop-color="#B88A28" />
+            <stop offset="100%" stop-color="#6E4E10" />
+          </linearGradient>
+          <linearGradient id="rhodiumGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF" />
+            <stop offset="50%" stop-color="#D6D8DC" />
+            <stop offset="100%" stop-color="#8C9098" />
+          </linearGradient>
+          <linearGradient id="lacquerBarrel" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#141416" />
+            <stop offset="18%" stop-color="#3A3C42" />
+            <stop offset="35%" stop-color="#686C78" />
+            <stop offset="55%" stop-color="#1E2024" />
+            <stop offset="85%" stop-color="#0E0E10" />
+            <stop offset="100%" stop-color="#040405" />
+          </linearGradient>
+          <linearGradient id="brassRestGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#5A3E14" />
+            <stop offset="20%" stop-color="#C9A24B" />
+            <stop offset="50%" stop-color="#FCE8B0" />
+            <stop offset="80%" stop-color="#9C7524" />
+            <stop offset="100%" stop-color="#462E0C" />
+          </linearGradient>
+        </defs>
+
+        <!-- 1. Fluted Antique Brass Pen-Rest Cradle -->
+        <g transform="translate(180, 24)" filter="url(#penShadow)">
+          <path d="M 0 16 C 10 4 35 4 45 16 L 40 22 C 30 14 15 14 5 22 Z" fill="url(#brassRestGrad)" stroke="#2C1D08" stroke-width="0.8" />
+          <path d="M 120 16 C 130 4 155 4 165 16 L 160 22 C 150 14 135 14 125 22 Z" fill="url(#brassRestGrad)" stroke="#2C1D08" stroke-width="0.8" />
+          <rect x="25" y="15" width="120" height="5" rx="2" fill="url(#brassRestGrad)" />
+          <line x1="35" y1="17.5" x2="135" y2="17.5" stroke="#3A2508" stroke-width="0.6" stroke-dasharray="4,2" />
+        </g>
+
+        <!-- 2. Master Fountain Pen -->
+        <g transform="translate(60, 26) rotate(-1.2 200 15)" filter="url(#penShadow)">
+          <path d="M 180 8 L 380 9 C 395 9.5 405 13 408 15 C 405 17 395 20.5 380 21 L 180 22 Z" fill="url(#lacquerBarrel)" />
+          <path d="M 400 10.5 C 408 12 414 14 414 15 C 414 16 408 18 400 19.5 Z" fill="url(#goldNibGrad)" stroke="#4A3408" stroke-width="0.5" />
+          
+          <rect x="174" y="7.5" width="6" height="15" rx="1" fill="url(#goldNibGrad)" stroke="#4A3408" stroke-width="0.5" />
+          <rect x="170" y="8" width="3" height="14" fill="url(#goldNibGrad)" />
+
+          <path d="M 120 10 L 170 8.5 L 170 21.5 L 120 20 Z" fill="url(#lacquerBarrel)" />
+          <rect x="117" y="9.5" width="3" height="11" fill="url(#goldNibGrad)" />
+
+          <!-- Master 18K Gold & Rhodium Nib -->
+          <path d="M 118 10 L 78 11.5 Q 60 13.5 50 15 Q 60 16.5 78 18.5 L 118 20 Z" fill="url(#goldNibGrad)" stroke="#3A2806" stroke-width="0.6" />
+          <path d="M 108 11.8 L 84 13 Q 70 14.2 62 15 Q 70 15.8 84 17 L 108 18.2 Z" fill="url(#rhodiumGrad)" opacity="0.9" />
+          <circle cx="82" cy="15" r="1.4" fill="#1A1208" />
+          <line x1="50" y1="15" x2="82" y2="15" stroke="#1A1208" stroke-width="0.7" />
+          <path d="M 96 12.8 Q 90 15 96 17.2" fill="none" stroke="#5A3E08" stroke-width="0.5" />
+          <path d="M 102 12.4 Q 94 15 102 17.6" fill="none" stroke="#5A3E08" stroke-width="0.5" />
+          <text x="98" y="16" font-family="'Fraunces', serif" font-size="2.6" font-style="italic" fill="#3A2806" text-anchor="middle">18K</text>
+
+          <path d="M 280 6 L 360 6.5 C 368 7 372 9 372 10 L 368 11 C 365 10 360 9.5 280 9.5 Z" fill="url(#goldNibGrad)" filter="drop-shadow(0 2px 3px rgba(0,0,0,0.5))" />
+        </g>
+      </svg>
+    </div>
+
 
     <!-- 24 Letter Cards with deterministic physical rotations -->
     <ul class="desk-grid" id="deskGrid">
