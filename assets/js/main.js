@@ -26,6 +26,8 @@
   /* ---------- 1. Page Transitions & Entry ---------- */
   document.querySelectorAll('a[data-turn]').forEach((a) => {
     a.addEventListener('click', (e) => {
+      ManuscriptSound.playPaperTurn();
+      if ('vibrate' in navigator) navigator.vibrate(20);
       if (prefersReduced) return;
       const href = a.getAttribute('href');
       if (!href || href === '#' || href.startsWith('javascript:')) return;
@@ -116,130 +118,266 @@
     document.body.prepend(svg);
   })();
 
-  /* ---------- 2. Ambient Soundscape ---------- */
-  (function setupSoundscape() {
-    try { localStorage.removeItem('manuscript_candlelight'); } catch (e) {}
-    document.body.classList.remove('candlelight-active');
+  /* ---------- 2. Procedural Tactile Foley Sound Engine (Web Audio API) ---------- */
+  const ManuscriptSound = (function () {
+    let audioCtx = null;
+    const STORAGE_KEY = 'manuscript_sound_fx';
+    let isMuted = false;
 
-    const audioBtn = document.getElementById('dock-audio');
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved === 'muted') isMuted = true;
+    } catch (e) {}
 
-    // Ambient Soundscape via Web Audio API (Zero external assets, procedural vintage acoustics)
-    if (audioBtn) {
-      let audioCtx = null;
-      let masterGain = null;
-      let isPlaying = false;
-      let soundGenerators = [];
-
-      function stopSoundscape() {
-        soundGenerators.forEach(g => {
-          try { g.stop(); g.disconnect(); } catch (e) {}
-        });
-        soundGenerators = [];
-        if (masterGain && audioCtx) {
-          masterGain.gain.linearRampToValueAtTime(0.0001, audioCtx.currentTime + 0.5);
+    function getContext() {
+      if (!audioCtx) {
+        const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtxClass) {
+          audioCtx = new AudioCtxClass();
         }
-        isPlaying = false;
-        audioBtn.setAttribute('aria-pressed', 'false');
       }
-
-      function startSoundscape() {
-        if (!audioCtx) {
-          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-          if (!AudioContextClass) return;
-          audioCtx = new AudioContextClass();
-        }
-        if (audioCtx.state === 'suspended') {
-          audioCtx.resume();
-        }
-
-        masterGain = audioCtx.createGain();
-        masterGain.gain.setValueAtTime(0.0001, audioCtx.currentTime);
-        masterGain.gain.linearRampToValueAtTime(0.18, audioCtx.currentTime + 1.2);
-        masterGain.connect(audioCtx.destination);
-
-        const canvasKind = (document.body.getAttribute('data-canvas') || '').trim().toLowerCase();
-
-        // 1. Rain / River soundscape (Filtered pink/white noise with gentle water patter)
-        if (canvasKind.includes('rain') || canvasKind.includes('river') || canvasKind.includes('tide')) {
-          const bufferSize = audioCtx.sampleRate * 2;
-          const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-          const output = noiseBuffer.getChannelData(0);
-          let b0 = 0, b1 = 0, b2 = 0;
-          for (let i = 0; i < bufferSize; i++) {
-            const white = Math.random() * 2 - 1;
-            b0 = 0.99 * b0 + white * 0.05;
-            b1 = 0.95 * b1 + white * 0.08;
-            b2 = 0.85 * b2 + white * 0.12;
-            output[i] = (b0 + b1 + b2) * 0.4;
-          }
-          const whiteNoise = audioCtx.createBufferSource();
-          whiteNoise.buffer = noiseBuffer;
-          whiteNoise.loop = true;
-
-          const filter = audioCtx.createBiquadFilter();
-          filter.type = 'lowpass';
-          filter.frequency.setValueAtTime(750, audioCtx.currentTime);
-
-          whiteNoise.connect(filter);
-          filter.connect(masterGain);
-          whiteNoise.start();
-          soundGenerators.push(whiteNoise);
-        }
-        // 2. Winter / Blizzard wind drift (Filtered low-frequency wind breath)
-        else if (canvasKind.includes('snow') || canvasKind.includes('blizzard') || canvasKind.includes('frost')) {
-          const bufferSize = audioCtx.sampleRate * 2;
-          const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-          const output = noiseBuffer.getChannelData(0);
-          for (let i = 0; i < bufferSize; i++) output[i] = (Math.random() * 2 - 1) * 0.3;
-          const noise = audioCtx.createBufferSource();
-          noise.buffer = noiseBuffer;
-          noise.loop = true;
-
-          const bandpass = audioCtx.createBiquadFilter();
-          bandpass.type = 'bandpass';
-          bandpass.frequency.setValueAtTime(320, audioCtx.currentTime);
-          bandpass.Q.setValueAtTime(3.0, audioCtx.currentTime);
-
-          noise.connect(bandpass);
-          bandpass.connect(masterGain);
-          noise.start();
-          soundGenerators.push(noise);
-        }
-        // 3. Cosmic / Celestial harmonic drone (Warm ethereal fifths)
-        else {
-          const osc1 = audioCtx.createOscillator();
-          const osc2 = audioCtx.createOscillator();
-          const osc3 = audioCtx.createOscillator();
-          osc1.type = 'sine';
-          osc2.type = 'sine';
-          osc3.type = 'triangle';
-          osc1.frequency.setValueAtTime(146.83, audioCtx.currentTime);
-          osc2.frequency.setValueAtTime(220.00, audioCtx.currentTime);
-          osc3.frequency.setValueAtTime(440.00, audioCtx.currentTime);
-
-          const droneGain = audioCtx.createGain();
-          droneGain.gain.setValueAtTime(0.04, audioCtx.currentTime);
-
-          osc1.connect(droneGain);
-          osc2.connect(droneGain);
-          osc3.connect(droneGain);
-          droneGain.connect(masterGain);
-
-          osc1.start();
-          osc2.start();
-          osc3.start();
-          soundGenerators.push(osc1, osc2, osc3);
-        }
-
-        isPlaying = true;
-        audioBtn.setAttribute('aria-pressed', 'true');
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume().catch(() => {});
       }
-
-      audioBtn.addEventListener('click', () => {
-        if (isPlaying) stopSoundscape();
-        else startSoundscape();
-      });
+      return audioCtx;
     }
+
+    // Humanized jitter so no two sounds are mathematically identical
+    function jitter(val, percent = 0.06) {
+      return val * (1 + (Math.random() * 2 - 1) * percent);
+    }
+
+    // 1. Tactile Cotton Parchment Rustle (Page turns, prev/next transitions)
+    function playPaperTurn() {
+      if (isMuted) return;
+      const ctx = getContext();
+      if (!ctx) return;
+
+      const t = ctx.currentTime;
+      const dur = 0.16;
+
+      const bufSize = Math.floor(ctx.sampleRate * dur);
+      const buf = ctx.createBuffer(1, bufSize, ctx.sampleRate);
+      const data = buf.getChannelData(0);
+      let b0 = 0, b1 = 0;
+      for (let i = 0; i < bufSize; i++) {
+        const white = Math.random() * 2 - 1;
+        b0 = 0.96 * b0 + white * 0.08;
+        b1 = 0.88 * b1 + white * 0.12;
+        data[i] = (b0 + b1) * 0.65;
+      }
+
+      const src = ctx.createBufferSource();
+      src.buffer = buf;
+
+      const bandpass = ctx.createBiquadFilter();
+      bandpass.type = 'bandpass';
+      bandpass.frequency.setValueAtTime(jitter(1150, 0.08), t);
+      bandpass.Q.setValueAtTime(1.8, t);
+
+      const gain = ctx.createGain();
+      gain.gain.setValueAtTime(0.001, t);
+      gain.gain.linearRampToValueAtTime(0.09, t + 0.025);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+
+      src.connect(bandpass);
+      bandpass.connect(gain);
+      gain.connect(ctx.destination);
+
+      src.start(t);
+    }
+
+    // 2. Crisp Wax Seal Crack & Stamp Thud (TOC read/reseal toggles)
+    function playWaxSealCrack() {
+      if (isMuted) return;
+      const ctx = getContext();
+      if (!ctx) return;
+
+      const t = ctx.currentTime;
+
+      // Resonant low-end wax stamp thud (pitch dropped sine)
+      const osc = ctx.createOscillator();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(jitter(280, 0.05), t);
+      osc.frequency.exponentialRampToValueAtTime(80, t + 0.07);
+
+      const oscGain = ctx.createGain();
+      oscGain.gain.setValueAtTime(0.16, t);
+      oscGain.gain.exponentialRampToValueAtTime(0.0001, t + 0.08);
+
+      osc.connect(oscGain);
+      oscGain.connect(ctx.destination);
+      osc.start(t);
+      osc.stop(t + 0.09);
+
+      // High frequency wax fracture click
+      const clickSize = Math.floor(ctx.sampleRate * 0.02);
+      const clickBuf = ctx.createBuffer(1, clickSize, ctx.sampleRate);
+      const clickData = clickBuf.getChannelData(0);
+      for (let i = 0; i < clickSize; i++) {
+        clickData[i] = (Math.random() * 2 - 1) * Math.exp(-i / (clickSize * 0.25));
+      }
+      const clickSrc = ctx.createBufferSource();
+      clickSrc.buffer = clickBuf;
+
+      const hp = ctx.createBiquadFilter();
+      hp.type = 'highpass';
+      hp.frequency.setValueAtTime(2400, t);
+
+      const clickGain = ctx.createGain();
+      clickGain.gain.setValueAtTime(0.12, t);
+      clickGain.gain.exponentialRampToValueAtTime(0.001, t + 0.025);
+
+      clickSrc.connect(hp);
+      hp.connect(clickGain);
+      clickGain.connect(ctx.destination);
+      clickSrc.start(t);
+    }
+
+    // 3. Smooth Parchment Slide across Cedar Wood (Letter unfold / card open)
+    function playLetterSlide() {
+      if (isMuted) return;
+      const ctx = getContext();
+      if (!ctx) return;
+
+      const t = ctx.currentTime;
+      const dur = 0.22;
+
+      const bufSize = Math.floor(ctx.sampleRate * dur);
+      const buf = ctx.createBuffer(1, bufSize, ctx.sampleRate);
+      const data = buf.getChannelData(0);
+      for (let i = 0; i < bufSize; i++) {
+        data[i] = (Math.random() * 2 - 1) * 0.4;
+      }
+
+      const src = ctx.createBufferSource();
+      src.buffer = buf;
+
+      const filter = ctx.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(350, t);
+      filter.frequency.linearRampToValueAtTime(800, t + 0.1);
+      filter.frequency.exponentialRampToValueAtTime(250, t + dur);
+
+      const gain = ctx.createGain();
+      gain.gain.setValueAtTime(0.001, t);
+      gain.gain.linearRampToValueAtTime(0.07, t + 0.04);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+
+      src.connect(filter);
+      filter.connect(gain);
+      gain.connect(ctx.destination);
+      src.start(t);
+    }
+
+    // 4. Vintage Fountain Pen Nib Scritch (Share / note actions)
+    function playPenNibScritch() {
+      if (isMuted) return;
+      const ctx = getContext();
+      if (!ctx) return;
+
+      const t = ctx.currentTime;
+      const dur = 0.11;
+
+      const bufSize = Math.floor(ctx.sampleRate * dur);
+      const buf = ctx.createBuffer(1, bufSize, ctx.sampleRate);
+      const data = buf.getChannelData(0);
+      for (let i = 0; i < bufSize; i++) {
+        data[i] = (Math.random() * 2 - 1) * (1 - i / bufSize);
+      }
+
+      const src = ctx.createBufferSource();
+      src.buffer = buf;
+
+      const hp = ctx.createBiquadFilter();
+      hp.type = 'highpass';
+      hp.frequency.setValueAtTime(2800, t);
+
+      const gain = ctx.createGain();
+      gain.gain.setValueAtTime(0.08, t);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+
+      src.connect(hp);
+      hp.connect(gain);
+      gain.connect(ctx.destination);
+      src.start(t);
+    }
+
+    // 5. Delicate Micro Felt/Wood Tap (Minor touch / hover)
+    function playSoftTap() {
+      if (isMuted) return;
+      const ctx = getContext();
+      if (!ctx) return;
+
+      const t = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(190, t);
+      osc.frequency.exponentialRampToValueAtTime(95, t + 0.04);
+
+      const gain = ctx.createGain();
+      gain.gain.setValueAtTime(0.035, t);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.045);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(t);
+      osc.stop(t + 0.05);
+    }
+
+    function toggleMute() {
+      isMuted = !isMuted;
+      try {
+        localStorage.setItem(STORAGE_KEY, isMuted ? 'muted' : 'enabled');
+      } catch (e) {}
+      if (!isMuted) {
+        playSoftTap();
+      }
+      return isMuted;
+    }
+
+    function getMuted() {
+      return isMuted;
+    }
+
+    return {
+      playPaperTurn,
+      playWaxSealCrack,
+      playLetterSlide,
+      playPenNibScritch,
+      playSoftTap,
+      toggleMute,
+      isMuted: getMuted
+    };
+  })();
+
+  window.ManuscriptSound = ManuscriptSound;
+
+  // Setup Dock Audio FX Toggle Button
+  (function setupAudioDockToggle() {
+    const audioBtn = document.getElementById('dock-audio');
+    if (!audioBtn) return;
+
+    function syncAudioBtnState() {
+      const muted = ManuscriptSound.isMuted();
+      audioBtn.setAttribute('aria-pressed', (!muted).toString());
+      audioBtn.setAttribute('title', muted ? 'Tactile Sound Effects: Muted (Click to Enable)' : 'Tactile Sound Effects: Active (Click to Mute)');
+      audioBtn.setAttribute('aria-label', muted ? 'Enable Tactile Sound Effects' : 'Mute Tactile Sound Effects');
+      if (muted) {
+        audioBtn.classList.add('dock-btn--muted');
+      } else {
+        audioBtn.classList.remove('dock-btn--muted');
+      }
+    }
+
+    syncAudioBtnState();
+
+    audioBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      ManuscriptSound.toggleMute();
+      syncAudioBtnState();
+      if ('vibrate' in navigator) navigator.vibrate(20);
+    });
   })();
 
   /* ---------- 3. Mobile Keepsake Dock ---------- */
@@ -280,6 +418,7 @@
     const shareBtn = document.getElementById('dock-share');
     if (shareBtn) {
       shareBtn.addEventListener('click', async () => {
+        ManuscriptSound.playPenNibScritch();
         const title = document.querySelector('.poem__title')?.textContent?.trim() || document.title || 'Manuscript';
         const url = window.location.href;
         if (navigator.share && /mobile|android|iphone|ipad/i.test(navigator.userAgent)) {
@@ -344,18 +483,21 @@
       if (document.querySelector('.epistolary-modal.is-open')) return;
 
       if (e.key === 'ArrowLeft') {
+        ManuscriptSound.playPaperTurn();
         const prev = document.getElementById('dock-prev') || document.querySelector('.poem__nav .back') || document.querySelector('.poem__nav a:first-child');
         if (prev && prev.getAttribute('href')) {
           e.preventDefault();
           window.location.href = prev.getAttribute('href');
         }
       } else if (e.key === 'ArrowRight') {
+        ManuscriptSound.playPaperTurn();
         const next = document.getElementById('dock-next') || document.querySelector('.poem__nav a[data-turn]') || document.querySelector('.poem__nav a:last-child');
         if (next && next.getAttribute('href')) {
           e.preventDefault();
           window.location.href = next.getAttribute('href');
         }
       } else if (e.key === 'Escape') {
+        ManuscriptSound.playLetterSlide();
         const desk = document.getElementById('dock-desk') || document.querySelector('.poem__nav .poem-nav__desk');
         if (desk && desk.getAttribute('href')) {
           e.preventDefault();

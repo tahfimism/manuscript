@@ -771,6 +771,7 @@
   </footer>
 </main>
 
+<script src="assets/js/main.js"></script>
 <script>
 (function() {
   const SIBLING_STRINGS = [
@@ -827,8 +828,10 @@
       } else {
         readSet.add(cardId);
         if ('vibrate' in navigator) navigator.vibrate([15, 30]);
+      if (window.ManuscriptSound) window.ManuscriptSound.playWaxSealCrack();
       }
       localStorage.setItem(STORAGE_KEY, JSON.stringify([...readSet]));
+      if (window.ManuscriptSound) window.ManuscriptSound.playWaxSealCrack();
       applyReadStates();
     }
   });
@@ -924,6 +927,15 @@
     if (c2) {
       c2.addEventListener('mouseenter', addTaut);
       c2.addEventListener('mouseleave', removeTaut);
+    }
+  });
+
+
+  // Tactile Foley for opening letters from desk
+  document.addEventListener('click', (e) => {
+    const cardLink = e.target.closest('.desk-card__title a, .desk-card__arrow');
+    if (cardLink && window.ManuscriptSound) {
+      window.ManuscriptSound.playLetterSlide();
     }
   });
 

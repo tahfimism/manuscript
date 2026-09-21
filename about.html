@@ -153,6 +153,7 @@
   </article>
 </main>
 
+<script src="assets/js/main.js"></script>
 <script>
 (function() {
   const slider = document.getElementById('eraSlider');
@@ -160,13 +161,13 @@
   const yearLabel = document.getElementById('eraYearLabel');
   const statusText = document.getElementById('eraStatusText');
 
-  if (!slider || !card) return;
+  if (!slider || !card || !yearLabel || !statusText) return;
 
   const ERA_DATA = {
     1996: {
       label: '1996 · Freshly Penned',
       status: '1996: Freshly laid iron-gall ink on crisp ivory cotton paper.',
-      bg: '#FAF5EA',
+      bg: '#FAF4EB',
       ink: '#1C1510',
       suntanSpread: '0px',
       suntanColor: 'rgba(139, 90, 43, 0)'
@@ -197,6 +198,7 @@
     }
   };
 
+  let lastPlayedYear = 1996;
   function updateEra(val) {
     const year = parseInt(val, 10);
     let config;
@@ -214,6 +216,11 @@
     card.style.setProperty('--ink-color', config.ink);
     card.style.setProperty('--suntan-spread', config.suntanSpread);
     card.style.setProperty('--suntan-color', config.suntanColor);
+
+    if (Math.abs(year - lastPlayedYear) >= 3 && window.ManuscriptSound) {
+      window.ManuscriptSound.playSoftTap();
+      lastPlayedYear = year;
+    }
   }
 
   slider.addEventListener('input', (e) => updateEra(e.target.value));
@@ -222,6 +229,7 @@
   // Keyboard shortcut: Escape returns to Desk
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
+      if (window.ManuscriptSound) window.ManuscriptSound.playLetterSlide();
       window.location.href = 'toc.html';
     }
   });

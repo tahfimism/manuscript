@@ -2144,6 +2144,20 @@ ins.pencil-margin {
   color: #F4ECD8;
 }
 
+/* Tactile Audio Effects Button */
+#dock-audio.dock-btn--muted,
+#dock-audio[aria-pressed="false"] {
+  opacity: 0.5;
+}
+#dock-audio.dock-btn--muted:hover,
+#dock-audio[aria-pressed="false"]:hover {
+  opacity: 0.85;
+}
+#dock-audio[aria-pressed="true"] {
+  opacity: 1;
+  color: var(--accent-ink, var(--accent, #8A6820));
+}
+
 /* =========================================================
    COVER — HANDDRAWN CANVAS + BRUSH-STROKE TYPOGRAPHY
    ========================================================= */
