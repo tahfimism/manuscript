@@ -1124,6 +1124,9 @@ ${textarea.value || '(Empty letter slip)'}
         try { localStorage.setItem(STORAGE_KEY, 'false'); } catch (e) {}
         showLunaToast('✦ Luna Mode: Concealed ✦');
         if (window.ManuscriptSound) window.ManuscriptSound.playSoftTap();
+        // Reset envelope to front face so it re-enters cleanly next time
+        const flipper = document.getElementById('envelopeFlipper');
+        if (flipper) flipper.classList.remove('is-flipped');
       }
     }
 
