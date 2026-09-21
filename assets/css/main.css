@@ -3780,137 +3780,101 @@ body.luna-mode-active #card-22 {
 
 
 /* =========================================================
-   TOP-RIGHT KEEPSAKE PHOTOCARDS (LARGE & PROMINENT)
+   TOP-RIGHT PROMINENT STAMPS & LUNA MODE PHOTOCARDS
    ========================================================= */
-.desk-photocards-cluster {
+.desk-stamps-cluster {
   position: absolute;
   top: 16px;
-  right: 24px;
-  width: 320px;
-  height: 270px;
+  right: 22px;
+  width: 330px;
+  height: 260px;
   pointer-events: auto;
   z-index: 8;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.desk-photocards-cluster:hover {
+.desk-stamps-cluster:hover {
   transform: translateY(-3px) scale(1.02);
 }
 
-/* Base Photocard */
-.desk-photocard {
+.desk-stamp {
   position: absolute;
-  background: #FAF7F2;
-  border: 1px solid rgba(74, 69, 86, 0.25);
-  border-radius: 2px;
-  padding: 10px 10px 22px;
-  box-shadow:
-    0 18px 45px -10px rgba(0, 0, 0, 0.65),
-    0 4px 14px rgba(0, 0, 0, 0.3),
-    inset 0 0 35px rgba(90, 92, 104, 0.08);
   cursor: default;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
-}
-.desk-photocard:hover {
-  box-shadow:
-    0 26px 60px -12px rgba(0, 0, 0, 0.8),
-    0 8px 22px rgba(0, 0, 0, 0.45);
-  z-index: 12;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
 }
 
-/* Larger Photocard (Prominent Size) */
-.desk-photocard--large {
+/* Larger Celestial Stamp (Left, tilted -4deg) */
+.desk-stamp--large {
   top: 0;
   left: 0;
-  width: 195px;
+  width: 190px;
+  height: 240px;
   transform: rotate(-4deg);
   z-index: 5;
 }
-.desk-photocard--large:hover {
+.desk-stamp--large:hover {
   transform: rotate(-1.5deg) scale(1.05);
+  z-index: 10;
 }
 
-/* Smaller Photocard (Prominent Size, Overlapping) */
-.desk-photocard--small {
-  top: 45px;
+/* Smaller Rose Stamp (Right, tilted +7.5deg, overlapping) */
+.desk-stamp--small {
+  top: 40px;
   right: 0;
   width: 155px;
+  height: 195px;
   transform: rotate(7.5deg);
   z-index: 6;
 }
-.desk-photocard--small:hover {
+.desk-stamp--small:hover {
   transform: rotate(3.5deg) scale(1.08);
+  z-index: 11;
 }
 
-/* Inner Photo Image Holder */
-.desk-photocard__inner {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  background: #18141C;
-  border-radius: 1px;
-  overflow: hidden;
-  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.7);
-  border: 1px solid rgba(0, 0, 0, 0.4);
-}
-
-.desk-photocard__img {
+.desk-stamp-svg {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  overflow: visible;
   display: block;
-  filter: sepia(0.08) contrast(1.05) brightness(0.98);
-  transition: filter 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.desk-photocard:hover .desk-photocard__img {
-  filter: sepia(0) contrast(1.08) brightness(1.02);
-  transform: scale(1.04);
 }
 
-/* Caption below photo */
-.desk-photocard__caption {
-  font-family: var(--font-mono, 'Courier Prime', monospace);
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
-  color: #6E6878;
-  text-transform: uppercase;
-  margin-top: 7px;
-  text-align: center;
-  user-select: none;
-}
-
-/* Postmark Layer */
-.desk-photocards-postmark {
-  position: absolute;
-  top: 35px;
-  left: 65px;
-  width: 200px;
-  height: 130px;
+/* Luna Mode Image Overlays inside the stamps */
+.stamp-luna-image {
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
-  z-index: 7;
 }
 
-/* Luna Mode Highlight */
-body.luna-mode-active .desk-photocard {
-  border-color: rgba(201, 162, 75, 0.65);
-  box-shadow:
-    0 20px 50px -10px rgba(0, 0, 0, 0.75),
-    0 0 30px rgba(244, 232, 200, 0.4);
+body.luna-mode-active .stamp-luna-image {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body.luna-mode-active .stamp-default-art {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Luna Mode Ambient Glow on the Stamps */
+body.luna-mode-active .desk-stamp {
+  filter: drop-shadow(0 0 25px rgba(244, 232, 200, 0.45));
 }
 
 @media (max-width: 900px) {
-  .desk-photocards-cluster {
+  .desk-stamps-cluster {
     position: relative;
     top: auto;
     right: auto;
     margin: 0 auto 2rem;
     width: 280px;
-    height: 230px;
+    height: 220px;
   }
-  .desk-photocard--large {
-    width: 165px;
+  .desk-stamp--large {
+    width: 160px;
+    height: 200px;
   }
-  .desk-photocard--small {
-    width: 135px;
-    top: 35px;
+  .desk-stamp--small {
+    width: 130px;
+    height: 165px;
+    top: 30px;
   }
 }
