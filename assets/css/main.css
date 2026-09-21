@@ -3843,195 +3843,253 @@ body.luna-mode-active .stamp-luna-layer {
 }
 
 /* =========================================================
-   UNSENT AIRMAIL LETTER TO LUNA (ARCHIVAL CENTERPIECE)
+   UNSENT ENVELOPE TO LUNA (3D TWO-SIDED KEEPSAKE)
    ========================================================= */
-.desk-airmail-container {
-  max-width: 640px;
-  margin: 0.8rem auto 2.4rem;
+.desk-envelope-container {
+  max-width: 580px;
+  margin: 0.8rem auto 2.2rem;
+  perspective: 1200px;
   position: relative;
   z-index: 10;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.desk-airmail-envelope {
+.desk-3d-envelope {
   position: relative;
-  background: #F4ECD8;
-  border-radius: 4px;
-  box-shadow: 
-    0 12px 30px -8px rgba(0, 0, 0, 0.65),
-    0 2px 8px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
+  width: 100%;
+  height: 250px;
   outline: none;
+}
+
+.desk-envelope-flipper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.desk-envelope-flipper.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.envelope-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 4px;
+  background: #FAF2DF;
+  background-image: 
+    radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.6) 0%, rgba(240, 230, 208, 0.95) 100%);
+  border: 1px solid #D6C29E;
+  box-shadow: 
+    0 14px 35px -10px rgba(0, 0, 0, 0.65),
+    0 3px 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Front Face */
+.envelope-face--front {
+  padding: 1.4rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
 }
 
-.desk-airmail-envelope:hover,
-.desk-airmail-envelope:focus-visible {
-  transform: translateY(-4px) scale(1.015);
+.envelope-face--front:hover {
+  transform: translateY(-3px) scale(1.01);
   box-shadow: 
     0 18px 40px -10px rgba(0, 0, 0, 0.75),
     0 4px 14px rgba(0, 0, 0, 0.4);
 }
 
-/* Iconic 1990s Par Avion Chevron Border */
-.airmail-border-frame {
-  padding: 6px;
-  border-radius: 4px;
-  background: repeating-linear-gradient(
-    135deg,
-    #9E2235 0px,
-    #9E2235 15px,
-    #FAF3E3 15px,
-    #FAF3E3 22px,
-    #1D3557 22px,
-    #1D3557 37px,
-    #FAF3E3 37px,
-    #FAF3E3 44px
-  );
+.envelope-stamp-area {
+  position: absolute;
+  top: 10px;
+  right: 14px;
 }
 
-.airmail-inner-card {
-  background: #FAF2E1;
-  background-image: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.5) 0%, rgba(245, 235, 215, 0.95) 100%);
-  border: 1px solid rgba(138, 107, 79, 0.3);
-  border-radius: 2px;
-  padding: 1.2rem 1.6rem 1.4rem;
-  position: relative;
+.envelope-address-block {
+  margin: auto 0 auto 0.6rem;
+  max-width: 380px;
 }
 
-.airmail-top-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 0.6rem;
-}
-
-.airmail-par-avion-badge {
-  background: #1D3557;
-  color: #FAF4E8;
-  border: 1px solid #C9A24B;
-  border-radius: 3px;
-  padding: 4px 10px;
-  display: inline-flex;
-  flex-direction: column;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-}
-
-.par-avion-icon {
-  font-size: 0.85rem;
-  line-height: 1;
-  margin-bottom: 2px;
-  color: #FCEAB8;
-}
-
-.par-avion-text {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.par-avion-sub {
-  font-family: var(--font-mono);
-  font-size: 0.52rem;
-  letter-spacing: 0.08em;
-  opacity: 0.8;
-  color: #E2D5C3;
-}
-
-.airmail-address-block {
-  margin: 0.4rem 0 1.2rem;
-  padding-left: 0.5rem;
-}
-
-.airmail-to-label {
+.envelope-to-label {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 700;
-  color: #6A5542;
+  color: #7A6048;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.airmail-recipient-name {
+.envelope-recipient-name {
   font-family: var(--font-hand, 'Caveat', cursive);
-  font-size: clamp(2rem, 3.5vw, 2.6rem);
+  font-size: clamp(2.4rem, 4vw, 3rem);
   font-weight: 700;
   color: #1A120B;
-  line-height: 1.1;
-  margin: 0.1rem 0 0.3rem;
+  line-height: 1.05;
+  margin: 0.1rem 0 0.2rem;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
 }
 
-.airmail-address-lines {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
+.envelope-recipient-sub {
   font-family: var(--font-display);
   font-style: italic;
   font-size: 0.95rem;
   color: #4A3A2C;
 }
 
-.airmail-status-tag {
+.envelope-archival-note {
   font-family: var(--font-mono);
-  font-style: normal;
   font-size: 0.62rem;
   color: #8A2432;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 700;
-  margin-top: 0.2rem;
+  margin-top: 0.4rem;
 }
 
-.airmail-wax-seal-strip {
-  display: flex;
-  justify-content: center;
-  margin-top: 0.8rem;
-}
-
-.airmail-seal-pill {
-  background: #8A1A20;
-  color: #FCEAB8;
-  border: 1px solid #C9A24B;
-  border-radius: 999px;
-  padding: 6px 18px;
+/* Discreet Flip Action Tab */
+.envelope-flip-action {
+  align-self: flex-start;
+  background: rgba(240, 230, 210, 0.85);
+  border: 1px dashed rgba(138, 107, 79, 0.4);
+  color: #5A4432;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 3px;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+  gap: 6px;
   transition: all 0.2s ease;
+  z-index: 5;
 }
 
-.desk-airmail-envelope:hover .airmail-seal-pill {
-  background: #A82432;
-  color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(168, 36, 50, 0.45);
-  transform: scale(1.04);
+.envelope-flip-action:hover {
+  background: #E8DAC0;
+  color: #1A120B;
+  border-color: #8A6B4F;
+  transform: translateY(-1px);
 }
 
-.airmail-seal-gem {
-  font-size: 0.95rem;
+.envelope-flip-action--back {
+  position: absolute;
+  bottom: 12px;
+  left: 16px;
+}
+
+/* Back Face */
+.envelope-face--back {
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.envelope-back-seams {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Physical Wax Seal on Flap Apex */
+.envelope-wax-seal-anchor {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.envelope-wax-seal-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  outline: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.envelope-wax-seal-btn:hover,
+.envelope-wax-seal-btn:focus-visible {
+  transform: scale(1.08);
+}
+
+.envelope-wax-seal-gem {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #A82432 0%, #75141E 70%, #460A10 100%);
+  box-shadow: 
+    0 6px 16px rgba(0, 0, 0, 0.6),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3),
+    inset 0 -2px 5px rgba(0, 0, 0, 0.7);
+  border: 1.5px solid #5A1018;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: box-shadow 0.25s ease;
+}
+
+.envelope-wax-seal-btn:hover .envelope-wax-seal-gem {
+  box-shadow: 
+    0 8px 22px rgba(168, 36, 50, 0.5),
+    inset 0 2px 4px rgba(255, 255, 255, 0.4),
+    inset 0 -2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.wax-moon-glyph {
+  font-size: 1.6rem;
   color: #FCEAB8;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  line-height: 1;
 }
 
-.airmail-seal-arrow {
-  transition: transform 0.2s ease;
-}
-.desk-airmail-envelope:hover .airmail-seal-arrow {
-  transform: translateX(4px);
+.wax-seal-subtext {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #6E533C;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(250, 242, 223, 0.9);
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(138, 107, 79, 0.3);
 }
 
-/* Fountain pen animation synergy when hovering airmail envelope */
-.desk-airmail-container:hover ~ .desk-fountain-pen-wrapper,
-.desk-airmail-container:has(.desk-airmail-envelope:hover) {
-  /* Dynamic visual lift */
+@media (max-width: 680px) {
+  .desk-3d-envelope {
+    height: 220px;
+  }
+  .envelope-face--front {
+    padding: 1rem 1.2rem;
+  }
+  .envelope-recipient-name {
+    font-size: 2.2rem;
+  }
+  .envelope-stamp-area svg {
+    width: 90px;
+    height: 55px;
+  }
 }
 
 /* =========================================================

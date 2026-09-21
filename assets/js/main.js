@@ -1155,9 +1155,14 @@ ${textarea.value || '(Empty letter slip)'}
     window.toggleLunaMode = toggleLunaMode;
   })();
 
-  /* ---------- 6. Unsent Airmail Letter to Luna Modal Controller ---------- */
+  /* ---------- 6. Unsent Envelope to Luna (3D Two-Sided) Controller ---------- */
   (function setupLunaLetterModal() {
-    const envelope = document.getElementById('lunaAirmailEnvelope');
+    const envelope = document.getElementById('luna3dEnvelope');
+    const flipper = document.getElementById('envelopeFlipper');
+    const frontFace = document.getElementById('envelopeFront');
+    const flipToBackBtn = document.getElementById('flipToBackBtn');
+    const flipToFrontBtn = document.getElementById('flipToFrontBtn');
+    const unsealBtn = document.getElementById('unsealLetterBtn');
     const modal = document.getElementById('lunaLetterModal');
     const closeBtn = document.getElementById('closeLunaModalBtn');
     const closeX = document.getElementById('closeLunaModalX');
@@ -1166,10 +1171,26 @@ ${textarea.value || '(Empty letter slip)'}
 
     if (!envelope || !modal) return;
 
-    function openModal() {
+    function flipToBack(e) {
+      if (e) e.stopPropagation();
+      if (flipper) flipper.classList.add('is-flipped');
+      if (window.ManuscriptSound) window.ManuscriptSound.playPaperTurn();
+    }
+
+    function flipToFront(e) {
+      if (e) e.stopPropagation();
+      if (flipper) flipper.classList.remove('is-flipped');
+      if (window.ManuscriptSound) window.ManuscriptSound.playPaperTurn();
+    }
+
+    if (flipToBackBtn) flipToBackBtn.addEventListener('click', flipToBack);
+    if (flipToFrontBtn) flipToFrontBtn.addEventListener('click', flipToFront);
+    if (frontFace) frontFace.addEventListener('click', flipToBack);
+
+    function openModal(e) {
+      if (e) e.stopPropagation();
       modal.style.display = 'flex';
-      // Force reflow for CSS transition
-      void modal.offsetHeight;
+      void modal.offsetHeight; // Force reflow
       modal.classList.add('is-active');
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
@@ -1197,13 +1218,15 @@ ${textarea.value || '(Empty letter slip)'}
       }
     }
 
-    envelope.addEventListener('click', openModal);
-    envelope.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        openModal();
-      }
-    });
+    if (unsealBtn) {
+      unsealBtn.addEventListener('click', openModal);
+      unsealBtn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openModal(e);
+        }
+      });
+    }
 
     // Fountain Pen hover animation synergy
     envelope.addEventListener('mouseenter', () => {

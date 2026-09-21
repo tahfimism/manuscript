@@ -376,65 +376,81 @@
     </div>
 
 
-    <!-- Visual Element 6: The Unsent Airmail Letter to Luna (Archival Centerpiece) -->
-    <div class="desk-airmail-container" id="lunaAirmailSection">
-      <div class="desk-airmail-envelope" id="lunaAirmailEnvelope" role="button" tabindex="0" title="The Unsent Airmail Letter to Luna · Click to Unseal &amp; Read" aria-label="Open Unsent Airmail Letter to Luna">
-        <!-- Vintage Airmail Chevron Border -->
-        <div class="airmail-border-frame">
-          <div class="airmail-inner-card">
-            <div class="airmail-top-row">
-              <div class="airmail-par-avion-badge">
-                <span class="par-avion-icon">✈</span>
-                <span class="par-avion-text">PAR AVION · AIR MAIL</span>
-                <span class="par-avion-sub">1996 ARCHIVAL KEEPSAKE</span>
-              </div>
-              
-              <!-- Miniature Vintage Postal Stamp & Franking -->
-              <div class="airmail-stamp-cluster" aria-hidden="true">
-                <svg viewBox="0 0 110 65" width="110" height="65">
-                  <!-- Miniature 32¢ Stamp -->
-                  <g transform="translate(48, 5) rotate(2.5 25 25)">
-                    <rect x="0" y="0" width="46" height="52" rx="1.5" fill="#F4ECD8" stroke="#E2D6C0" stroke-width="1" />
-                    <rect x="0" y="0" width="46" height="52" fill="none" stroke="#FAF4E8" stroke-dasharray="2,2" stroke-width="1.5" />
-                    <rect x="3" y="3" width="40" height="46" fill="#121B2B" />
-                    <circle cx="23" cy="18" r="8" fill="#FCEAB8" opacity="0.3" />
-                    <path d="M 27 12 A 9 9 0 1 0 27 28 A 7 7 0 1 1 27 12 Z" fill="#FCEAB8" />
-                    <text x="23" y="38" font-family="'Courier Prime', monospace" font-size="5.5" font-weight="bold" fill="#FCEAB8" text-anchor="middle">USA 32¢</text>
-                    <text x="23" y="44" font-family="'Fraunces', serif" font-size="4" font-style="italic" fill="#E2D5C3" text-anchor="middle">LUNA '96</text>
-                  </g>
-                  <!-- Circular Postal Franking Mark -->
-                  <g style="mix-blend-mode: multiply; opacity: 0.85;">
-                    <circle cx="34" cy="32" r="18" fill="none" stroke="#2B1D12" stroke-width="1.2" stroke-dasharray="40 4 2 3" />
-                    <text x="34" y="29" font-family="'Courier Prime', monospace" font-size="4" font-weight="bold" fill="#2B1D12" text-anchor="middle">14 OCT</text>
-                    <text x="34" y="35" font-family="'Courier Prime', monospace" font-size="4" font-weight="bold" fill="#2B1D12" text-anchor="middle">1996</text>
-                    <text x="34" y="41" font-family="'Courier Prime', monospace" font-size="3" fill="#2B1D12" text-anchor="middle">UNCLAIMED</text>
-                    <path d="M 0 25 Q 15 20 30 25 T 50 25" fill="none" stroke="#2B1D12" stroke-width="1" />
-                    <path d="M 0 32 Q 15 27 30 32 T 50 32" fill="none" stroke="#2B1D12" stroke-width="1" />
-                    <path d="M 0 39 Q 15 34 30 39 T 50 39" fill="none" stroke="#2B1D12" stroke-width="1" />
-                  </g>
-                </svg>
-              </div>
+    <!-- Visual Element 6: The Unsent Envelope to Luna (Interactive 3D Double-Sided Envelope) -->
+    <div class="desk-envelope-container" id="lunaAirmailSection">
+      <div class="desk-3d-envelope" id="luna3dEnvelope" tabindex="0" role="region" aria-label="Unsent Envelope to Luna (Front and Back)">
+        <div class="desk-envelope-flipper" id="envelopeFlipper">
+          
+          <!-- SIDE 1: ENVELOPE FRONT -->
+          <div class="envelope-face envelope-face--front" id="envelopeFront">
+            <!-- Top Right Postage Stamp & Cancellation Postmark -->
+            <div class="envelope-stamp-area" aria-hidden="true">
+              <svg viewBox="0 0 120 70" width="120" height="70">
+                <!-- 32¢ Moon Stamp -->
+                <g transform="translate(52, 6) rotate(2 25 25)">
+                  <rect x="0" y="0" width="48" height="56" rx="2" fill="#F4ECD8" stroke="#E2D6C0" stroke-width="1.2" />
+                  <rect x="0" y="0" width="48" height="56" fill="none" stroke="#FAF4E8" stroke-dasharray="2,2.5" stroke-width="1.8" />
+                  <rect x="4" y="4" width="40" height="48" fill="#121B2B" stroke="#8A6D3B" stroke-width="0.8" />
+                  <circle cx="24" cy="18" r="8" fill="#FCEAB8" opacity="0.25" />
+                  <path d="M 28 12 A 9 9 0 1 0 28 28 A 7 7 0 1 1 28 12 Z" fill="#FCEAB8" />
+                  <text x="24" y="39" font-family="'Courier Prime', monospace" font-size="5.5" font-weight="bold" fill="#FCEAB8" text-anchor="middle">USA 32¢</text>
+                  <text x="24" y="46" font-family="'Fraunces', serif" font-size="4" font-style="italic" fill="#E2D5C3" text-anchor="middle">LUNA '96</text>
+                </g>
+                <!-- Ink Cancellation -->
+                <g style="mix-blend-mode: multiply; opacity: 0.82;">
+                  <circle cx="36" cy="34" r="19" fill="none" stroke="#24170E" stroke-width="1.2" stroke-dasharray="45 5 2 3" />
+                  <text x="36" y="31" font-family="'Courier Prime', monospace" font-size="4.2" font-weight="bold" fill="#24170E" text-anchor="middle">14 OCT</text>
+                  <text x="36" y="37" font-family="'Courier Prime', monospace" font-size="4.2" font-weight="bold" fill="#24170E" text-anchor="middle">1996</text>
+                  <text x="36" y="43" font-family="'Courier Prime', monospace" font-size="3.2" fill="#24170E" text-anchor="middle">UNSENT</text>
+                  <path d="M 2 27 Q 18 22 34 27 T 52 27" fill="none" stroke="#24170E" stroke-width="1.1" />
+                  <path d="M 2 34 Q 18 29 34 34 T 52 34" fill="none" stroke="#24170E" stroke-width="1.1" />
+                  <path d="M 2 41 Q 18 36 34 41 T 52 41" fill="none" stroke="#24170E" stroke-width="1.1" />
+                </g>
+              </svg>
             </div>
 
-            <!-- Address Block & Luna Dedication -->
-            <div class="airmail-address-block">
-              <div class="airmail-to-label">To:</div>
-              <div class="airmail-recipient-name">Luna</div>
-              <div class="airmail-address-lines">
-                <span>The muse for whom all twenty-four were written</span>
-                <span class="airmail-status-tag">✦ Preserved in Silence · Never Dispatched · Autumn 1996 ✦</span>
-              </div>
+            <!-- Handwritten Recipient Address Block -->
+            <div class="envelope-address-block">
+              <span class="envelope-to-label">To:</span>
+              <div class="envelope-recipient-name">Luna</div>
+              <div class="envelope-recipient-sub">Somewhere beyond this autumn</div>
+              <div class="envelope-archival-note">Autumn 1996 · Held in silence</div>
             </div>
 
-            <!-- Red Wax Seal Prompt -->
-            <div class="airmail-wax-seal-strip">
-              <div class="airmail-seal-pill">
-                <span class="airmail-seal-gem">☽</span>
-                <span class="airmail-seal-text">Break Seal &amp; Read Unsent Letter</span>
-                <span class="airmail-seal-arrow">→</span>
-              </div>
-            </div>
+            <!-- Subtle flip hint at bottom corner -->
+            <button type="button" class="envelope-flip-action" id="flipToBackBtn" title="Turn envelope over to back">
+              <span class="flip-icon">↺</span> Turn to Back Flap
+            </button>
           </div>
+
+          <!-- SIDE 2: ENVELOPE BACK (Flap & Wax Seal) -->
+          <div class="envelope-face envelope-face--back" id="envelopeBack">
+            <!-- Diagonal Seams of Folded Envelope Back -->
+            <svg class="envelope-back-seams" viewBox="0 0 600 320" preserveAspectRatio="none" aria-hidden="true">
+              <!-- Bottom & Side Seams -->
+              <polygon points="0,320 300,160 600,320" fill="#F2E6CD" stroke="#DFCFAF" stroke-width="1.2" />
+              <polygon points="0,0 300,160 0,320" fill="#EFE2C6" stroke="#DFCFAF" stroke-width="1.2" opacity="0.6" />
+              <polygon points="600,0 300,160 600,320" fill="#EFE2C6" stroke="#DFCFAF" stroke-width="1.2" opacity="0.6" />
+              <!-- Top Triangular Flap folding down -->
+              <polygon points="0,0 300,175 600,0" fill="#FAF2DF" stroke="#D8C5A2" stroke-width="1.5" />
+            </svg>
+
+            <!-- Physical Red Wax Seal with Crescent Moon Imprint -->
+            <div class="envelope-wax-seal-anchor">
+              <button type="button" class="envelope-wax-seal-btn" id="unsealLetterBtn" title="Break wax seal &amp; unfold letter" aria-label="Break wax seal and unfold letter">
+                <div class="envelope-wax-seal-gem">
+                  <span class="wax-moon-glyph">☽</span>
+                </div>
+                <span class="wax-seal-subtext">Click Seal to Open</span>
+              </button>
+            </div>
+
+            <!-- Flip Back Button -->
+            <button type="button" class="envelope-flip-action envelope-flip-action--back" id="flipToFrontBtn" title="Turn envelope over to front">
+              <span class="flip-icon">↻</span> View Front Address
+            </button>
+          </div>
+
         </div>
       </div>
     </div>
