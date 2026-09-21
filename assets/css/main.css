@@ -3782,99 +3782,64 @@ body.luna-mode-active #card-22 {
 /* =========================================================
    TOP-RIGHT PROMINENT STAMPS & LUNA MODE PHOTOCARDS
    ========================================================= */
-.desk-stamps-cluster {
+.desk-stamps-wrapper {
   position: absolute;
-  top: 16px;
-  right: 22px;
-  width: 330px;
-  height: 260px;
+  top: 14px;
+  right: 24px;
+  width: 320px;
+  height: 187px;
   pointer-events: auto;
   z-index: 8;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.desk-stamps-cluster:hover {
-  transform: translateY(-3px) scale(1.02);
-}
-
-.desk-stamp {
-  position: absolute;
   cursor: default;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
 }
 
-/* Larger Celestial Stamp (Left, tilted -4deg) */
-.desk-stamp--large {
-  top: 0;
-  left: 0;
-  width: 190px;
-  height: 240px;
-  transform: rotate(-4deg);
-  z-index: 5;
-}
-.desk-stamp--large:hover {
-  transform: rotate(-1.5deg) scale(1.05);
-  z-index: 10;
+.desk-stamps-wrapper:hover {
+  transform: translateY(-2px) scale(1.02);
 }
 
-/* Smaller Rose Stamp (Right, tilted +7.5deg, overlapping) */
-.desk-stamp--small {
-  top: 40px;
-  right: 0;
-  width: 155px;
-  height: 195px;
-  transform: rotate(7.5deg);
-  z-index: 6;
-}
-.desk-stamp--small:hover {
-  transform: rotate(3.5deg) scale(1.08);
-  z-index: 11;
-}
-
-.desk-stamp-svg {
+.desk-stamps-svg {
   width: 100%;
   height: 100%;
   overflow: visible;
   display: block;
 }
 
-/* Luna Mode Image Overlays inside the stamps */
-.stamp-luna-image {
+/* Default Illustrated Postage Stamp Art Layer */
+.stamp-art-layer {
+  opacity: 1;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Luna Mode Photo Layer (hidden by default, reveals only when 'luna' is typed) */
+.stamp-luna-layer {
   opacity: 0;
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
 }
 
-body.luna-mode-active .stamp-luna-image {
+body.luna-mode-active .stamp-art-layer {
+  opacity: 0;
+}
+
+body.luna-mode-active .stamp-luna-layer {
   opacity: 1;
   pointer-events: auto;
 }
 
-body.luna-mode-active .stamp-default-art {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-/* Luna Mode Ambient Glow on the Stamps */
-body.luna-mode-active .desk-stamp {
-  filter: drop-shadow(0 0 25px rgba(244, 232, 200, 0.45));
+/* Luna Mode Ambient Celestial Glow on the Stamps */
+body.luna-mode-active .desk-stamps-wrapper {
+  filter: drop-shadow(0 0 24px rgba(244, 232, 200, 0.45));
 }
 
 @media (max-width: 900px) {
-  .desk-stamps-cluster {
+  .desk-stamps-wrapper {
     position: relative;
     top: auto;
     right: auto;
-    margin: 0 auto 2rem;
-    width: 280px;
-    height: 220px;
-  }
-  .desk-stamp--large {
-    width: 160px;
-    height: 200px;
-  }
-  .desk-stamp--small {
-    width: 130px;
-    height: 165px;
-    top: 30px;
+    margin: 0.4rem auto 1.6rem;
+    width: 260px;
+    height: 152px;
   }
 }
+
